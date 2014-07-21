@@ -19,8 +19,8 @@ A Sass mixin that allows for quicker changes to unit values.
 	margin-right: 0.25rem;
 	margin-left: 1rem;
 
-+ Each paremter creates an array.
-	+ This means you can pass multiple properties in this mixin to generate two properties with the same values. You could also pass multiple unit types for fallback purposes.
++ Each argument is stored as a list.
+	+ You can pass multiple properties to generate all of them with the same values. You could also pass multiple unit types for fallback purposes.
 + You can skip values.
 	+ You can skip values while keeping the shorthand syntax. Any value you don't want to re-define, just place an x.
 + You can make things important.
