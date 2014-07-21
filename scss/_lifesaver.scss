@@ -1,0 +1,135 @@
+// LifeSaver ( July, 20, 2014 )
+// Dustin Dowell 2014
+// http://github.com/dustindowell22/LifeSaver
+
+
+// User Functions
+@function em( $value ) {
+	$em-value: ( $value / 16 );
+	@return $em-value + em;
+}
+
+@function rem( $value ) {
+	$rem-value: ( $value / 16 );
+	@return $rem-value + rem;
+}
+
+@function px( $value ) {
+	@return $value + px;
+}
+
+@function pct( $value ) {
+	@return percentage( $value );
+}
+
+
+// LifeSaver Functions
+@function join( $value, $unit ) {
+	@return if( $unit == pct, percentage( $value ), $value + $unit );
+}
+
+@function convert( $value ) {
+	@return $value / 16;
+}
+
+
+// LifeSaver
+@mixin ls( $property: null, $value-list: null, $unit-list: null, $important: null ) {
+
+	$length: length( $value-list );
+	$skip: i( $value-list, x );
+
+	@if $skip or $property == position{
+
+		@if $length == 2 {
+			@each $unit in $unit-list {
+				@for $i from 1 through $length {
+
+					$value: nth( $value-list, $i );
+
+					$suffix-list-1: top, left;
+					$suffix-list-2: bottom, right;
+
+					$suffix-1: nth( $suffix-list-1, $i );
+					$suffix-2: nth( $suffix-list-2, $i );
+
+					$property-suffix-1: if( $property == position, $suffix-1, $property + "-" + $suffix-1 );
+					$property-suffix-2: if( $property == position, $suffix-2, $property + "-" + $suffix-2 );
+
+					@if $value != x {
+						@if $value == 0 or type-of( $value ) == string {
+							#{$property-suffix-1}: if( $important == important, append( $value, !important ), $value );
+							#{$property-suffix-2}: if( $important == important, append( $value, !important ), $value );
+						}
+						@else {
+							@if $unit == rem or $unit == em {
+								#{$property-suffix-1}: if( $important == important, append( join( convert( $value ), $unit ), !important ), join( convert( $value ), $unit ) );
+								#{$property-suffix-2}: if( $important == important, append( join( convert( $value ), $unit ), !important ), join( convert( $value ), $unit ) );
+							}
+							@else {
+								#{$property-suffix-1}: if( $important == important, append( join( $value, $unit ), !important ), join( $value, $unit ) );
+								#{$property-suffix-2}: if( $important == important, append( join( $value, $unit ), !important ), join( $value, $unit ) );
+							}
+						}
+					}
+				}
+			}
+		}
+
+		@if $length == 4 {
+			@each $unit in $unit-list {
+				@for $i from 1 through $length {
+
+					$value: nth( $value-list, $i );
+
+					$suffix-list: top, right, bottom, left;
+
+					$suffix: nth( $suffix-list, $i );
+
+					$property-suffix: if( $property == position, $suffix, $property + "-" + $suffix );
+
+					@if $value != x {
+						@if $value == 0 or type-of( $value ) == string {
+							#{$property-suffix}: if( $important == important, append( $value, !important ), $value );
+						}
+						@else {
+							@if $unit == rem or $unit == em {
+								#{$property-suffix}: if( $important == important, append( join( convert( $value ), $unit ), !important ), join( convert( $value ), $unit ) );
+							}
+							@else {
+								#{$property-suffix}: if( $important == important, append( join( $value, $unit ), !important ), join( $value, $unit ) );
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@if not $skip {
+		@if $length == 1 or $length == 2 or $length == 4 {
+			@each $unit in $unit-list {
+
+				$result: null;
+
+				@each $value in $value-list {
+					@if $value != x {
+						@if $value == 0 or type-of( $value ) == string {
+							$result: append( $result, $value );
+						}
+						@else {
+							@if $unit == rem or $unit == em {
+								$result: append( $result, join( convert( $value ), $unit ) );
+							}
+							@else {
+								$result: append( $result, join( $value, $unit ) );
+							}
+						}
+					}
+				}
+
+				#{$property}: if( $important == important , append( $result, !important ), $result );
+			}
+		}
+	}
+}
