@@ -34,12 +34,14 @@ A Sass mixin that allows for quicker changes to unit values.
 	margin: px( 1 );
 	margin: pct( 1 );
 
-There are 4 unit functions. They serve little purpose other than provide small coesmetic changes to your code that may make it more readable.
+There are 4 functions. They serve little purpose other than provide small coesmetic changes to your code that may make it more readable.
 
 + The em and rem functions take pixel values and convert them to em or rems.
 + The px function takes a pixel value and appends a 'px' to the end.
 + The pct function takes a percentage value formatted as a decimal and converts it to a percentage.
 
+<h2>Notes</h2>
+There are 2 other functions, convert and join that I used for LifeSaver things, not for usage. These are common names and may (most likely will) conflict with other Sass scripts or libraries. Luckily, LifeSaver is just a single small file, and you could do a find / replace on these 2 functions if you have any problems.
 
 ## Changelog
 + July 20, 2014
