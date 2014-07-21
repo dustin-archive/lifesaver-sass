@@ -6,10 +6,10 @@ A Sass mixin that allows for quicker changes to unit values.
 
 <h1>The Rundown</h1>
 <h2>Mixin</h2>
-	@include ls( property, values, units, important);
+	@include ls( property, values, units, important );
 
 	// Input
-	@include ls( margin, 2 4 x 16, px rem);
+	@include ls( margin, 2 4 x 16, px rem );
 
 	// Output
 	margin-top: 2px;
