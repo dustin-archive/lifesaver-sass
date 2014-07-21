@@ -27,6 +27,8 @@ A Sass mixin that allows for quicker changes to unit values.
 	+ Just like you normally would. No '!' required.
 + You can still pass text values.
 	+ Basic functionality is still there. Auto and inherit still work perfect, along with any other text string you throw in there.
++ Support for the position property.
+	+ Just add 'position' to the properties and enter in values for top, right, bottom, and left as you would.
 
 <h2>Functions</h2>
 	margin: em( 1 );
