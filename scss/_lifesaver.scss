@@ -37,7 +37,7 @@
 @mixin ls( $property: null, $value-list: null, $unit-list: null, $important: null ) {
 
 	$length: length( $value-list );
-	$skip: i( $value-list, x );
+	$skip: index( $value-list, x );
 
 	@if $skip or $property == position{
 
