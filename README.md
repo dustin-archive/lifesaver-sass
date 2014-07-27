@@ -1,7 +1,7 @@
 LifeSaver
 =========
 
-A Sass mixin that allows for quicker changes to unit values.
+A Sass mixin that allows for quicker changes to units and values.
 
 
 <h1>The Rundown</h1>
