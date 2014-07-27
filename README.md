@@ -80,6 +80,9 @@ There are 4 functions. They serve little purpose other than provide small coesme
 There are 2 other functions, convert and join that I used for LifeSaver things, not for usage. These are common names and may (most likely will) conflict with other Sass scripts or libraries. Luckily, LifeSaver is just a single small file, and you could do a find / replace on these 2 functions if you have any problems.
 
 ## Changelog
++ July 27, 2014
+	+ Changed $properties to $property-list
+
 + July 21, 2014
 	+ Multiple Properties
 

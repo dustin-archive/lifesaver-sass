@@ -1,4 +1,4 @@
-// LifeSaver ( July, 21, 2014 )
+// LifeSaver ( July, 27, 2014 )
 // The MIT License (MIT)
 // Copyright (c) 2014 Dustin Dowell
 // http://github.com/dustindowell22/LifeSaver
@@ -35,13 +35,13 @@
 
 
 // LifeSaver
-@mixin ls( $properties: null, $value-list: null, $unit-list: null, $important: null ) {
+@mixin ls( $property-list: null, $value-list: null, $unit-list: null, $important: null ) {
 
 	$length: length( $value-list );
 
 	$skip: index( $value-list, x ); // returns null if $value-list does not contain x
 
-	@each $property in $properties {
+	@each $property in $property-list {
 		@if $skip or $property == position {
 
 			@if $length == 2 {
