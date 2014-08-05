@@ -48,23 +48,39 @@ A Sass mixin that allows for quicker changes to units and values.
 			padding-right: 0.25rem;
 			padding-left: 1rem;
 
-1. Each property is stored in a list.
-  + Pass multiple properties to output them with same values.
-  + Properties are output in the order you list them in.
+<ol>
+  <li>Each property is stored in a list.</li>
+    <ul>
+      <li>Pass multiple properties to output them with same values.</li>
+      <li>Properties are output in the order you list them in.</li>
+    </ul>
+    <br>
 
-1. Each unit is stored in a list.
-  + Pass multiple unit types for fallback purposes.
-  + Units are output in the order you list them in.
+  <li>Each unit is stored in a list.<li>
+    <ul>
+      <li>Pass multiple unit types for fallback purposes.</li>
+      <li>Units are output in the order you list them in.</li>
+    </ul>
+    <br>
 
-1. Skip values.
-  + Skip values while keeping the shorthand syntax. Any value you don't want to re-define, place an x.
+  <li>Skip values.</li>
+    <ul>
+      <li>Skip values while keeping the shorthand syntax. Any value you don't want to re-define, place an x.</li>
+    </ul>
+    <br>
 
-1. Functionality has not been lost.
-  + You can make things important just like you normally would. No '!' required.
-  + You can still pass text values like auto and inherit, along with any other text string you throw in there.
+  <li>Functionality has not been lost.</li>
+    <ul>
+      <li>You can make things important just like you normally would. No '!' required.</li>
+      <li>You can still pass text values like auto and inherit, along with any other text string you throw in there.</li>
+    </ul>
+    <br>
 
-1. Added support for the position property.
-  + Add 'position' to the properties and enter in values for top, right, bottom, and left as you would expect.
+  <li>Added support for the position property.</li>
+    <ul>
+      <li>Add 'position' to the properties and enter in values for top, right, bottom, and left as you would expect.</li>
+    </ul>
+</ol>
 
 <h2>Functions</h2>
 	margin: em( 1 );
