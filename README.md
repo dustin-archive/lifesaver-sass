@@ -87,10 +87,13 @@ There are 2 other functions, convert and join that I used for LifeSaver things, 
 <ul>
   <li>July 27, 2014</li>
     <ul><li>Changed $properties to $property-list</li></ul>
+    <br><br>
 
   <li>July 21, 2014</li>
     <ul><li>Multiple Properties</li></ul>
+    <br><br>
   
   <li>July 20, 2014</li>
     <ul><li>Commited Project</li></ul>
+    <br><br>
 </ul>
