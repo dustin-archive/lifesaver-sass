@@ -1,18 +1,16 @@
-// LifeSaver ( July, 27, 2014 )
+// LifeSaver ( August, 11, 2014 )
 // The MIT License (MIT)
 // Copyright (c) 2014 Dustin Dowell
 // http://github.com/dustindowell22/LifeSaver
 
 
-// User Functions
+// User functions
 @function em( $value ) {
-	$em-value: ( $value / 16 );
-	@return $em-value + em;
+	@return convert( $value ) + em;
 }
 
 @function rem( $value ) {
-	$rem-value: ( $value / 16 );
-	@return $rem-value + rem;
+	@return convert( $value ) + rem;
 }
 
 @function px( $value ) {
@@ -24,7 +22,7 @@
 }
 
 
-// LifeSaver Functions
+// LifeSaver functions
 @function join( $value, $unit ) {
 	@return if( $unit == pct, percentage( $value ), $value + $unit );
 }
@@ -39,7 +37,7 @@
 
 	$length: length( $value-list );
 
-	$skip: index( $value-list, x ); // returns null if $value-list does not contain x
+	$skip: index( $value-list, x ); // Returns null if $value-list does not contain x
 
 	@each $property in $property-list {
 		@if $skip or $property == position {
