@@ -2,3 +2,7 @@
 config.codekit
 
 README.html
+
+.DS_Store
+
+.sass-cache
