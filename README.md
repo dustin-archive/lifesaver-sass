@@ -6,6 +6,7 @@ A Sass mixin that allows for quicker changes to units and values.
 
 #The Rundown
 ##Mixin
+<<<<<<< HEAD
 		@include ls( properties, values, units, important );
 
 		// Input
@@ -48,6 +49,50 @@ A Sass mixin that allows for quicker changes to units and values.
 				padding-top: 0.125rem;
 				padding-right: 0.25rem;
 				padding-left: 1rem;
+=======
+    @include ls( properties, values, units, important );
+
+    // Input
+      @include ls( margin padding, 2 4 x 16, px rem );
+
+    // Output
+      margin-top: 2px;
+      margin-right: 4px;
+      margin-left: 16px;
+      margin-top: 0.125rem;
+      margin-right: 0.25rem;
+      margin-left: 1rem;
+      padding-top: 2px;
+      padding-right: 4px;
+      padding-left: 16px;
+      padding-top: 0.125rem;
+      padding-right: 0.25rem;
+      padding-left: 1rem;
+
+    // Output is Indented and Commented for Demonstration
+
+    // Margin
+      // Pixels
+        margin-top: 2px;
+        margin-right: 4px;
+        margin-left: 16px;
+
+      // Rem
+        margin-top: 0.125rem;
+        margin-right: 0.25rem;
+        margin-left: 1rem;
+
+    // Padding
+      // Pixels
+        padding-top: 2px;
+        padding-right: 4px;
+        padding-left: 16px;
+
+      // Rem
+        padding-top: 0.125rem;
+        padding-right: 0.25rem;
+        padding-left: 1rem;
+>>>>>>> FETCH_HEAD
 
 Each property is stored in a list.
 + Pass multiple properties to output them with same values.
@@ -68,10 +113,17 @@ Added support for the position property.
 + Just add 'position' to the properties and enter in values for top, right, bottom, and left as you would expect.
 
 ##Functions
+<<<<<<< HEAD
 		margin: em(1);
 		margin: rem(1);
 		margin: px(1);
 		margin: pct(1);
+=======
+    margin: em(1);
+    margin: rem(1);
+    margin: px(1);
+    margin: pct(1);
+>>>>>>> FETCH_HEAD
 
 There are 4 functions. They serve little purpose other than provide small coesmetic changes to your code that may make it more readable.
 
@@ -85,6 +137,7 @@ There are 4 functions. They serve little purpose other than provide small coesme
 There are 2 other functions, convert and join that I used for LifeSaver things, not for usage. These are common names and may (most likely will) conflict with other Sass scripts or libraries. Luckily, LifeSaver is just a single small file, and you could do a find / replace on these 2 functions if you have any problems.
 
 ## Changelog
+<<<<<<< HEAD
 August 11, 2014
 + Used convert function in unit function
 
@@ -94,6 +147,14 @@ July 27, 2014
 July 21, 2014
 + Multiple Properties
 
+=======
+July 27, 2014
++ Changed $properties to $property-list
+
+July 21, 2014
++ Multiple Properties
+
+>>>>>>> FETCH_HEAD
 July 20, 2014
 + Commited Project
 
