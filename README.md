@@ -86,7 +86,7 @@ There are 2 other functions, convert and join that I used for LifeSaver things, 
 
 ## Changelog
 August 11, 2014
-+ Used convert function in unit function
++ Used convert function in unit functions
 
 July 27, 2014
 + Changed $properties to $property-list
