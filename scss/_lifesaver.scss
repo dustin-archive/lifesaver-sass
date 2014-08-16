@@ -1,4 +1,5 @@
-// LifeSaver ( August, 11, 2014 )
+// LifeSaver
+// August, 16, 2014
 // The MIT License (MIT)
 // Copyright (c) 2014 Dustin Dowell
 // http://github.com/dustindowell22/LifeSaver
@@ -23,7 +24,7 @@
 
 
 // LifeSaver functions
-@function join( $value, $unit ) {
+@function add-unit( $value, $unit ) {
 	@return if( $unit == pct, percentage( $value ), $value + $unit );
 }
 
@@ -64,12 +65,12 @@
 							}
 							@else {
 								@if $unit == rem or $unit == em {
-									#{$property-suffix-1}: if( $important == important, append( join( convert( $value ), $unit ), !important ), join( convert( $value ), $unit ) );
-									#{$property-suffix-2}: if( $important == important, append( join( convert( $value ), $unit ), !important ), join( convert( $value ), $unit ) );
+									#{$property-suffix-1}: if( $important == important, append( add-unit( convert( $value ), $unit ), !important ), add-unit( convert( $value ), $unit ) );
+									#{$property-suffix-2}: if( $important == important, append( add-unit( convert( $value ), $unit ), !important ), add-unit( convert( $value ), $unit ) );
 								}
 								@else {
-									#{$property-suffix-1}: if( $important == important, append( join( $value, $unit ), !important ), join( $value, $unit ) );
-									#{$property-suffix-2}: if( $important == important, append( join( $value, $unit ), !important ), join( $value, $unit ) );
+									#{$property-suffix-1}: if( $important == important, append( add-unit( $value, $unit ), !important ), add-unit( $value, $unit ) );
+									#{$property-suffix-2}: if( $important == important, append( add-unit( $value, $unit ), !important ), add-unit( $value, $unit ) );
 								}
 							}
 						}
@@ -95,10 +96,10 @@
 							}
 							@else {
 								@if $unit == rem or $unit == em {
-									#{$property-suffix}: if( $important == important, append( join( convert( $value ), $unit ), !important ), join( convert( $value ), $unit ) );
+									#{$property-suffix}: if( $important == important, append( add-unit( convert( $value ), $unit ), !important ), add-unit( convert( $value ), $unit ) );
 								}
 								@else {
-									#{$property-suffix}: if( $important == important, append( join( $value, $unit ), !important ), join( $value, $unit ) );
+									#{$property-suffix}: if( $important == important, append( add-unit( $value, $unit ), !important ), add-unit( $value, $unit ) );
 								}
 							}
 						}
@@ -120,10 +121,10 @@
 							}
 							@else {
 								@if $unit == rem or $unit == em {
-									$result: append( $result, join( convert( $value ), $unit ) );
+									$result: append( $result, add-unit( convert( $value ), $unit ) );
 								}
 								@else {
-									$result: append( $result, join( $value, $unit ) );
+									$result: append( $result, add-unit( $value, $unit ) );
 								}
 							}
 						}
