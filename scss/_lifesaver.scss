@@ -88,7 +88,7 @@
 
 						$suffix: nth( $suffix-list, $i );
 
-						$property-suffix: if( $property == position, $suffix, $property + "-" + $suffix );
+						$property-suffix: if( $property == position, $suffix, $property + '-' + $suffix );
 
 						@if $value != x {
 							@if $value == 0 or type-of( $value ) == string {
