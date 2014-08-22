@@ -64,7 +64,7 @@ Functionality has not been lost.
 + You can make things important just like you normally would. No '!' required.
 + You can still pass text values like auto and inherit, along with any other text string you throw in there.
 
-Added support for the position property.
+Support for the position property.
 + Just add 'position' to the properties and enter in values for top, right, bottom, and left as you would expect.
 
 ##Functions
@@ -82,7 +82,9 @@ There are 4 functions. They serve little purpose other than provide small coesme
 
 
 ##Notes
-There are 2 other functions, convert and join that I used for LifeSaver things, not for usage. These are common names and may (most likely will) conflict with other Sass scripts or libraries. Luckily, LifeSaver is just a single small file, and you could do a find / replace on these 2 functions if you have any problems.
+The convert function might conflict with other Sass stuff you're using. Convert is a common name for things, but I couldn't think of anything better.
+
+Luckily, LifeSaver is just a single small file, and you could do a find / replace on this function if you have any problems.
 
 ## Changelog
 August 21, 2014
