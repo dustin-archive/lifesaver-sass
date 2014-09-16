@@ -3,6 +3,8 @@ config.codekit
 
 README.html
 
+CHANGELOG.html
+
 .DS_Store
 
 .sass-cache
