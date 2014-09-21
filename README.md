@@ -78,7 +78,7 @@ There are 4 functions. They serve little purpose other than provide mostly coesm
 
 1. The em function takes a pixel value and converts it to em.
 1. The rem function takes a pixel value and converts it to rem.
-1. The px function takes a pixel value and appends a 'px' to the end.
+1. The px function takes a pixel value, rounds it to the nearest whole number, and appends a 'px' to the end.
 1. The pct function takes a percentage value formatted as a decimal and converts it to a percentage with a percent sign.
 
 
