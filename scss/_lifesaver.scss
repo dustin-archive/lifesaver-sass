@@ -1,5 +1,5 @@
 // LifeSaver
-// September 21, 2014
+// September 22, 2014
 // The MIT License (MIT)
 // Copyright (c) 2014 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
@@ -7,15 +7,15 @@
 
 // User functions
 @function em( $value ) {
-	@return convert( $value ) + em;
+	@return convert( $value ) * 1em;
 }
 
 @function rem( $value ) {
-	@return convert( $value ) + rem;
+	@return convert( $value ) * 1rem;
 }
 
 @function px( $value ) {
-	@return round( $value ) + px;
+	@return round( $value ) * 1px;
 }
 
 @function pct( $value ) {
@@ -42,7 +42,7 @@
 
 	$length: length( $value-list );
 
-	$skip: index( $value-list, x ); // Returns null if $value-list does not contain x
+	$skip: index( $value-list, x );
 
 	@each $property in $property-list {
 		@if $skip or $property == position {

@@ -74,7 +74,7 @@ Position Property
 		margin: px(1);
 		margin: pct(1);
 
-There are 4 functions. They serve little purpose other than provide mostly coesmetic changes to your code.
+There are 4 regular functions. They serve little purpose other than provide mostly coesmetic changes to your code.
 
 1. The em function takes a pixel value and converts it to em.
 1. The rem function takes a pixel value and converts it to rem.

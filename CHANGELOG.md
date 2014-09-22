@@ -1,5 +1,8 @@
 ## Changelog
 
+September 22, 2014
++ Changed from adding units to multiplying by unit type to be more consistent with other projects
+
 Septermber 21, 2014
 + Added `safe-convert` function that may sometime help prevent browser rounding errors
 
