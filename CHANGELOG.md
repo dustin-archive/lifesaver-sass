@@ -1,5 +1,9 @@
 ## Changelog
 
+September 23, 2014
++ Fixed the `safe-convert` function
++ Change `rem` and `em` functions to use `safe-convert`
+
 September 22, 2014
 + Changed from adding units to multiplying by unit type to be more consistent with other projects
 
