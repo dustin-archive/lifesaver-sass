@@ -74,7 +74,6 @@ Position Property
 		px( 1 );
 		un( 1 );
 		pct( 1 );
-		convert( 1 );
 		round-convert( 1 );
 		floor-convert( 1 );
 		ceil-convert( 1 );
