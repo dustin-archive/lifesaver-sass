@@ -1,5 +1,11 @@
 ## Changelog
 
+October 15, 2014
++ Added various rounding convert functions
++ Renamed `safe-convert` to `round-convert`
++ Changed `rem` and `em` functions to use `ceil-convert`
++ Changed a few quotes to single quotes
+
 September 23, 2014
 + Fixed the `safe-convert` function
 + Change `rem` and `em` functions to use `safe-convert`

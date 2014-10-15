@@ -1,5 +1,5 @@
 // LifeSaver
-// September 23, 2014
+// October 15, 2014
 // The MIT License (MIT)
 // Copyright (c) 2014 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
@@ -7,19 +7,43 @@
 
 // User functions
 @function em( $value ) {
-	@return safe-convert( $value ) * 1em;
+	@return ceil-convert( $value ) * 1em; // Using ceil-convert reduces browser unit rounding issues.
 }
 
 @function rem( $value ) {
-	@return safe-convert( $value ) * 1rem;
+	@return ceil-convert( $value ) * 1rem; // Using ceil-convert reduces browser unit rounding issues.
 }
 
 @function px( $value ) {
 	@return round( $value ) * 1px;
 }
 
+@function un( $value ) { // For unitless values.
+	@return convert( $value );
+}
+
 @function pct( $value ) {
 	@return percentage( $value );
+}
+
+
+// Floor Functions
+@function floor-em( $value ) {
+	@return floor-convert( $value ) * 1em;
+}
+
+@function floor-rem( $value ) {
+	@return floor-convert( $value ) * 1rem;
+}
+
+
+// Round Functions
+@function round-em( $value ) {
+	@return round-convert( $value ) * 1em;
+}
+
+@function round-rem( $value ) {
+	@return round-convert( $value ) * 1rem;
 }
 
 
@@ -32,8 +56,16 @@
 	@return $value / 16;
 }
 
-@function safe-convert( $value ) {
+@function round-convert( $value ) {
 	@return round( $value ) / 16;
+}
+
+@function floor-convert( $value ) {
+	@return floor( $value ) / 16;
+}
+
+@function ceil-convert( $value ) {
+	@return ceil( $value ) / 16;
 }
 
 
@@ -59,8 +91,8 @@
 						$suffix-1: nth( $suffix-list-1, $i );
 						$suffix-2: nth( $suffix-list-2, $i );
 
-						$property-suffix-1: if( $property == position, $suffix-1, $property + "-" + $suffix-1 );
-						$property-suffix-2: if( $property == position, $suffix-2, $property + "-" + $suffix-2 );
+						$property-suffix-1: if( $property == position, $suffix-1, $property + '-' + $suffix-1 );
+						$property-suffix-2: if( $property == position, $suffix-2, $property + '-' + $suffix-2 );
 
 						@if $value != x {
 							@if $value == 0 or type-of( $value ) == string {

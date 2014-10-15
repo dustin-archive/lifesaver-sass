@@ -72,15 +72,20 @@ Position Property
 		em( 1 );
 		rem( 1 );
 		px( 1 );
+		un( 1 );
 		pct( 1 );
 		convert( 1 );
-		safe-convert( 1 );
+		round-convert( 1 );
+		floor-convert( 1 );
+		ceil-convert( 1 );
 
-There are 4 functions. Most serve little purpose other than provide mostly coesmetic changes to your code.
+There are 8 main functions. Most serve little purpose other than provide mostly coesmetic changes to your code.
 
 1. The em function takes a pixel value and converts it to em.
 1. The rem function takes a pixel value and converts it to rem.
 1. The px function takes a pixel value, rounds it to the nearest whole number, and appends a 'px' to the end.
+1. The un function takes a pixel value and divides it by 16 to create a unitless value.
 1. The pct function takes a percentage value formatted as a decimal and converts it to a percentage with a percent sign.
-1. The convert function divides a value by 16.
-1. The safe-convert function rounds a value to the nearest whole number before dividing by 16.
+1. The round-convert function rounds a value to the nearest whole number before dividing by 16.
+1. The floor-convert function rounds a value down to the nearest whole number before dividing by 16.
+1. The ceil-convert function rounds a value up to the nearest whole number before dividing by 16.
