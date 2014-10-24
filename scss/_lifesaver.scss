@@ -105,7 +105,7 @@
 								#{$property-suffix}: if( $important == important, append( $value, !important ), $value );
 							}
 							@else {
-								@if $unit == em, rem {
+								@if $unit == em or $unit == rem {
 									#{$property-suffix}: if( $important == important, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
 								}
 								@else {
@@ -143,7 +143,7 @@
 								#{$property-suffix-2}: if( $important == important, append( $value, !important ), $value );
 							}
 							@else {
-								@if $unit == em, rem {
+								@if $unit == em or $unit == rem {
 									#{$property-suffix-1}: if( $important == important, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
 									#{$property-suffix-2}: if( $important == important, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
 								}
@@ -160,7 +160,7 @@
 
 		// This is an @else if statement and will only run if the check for the previous @if statment returns false.
 		@else if not $skip and $property != position {
-			@if $length == 1, 2, 4 {
+			@if $length == 1 or $length == 2 or $length == 4 {
 				$result: null;
 
 				@each $value in $value-list {
@@ -169,7 +169,7 @@
 							$result: append( $result, $value );
 						}
 						@else {
-							@if $unit == em, rem {
+							@if $unit == em or $unit == rem {
 								$result: append( $result, append-unit( convert( $value ), $unit ) );
 							}
 							@else {

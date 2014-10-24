@@ -1,7 +1,7 @@
 ## Changelog
 
 October 24, 2014
-+ Refactored, re-organized if statements and chunks of code resulting in about 10% faster compilation time of stylesheets with heavy use.
++ Re-organized if statements and chunks of code resulting in about 10% faster compilation time of stylesheets with heavy use.
 + Added lots of inline documentation.
 + Changed `add-unit` function name to `append-unit`
 
