@@ -1,5 +1,10 @@
 ## Changelog
 
+October 24, 2014
++ Re-organized if statements and chunks of code resulting in about 10% faster compilation time of stylesheets with heavy use.
++ Added lots of inline documentation.
++ Changed `add-unit` function name to `append-unit`
+
 October 15, 2014
 + Added various rounding convert functions
 + Renamed `safe-convert` to `round-convert`

@@ -1,5 +1,5 @@
 // LifeSaver
-// October 15, 2014
+// October 24, 2014
 // The MIT License (MIT)
 // Copyright (c) 2014 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
@@ -48,7 +48,7 @@
 
 
 // LifeSaver functions
-@function add-unit( $value, $unit ) {
+@function append-unit( $value, $unit ) {
 	@return if( $unit == pct, percentage( $value ), $value + $unit );
 }
 
@@ -72,41 +72,44 @@
 // LifeSaver
 @mixin ls( $property-list: null, $value-list: null, $unit-list: null, $important: null ) {
 
+	// This returns the length of $value-list.
 	$length: length( $value-list );
 
+	// This returns true or false depending if an "x" value is or isn't present in $value-list.
 	$skip: index( $value-list, x );
 
+	// Loops through each $property in $property-list
 	@each $property in $property-list {
 		@if $skip or $property == position {
 
-			@if $length == 2 {
-				@each $unit in $unit-list {
-					@for $i from 1 through $length {
+			// This will only process $value-list if the length is 4.
+			// Using all 4 values is most common, so it's checked first.
+			// If $lenghts equals 4 the compilation stops here.
+			@if $length == 4 {
 
-						$value: nth( $value-list, $i );
+				// Loops through each $value in $value-list.
+				// Creating a loop with @for this way gives us an loop counter $i to be used in $suffix.
+				@for $i from 1 through $length {
+					$value: nth( $value-list, $i );
 
-						$suffix-list-1: top, left;
-						$suffix-list-2: bottom, right;
+					$suffix-list: top, right, bottom, left;
 
-						$suffix-1: nth( $suffix-list-1, $i );
-						$suffix-2: nth( $suffix-list-2, $i );
+					$suffix: nth( $suffix-list, $i );
 
-						$property-suffix-1: if( $property == position, $suffix-1, $property + '-' + $suffix-1 );
-						$property-suffix-2: if( $property == position, $suffix-2, $property + '-' + $suffix-2 );
+					$property-suffix: if( $property == position, $suffix, $property + '-' + $suffix );
 
-						@if $value != x {
+					// If or when $value equals "x" ignore it and don't output anything.
+					@if $value != x {
+						@each $unit in $unit-list {
 							@if $value == 0 or type-of( $value ) == string {
-								#{$property-suffix-1}: if( $important == important, append( $value, !important ), $value );
-								#{$property-suffix-2}: if( $important == important, append( $value, !important ), $value );
+								#{$property-suffix}: if( $important == important, append( $value, !important ), $value );
 							}
 							@else {
-								@if $unit == rem or $unit == em {
-									#{$property-suffix-1}: if( $important == important, append( add-unit( convert( $value ), $unit ), !important ), add-unit( convert( $value ), $unit ) );
-									#{$property-suffix-2}: if( $important == important, append( add-unit( convert( $value ), $unit ), !important ), add-unit( convert( $value ), $unit ) );
+								@if $unit == em or $unit == rem {
+									#{$property-suffix}: if( $important == important, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
 								}
 								@else {
-									#{$property-suffix-1}: if( $important == important, append( add-unit( $value, $unit ), !important ), add-unit( $value, $unit ) );
-									#{$property-suffix-2}: if( $important == important, append( add-unit( $value, $unit ), !important ), add-unit( $value, $unit ) );
+									#{$property-suffix}: if( $important == important, append( append-unit( $value, $unit ), !important ), append-unit( $value, $unit ) );
 								}
 							}
 						}
@@ -114,28 +117,39 @@
 				}
 			}
 
-			@if $length == 4 {
-				@each $unit in $unit-list {
-					@for $i from 1 through $length {
+			// This will only process $value-list if the length is 2 and not 4.
+			// This is an @else if statement and will only run if the check for the previous @if statment returns false.
+			@else if $length == 2 {
 
-						$value: nth( $value-list, $i );
+				// Loops through each $value in $value-list.
+				// Creating a loop with @for this way gives us an loop counter $i to be used in $suffix.
+				@for $i from 1 through $length {
+					$value: nth( $value-list, $i );
 
-						$suffix-list: top, right, bottom, left;
+					$suffix-list-1: top, left;
+					$suffix-list-2: bottom, right;
 
-						$suffix: nth( $suffix-list, $i );
+					$suffix-1: nth( $suffix-list-1, $i );
+					$suffix-2: nth( $suffix-list-2, $i );
 
-						$property-suffix: if( $property == position, $suffix, $property + '-' + $suffix );
+					$property-suffix-1: if( $property == position, $suffix-1, $property + '-' + $suffix-1 );
+					$property-suffix-2: if( $property == position, $suffix-2, $property + '-' + $suffix-2 );
 
-						@if $value != x {
+					// If or when $value equals "x" ignore it and don't output anything.
+					@if $value != x {
+						@each $unit in $unit-list {
 							@if $value == 0 or type-of( $value ) == string {
-								#{$property-suffix}: if( $important == important, append( $value, !important ), $value );
+								#{$property-suffix-1}: if( $important == important, append( $value, !important ), $value );
+								#{$property-suffix-2}: if( $important == important, append( $value, !important ), $value );
 							}
 							@else {
-								@if $unit == rem or $unit == em {
-									#{$property-suffix}: if( $important == important, append( add-unit( convert( $value ), $unit ), !important ), add-unit( convert( $value ), $unit ) );
+								@if $unit == em or $unit == rem {
+									#{$property-suffix-1}: if( $important == important, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
+									#{$property-suffix-2}: if( $important == important, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
 								}
 								@else {
-									#{$property-suffix}: if( $important == important, append( add-unit( $value, $unit ), !important ), add-unit( $value, $unit ) );
+									#{$property-suffix-1}: if( $important == important, append( append-unit( $value, $unit ), !important ), append-unit( $value, $unit ) );
+									#{$property-suffix-2}: if( $important == important, append( append-unit( $value, $unit ), !important ), append-unit( $value, $unit ) );
 								}
 							}
 						}
@@ -144,24 +158,22 @@
 			}
 		}
 
-		@if not $skip and $property != position {
+		// This is an @else if statement and will only run if the check for the previous @if statment returns false.
+		@else if not $skip and $property != position {
 			@if $length == 1 or $length == 2 or $length == 4 {
-				@each $unit in $unit-list {
+				$result: null;
 
-					$result: null;
-
-					@each $value in $value-list {
-						@if $value != x {
-							@if $value == 0 or type-of( $value ) == string {
-								$result: append( $result, $value );
+				@each $value in $value-list {
+					@each $unit in $unit-list {
+						@if $value == 0 or type-of( $value ) == string {
+							$result: append( $result, $value );
+						}
+						@else {
+							@if $unit == em or $unit == rem {
+								$result: append( $result, append-unit( convert( $value ), $unit ) );
 							}
 							@else {
-								@if $unit == rem or $unit == em {
-									$result: append( $result, add-unit( convert( $value ), $unit ) );
-								}
-								@else {
-									$result: append( $result, add-unit( $value, $unit ) );
-								}
+								$result: append( $result, append-unit( $value, $unit ) );
 							}
 						}
 					}
