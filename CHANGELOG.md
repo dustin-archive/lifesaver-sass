@@ -1,12 +1,18 @@
 ## Changelog
 
+October 26, 2014
++ Added a stress test partial
++ Re-added the `convert` function
++ Commpressed some duplicate logic into a variables
++ Fixed everything I accidentally broke on October 24, 2014
+
 October 25, 2014
 + Split off the functions into a file called `_safe-units`
 + Added more functions to `_safe-units`
 
 October 24, 2014
-+ Re-organized if statements and chunks of code resulting in about 10% faster compilation time of stylesheets with heavy use.
-+ Added lots of inline documentation.
++ Re-organized if statements and chunks of code resulting in about 10% faster compilation time of stylesheets with heavy use
++ Added lots of inline documentation
 + Changed `add-unit` function name to `append-unit`
 
 October 15, 2014
