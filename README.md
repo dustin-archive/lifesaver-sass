@@ -15,6 +15,7 @@ Include LifeSaver into your project at the top of your Sass modules file.
 	@include ls( [properties], [values], [units], [important] );
 
 	// Input
+<<<<<<< HEAD
 	@include ls( margin padding, 2 4 x 16, px rem );
 
 	// Output
@@ -30,6 +31,48 @@ Include LifeSaver into your project at the top of your Sass modules file.
 	padding-top: 0.125rem;
 	padding-right: 0.25rem;
 	padding-left: 1rem;
+=======
+		@include ls( margin padding, 2 4 x 16, px rem );
+
+	// Output
+		margin-top: 2px;
+		margin-right: 4px;
+		margin-left: 16px;
+		margin-top: 0.125rem;
+		margin-right: 0.25rem;
+		margin-left: 1rem;
+		padding-top: 2px;
+		padding-right: 4px;
+		padding-left: 16px;
+		padding-top: 0.125rem;
+		padding-right: 0.25rem;
+		padding-left: 1rem;
+
+	// Output is Indented and Commented for Demonstration
+
+	// Margin
+		// Pixels
+			margin-top: 2px;
+			margin-right: 4px;
+			margin-left: 16px;
+
+		// Rem
+			margin-top: 0.125rem;
+			margin-right: 0.25rem;
+			margin-left: 1rem;
+
+	// Padding
+		// Pixels
+			padding-top: 2px;
+			padding-right: 4px;
+			padding-left: 16px;
+
+		// Rem
+			padding-top: 0.125rem;
+			padding-right: 0.25rem;
+			padding-left: 1rem;
+
+>>>>>>> FETCH_HEAD
 
 ###Properties
 + Pass multiple properties to output them with same values.
