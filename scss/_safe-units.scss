@@ -1,0 +1,73 @@
+// Extensions / Safe Units
+
+
+// Convert
+@function ceil-convert( $value ) {
+	@return ceil( $value ) / 16;
+}
+
+@function floor-convert( $value ) {
+	@return floor( $value ) / 16;
+}
+
+@function round-convert( $value ) {
+	@return round( $value ) / 16;
+}
+
+
+// Units
+@function un( $value ) {
+	@return ceil-convert( $value );
+}
+
+@function em( $value ) {
+	@return ceil-convert( $value ) * 1em;
+}
+
+@function rem( $value ) {
+	@return ceil-convert( $value ) * 1rem;
+}
+
+@function px( $value ) {
+	@return ceil( $value ) * 1px;
+}
+
+@function pct( $value ) {
+	@return percentage( $value );
+}
+
+
+// Floor
+@function floor-un( $value ) {
+	@return floor-convert( $value );
+}
+
+@function floor-em( $value ) {
+	@return floor-convert( $value ) * 1em;
+}
+
+@function floor-rem( $value ) {
+	@return floor-convert( $value ) * 1rem;
+}
+
+@function floor-px( $value ) {
+	@return floor( $value ) * 1px;
+}
+
+
+// Round
+@function round-un( $value ) {
+	@return round-convert( $value );
+}
+
+@function round-em( $value ) {
+	@return round-convert( $value ) * 1em;
+}
+
+@function round-rem( $value ) {
+	@return round-convert( $value ) * 1rem;
+}
+
+@function round-px( $value ) {
+	@return round( $value ) * 1px;
+}

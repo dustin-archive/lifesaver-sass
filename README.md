@@ -4,6 +4,13 @@ LifeSaver
 A Sass mixin that allows for quicker changes to units and values.
 
 
+##Getting Started
+Include LifeSaver into your project at the top of your Sass modules file.
+
+	@include 'modules/lifesaver';
+	@include 'modules/safe-units';
+
+
 ##Mixin
 		@include ls( [properties], [values], [units], [important] );
 
@@ -48,7 +55,6 @@ A Sass mixin that allows for quicker changes to units and values.
 				padding-right: 0.25rem;
 				padding-left: 1rem;
 
-All the arguments are treated as lists.
 
 Properties
 + Pass multiple properties to output them with same values.
@@ -62,29 +68,37 @@ Skips
 + Skip values while keeping the shorthand syntax. Any value you don't want to re-define, just place an x.
 
 Functionality
-+ You can make things important just like you normally would. No '!' required.
-+ You can still pass text values like auto and inherit, along with any other text string you throw in there.
++ You can pass an important argument like you normally but without an exclamation point.
++ You can still pass strings like auto and inherit, along with any other string you throw in there.
 
 Position Property
-+ Just add 'position' to the properties and enter in values for top, right, bottom, and left as you would expect.
++ You can pass a "position" argument and enter in values for top, right, bottom, and left as you would expect.
+
 
 ##Functions
-		em( 1 );
-		rem( 1 );
-		px( 1 );
-		un( 1 );
-		pct( 1 );
-		round-convert( 1 );
-		floor-convert( 1 );
-		ceil-convert( 1 );
+There are 16 main functions. They're named very self explanitory so for more info on what they do look in `_safe-units.scss`.
 
-There are 8 main functions. Most serve little purpose other than provide mostly coesmetic changes to your code.
+	// Convert
+	ceil-convert( $value );
+	floor-convert( $value );
+	round-convert( $value );
 
-1. The em function takes a pixel value and converts it to em.
-1. The rem function takes a pixel value and converts it to rem.
-1. The px function takes a pixel value, rounds it to the nearest whole number, and appends a 'px' to the end.
-1. The un function takes a pixel value and divides it by 16 to create a unitless value.
-1. The pct function takes a percentage value formatted as a decimal and converts it to a percentage with a percent sign.
-1. The round-convert function rounds a value to the nearest whole number before dividing by 16.
-1. The floor-convert function rounds a value down to the nearest whole number before dividing by 16.
-1. The ceil-convert function rounds a value up to the nearest whole number before dividing by 16.
+	// Units
+	un( $value );
+	em( $value );
+	rem( $value );
+	px( $value );
+	pct( $value );
+
+
+	// Floor
+	floor-un( $value );
+	floor-em( $value );
+	floor-rem( $value );
+	floor-px( $value );
+
+	// Round
+	round-un( $value );
+	round-em( $value );
+	round-rem( $value );
+	round-px( $value );

@@ -1,5 +1,9 @@
 ## Changelog
 
+October 25, 2014
++ Split off the functions into a file called `_safe-units`
++ Added more functions to `_safe-units`
+
 October 24, 2014
 + Re-organized if statements and chunks of code resulting in about 10% faster compilation time of stylesheets with heavy use.
 + Added lots of inline documentation.
