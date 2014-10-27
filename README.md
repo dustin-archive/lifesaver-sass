@@ -50,12 +50,13 @@ Include LifeSaver into your project at the top of your Sass modules file.
 + You can pass a "position" argument and enter in values for top, right, bottom, and left as you would expect.
 
 ##Safe Units
-There are 16 functions. They're named very self explanitory. If you want more info on what they do look in `_safe-units.scss`.
+There are 17 functions. They're named very self explanitory. If you want more info on what they do look in `_safe-units.scss`.
 
 	// Convert
 	ceil-convert( $value );
 	floor-convert( $value );
 	round-convert( $value );
+	convert( $value );
 
 	// Units
 	un( $value );
