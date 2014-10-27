@@ -7,8 +7,8 @@ A Sass mixin that allows for quicker changes to units and values.
 ##Getting Started
 Include LifeSaver into your project at the top of your Sass modules file.
 
-	@include 'modules/lifesaver';
 	@include 'modules/safe-units';
+	@include 'modules/lifesaver';
 
 
 ##Mixin
@@ -56,22 +56,22 @@ Include LifeSaver into your project at the top of your Sass modules file.
 				padding-left: 1rem;
 
 
-Properties
+###Properties
 + Pass multiple properties to output them with same values.
 + Properties are output in the order you list them in.
 
-Units
+###Units
 + Pass multiple unit types for fallback purposes.
 + Units are output in the order you list them in.
 
-Skips
+###Skips
 + Skip values while keeping the shorthand syntax. Any value you don't want to re-define, just place an x.
 
-Functionality
+###Functionality
 + You can pass an important argument like you normally but without an exclamation point.
 + You can still pass strings like auto and inherit, along with any other string you throw in there.
 
-Position Property
+###Positions
 + You can pass a "position" argument and enter in values for top, right, bottom, and left as you would expect.
 
 
