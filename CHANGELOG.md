@@ -1,35 +1,42 @@
 ## Changelog
 
+November 10, 2014
++ Added font size scale compensation and a function `scale-compensation`
++ Added the use of null as an alternative to x for skipping values
++ Added more tests to `_lifesaver-stress-test.scss`
++ Added and simplified inline docs
++ Split off `append-unit` function
+
 October 26, 2014
-+ Added a stress test partial
-+ Re-added the `convert` function
-+ Commpressed some duplicate logic into a variables
-+ Fixed everything I accidentally broke on October 24, 2014
++ Added `_lifesaver-stress-test.scss` partial
++ Re-added `convert` function
++ Compressed duplicate logic into a variables
++ Fixed everything I broke on October 24, 2014
 
 October 25, 2014
-+ Split off the functions into a file called `_safe-units`
-+ Added more functions to `_safe-units`
++ Split off unit functions into `_safe-units.scss`
++ Added more functions to `_safe-units.scss`
 
 October 24, 2014
-+ Re-organized if statements and chunks of code resulting in about 10% faster compilation time of stylesheets with heavy use
-+ Added lots of inline documentation
++ Re-organized if statements and chunks of code to speed up compilation
++ Added inline documentation
 + Changed `add-unit` function name to `append-unit`
 
 October 15, 2014
 + Added various rounding convert functions
 + Renamed `safe-convert` to `round-convert`
 + Changed `rem` and `em` functions to use `ceil-convert`
-+ Changed a few quotes to single quotes
++ Changed a few double quotes to single quotes
 
 September 23, 2014
-+ Fixed the `safe-convert` function
++ Fixed `safe-convert` function
 + Change `rem` and `em` functions to use `safe-convert`
 
 September 22, 2014
-+ Changed from adding units to multiplying by unit type to be more consistent with other projects
++ Changed adding unit types to values to multiplying by unit type
 
 Septermber 21, 2014
-+ Added `safe-convert` function that may sometime help prevent browser rounding errors
++ Added `safe-convert` function that may help prevent browser rounding errors
 
 August 21, 2014
 + Changed double quotes to single quotes
@@ -44,7 +51,7 @@ July 27, 2014
 + Changed `$properties` to `$property-list`
 
 July 21, 2014
-+ Multiple Properties
++ Added multiple properties
 
 July 20, 2014
 + Committed Project

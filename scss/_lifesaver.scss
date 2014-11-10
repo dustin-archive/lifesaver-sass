@@ -1,35 +1,27 @@
 // LifeSaver
-// October 26, 2014
+// November 10, 2014
 // The MIT License (MIT)
 // Copyright (c) 2014 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
 
 
-// Functions
-@function append-unit( $value, $unit ) {
-	@return if( $unit == pct, percentage( $value ), $value + $unit );
-}
 
+@mixin ls( $property-list, $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
 
-// LifeSaver
-@mixin ls( $property-list: null, $value-list: null, $unit-list: null, $important: null ) {
-
-	// This returns the length of "$value-list".
+	// Return length of $value-list
 	$length: length( $value-list );
 
-	// This returns true or false depending if an "x" value is or isn't present in "$value-list".
-	$skip: index( $value-list, x );
+	// Return true if x or null is in $value-list
+	$skip: skip( $value-list, true );
 
 	@each $property in $property-list {
 		@if $skip or $property == position {
 
-			// This will only process "$value-list" if the length is 4.
-			// Using all 4 values is most common, so it's checked first.
-			// If "$length" equals 4 the compilation stops here.
+			// Check length of 4 first because it's most common
 			@if $length == 4 {
 				@each $unit in $unit-list {
 
-					// Creating a loop with "@for" this way gives us an loop counter "$i" to be used in $suffix.
+					// Use @for instead of @each so there's a counter $i for $suffix
 					@for $i from 1 through $length {
 						$value: nth( $value-list, $i );
 
@@ -39,27 +31,34 @@
 
 						$property-suffix: if( $property == position, $suffix, $property + '-' + $suffix );
 
-						// When "$value" equals "x" ignore it and don't output anything.
-						@if $value != x {
+						// When $value equals x don't output anything
+						@if $value != x and $value != null {
+
+							// Calculate scaling compensation when needed
+							@if $scale-compensation != null {
+								$value: scale-compensation( $value, $scale-compensation );
+							}
+
+							// Output
 							@if $unit == em or $unit == rem {
-								#{$property-suffix}: if( $important == important, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
+								#{$property-suffix}: if( $important == true, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
 							}
 							@else if $value == 0 or type-of( $value ) == string {
-								#{$property-suffix}: if( $important == important, append( $value, !important ), $value );
+								#{$property-suffix}: if( $important == true, append( $value, !important ), $value );
 							}
 							@else {
-								#{$property-suffix}: if( $important == important, append( append-unit( $value, $unit ), !important ), append-unit( $value, $unit ) );
+								#{$property-suffix}: if( $important == true, append( append-unit( $value, $unit ), !important ), append-unit( $value, $unit ) );
 							}
 						}
 					}
 				}
 			}
 
-			// This will only run if the check for the previous @if statment returns false.
+			// Only run if the previous @if was false
 			@else if $length == 2 {
 				@each $unit in $unit-list {
 
-					// Creating a loop with "@for" this way gives us an loop counter "$i" to be used in "$suffix".
+					// Use @for instead of @each so there's a counter $i for $suffix
 					@for $i from 1 through $length {
 						$value: nth( $value-list, $i );
 
@@ -72,20 +71,27 @@
 						$property-suffix-1: if( $property == position, $suffix-1, $property + '-' + $suffix-1 );
 						$property-suffix-2: if( $property == position, $suffix-2, $property + '-' + $suffix-2 );
 
-						// When "$value" equals "x" ignore it and don't output anything.
-						@if $value != x {
+						// When $value equals x don't output anything
+						@if $value != x and $value != null {
+
+							// Calculate scaling compensation when needed
+							@if $scale-compensation != null {
+								$value: scale-compensation( $value, $scale-compensation );
+							}
+
+							// Output
 							@if $unit == em or $unit == rem {
-								$property-value: if( $important == important, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
+								$property-value: if( $important == true, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
 								#{$property-suffix-1}: $property-value;
 								#{$property-suffix-2}: $property-value;
 							}
 							@else if $value == 0 or type-of( $value ) == string {
-								$property-value: if( $important == important, append( $value, !important ), $value );
+								$property-value: if( $important == true, append( $value, !important ), $value );
 								#{$property-suffix-1}: $property-value;
 								#{$property-suffix-2}: $property-value;
 							}
 							@else {
-								$property-value: if( $important == important, append( append-unit( $value, $unit ), !important ), append-unit( $value, $unit ) );
+								$property-value: if( $important == true, append( append-unit( $value, $unit ), !important ), append-unit( $value, $unit ) );
 								#{$property-suffix-1}: $property-value;
 								#{$property-suffix-2}: $property-value;
 							}
@@ -95,13 +101,22 @@
 			}
 		}
 
-		// This will only run if the check for the previous "@if" statment returns false.
+		// Only run if the previous @if was false
 		@else if not $skip and $property != position {
 			@if $length == 1 or $length == 2 or $length == 4 {
 				@each $unit in $unit-list {
+
+					// Placeholder for property result
 					$result: null;
 
 					@each $value in $value-list {
+
+						// Calculate scaling compensation when needed
+						@if $scale-compensation != null {
+							$value: scale-compensation( $value, $scale-compensation );
+						}
+
+						// Output
 						@if $unit == em or $unit == rem {
 							$result: append( $result, append-unit( convert( $value ), $unit ) );
 						}
@@ -113,7 +128,7 @@
 						}
 					}
 
-					#{$property}: if( $important == important , append( $result, !important ), $result );
+					#{$property}: if( $important == true , append( $result, !important ), $result );
 				}
 			}
 		}
