@@ -5,7 +5,6 @@
 // http://github.com/dustindowell22/lifesaver
 
 
-
 @mixin ls( $property-list, $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
 
 	// Return length of $value-list
