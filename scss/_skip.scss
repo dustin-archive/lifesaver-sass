@@ -1,0 +1,8 @@
+// ================================================================
+// + Extensions / Skip
+// ================================================================
+
+
+@function skip( $list, $default ) {
+	@return if( index( $list, x ) or index( $list, null ), $default, $list );
+}

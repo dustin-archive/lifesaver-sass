@@ -11,6 +11,7 @@ Import LifeSaver into your project at the top of your Sass extensions file (or w
 	@import 'extensions/append-unit';
 	@import 'extensions/safe-units';
 	@import 'extensions/scale-compensation';
+	@import 'extensions/skip';
 	@import 'extensions/lifesaver';
 
 
