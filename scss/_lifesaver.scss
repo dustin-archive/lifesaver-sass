@@ -35,7 +35,7 @@
 						@if $value != x and $value != null {
 
 							// Calculate scaling compensation when needed
-							@if $scale-compensation != null {
+							@if $scale-compensation != x and $scale-compensation != null {
 								$value: scale-compensation( $value, $scale-compensation );
 							}
 
@@ -75,7 +75,7 @@
 						@if $value != x and $value != null {
 
 							// Calculate scaling compensation when needed
-							@if $scale-compensation != null {
+							@if $scale-compensation != x and $scale-compensation != null {
 								$value: scale-compensation( $value, $scale-compensation );
 							}
 
@@ -112,7 +112,7 @@
 					@each $value in $value-list {
 
 						// Calculate scaling compensation when needed
-						@if $scale-compensation != null {
+						@if $scale-compensation != x and $scale-compensation != null {
 							$value: scale-compensation( $value, $scale-compensation );
 						}
 
