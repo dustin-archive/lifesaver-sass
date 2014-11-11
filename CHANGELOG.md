@@ -3,6 +3,7 @@
 November 10, 2014
 + Added font size scale compensation and a function `scale-compensation`
 + Added the use of null as an alternative to x for skipping values
++ Added `singles` functions
 + Added more tests to `_lifesaver-stress-test.scss`
 + Added and simplified inline docs
 + Split off `append-unit` function

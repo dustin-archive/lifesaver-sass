@@ -1,0 +1,20 @@
+// ================================================================
+// + Extensions / LifeSaver Singles
+// ================================================================
+
+
+@mixin margin( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+	@include ls( margin, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+@mixin padding( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+	@include ls( padding, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+@mixin border-width( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+	@include ls( border-width, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+@mixin position( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+	@include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+}
