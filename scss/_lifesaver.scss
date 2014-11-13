@@ -1,5 +1,5 @@
 // LifeSaver
-// November 10, 2014
+// November 12, 2014
 // The MIT License (MIT)
 // Copyright (c) 2014 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
@@ -10,11 +10,13 @@
 	// Return length of $value-list
 	$length: length( $value-list );
 
-	// Return true if x or null is in $value-list
-	$skip: skip( $value-list, true );
+	// Return true if x or null is in the list
+	// These only need to be checked once so they're stored here
+	$skip-unit:               skip( $unit-list,          true );
+	$skip-scale-compensation: skip( $scale-compensation, true );
 
 	@each $property in $property-list {
-		@if $skip or $property == position {
+		@if skip( $value-list, true ) or $property == position {
 
 			// Check length of 4 first because it's most common
 			@if $length == 4 {
@@ -30,23 +32,23 @@
 
 						$property-suffix: if( $property == position, $suffix, $property + '-' + $suffix );
 
-						// When $value equals x don't output anything
-						@if $value != x and $value != null {
+						// When $value equals x or null don't output anything
+						@if skip( $value, null ) {
 
 							// Calculate scaling compensation when needed
-							@if $scale-compensation != x and $scale-compensation != null {
+							@if not $skip-scale-compensation {
 								$value: scale-compensation( $value, $scale-compensation );
 							}
 
 							// Output
 							@if $unit == em or $unit == rem {
-								#{$property-suffix}: if( $important == true, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
+								#{$property-suffix}: if( $important == important, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
 							}
-							@else if $value == 0 or type-of( $value ) == string {
-								#{$property-suffix}: if( $important == true, append( $value, !important ), $value );
+							@else if $skip-unit or $value == 0 or type-of( $value ) == string {
+								#{$property-suffix}: if( $important == important, append( $value, !important ), $value );
 							}
 							@else {
-								#{$property-suffix}: if( $important == true, append( append-unit( $value, $unit ), !important ), append-unit( $value, $unit ) );
+								#{$property-suffix}: if( $important == important, append( append-unit( $value, $unit ), !important ), append-unit( $value, $unit ) );
 							}
 						}
 					}
@@ -71,26 +73,26 @@
 						$property-suffix-2: if( $property == position, $suffix-2, $property + '-' + $suffix-2 );
 
 						// When $value equals x don't output anything
-						@if $value != x and $value != null {
+						@if skip( $value, null ) {
 
 							// Calculate scaling compensation when needed
-							@if $scale-compensation != x and $scale-compensation != null {
+							@if not $skip-scale-compensation {
 								$value: scale-compensation( $value, $scale-compensation );
 							}
 
 							// Output
 							@if $unit == em or $unit == rem {
-								$property-value: if( $important == true, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
+								$property-value: if( $important == important, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
 								#{$property-suffix-1}: $property-value;
 								#{$property-suffix-2}: $property-value;
 							}
-							@else if $value == 0 or type-of( $value ) == string {
-								$property-value: if( $important == true, append( $value, !important ), $value );
+							@else if $skip-unit or  $value == 0 or type-of( $value ) == string {
+								$property-value: if( $important == important, append( $value, !important ), $value );
 								#{$property-suffix-1}: $property-value;
 								#{$property-suffix-2}: $property-value;
 							}
 							@else {
-								$property-value: if( $important == true, append( append-unit( $value, $unit ), !important ), append-unit( $value, $unit ) );
+								$property-value: if( $important == important, append( append-unit( $value, $unit ), !important ), append-unit( $value, $unit ) );
 								#{$property-suffix-1}: $property-value;
 								#{$property-suffix-2}: $property-value;
 							}
@@ -101,7 +103,7 @@
 		}
 
 		// Only run if the previous @if was false
-		@else if not $skip and $property != position {
+		@else if skip( $value, null ) and $property != position {
 			@if $length == 1 or $length == 2 or $length == 4 {
 				@each $unit in $unit-list {
 
@@ -111,7 +113,7 @@
 					@each $value in $value-list {
 
 						// Calculate scaling compensation when needed
-						@if $scale-compensation != x and $scale-compensation != null {
+						@if not $skip-scale-compensation {
 							$value: scale-compensation( $value, $scale-compensation );
 						}
 
@@ -119,7 +121,7 @@
 						@if $unit == em or $unit == rem {
 							$result: append( $result, append-unit( convert( $value ), $unit ) );
 						}
-						@else if $value == 0 or type-of( $value ) == string {
+						@else if $skip-unit or $value == 0 or type-of( $value ) == string {
 							$result: append( $result, $value );
 						}
 						@else {
@@ -127,7 +129,7 @@
 						}
 					}
 
-					#{$property}: if( $important == true , append( $result, !important ), $result );
+					#{$property}: if( $important == important , append( $result, !important ), $result );
 				}
 			}
 		}

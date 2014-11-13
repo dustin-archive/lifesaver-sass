@@ -1,5 +1,11 @@
 ## Changelog
 
+November 12, 2014
++ Added partial support for unitless values
++ Reverted the way important works
++ Stored redundant logic in variables
++ Used the skip function when necessary
+
 November 10, 2014
 + Added font size scale compensation and a function `scale-compensation`
 + Added the use of null as an alternative to x for skipping values
