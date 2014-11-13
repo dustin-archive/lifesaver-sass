@@ -9,8 +9,8 @@ Box model mastery! Tame the box! Be a slave no more!
 
 Import LifeSaver into your project at the top of your Sass extensions file (or whatever). Order matters.
 
-	@import 'extensions/append-unit';
 	@import 'extensions/safe-units';
+	@import 'extensions/append-unit';
 	@import 'extensions/scale-compensation';
 	@import 'extensions/skip';
 	@import 'extensions/lifesaver-singles';

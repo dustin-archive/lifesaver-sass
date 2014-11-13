@@ -1,5 +1,5 @@
 // LifeSaver
-// November 12, 2014
+// November 13, 2014
 // The MIT License (MIT)
 // Copyright (c) 2014 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
@@ -11,8 +11,6 @@
 	$length: length( $value-list );
 
 	// Return true if x or null is in the list
-	// These only need to be checked once so they're stored here
-	$skip-unit:               skip( $unit-list,          true );
 	$skip-scale-compensation: skip( $scale-compensation, true );
 
 	@each $property in $property-list {
@@ -44,7 +42,7 @@
 							@if $unit == em or $unit == rem {
 								#{$property-suffix}: if( $important == important, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
 							}
-							@else if $skip-unit or $value == 0 or type-of( $value ) == string {
+							@else if not skip( $unit, null ) or $value == 0 or type-of( $value ) == string {
 								#{$property-suffix}: if( $important == important, append( $value, !important ), $value );
 							}
 							@else {
@@ -86,7 +84,7 @@
 								#{$property-suffix-1}: $property-value;
 								#{$property-suffix-2}: $property-value;
 							}
-							@else if $skip-unit or  $value == 0 or type-of( $value ) == string {
+							@else if not skip( $unit, null ) or  $value == 0 or type-of( $value ) == string {
 								$property-value: if( $important == important, append( $value, !important ), $value );
 								#{$property-suffix-1}: $property-value;
 								#{$property-suffix-2}: $property-value;
@@ -121,7 +119,7 @@
 						@if $unit == em or $unit == rem {
 							$result: append( $result, append-unit( convert( $value ), $unit ) );
 						}
-						@else if $skip-unit or $value == 0 or type-of( $value ) == string {
+						@else if not skip( $unit, null ) or $value == 0 or type-of( $value ) == string {
 							$result: append( $result, $value );
 						}
 						@else {

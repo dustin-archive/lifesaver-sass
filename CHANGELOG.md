@@ -1,5 +1,8 @@
 ## Changelog
 
+November 13, 2014
++ Fixed px and percentage values
+
 November 12, 2014
 + Added partial support for unitless values
 + Reverted the way important works
