@@ -111,7 +111,7 @@ There are 5 LifeSaver properties
 
 ### Skips
 
-+ Skipable values using `x` or `null` without defaulting to 0.
++ Skippable values using `x` or `null` without defaulting to 0.
 
 ### Scale compensation
 
