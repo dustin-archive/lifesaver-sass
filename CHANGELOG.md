@@ -1,5 +1,17 @@
 ## Changelog
 
+November 19, 2014
++ Rewrote almost everything
++ Used maps instead of lists
++ Improved compile time
++ Added error messages for invalid unit types
++ Added `size` LifeSaver property for width and height properties
++ Added `skippable` function to `skip.scss`
++ Renamed `lifesaver-singles.scss` to `lifesaver-properties.scss`
++ Replaced the stress test with a debug test
++ Merged `scale-compensation` into `safe-units` unit functions
++ Removed the `append-unit` function
+
 November 13, 2014
 + Fixed px and percentage values
 

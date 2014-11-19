@@ -1,9 +1,0 @@
-// ================================================================
-// + Extensions / Font Size Scale Compensation
-// ================================================================
-
-
-@function scale-compensation( $size, $scale ) {
-	$difference: $scale / 16;
-	@return $size / $difference;
-}

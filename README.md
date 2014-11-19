@@ -1,7 +1,7 @@
 LifeSaver
 =========
 
-Sass mixin that makes working with units and box model properties super quick and easy.
+Sass mixin that makes working with units and box model properties super easy.
 
 Box model mastery! Tame the box! Be a slave no more!
 
@@ -9,19 +9,21 @@ Box model mastery! Tame the box! Be a slave no more!
 
 Import LifeSaver into your project at the top of your Sass extensions file (or whatever). Order matters.
 
+	// Independant
 	@import 'extensions/safe-units';
-	@import 'extensions/append-unit';
-	@import 'extensions/scale-compensation';
 	@import 'extensions/skip';
-	@import 'extensions/lifesaver-singles';
-	@import 'extensions/lifesaver';
+
+	// Dependant
+	@import 'extensions/lifesaver'; // Requires: safe-units, skip
+	@import 'extensions/lifesaver-properties'; // Requires: lifesaver, safe-units, skip
+	@import 'extensions/lifesaver-debug'; // Requires: lifesaver
 
 
-## Mixin
+## Quick Overview
 
 	@include ls( [properties], [values], [units], [scale compensation], [important] );
 
-Single properties:
+LifeSaver properties:
 
 	// Input
 	@include margin( 2 4 x 16, px rem );
@@ -40,6 +42,7 @@ Single properties:
 	padding-top: 0.125rem;
 	padding-right: 0.25rem;
 	padding-left: 1rem;
+
 
 Multiple properties:
 
@@ -61,7 +64,33 @@ Multiple properties:
 	padding-left: 1rem;
 
 
+Scale compensation:
+
+	// Input
+	font-size: 18;
+	@include margin( 2 4 x 16, em, 18 );
+
+	// Output
+		font-size: 18;
+		margin-top: 0.0625em;
+		margin-right: 0.0625em;
+		margin-left: 0.9375em;
+
+
 ## Features
+
+### LifeSaver Properties
+
++ Type less.
++ Cleaner looking code.
+
+There are 5 LifeSaver properties
+
+	margin()
+	padding()
+	border-width()
+	position()
+	size()
 
 ### Properties
 

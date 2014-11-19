@@ -1,8 +1,0 @@
-// ================================================================
-// + Extensions / Append Unit
-// ================================================================
-
-
-@function append-unit( $value, $unit ) {
-	@return if( $unit == pct, percentage( $value ), $value + $unit );
-}

@@ -1,5 +1,5 @@
 // ================================================================
-// + Extensions / LifeSaver Singles
+// + Extensions / LifeSaver Properties
 // ================================================================
 
 
@@ -17,4 +17,8 @@
 
 @mixin position( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
 	@include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+@mixin size( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+	@include ls( size, $value-list, $unit-list, $scale-compensation, $important );
 }

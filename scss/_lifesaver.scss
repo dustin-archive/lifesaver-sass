@@ -1,134 +1,124 @@
 // LifeSaver
-// November 13, 2014
+// November 19, 2014
 // The MIT License (MIT)
 // Copyright (c) 2014 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
 
 
-@mixin ls( $property-list, $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
-
-	// Return length of $value-list
+@mixin ls( $property-list, $value-list, $unit-list: null, $scale: null, $important: null ) {
 	$length: length( $value-list );
-
-	// Return true if x or null is in the list
-	$skip-scale-compensation: skip( $scale-compensation, true );
+	$important: if( $important == important, !important, null );
 
 	@each $property in $property-list {
-		@if skip( $value-list, true ) or $property == position {
 
-			// Check length of 4 first because it's most common
+		//
+		// + Splits into multiple properties
+		//
+
+		@if skippable( $value-list ) or $property == position or $property == size  {
+
+			// Set scope
+			$suffix-map: ();
+
 			@if $length == 4 {
-				@each $unit in $unit-list {
+				$suffix-map: (
+					top:    nth( $value-list, 1 ),
+					right:  nth( $value-list, 2 ),
+					bottom: nth( $value-list, 3 ),
+					left:   nth( $value-list, 4 )
+				);
+			}
+			@else if $length == 2 {
+				@if $property == size {
+					$suffix-map: (
+						width:  nth( $value-list, 1 ),
+						height: nth( $value-list, 2 )
+					);
+				}
+				@else {
+					$value-1: nth( $value-list, 1 );
+					$value-2: nth( $value-list, 2 );
 
-					// Use @for instead of @each so there's a counter $i for $suffix
-					@for $i from 1 through $length {
-						$value: nth( $value-list, $i );
-
-						$suffix-list: top, right, bottom, left;
-
-						$suffix: nth( $suffix-list, $i );
-
-						$property-suffix: if( $property == position, $suffix, $property + '-' + $suffix );
-
-						// When $value equals x or null don't output anything
-						@if skip( $value, null ) {
-
-							// Calculate scaling compensation when needed
-							@if not $skip-scale-compensation {
-								$value: scale-compensation( $value, $scale-compensation );
-							}
-
-							// Output
-							@if $unit == em or $unit == rem {
-								#{$property-suffix}: if( $important == important, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
-							}
-							@else if not skip( $unit, null ) or $value == 0 or type-of( $value ) == string {
-								#{$property-suffix}: if( $important == important, append( $value, !important ), $value );
-							}
-							@else {
-								#{$property-suffix}: if( $important == important, append( append-unit( $value, $unit ), !important ), append-unit( $value, $unit ) );
-							}
-						}
-					}
+					$suffix-map: (
+						top:    $value-1,
+						right:  $value-2,
+						bottom: $value-1,
+						left:   $value-2
+					);
 				}
 			}
 
-			// Only run if the previous @if was false
-			@else if $length == 2 {
-				@each $unit in $unit-list {
+			@each $unit in $unit-list {
+				@each $suffix-key in map-keys( $suffix-map ) {
+					$value: map-get( $suffix-map, $suffix-key );
 
-					// Use @for instead of @each so there's a counter $i for $suffix
-					@for $i from 1 through $length {
-						$value: nth( $value-list, $i );
+					// Append suffix when needed
+					@if $property != position and $property != size {
+						$suffix-key: $property + '-' + $suffix-key;
+					}
 
-						$suffix-list-1: top, left;
-						$suffix-list-2: bottom, right;
+					// Ignore x and null
+					@if not skippable( $value ) {
 
-						$suffix-1: nth( $suffix-list-1, $i );
-						$suffix-2: nth( $suffix-list-2, $i );
-
-						$property-suffix-1: if( $property == position, $suffix-1, $property + '-' + $suffix-1 );
-						$property-suffix-2: if( $property == position, $suffix-2, $property + '-' + $suffix-2 );
-
-						// When $value equals x don't output anything
-						@if skip( $value, null ) {
-
-							// Calculate scaling compensation when needed
-							@if not $skip-scale-compensation {
-								$value: scale-compensation( $value, $scale-compensation );
-							}
-
-							// Output
-							@if $unit == em or $unit == rem {
-								$property-value: if( $important == important, append( append-unit( convert( $value ), $unit ), !important ), append-unit( convert( $value ), $unit ) );
-								#{$property-suffix-1}: $property-value;
-								#{$property-suffix-2}: $property-value;
-							}
-							@else if not skip( $unit, null ) or  $value == 0 or type-of( $value ) == string {
-								$property-value: if( $important == important, append( $value, !important ), $value );
-								#{$property-suffix-1}: $property-value;
-								#{$property-suffix-2}: $property-value;
-							}
-							@else {
-								$property-value: if( $important == important, append( append-unit( $value, $unit ), !important ), append-unit( $value, $unit ) );
-								#{$property-suffix-1}: $property-value;
-								#{$property-suffix-2}: $property-value;
-							}
+						// Output
+						@if $unit == em {
+							#{ $suffix-key }: append( em( $value, $scale ), $important );
+						}
+						@else if $unit == rem {
+							#{ $suffix-key }: append( rem( $value, $scale ), $important );
+						}
+						@else if $unit == px {
+							#{ $suffix-key }: append( px( $value, $scale ), $important );
+						}
+						@else if $unit == pct {
+							#{ $suffix-key }: append( pct( $value, $scale ), $important );
+						}
+						@else if skip( $unit, null ) or $value == 0 or type-of( $value ) == string {
+							#{ $suffix-key }: append( $value, $important );
+						}
+						@else {
+							@error 'Mayday! Mayday!    LifeSaver: You used an invalid unit type.';
 						}
 					}
 				}
 			}
 		}
 
-		// Only run if the previous @if was false
-		@else if skip( $value, null ) and $property != position {
-			@if $length == 1 or $length == 2 or $length == 4 {
-				@each $unit in $unit-list {
+		//
+		// + Concatenates shorthand values
+		//
 
-					// Placeholder for property result
-					$result: null;
+		// Ensures lists of 3 or lists greater than 4 are not processed
+		@else if $length == 1 or $length == 2 or $length == 4 {
+			@each $unit in $unit-list {
 
-					@each $value in $value-list {
+				// Set scope
+				$result: null;
 
-						// Calculate scaling compensation when needed
-						@if not $skip-scale-compensation {
-							$value: scale-compensation( $value, $scale-compensation );
-						}
+				@each $value in $value-list {
 
-						// Output
-						@if $unit == em or $unit == rem {
-							$result: append( $result, append-unit( convert( $value ), $unit ) );
-						}
-						@else if not skip( $unit, null ) or $value == 0 or type-of( $value ) == string {
-							$result: append( $result, $value );
-						}
-						@else {
-							$result: append( $result, append-unit( $value, $unit ) );
-						}
+					// Output
+					@if $unit == em {
+						$result: append( $result, em( $value, $scale ) );
 					}
-
-					#{$property}: if( $important == important , append( $result, !important ), $result );
+					@else if $unit == rem {
+						$result: append( $result, rem( $value, $scale ) );
+					}
+					@else if $unit == px {
+						$result: append( $result, px( $value, $scale ) );
+					}
+					@else if $unit == pct {
+						$result: append( $result, pct( $value, $scale ) );
+					}
+					@else if skip( $unit, null ) or $value == 0 or type-of( $value ) == string {
+						$result: append( $result, $value );
+					}
+					@else {
+						@error 'Mayday! Mayday!    LifeSaver: You used an invalid unit type.';
+					}
 				}
+
+				#{$property}: append( $result, $important );
 			}
 		}
 	}

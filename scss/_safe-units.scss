@@ -3,6 +3,14 @@
 // ================================================================
 
 // ================================
+// + Scale Compensation
+// ================================
+@function scale-comp( $value, $scale: null ) {
+	@return if( skip( $scale, null ), $value / ( $scale / $value ), $value );
+}
+
+
+// ================================
 // + Convert
 // ================================
 @function ceil-convert( $value ) {
@@ -25,24 +33,24 @@
 // ================================
 // + Units
 // ================================
-@function un( $value ) {
-	@return ceil-convert( $value );
+@function un( $value, $scale: null ) {
+	@return ceil-convert( scale-comp( $value, $scale ) );
 }
 
-@function em( $value ) {
-	@return ceil-convert( $value ) * 1em;
+@function em( $value, $scale: null ) {
+	@return ceil-convert( scale-comp( $value, $scale ) ) * 1em;
 }
 
-@function rem( $value ) {
-	@return ceil-convert( $value ) * 1rem;
+@function rem( $value, $scale: null ) {
+	@return ceil-convert( scale-comp( $value, $scale ) ) * 1rem;
 }
 
-@function px( $value ) {
-	@return ceil( $value ) * 1px;
+@function px( $value, $scale: null ) {
+	@return ceil( scale-comp( $value, $scale ) ) * 1px;
 }
 
-@function pct( $value ) {
-	@return percentage( $value );
+@function pct( $value, $scale: null ) {
+	@return percentage( scale-comp( $value, $scale ) / 100 );
 }
 
 
