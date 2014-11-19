@@ -6,7 +6,7 @@
 // + Scale Compensation
 // ================================
 @function scale-comp( $value, $scale: null ) {
-	@return if( skip( $scale, null ), $value / ( $scale / $value ), $value );
+	@return if( not skippable( $scale ), $value / ( $scale / $value ), $value );
 }
 
 

@@ -118,7 +118,7 @@
 					}
 				}
 
-				#{$property}: append( $result, $important );
+				#{ $property }: append( $result, $important );
 			}
 		}
 	}
