@@ -1,5 +1,5 @@
 // ================================================================
-// + Extensions / LifeSaver Stress Test
+// + Extensions / LifeSaver Debug
 // ================================================================
 
 
@@ -7,94 +7,100 @@
 // + 1 Unit
 //
 
-.lifesaver-debug-1-unit { @include ls( margin padding position, 1, em rem px pct ); }
-.lifesaver-debug-1-unit { @include ls( margin padding position, 1, em rem px pct, 24 ); }
-.lifesaver-debug-1-unit { @include ls( margin padding position, 1, em rem px pct, x, important ); }
-.lifesaver-debug-1-unit { @include ls( margin padding position, 1, em rem px pct, 24, important ); }
+.ls-debug-1-unit { @include ls( margin padding position, 1, em rem px pct ); }
+
+.ls-debug-1-unit { @include ls( margin padding position, 1, em rem px pct, 24 ); }
+
+.ls-debug-1-unit { @include ls( margin padding position, 1, em rem px pct, x, important ); }
+
+.ls-debug-1-unit { @include ls( margin padding position, 1, em rem px pct, 24, important ); }
 
 
 //
 // + 2 Units
 //
 
-.lifesaver-debug-2-units { @include ls( margin padding position, 1 2, em rem px pct ); }
-.lifesaver-debug-2-units { @include ls( margin padding position, x 2, em rem px pct ); }
-.lifesaver-debug-2-units { @include ls( margin padding position, 1 x, em rem px pct ); }
-.lifesaver-debug-2-units { @include ls( margin padding position, 1 2, em rem px pct, 24 ); }
-.lifesaver-debug-2-units { @include ls( margin padding position, x 2, em rem px pct, 24 ); }
-.lifesaver-debug-2-units { @include ls( margin padding position, 1 x, em rem px pct, 24 ); }
-.lifesaver-debug-2-units { @include ls( margin padding position, 1 2, em rem px pct, x, important ); }
-.lifesaver-debug-2-units { @include ls( margin padding position, x 2, em rem px pct, x, important ); }
-.lifesaver-debug-2-units { @include ls( margin padding position, 1 x, em rem px pct, x, important ); }
-.lifesaver-debug-2-units { @include ls( margin padding position, 1 2, em rem px pct, 24, important ); }
-.lifesaver-debug-2-units { @include ls( margin padding position, x 2, em rem px pct, 24, important ); }
-.lifesaver-debug-2-units { @include ls( margin padding position, 1 x, em rem px pct, 24, important ); }
+.ls-debug-2-units { @include ls( margin padding position, 1 2, em rem px pct ); }
+.ls-debug-2-units { @include ls( margin padding position, x 2, em rem px pct ); }
+.ls-debug-2-units { @include ls( margin padding position, 1 x, em rem px pct ); }
+
+.ls-debug-2-units { @include ls( margin padding position, 1 2, em rem px pct, 24 ); }
+.ls-debug-2-units { @include ls( margin padding position, x 2, em rem px pct, 24 ); }
+.ls-debug-2-units { @include ls( margin padding position, 1 x, em rem px pct, 24 ); }
+
+.ls-debug-2-units { @include ls( margin padding position, 1 2, em rem px pct, x, important ); }
+.ls-debug-2-units { @include ls( margin padding position, x 2, em rem px pct, x, important ); }
+.ls-debug-2-units { @include ls( margin padding position, 1 x, em rem px pct, x, important ); }
+
+.ls-debug-2-units { @include ls( margin padding position, 1 2, em rem px pct, 24, important ); }
+.ls-debug-2-units { @include ls( margin padding position, x 2, em rem px pct, 24, important ); }
+.ls-debug-2-units { @include ls( margin padding position, 1 x, em rem px pct, 24, important ); }
 
 
 //
 // + 4 Units
 //
 
-.lifesaver-debug { @include ls( margin padding position, 1 2 3 4, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 3 4, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x 3 4, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, 1 2 x 4, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, 1 2 3 x, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, x x 3 4, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 x 4, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 3 x, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x x 4, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x 3 x, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, 1 2 x x, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x x x, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 x x, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, x x 3 x, em rem px pct ); }
-.lifesaver-debug { @include ls( margin padding position, x x x 4, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 3 4, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 3 4, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x 3 4, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 x 4, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 3 x, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, x x 3 4, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 x 4, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 3 x, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x x 4, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x 3 x, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 x x, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x x x, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 x x, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, x x 3 x, em rem px pct ); }
+.ls-debug-4-units { @include ls( margin padding position, x x x 4, em rem px pct ); }
 
-.lifesaver-debug { @include ls( margin padding position, 1 2 3 4, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 3 4, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x 3 4, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, 1 2 x 4, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, 1 2 3 x, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, x x 3 4, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 x 4, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 3 x, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x x 4, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x 3 x, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, 1 2 x x, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x x x, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 x x, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, x x 3 x, em rem px pct, 24 ); }
-.lifesaver-debug { @include ls( margin padding position, x x x 4, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 3 4, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 3 4, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x 3 4, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 x 4, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 3 x, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, x x 3 4, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 x 4, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 3 x, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x x 4, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x 3 x, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 x x, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x x x, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 x x, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, x x 3 x, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls( margin padding position, x x x 4, em rem px pct, 24 ); }
 
-.lifesaver-debug { @include ls( margin padding position, 1 2 3 4, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 3 4, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x 3 4, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 2 x 4, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 2 3 x, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, x x 3 4, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 x 4, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 3 x, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x x 4, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x 3 x, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 2 x x, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x x x, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 x x, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, x x 3 x, em rem px pct, 24, important ); }
-.lifesaver-debug { @include ls( margin padding position, x x x 4, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 3 4, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 3 4, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x 3 4, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 x 4, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 3 x, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x x 3 4, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 x 4, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 3 x, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x x 4, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x 3 x, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 x x, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x x x, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 x x, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x x 3 x, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x x x 4, em rem px pct, 24, important ); }
 
-.lifesaver-debug { @include ls( margin padding position, 1 2 3 4, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 3 4, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x 3 4, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 2 x 4, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 2 3 x, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, x x 3 4, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 x 4, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 3 x, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x x 4, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x 3 x, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 2 x x, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, 1 x x x, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, x 2 x x, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, x x 3 x, em rem px pct, x, important ); }
-.lifesaver-debug { @include ls( margin padding position, x x x 4, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 3 4, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 3 4, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x 3 4, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 x 4, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 3 x, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x x 3 4, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 x 4, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 3 x, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x x 4, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x 3 x, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 2 x x, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, 1 x x x, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x 2 x x, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x x 3 x, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls( margin padding position, x x x 4, em rem px pct, x, important ); }

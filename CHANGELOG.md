@@ -1,5 +1,9 @@
 ## Changelog
 
+November 21, 2014
++ Added compression of matching values
++ Changed debug class names
+
 November 19, 2014
 + Rewrote almost everything
 + Used maps instead of lists

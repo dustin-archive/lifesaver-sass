@@ -103,6 +103,7 @@ There are 5 LifeSaver properties
 + Shorthand for all box model properties including the `position` property.
 + You can still pass strings like `auto` and `inherit`, along with any other string you throw in there.
 + Browser rounding error fixes built-in.
++ Automatically compresses matching values. Great for when variables happen to be the same.
 
 ### Units
 
