@@ -74,9 +74,6 @@
 				}
 			}
 
-			// Note: There's a compression edge case here that's missing.
-			// A line of code like this: margin( 4 x 4 x, em ); will output both margin-top and margin-bottom properties.
-
 			@each $unit in $unit-list {
 				@each $suffix-key in map-keys( $suffix-map ) {
 					$value: map-get( $suffix-map, $suffix-key );
