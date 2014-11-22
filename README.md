@@ -71,10 +71,10 @@ Scale compensation:
 	@include margin( 2 4 x 16, em, 18 );
 
 	// Output
-		font-size: 18;
-		margin-top: 0.0625em;
-		margin-right: 0.0625em;
-		margin-left: 0.9375em;
+	font-size: 18;
+	margin-top: 0.0625em;
+	margin-right: 0.0625em;
+	margin-left: 0.9375em;
 
 
 ## Features
