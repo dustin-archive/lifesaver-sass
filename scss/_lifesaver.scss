@@ -9,7 +9,10 @@
 	$length: length( $value-list );
 	$important: if( $important == important, !important, null );
 
-	// Compresses matching values
+	//
+	// + Compresses matching values
+	//
+
 	@if $length == 4 {
 		$top:    nth( $value-list, 1 );
 		$right:  nth( $value-list, 2 );
