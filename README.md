@@ -90,13 +90,13 @@ The core mixin is what does all the magic. The advantage of using just the core 
     padding-left: 1rem;
   ```
 
-The disadvantage to this is that you can't pass any of the shorthand property values like `size` or `position-absolute` to the core mixin. The reason is that the core mixin is only capable of processing standard CSS to keep the code clean and maintainable. All additional shorthand property logic is stored that property's mixin.
+The disadvantage to this is that you can't pass any of the shorthand property values like `size` or `position-absolute` to the core mixin. The reason is that the core mixin is only capable of processing standard CSS to keep the code clean and maintainable. All additional shorthand property logic is stored inside that property's mixin.
 
 
 
 ## Shorthand Property Mixins
 
-LifeSaver comes with it's own set of shorthand properties to keep your code small.
+LifeSaver comes with it's own set of shorthand properties to keep your code even smaller and more readable.
 
   ```scss
     // Input
@@ -220,15 +220,6 @@ A common problem when using units like rem and em is that when you change the fo
     margin-left: 0.9375em;
   ```
 
-If you don't want to define scale compensation, but you want to pass an important argument, you can do one of two things:
-
-1. You can set the scale compensation to `x` or `null` telling LifeSaver to ignore this argument.
-1. Pass the important argument as shown below.
-
-  ```scss
-    @include margin( 1 2, em, $important: important )
-  ```
-
 
 
 ## Important Flag
@@ -246,3 +237,12 @@ Passing an important argument tells LifeSaver to apply an important flag to each
   ```
 
 If you only want to add an important flag to only one of these generated properties, you'll have add another include with only the value you want to add the important flag to.
+
+If you don't want to define scale compensation, but you want to pass an important argument, you can do one of two things:
+
+1. You can set the scale compensation to `x` or `null` telling LifeSaver to ignore this argument.
+1. Pass the important argument as shown below.
+
+  ```scss
+    @include margin( 1 2, em, $important: important )
+  ```
