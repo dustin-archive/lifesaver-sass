@@ -69,7 +69,7 @@ There's two ways to use LifeSaver. You can either use the core mixin (`ls`) or a
 
 ## Core Mixin
 
-The core mixin is what does all the magics. The advantage of using just the core mixin over the shorthand property mixins is multiple properties if you want two properties to have the same values. A possible use case for this is a "well" class, or a series of buttons, where you want the same amount of space on the insdie and outside.
+The core mixin is what does all the magic. The advantage of using just the core mixin over the shorthand property mixins is multiple properties if you want two properties to have the same values. A possible use case for this is a "well" class, or a series of buttons, where you want the same amount of space on the insdie and outside.
 
   ```scss
     // Input
@@ -111,9 +111,9 @@ LifeSaver comes with it's own set of shorthand properties to keep your code smal
     margin-left: 1rem;
   ```
 
-The only disadvantage with using shorthand properties is that you can no logner use multiple properties. If you find yourself needing a specific combination often you can easily create your own proprty mixin.
+The only disadvantage with using shorthand properties is that you can no logner use multiple properties. If you find yourself needing a specific combination often you can easily create your own property mixin.
 
-Here's a list of all of the shorthand property mixins are listed here:
+Here's a list of all of the shorthand property mixins:
 
   ```scss
     @include size();
@@ -175,9 +175,9 @@ In CSS there's a common problem when using the shorthand syntax. The problem is 
 
 LifeSaver has a set of functions for safely converting units to help prevent browser rounding errors that could potentionally break a design.
 
-Here's a list of all the safe unit function:
+Here's a list of all the safe unit functions:
 
-  ```scss
+  ```
     scale-comp( [value], [scale] );
 
     ceil-convert( [value] );
@@ -206,7 +206,7 @@ Here's a list of all the safe unit function:
 
 ## Scale Compensation
 
-A common problem when using units like rem and em is that when you change the font size of an element it also changes anything else sized wtih rem and em. To circumvent this, leaving your margins visually the same, you can pass a scale compensation argument equal to the font size.
+A common problem when using units like rem and em is that when you change the font size of an element it also changes anything else sized with rem and em. To circumvent this, leaving your margins visually the same, you can pass a scale compensation argument equal to the font size.
 
   ```scss
     // Input
@@ -220,7 +220,7 @@ A common problem when using units like rem and em is that when you change the fo
     margin-left: 0.9375em;
   ```
 
-If you don't want to define a scale compensation, but you want to pass an important argument, you can do one of two things:
+If you don't want to define scale compensation, but you want to pass an important argument, you can do one of two things:
 
 1. You can set the scale compensation to `x` or `null` telling LifeSaver to ignore this argument.
 1. Pass the important argument as shown below.
