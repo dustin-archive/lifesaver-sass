@@ -224,7 +224,7 @@ A common problem when using units like rem and em is that when you change the fo
 
 ## Important Flag
 
-Passing an important argument tells LifeSaver to apply an important flag to eachy property it generates.
+Passing an important argument tells LifeSaver to apply an important flag to each property it generates.
 
   ```scss
     // Input
@@ -236,7 +236,7 @@ Passing an important argument tells LifeSaver to apply an important flag to each
     margin-left: 1em !important;
   ```
 
-If you only want to add an important flag to only one of these generated properties, you'll have add another include with only the value you want to add the important flag to.
+If you only want to add an important flag to only one of these generated properties, you'll have to add another include with only the value you want to add the important flag to.
 
 If you don't want to define scale compensation, but you want to pass an important argument, you can do one of two things:
 
