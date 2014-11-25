@@ -6,7 +6,7 @@ A Sass mixin that makes working with units and box model properties super easy.
 
 
 ## Index
-1. [Benifits](#benifits)
+1. [Benefits](#benefits)
 1. [Features](#features)
 1. [Getting Started](#getting-started)
 1. [Syntax](#syntax)
@@ -21,7 +21,7 @@ A Sass mixin that makes working with units and box model properties super easy.
 
 
 
-## Benifits
+## Benefits
 
 1. Type less
 1. Quicker to edit values
