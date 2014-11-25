@@ -1,5 +1,14 @@
 ## Changelog
 
+November 25, 2015
++ Added `main.scss` that imports all partials
++ Added basic property debugging
++ Added more `position` properties
++ Added `border-width` and `border-radius` properties
++ Moved `size` property logic out of `lifesaver.scss` into `properties.scss`
++ Changed from tabs to 2 spaces
++ Removed `lifesaver` prefix from partials
+
 November 21, 2014
 + Added compression of matching values
 + Changed debug class names

@@ -1,94 +1,100 @@
 // ================================================================
-// + Extensions / Safe Units
+// + Extensions / LifeSaver / Safe Units
 // ================================================================
 
-// ================================
+
+//
 // + Scale Compensation
-// ================================
+//
+
 @function scale-comp( $value, $scale: null ) {
-	@return if( not skippable( $scale ), $value / ( $scale / $value ), $value );
+  @return if( not skippable( $scale ), $value / ( $scale / $value ), $value );
 }
 
 
-// ================================
+//
 // + Convert
-// ================================
+//
+
 @function ceil-convert( $value ) {
-	@return ceil( $value ) / 16;
+  @return ceil( $value ) / 16;
 }
 
 @function floor-convert( $value ) {
-	@return floor( $value ) / 16;
+  @return floor( $value ) / 16;
 }
 
 @function round-convert( $value ) {
-	@return round( $value ) / 16;
+  @return round( $value ) / 16;
 }
 
 @function convert( $value ) {
-	@return ceil( $value ) / 16;
+  @return ceil( $value ) / 16;
 }
 
 
-// ================================
+//
 // + Units
-// ================================
+//
+
 @function un( $value, $scale: null ) {
-	@return ceil-convert( scale-comp( $value, $scale ) );
+  @return ceil-convert( scale-comp( $value, $scale ) );
 }
 
 @function em( $value, $scale: null ) {
-	@return ceil-convert( scale-comp( $value, $scale ) ) * 1em;
+  @return ceil-convert( scale-comp( $value, $scale ) ) * 1em;
 }
 
 @function rem( $value, $scale: null ) {
-	@return ceil-convert( scale-comp( $value, $scale ) ) * 1rem;
+  @return ceil-convert( scale-comp( $value, $scale ) ) * 1rem;
 }
 
 @function px( $value, $scale: null ) {
-	@return ceil( scale-comp( $value, $scale ) ) * 1px;
+  @return ceil( scale-comp( $value, $scale ) ) * 1px;
 }
 
 @function pct( $value, $scale: null ) {
-	@return percentage( scale-comp( $value, $scale ) / 100 );
+  @return percentage( scale-comp( $value, $scale ) / 100 );
 }
 
 
-// ================================
+//
 // + Floor
-// ================================
+//
+
 @function floor-un( $value ) {
-	@return floor-convert( $value );
+  @return floor-convert( $value );
 }
 
 @function floor-em( $value ) {
-	@return floor-convert( $value ) * 1em;
+  @return floor-convert( $value ) * 1em;
 }
 
 @function floor-rem( $value ) {
-	@return floor-convert( $value ) * 1rem;
+  @return floor-convert( $value ) * 1rem;
 }
 
 @function floor-px( $value ) {
-	@return floor( $value ) * 1px;
+  @return floor( $value ) * 1px;
 }
 
 
-// ================================
+//
 // + Round
-// ================================
+//
+
 @function round-un( $value ) {
-	@return round-convert( $value );
+  @return round-convert( $value );
 }
 
 @function round-em( $value ) {
-	@return round-convert( $value ) * 1em;
+  @return round-convert( $value ) * 1em;
 }
 
 @function round-rem( $value ) {
-	@return round-convert( $value ) * 1rem;
+  @return round-convert( $value ) * 1rem;
 }
 
 @function round-px( $value ) {
-	@return round( $value ) * 1px;
+  @return round( $value ) * 1px;
 }

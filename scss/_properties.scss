@@ -1,0 +1,82 @@
+// ================================================================
+// + Extensions / LifeSaver / Properties
+// ================================================================
+
+
+@mixin size( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+  $length: length( $value-list );
+  $width:  nth( $value-list, 1 );
+  $height: nth( $value-list, 2 );
+
+  @if $length == 2 {
+    @include ls( width, $width, $unit-list, $scale-compensation, $important );
+    @include ls( height, $height, $unit-list, $scale-compensation, $important );
+  }
+  @else if $length == 1 {
+    @include ls( width, $width, $unit-list, $scale-compensation, $important );
+    @include ls( height, $width, $unit-list, $scale-compensation, $important );
+  }
+  @else {
+    @error 'MAYDAY! MAYDAY!    LifeSaver: You can only pass up to 2 values to size.';
+  }
+}
+
+@mixin margin( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+  @include ls( margin, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+@mixin padding( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+  @include ls( padding, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+
+//
+// + Border
+//
+
+@mixin border-width( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+  @include ls( border-width, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+@mixin border-radius( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+  @include ls( border-radius, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+
+//
+// + Position
+//
+
+@mixin position( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+@mixin position-absolute( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+  position: absolute;
+  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+@mixin position-fixed( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+  position: fixed;
+  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+@mixin position-inherit( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+  position: inherit;
+  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+@mixin position-relative( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+  position: relative;
+  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+@mixin position-static( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+  position: static;
+  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+}
+
+@mixin position-sticky( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+  position: sticky;
+  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+}

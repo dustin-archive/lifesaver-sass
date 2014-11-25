@@ -1,12 +1,12 @@
 // ================================================================
-// + Extensions / Skip
+// + Extensions / LifeSaver / Skip
 // ================================================================
 
 
 @function skip( $list, $default ) {
-	@return if( index( $list, x ) or index( $list, null ), $default, $list );
+  @return if( index( $list, x ) or index( $list, null ), $default, $list );
 }
 
 @function skippable( $list ) {
-	@return if( index( $list, x ) or index( $list, null ), true, null );
+  @return if( index( $list, x ) or index( $list, null ), true, null );
 }
