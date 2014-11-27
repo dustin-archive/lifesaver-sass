@@ -241,8 +241,8 @@ If you only want to add an important flag to only one of these generated propert
 If you don't want to define scale compensation, but you want to pass an important argument, you can do one of two things:
 
 1. You can set the scale compensation to `x` or `null` telling LifeSaver to ignore this argument.
-1. Pass the important argument as shown below.
+1. Pass the important argument using the `$important` variable as shown below.
 
   ```scss
-    @include margin( 1 2, em, $important: important )
+    @include margin( 1 2, em, $important: important );
   ```
