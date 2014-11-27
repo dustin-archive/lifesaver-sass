@@ -35,14 +35,14 @@ A Sass mixin that makes working with units and box model properties super easy.
 ## Features
 
 1. Multiple properties
-1. Longhand or shorthand values
-1. Skippable values
-1. Multiple units
-1. Font size em scaling compensation
-1. Safe unit funtions
 1. Automatic shorthand output when possible
-1. Important argument
 1. Shorthand property mixins
+1. Longhand or shorthand values
+1. Multiple units
+1. Skippable values
+1. Safe unit funtions
+1. Font size em scaling compensation
+1. Important argument
 
 
 

@@ -1,6 +1,9 @@
 ## Changelog
 
-November 25, 2015
+November 27, 2014
++ Fixed scale compensation
+
+November 25, 2014
 + Added `main.scss` that imports all partials
 + Added basic property debugging
 + Added more `position` properties
