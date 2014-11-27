@@ -5,7 +5,7 @@ A Sass mixin that makes working with units and box model properties super easy.
 
 
 
-## Index
+## Table of Contents
 1. [Benefits](#benefits)
 1. [Features](#features)
 1. [Getting Started](#getting-started)
@@ -210,11 +210,11 @@ A common problem when using units like rem and em is that when you change the fo
 
   ```scss
     // Input
-    font-size: 18;
+    font-size: em( 18 );
     @include margin( 2 4 x 16, em, 18 );
 
     // Output
-    font-size: 18;
+    font-size: em( 18 );
     margin-top: 0.0625em;
     margin-right: 0.0625em;
     margin-left: 0.9375em;
