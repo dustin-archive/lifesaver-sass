@@ -2,6 +2,8 @@
 
 November 27, 2014
 + Fixed scale compensation
++ Added `safe-convert` function
++ Replaced `ceil-convert` functions in unit functions to `safe-convert`
 
 November 25, 2014
 + Added `main.scss` that imports all partials

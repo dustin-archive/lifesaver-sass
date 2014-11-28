@@ -29,7 +29,15 @@
 }
 
 @function convert( $value ) {
-  @return ceil( $value ) / 16;
+  @return $value / 16;
+}
+
+@function safe( $value ) {
+  @return round( $value * 16 ) / 16;
+}
+
+@function safe-convert( $value ) {
+  @return round( $value * 16 ) / ( 16 * 16 );
 }
 
 
@@ -38,19 +46,19 @@
 //
 
 @function un( $value, $scale: null ) {
-  @return ceil-convert( scale-comp( $value, $scale ) );
+  @return safe-convert( scale-comp( $value, $scale ) );
 }
 
 @function em( $value, $scale: null ) {
-  @return ceil-convert( scale-comp( $value, $scale ) ) * 1em;
+  @return safe-convert( scale-comp( $value, $scale ) ) * 1em;
 }
 
 @function rem( $value, $scale: null ) {
-  @return ceil-convert( scale-comp( $value, $scale ) ) * 1rem;
+  @return safe-convert( scale-comp( $value, $scale ) ) * 1rem;
 }
 
 @function px( $value, $scale: null ) {
-  @return ceil( scale-comp( $value, $scale ) ) * 1px;
+  @return safe( scale-comp( $value, $scale ) ) * 1px;
 }
 
 @function pct( $value, $scale: null ) {

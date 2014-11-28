@@ -180,10 +180,12 @@ Here's a list of all the safe unit functions:
   ```
     scale-comp( [value], [scale] );
 
+    convert( [value] );
+    safe( [value] );
     ceil-convert( [value] );
     floor-convert( [value] );
     round-convert( [value] );
-    convert( [value] );
+    safe-convert( [value] );
 
     un( [value], [scale] );
     em( [value], [scale] );
@@ -215,9 +217,9 @@ A common problem when using units like rem and em is that when you change the fo
 
     // Output
     font-size: em( 18 );
-    margin-top: 0.0625em;
-    margin-right: 0.0625em;
-    margin-left: 0.9375em;
+    margin-top: 0.109375em;
+    margin-right: 0.22265625em;
+    margin-left: 0.890625em;
   ```
 
 
