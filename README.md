@@ -18,7 +18,7 @@ A Sass mixin that makes working with units and box model properties super easy.
 1. [Skipping](#skipping)
 1. [Safe Units](#safe-units)
 1. [Scale Compensation](#scale-compensation)
-1. [Important Flag](#important-flag)
+1. [Flags](#flags)
 
 
 
@@ -227,13 +227,13 @@ A common problem when using units like rem and em is that when you change the fo
 
 
 
-## Important Flag
+## Flags
 
-Passing an important argument tells LifeSaver to apply an important flag to each property it generates.
+Passing a flag argument tells LifeSaver to apply a flag to each property it generates.
 
   ```scss
     // Input
-    @include margin( 2 4 x 16, em, x, important );
+    @include margin( 2 4 x 16, em, x, !important );
 
     // Output
     margin-top: 0.125em !important;
@@ -241,13 +241,13 @@ Passing an important argument tells LifeSaver to apply an important flag to each
     margin-left: 1em !important;
   ```
 
-If you only want to add an important flag to only one of these generated properties, you'll have to add another include with only the value you want to add the important flag to.
+If you only want to add a flag to only one of these generated properties, you'll have to add another include with only the value you want to add the flag to.
 
-If you don't want to define scale compensation, but you want to pass an important argument, you can do one of two things:
+If you don't want to define scale compensation, but you want to pass a flag argument, you can do one of two things:
 
 1. You can set the scale compensation to `x` or `null` telling LifeSaver to ignore this argument.
-1. Pass the important argument using the `$important` variable as shown below.
+1. Pass the flag argument using the `$flag` variable as shown below.
 
   ```scss
-    @include margin( 1 2, em, $important: important );
+    @include margin( 1 2, em, $flag: !important );
   ```
