@@ -59,7 +59,7 @@ Import LifeSaver into your project at the top of your Sass extensions file (or w
 
 ## Syntax
 
-There's two ways to use LifeSaver. You can either use the core mixin (`ls`) or a shorthand property mixin.
+There are two ways to use LifeSaver. You can either use the core mixin or a shorthand property mixin.
 
   ```scss
     @include ls( [properties], [values], [units], [scale compensation], [important] );
@@ -70,7 +70,7 @@ There's two ways to use LifeSaver. You can either use the core mixin (`ls`) or a
 
 ## Core Mixin
 
-The core mixin is what does all the magic. The advantage of using just the core mixin over the shorthand property mixins is multiple properties if you want two properties to have the same values. A possible use case for this is a "well" class, or a series of buttons, where you want the same amount of space on the insdie and outside.
+The core mixin is what does all the magic. The advantage of using just the core mixin over the shorthand property mixins is the ability to use multiple properties. A possible use case for this is a series of buttons where you want the same amount of space on the insdie and outside.
 
   ```scss
     // Input
@@ -91,7 +91,7 @@ The core mixin is what does all the magic. The advantage of using just the core 
     padding-left: 1rem;
   ```
 
-The disadvantage to this is that you can't pass any of the shorthand property values like `size` or `position-absolute` to the core mixin. The reason is that the core mixin is only capable of processing standard CSS to keep the code clean and maintainable. All additional shorthand property logic is stored inside that property's mixin.
+The disadvantage to this is that you can't pass any of the shorthand property values like `size` or `position-absolute` to the core mixin. All shorthand property logic is stored inside that property's mixin. This keeps the compile time quick and the code clean and maintainable.
 
 
 
@@ -161,7 +161,7 @@ Here's a list of all the units you can pass to LifeSaver:
 
 ## Skipping
 
-In CSS there's a common problem when using the shorthand syntax. The problem is that you can't skip a value. In order to use the shorthand syntax in CSS you must define all the values. With LifeSaver you can skip values all you'd like by passing an `x` or `null` value.
+In CSS there's a common problem when using the shorthand syntax, which is that you can't skip a value. In order to use the shorthand syntax in CSS you must define all the values. With LifeSaver you can skip values all you'd like by passing an `x` or `null` value.
 
   ```scss
     // Input
