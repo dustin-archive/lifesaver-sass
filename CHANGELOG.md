@@ -27,7 +27,6 @@ November 21, 2014
 November 19, 2014
 + Rewrote almost everything
 + Used maps instead of lists
-+ Improved compile time
 + Added error messages for invalid unit types
 + Added `size` LifeSaver property for width and height properties
 + Added `skippable` function to `skip.scss`
