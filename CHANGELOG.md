@@ -2,7 +2,7 @@
 
 December 13, 2014
 + Added `min-size` and `max-size` mixins
-+ Added z-index to the position mixins
++ Added `z-index` to position mixins
 + Changed `$important` to `$flag`
 + Cleaned up comments and code formatting
 
