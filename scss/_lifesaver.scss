@@ -14,10 +14,10 @@
   // ===========================================
 
   @if $length == 4 {
-    $top:    nth($value-list, 1);
-    $right:  nth($value-list, 2);
+    $top: nth($value-list, 1);
+    $right: nth($value-list, 2);
     $bottom: nth($value-list, 3);
-    $left:   nth($value-list, 4);
+    $left: nth($value-list, 4);
 
     @if $top == $bottom and $left == $right {
       $value-list: $top, $right;
