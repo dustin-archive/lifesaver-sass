@@ -1,23 +1,23 @@
 // LifeSaver
-// November 27, 2014
+// December 13, 2014
 // The MIT License (MIT)
 // Copyright (c) 2014 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
 
 
-@mixin ls( $property-list, $value-list, $unit-list: null, $scale: null, $important: null ) {
-  $length: length( $value-list );
-  $important: if( $important == important, !important, null );
+@mixin ls($property-list: null, $value-list: null, $unit-list: null, $scale: null, $flag: null) {
+  $length: length($value-list);
+  $flag: if(skippable($flag), null, $flag);
 
   //
   // + Compresses matching values to shorthand
-  //
+  // ===========================================
 
   @if $length == 4 {
-    $top:    nth( $value-list, 1 );
-    $right:  nth( $value-list, 2 );
-    $bottom: nth( $value-list, 3 );
-    $left:   nth( $value-list, 4 );
+    $top:    nth($value-list, 1);
+    $right:  nth($value-list, 2);
+    $bottom: nth($value-list, 3);
+    $left:   nth($value-list, 4);
 
     @if $top == $bottom and $left == $right {
       $value-list: $top, $right;
@@ -29,8 +29,8 @@
     }
   }
   @else if $length == 2 {
-    $top-bottom: nth( $value-list, 1 );
-    $left-right: nth( $value-list, 2 );
+    $top-bottom: nth($value-list, 1);
+    $left-right: nth($value-list, 2);
 
     @if $top-bottom == $left-right {
       $value-list: $top-bottom;
@@ -42,9 +42,9 @@
 
     //
     // + Splits into multiple properties
-    //
+    // ===================================
 
-    @if skippable( $value-list ) or $property == position  {
+    @if skippable($value-list) or $property == position  {
 
       // Set scope
       $suffix-map: ();
@@ -52,43 +52,43 @@
       @if $length == 4 {
         @if $property == border-radius {
           $suffix-map: (
-            top-left:     nth( $value-list, 1 ),
-            top-right:    nth( $value-list, 2 ),
-            bottom-right: nth( $value-list, 3 ),
-            bottom-left:  nth( $value-list, 4 )
-          );
+            top-left: nth($value-list, 1),
+            top-right: nth($value-list, 2),
+            bottom-right: nth($value-list, 3),
+            bottom-left: nth($value-list, 4)
+         );
         }
         @else {
           $suffix-map: (
-            top:    nth( $value-list, 1 ),
-            right:  nth( $value-list, 2 ),
-            bottom: nth( $value-list, 3 ),
-            left:   nth( $value-list, 4 )
-          );
+            top: nth($value-list, 1),
+            right: nth($value-list, 2),
+            bottom: nth($value-list, 3),
+            left: nth($value-list, 4)
+         );
         }
       }
       @else if $length == 2 {
         @if $property == border-radius {
           $suffix-map: (
-            top-left:     nth( $value-list, 1 ),
-            top-right:    nth( $value-list, 2 ),
-            bottom-right: nth( $value-list, 1 ),
-            bottom-left:  nth( $value-list, 2 )
-          );
+            top-left: nth($value-list, 1),
+            top-right: nth($value-list, 2),
+            bottom-right: nth($value-list, 1),
+            bottom-left: nth($value-list, 2)
+         );
         }
         @else {
           $suffix-map: (
-            top:    nth( $value-list, 1 ),
-            right:  nth( $value-list, 2 ),
-            bottom: nth( $value-list, 1 ),
-            left:   nth( $value-list, 2 )
-          );
+            top: nth($value-list, 1),
+            right: nth($value-list, 2),
+            bottom: nth($value-list, 1),
+            left: nth($value-list, 2)
+         );
         }
       }
 
       @each $unit in $unit-list {
-        @each $suffix-key in map-keys( $suffix-map ) {
-          $value: map-get( $suffix-map, $suffix-key );
+        @each $suffix-key in map-keys($suffix-map) {
+          $value: map-get($suffix-map, $suffix-key);
 
           // Append suffix when needed
           @if $property == border-width {
@@ -102,23 +102,23 @@
           }
 
           // Ignore x and null
-          @if not skippable( $value ) {
+          @if not skippable($value) {
 
             // Output
             @if $unit == em {
-              #{ $suffix-key }: append( em( $value, $scale ), $important );
+              #{$suffix-key}: append(em($value, $scale), $flag);
             }
             @else if $unit == rem {
-              #{ $suffix-key }: append( rem( $value, $scale ), $important );
+              #{$suffix-key}: append(rem($value, $scale), $flag);
             }
             @else if $unit == px {
-              #{ $suffix-key }: append( px( $value, $scale ), $important );
+              #{$suffix-key}: append(px($value, $scale), $flag);
             }
             @else if $unit == pct {
-              #{ $suffix-key }: append( pct( $value, $scale ), $important );
+              #{$suffix-key}: append(pct($value, $scale), $flag);
             }
-            @else if skip( $unit, null ) or $value == 0 or type-of( $value ) == string {
-              #{ $suffix-key }: append( $value, $important );
+            @else if skip($unit, null) or $value == 0 or type-of($value) == string {
+              #{$suffix-key}: append($value, $flag);
             }
             @else {
               @error 'Mayday! Mayday!    LifeSaver: You used an invalid unit type.';
@@ -130,7 +130,7 @@
 
     //
     // + Concatenates shorthand values
-    //
+    // =================================
 
     // Ensures lists of 3 or lists greater than 4 are not processed
     @else if $length == 1 or $length == 2 or $length == 4 {
@@ -143,26 +143,26 @@
 
           // Output
           @if $unit == em {
-            $result: append( $result, em( $value, $scale ) );
+            $result: append($result, em($value, $scale));
           }
           @else if $unit == rem {
-            $result: append( $result, rem( $value, $scale ) );
+            $result: append($result, rem($value, $scale));
           }
           @else if $unit == px {
-            $result: append( $result, px( $value, $scale ) );
+            $result: append($result, px($value, $scale));
           }
           @else if $unit == pct {
-            $result: append( $result, pct( $value, $scale ) );
+            $result: append($result, pct($value, $scale));
           }
-          @else if skip( $unit, null ) or $value == 0 or type-of( $value ) == string {
-            $result: append( $result, $value );
+          @else if skip($unit, null) or $value == 0 or type-of($value) == string {
+            $result: append($result, $value);
           }
           @else {
             @error 'Mayday! Mayday!    LifeSaver: You used an invalid unit type.';
           }
         }
 
-        #{ $property }: append( $result, $important );
+        #{$property}: append($result, $flag);
       }
     }
   }

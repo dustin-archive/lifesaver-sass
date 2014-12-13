@@ -1,130 +1,127 @@
-// ================================================================
+// ==================================
 // + Extensions / LifeSaver / Debug
-// ================================================================
-
+// ==================================
 
 //
 // + Properties
-//
+// ==============
 
 .ls-debug-properties {
-  @include size(              1 2, em rem px pct );
-  @include size(              1 x, em rem px pct );
-  @include size(              x 2, em rem px pct );
+  @include size(1 2, em rem px pct);
+  @include size(1 x, em rem px pct);
+  @include size(x 2, em rem px pct);
 
-  @include margin(            1 x 2 4, em rem px pct );
-  @include padding(           1 x 2 4, em rem px pct );
+  @include margin( 1 x 2 4, em rem px pct);
+  @include padding(1 x 2 4, em rem px pct);
 
-  @include border-width(      1 x 2 4, em rem px pct );
-  @include border-radius(     1 x 2 4, em rem px pct );
+  @include border-width( 1 x 2 4, em rem px pct);
+  @include border-radius(1 x 2 4, em rem px pct);
 
-  @include position(          1 x 2 4, em rem px pct );
-  @include position-absolute( 1 x 2 4, em rem px pct );
-  @include position-fixed(    1 x 2 4, em rem px pct );
-  @include position-inherit(  1 x 2 4, em rem px pct );
-  @include position-relative( 1 x 2 4, em rem px pct );
-  @include position-static(   1 x 2 4, em rem px pct );
-  @include position-sticky(   1 x 2 4, em rem px pct );
+  @include position(         1 x 2 4, em rem px pct);
+  @include position-absolute(1 x 2 4, em rem px pct);
+  @include position-fixed(   1 x 2 4, em rem px pct);
+  @include position-inherit( 1 x 2 4, em rem px pct);
+  @include position-relative(1 x 2 4, em rem px pct);
+  @include position-static(  1 x 2 4, em rem px pct);
+  @include position-sticky(  1 x 2 4, em rem px pct);
 }
 
 //
 // + 1 Unit
-//
+// ==========
 
-.ls-debug-1-unit { @include ls( size margin position border-radius border-width, 1, em rem px pct ); }
+.ls-debug-1-unit { @include ls(size margin position border-radius border-width, 1, em rem px pct); }
 
-.ls-debug-1-unit { @include ls( size margin position border-radius border-width, 1, em rem px pct, 24 ); }
+.ls-debug-1-unit { @include ls(size margin position border-radius border-width, 1, em rem px pct, 24); }
 
-.ls-debug-1-unit { @include ls( size margin position border-radius border-width, 1, em rem px pct, x, important ); }
+.ls-debug-1-unit { @include ls(size margin position border-radius border-width, 1, em rem px pct, x, !important); }
 
-.ls-debug-1-unit { @include ls( size margin position border-radius border-width, 1, em rem px pct, 24, important ); }
-
+.ls-debug-1-unit { @include ls(size margin position border-radius border-width, 1, em rem px pct, 24, !important); }
 
 //
 // + 2 Units
-//
+// ===========
 
-.ls-debug-2-units { @include ls( size margin position border-radius border-width, 1 2, em rem px pct ); }
-.ls-debug-2-units { @include ls( size margin position border-radius border-width, x 2, em rem px pct ); }
-.ls-debug-2-units { @include ls( size margin position border-radius border-width, 1 x, em rem px pct ); }
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 2, em rem px pct); }
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, x 2, em rem px pct); }
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 x, em rem px pct); }
 
-.ls-debug-2-units { @include ls( size margin position border-radius border-width, 1 2, em rem px pct, 24 ); }
-.ls-debug-2-units { @include ls( size margin position border-radius border-width, x 2, em rem px pct, 24 ); }
-.ls-debug-2-units { @include ls( size margin position border-radius border-width, 1 x, em rem px pct, 24 ); }
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 2, em rem px pct, 24); }
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, x 2, em rem px pct, 24); }
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 x, em rem px pct, 24); }
 
-.ls-debug-2-units { @include ls( size margin position border-radius border-width, 1 2, em rem px pct, x, important ); }
-.ls-debug-2-units { @include ls( size margin position border-radius border-width, x 2, em rem px pct, x, important ); }
-.ls-debug-2-units { @include ls( size margin position border-radius border-width, 1 x, em rem px pct, x, important ); }
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 2, em rem px pct, x, !important); }
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, x 2, em rem px pct, x, !important); }
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 x, em rem px pct, x, !important); }
 
-.ls-debug-2-units { @include ls( size margin position border-radius border-width, 1 2, em rem px pct, 24, important ); }
-.ls-debug-2-units { @include ls( size margin position border-radius border-width, x 2, em rem px pct, 24, important ); }
-.ls-debug-2-units { @include ls( size margin position border-radius border-width, 1 x, em rem px pct, 24, important ); }
-
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 2, em rem px pct, 24, !important); }
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, x 2, em rem px pct, 24, !important); }
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 x, em rem px pct, 24, !important); }
 
 //
 // + 4 Units
-//
+// ===========
 
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 3 4, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 3 4, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x 3 4, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 x 4, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 3 x, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x x 3 4, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 x 4, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 3 x, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x x 4, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x 3 x, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 x x, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x x x, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 x x, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x x 3 x, em rem px pct ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x x x 4, em rem px pct ); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 3 4, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 3 4, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x 3 4, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 x 4, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 3 x, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x x 3 4, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 x 4, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 3 x, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x x 4, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x 3 x, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 x x, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x x x, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 x x, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x x 3 x, em rem px pct); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x x x 4, em rem px pct); }
 
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 3 4, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 3 4, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x 3 4, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 x 4, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 3 x, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x x 3 4, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 x 4, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 3 x, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x x 4, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x 3 x, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 x x, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x x x, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 x x, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x x 3 x, em rem px pct, 24 ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x x x 4, em rem px pct, 24 ); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 3 4, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 3 4, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x 3 4, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 x 4, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 3 x, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x x 3 4, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 x 4, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 3 x, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x x 4, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x 3 x, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 x x, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x x x, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 x x, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x x 3 x, em rem px pct, 24); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x x x 4, em rem px pct, 24); }
 
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 3 4, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 3 4, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x 3 4, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 x 4, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 3 x, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x x 3 4, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 x 4, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 3 x, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x x 4, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x 3 x, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 x x, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x x x, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 x x, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x x 3 x, em rem px pct, 24, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x x x 4, em rem px pct, 24, important ); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 3 4, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 3 4, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x 3 4, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 x 4, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 3 x, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x x 3 4, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 x 4, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 3 x, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x x 4, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x 3 x, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 x x, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x x x, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 x x, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x x 3 x, em rem px pct, 24, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x x x 4, em rem px pct, 24, !important); }
 
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 3 4, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 3 4, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x 3 4, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 x 4, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 3 x, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x x 3 4, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 x 4, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 3 x, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x x 4, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x 3 x, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 2 x x, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, 1 x x x, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x 2 x x, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x x 3 x, em rem px pct, x, important ); }
-.ls-debug-4-units { @include ls( margin position border-radius border-width, x x x 4, em rem px pct, x, important ); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 3 4, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 3 4, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x 3 4, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 x 4, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 3 x, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x x 3 4, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 x 4, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 3 x, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x x 4, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x 3 x, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 x x, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, 1 x x x, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 x x, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x x 3 x, em rem px pct, x, !important); }
+.ls-debug-4-units { @include ls(margin position border-radius border-width, x x x 4, em rem px pct, x, !important); }

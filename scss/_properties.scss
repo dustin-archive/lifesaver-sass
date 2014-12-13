@@ -1,82 +1,146 @@
-// ================================================================
+// =======================================
 // + Extensions / LifeSaver / Properties
-// ================================================================
+// =======================================
 
+//
+// + Size
+// ========
 
-@mixin size( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
-  $length: length( $value-list );
-  $width:  nth( $value-list, 1 );
-  $height: nth( $value-list, 2 );
+@mixin size($value-list: null, $unit-list: null, $scale: null, $flag: null) {
+  $length: length($value-list);
 
   @if $length == 2 {
-    @include ls( width, $width, $unit-list, $scale-compensation, $important );
-    @include ls( height, $height, $unit-list, $scale-compensation, $important );
+    $width:  nth($value-list, 1);
+    $height: nth($value-list, 2);
+
+    @include ls(width, $width, $unit-list, $scale, $flag);
+    @include ls(height, $height, $unit-list, $scale, $flag);
   }
   @else if $length == 1 {
-    @include ls( width, $width, $unit-list, $scale-compensation, $important );
-    @include ls( height, $width, $unit-list, $scale-compensation, $important );
+    $width:  nth($value-list, 1);
+    $height: nth($value-list, 1);
+
+    @include ls(width, $width, $unit-list, $scale, $flag);
+    @include ls(height, $height, $unit-list, $scale, $flag);
   }
   @else {
     @error 'MAYDAY! MAYDAY!    LifeSaver: You can only pass up to 2 values to size.';
   }
 }
 
-@mixin margin( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
-  @include ls( margin, $value-list, $unit-list, $scale-compensation, $important );
+@mixin min-size($value-list: null, $unit-list: null, $scale: null, $flag: null) {
+  $length: length($value-list);
+
+  @if $length == 2 {
+    $width:  nth($value-list, 1);
+    $height: nth($value-list, 2);
+
+    @include ls(min-width, $width, $unit-list, $scale, $flag);
+    @include ls(min-height, $height, $unit-list, $scale, $flag);
+  }
+  @else if $length == 1 {
+    $width:  nth($value-list, 1);
+    $height: nth($value-list, 1);
+
+    @include ls(min-width, $width, $unit-list, $scale, $flag);
+    @include ls(min-height, $height, $unit-list, $scale, $flag);
+  }
+  @else {
+    @error 'MAYDAY! MAYDAY!    LifeSaver: You can only pass up to 2 values to size.';
+  }
 }
 
-@mixin padding( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
-  @include ls( padding, $value-list, $unit-list, $scale-compensation, $important );
+@mixin max-size($value-list: null, $unit-list: null, $scale: null, $flag: null) {
+  $length: length($value-list);
+
+  @if $length == 2 {
+    $width:  nth($value-list, 1);
+    $height: nth($value-list, 2);
+
+    @include ls(max-width, $width, $unit-list, $scale, $flag);
+    @include ls(max-height, $height, $unit-list, $scale, $flag);
+  }
+  @else if $length == 1 {
+    $width:  nth($value-list, 1);
+    $height: nth($value-list, 1);
+
+    @include ls(max-width, $width, $unit-list, $scale, $flag);
+    @include ls(max-height, $height, $unit-list, $scale, $flag);
+  }
+  @else {
+    @error 'MAYDAY! MAYDAY!    LifeSaver: You can only pass up to 2 values to size.';
+  }
 }
 
+//
+// + Margin
+// ==========
+
+@mixin margin($value-list: null, $unit-list: null, $scale: null, $flag: null) {
+  @include ls(margin, $value-list, $unit-list, $scale, $flag);
+}
+
+//
+// + Padding
+// ===========
+
+@mixin padding($value-list: null, $unit-list: null, $scale: null, $flag: null) {
+  @include ls(padding, $value-list, $unit-list, $scale, $flag);
+}
 
 //
 // + Border
-//
+// ==========
 
-@mixin border-width( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
-  @include ls( border-width, $value-list, $unit-list, $scale-compensation, $important );
+@mixin border-width($value-list: null, $unit-list: null, $scale: null, $flag: null) {
+  @include ls(border-width, $value-list, $unit-list, $scale, $flag);
 }
 
-@mixin border-radius( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
-  @include ls( border-radius, $value-list, $unit-list, $scale-compensation, $important );
+@mixin border-radius($value-list: null, $unit-list: null, $scale: null, $flag: null) {
+  @include ls(border-radius, $value-list, $unit-list, $scale, $flag);
 }
-
 
 //
 // + Position
-//
+// ============
 
-@mixin position( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
-  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+@mixin position($value-list: null, $unit-list: null, $scale: null, $flag: null, $z: null) {
+  @include ls(position, $value-list, $unit-list, $scale, $flag);
+  z-index: $z;
 }
 
-@mixin position-absolute( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+@mixin position-absolute($value-list: null, $unit-list: null, $scale: null, $flag: null, $z: null) {
   position: absolute;
-  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+  @include ls(position, $value-list, $unit-list, $scale, $flag);
+  z-index: $z;
 }
 
-@mixin position-fixed( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+@mixin position-fixed($value-list: null, $unit-list: null, $scale: null, $flag: null, $z: null) {
   position: fixed;
-  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+  @include ls(position, $value-list, $unit-list, $scale, $flag);
+  z-index: $z;
 }
 
-@mixin position-inherit( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+@mixin position-inherit($value-list: null, $unit-list: null, $scale: null, $flag: null, $z: null) {
   position: inherit;
-  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+  @include ls(position, $value-list, $unit-list, $scale, $flag);
+  z-index: $z;
 }
 
-@mixin position-relative( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+@mixin position-relative($value-list: null, $unit-list: null, $scale: null, $flag: null, $z: null) {
   position: relative;
-  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+  @include ls(position, $value-list, $unit-list, $scale, $flag);
+  z-index: $z;
 }
 
-@mixin position-static( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+@mixin position-static($value-list: null, $unit-list: null, $scale: null, $flag: null, $z: null) {
   position: static;
-  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+  @include ls(position, $value-list, $unit-list, $scale, $flag);
+  z-index: $z;
 }
 
-@mixin position-sticky( $value-list, $unit-list: null, $scale-compensation: null, $important: null ) {
+@mixin position-sticky($value-list: null, $unit-list: null, $scale: null, $flag: null, $z: null) {
   position: sticky;
-  @include ls( position, $value-list, $unit-list, $scale-compensation, $important );
+  @include ls(position, $value-list, $unit-list, $scale, $flag);
+  z-index: $z;
 }

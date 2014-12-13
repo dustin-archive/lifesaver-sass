@@ -6,6 +6,7 @@ A Sass mixin that makes working with units and box model properties super easy.
 
 
 ## Table of Contents
+
 1. [Benefits](#benefits)
 1. [Features](#features)
 1. [Getting Started](#getting-started)
@@ -111,12 +112,14 @@ LifeSaver comes with it's own set of shorthand properties to keep your code even
     margin-left: 1rem;
   ```
 
-The only disadvantage with using shorthand properties is that you can no logner use multiple properties. If you find yourself needing a specific combination often you can easily create your own property mixin.
+The only disadvantage with using shorthand property mixins is that you can no logner use multiple properties. If you find yourself needing a specific combination often you can easily create your own property mixin.
 
 Here's a list of all of the shorthand property mixins:
 
   ```scss
     @include size();
+    @include min-size();
+    @include max-size();
 
     @include margin();
     @include padding();
@@ -216,7 +219,7 @@ A common problem when using units like rem and em is that when you change the fo
     @include margin( 2 4 x 16, em, 18 );
 
     // Output
-    font-size: em( 18 );
+    font-size: 1.125em;
     margin-top: 0.109375em;
     margin-right: 0.22265625em;
     margin-left: 0.890625em;

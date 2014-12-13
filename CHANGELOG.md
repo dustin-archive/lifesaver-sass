@@ -1,5 +1,10 @@
 ## Changelog
 
+December 13, 2014
++ Added `min-size` and `max-size` mixins
++ Added z-index to the position mixins
++ Cleaned up comments and code formatting
+
 November 27, 2014
 + Fixed scale compensation
 + Added `safe-convert` function
