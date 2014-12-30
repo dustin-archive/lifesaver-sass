@@ -7,7 +7,7 @@
 // ======================
 
 @function scale-comp($value, $scale: null) {
-  @return if(skippable($scale), $value, (16 / $scale) * $value);
+  @return if(skippable($scale), $value, (skip($scale, 16) / $scale) * $value);
 }
 
 //

@@ -1,5 +1,5 @@
 // LifeSaver
-// December 13, 2014
+// December 30, 2014
 // The MIT License (MIT)
 // Copyright (c) 2014 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
@@ -41,50 +41,36 @@
   @each $property in $property-list {
 
     //
-    // + Splits into multiple properties
-    // ===================================
+    // + Splits output into multiple properties
+    // ==========================================
 
     @if skippable($value-list) or $property == position  {
 
       // Set scope
       $suffix-map: ();
 
-      @if $length == 4 {
+      @if $length == 2 or $length == 4 {
         @if $property == border-radius {
           $suffix-map: (
             top-left: nth($value-list, 1),
             top-right: nth($value-list, 2),
-            bottom-right: nth($value-list, 3),
-            bottom-left: nth($value-list, 4)
+            bottom-right: if($length == 2, nth($value-list, 1), nth($value-list, 3)),
+            bottom-left: if($length == 2, nth($value-list, 2), nth($value-list, 4))
          );
         }
         @else {
           $suffix-map: (
             top: nth($value-list, 1),
             right: nth($value-list, 2),
-            bottom: nth($value-list, 3),
-            left: nth($value-list, 4)
+            bottom: if($length == 2, nth($value-list, 1), nth($value-list, 3)),
+            left: if($length == 2, nth($value-list, 2), nth($value-list, 4))
          );
         }
       }
-      @else if $length == 2 {
-        @if $property == border-radius {
-          $suffix-map: (
-            top-left: nth($value-list, 1),
-            top-right: nth($value-list, 2),
-            bottom-right: nth($value-list, 1),
-            bottom-left: nth($value-list, 2)
-         );
-        }
-        @else {
-          $suffix-map: (
-            top: nth($value-list, 1),
-            right: nth($value-list, 2),
-            bottom: nth($value-list, 1),
-            left: nth($value-list, 2)
-         );
-        }
-      }
+
+      //
+      // + Prepares output and outputs
+      // ===============================
 
       @each $unit in $unit-list {
         @each $suffix-key in map-keys($suffix-map) {
@@ -121,7 +107,7 @@
               #{$suffix-key}: append($value, $flag);
             }
             @else {
-              @error 'Mayday! Mayday!    LifeSaver: You used an invalid unit type.';
+              @error 'Mayday! Mayday!  LifeSaver: You used an invalid unit type.';
             }
           }
         }
@@ -132,7 +118,7 @@
     // + Concatenates shorthand values
     // =================================
 
-    // Ensures lists of 3 or lists greater than 4 are not processed
+    // Ensures only valid list lengths are processed
     @else if $length == 1 or $length == 2 or $length == 4 {
       @each $unit in $unit-list {
 
@@ -158,7 +144,7 @@
             $result: append($result, $value);
           }
           @else {
-            @error 'Mayday! Mayday!    LifeSaver: You used an invalid unit type.';
+            @error 'Mayday! Mayday!  LifeSaver: You used an invalid unit type.';
           }
         }
 

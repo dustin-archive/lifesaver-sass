@@ -1,4 +1,11 @@
-## Changelog
+Changelog
+==========
+
+December 30, 2014
++ Compressed logic that splits output into multiple properties
++ Changed `$flag` and `$z` order in position properties
++ Allowed flags to be added to `z-index` in position properties
++ Fixed safe convert when using font size scale compensation
 
 December 13, 2014
 + Added `min-size` and `max-size` mixins
@@ -36,12 +43,12 @@ November 19, 2014
 + Removed the `append-unit` function
 
 November 13, 2014
-+ Fixed px and percentage values
++ Fixed pixel and percentage values
 
 November 12, 2014
 + Added partial support for unitless values
 + Reverted the way important works
-+ Stored redundant logic in variables
++ Compressed duplicate logic into a variables
 + Used the skip function when necessary
 
 November 10, 2014

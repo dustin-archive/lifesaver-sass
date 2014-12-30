@@ -220,9 +220,9 @@ A common problem when using units like rem and em is that when you change the fo
 
     // Output
     font-size: 1.125em;
-    margin-top: 0.109375em;
-    margin-right: 0.22265625em;
-    margin-left: 0.890625em;
+    margin-top: 0.125em;
+    margin-right: 0.25em;
+    margin-left: 1em;
   ```
 
 
