@@ -43,7 +43,7 @@ A Sass mixin that makes working with units and box model properties super easy.
 1. Skippable values
 1. Safe unit funtions
 1. Font size em scaling compensation
-1. Important argument
+1. Flag argument
 
 
 
