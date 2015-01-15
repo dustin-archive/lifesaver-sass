@@ -17,7 +17,7 @@ Shorthand the way it was meant to be.
 1. [Safe Units](#safe-units)
 1. [Scale Compensation](#scale-compensation)
 1. [Flags](#flags)
-1. [Using LifeSaver as a Property Compressor](#using-lifeSaver-as-a-property-compressor)
+1. [Using LifeSaver as a Property Compressor](#using-lifesaver-as-a-property-compressor)
 
 
 
