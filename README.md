@@ -120,8 +120,6 @@ LifeSaver can take any value that can be used in CSS including strings like `aut
 
 ## Units
 
-While LifeSaver can't handle all units, it does handle the most commonly used units.
-
 Here's a list of all the units you can pass to LifeSaver:
 
   ```
@@ -129,6 +127,8 @@ Here's a list of all the units you can pass to LifeSaver:
   em
   rem
   pct
+  vw
+  vh
   ```
 
 
@@ -169,6 +169,8 @@ Here's a list of all the safe unit functions:
   rem([value], [scale]);
   px([value], [scale]);
   pct([value], [scale]);
+  vw([value], [scale]);
+  vh([value], [scale]);
 
   floor-un([value]);
   floor-em([value]);
