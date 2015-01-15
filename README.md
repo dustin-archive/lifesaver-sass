@@ -46,13 +46,15 @@ There are two ways to use LifeSaver. You can either use the core mixin or a shor
 
 The core mixin is what does all the magic. The advantage of using just the core mixin over the shorthand property mixins is the ability to use multiple properties. A possible use case for this is a series of buttons where you want the same amount of space on the inside and outside.
 
+Input:
+
   ```scss
-  // Input
   @include ls(margin padding, 2 4 x 16, px rem);
   ```
 
+Output:
+
   ```css
-  // Output
   margin-top: 2px;
   margin-right: 4px;
   margin-left: 16px;
@@ -75,13 +77,15 @@ The disadvantage to this is that you can't pass any of the shorthand property va
 
 LifeSaver comes with it's own set of shorthand properties to keep your code even smaller and more readable.
 
+Input:
+
   ```scss
-  // Input
   @include margin(2 4 x 16, px rem);
   ```
 
+Output:
+
   ```css
-  // Output
   margin-top: 2px;
   margin-right: 4px;
   margin-left: 16px;
@@ -141,13 +145,15 @@ Here's a list of all the units you can pass to LifeSaver:
 
 In CSS there's a common problem when using the shorthand syntax, which is that you can't skip a value. In order to use the shorthand syntax in CSS you must define all the values. With LifeSaver you can skip values all you'd like by passing an `x` or `null` value.
 
+Input:
+
   ```scss
-  // Input
   @include margin(x auto);
   ```
 
+Output:
+
   ```css
-  // Output
   margin-top: auto;
   margin-left: auto;
   ```
@@ -195,14 +201,16 @@ Here's a list of all the safe unit functions:
 
 A common problem when using units like rem and em is that when you change the font size of an element it also changes anything else sized with rem and em. To circumvent this, leaving your margins visually the same, you can pass a scale compensation argument equal to the font size.
 
+Input:
+
   ```scss
-  // Input
   font-size: em(18);
   @include margin(2 4 x 16, em, 18);
   ```
 
+Output:
+
   ```css
-  // Output
   font-size: 1.125em;
   margin-top: 0.125em;
   margin-right: 0.25em;
@@ -215,13 +223,15 @@ A common problem when using units like rem and em is that when you change the fo
 
 Passing a flag argument tells LifeSaver to apply a flag to each property it generates.
 
+Input:
+
   ```scss
-  // Input
   @include margin(2 4 x 16, em, x, !important);
   ```
 
+Output:
+
   ```css
-  // Output
   margin-top: 0.125em !important;
   margin-right: 0.25em !important;
   margin-left: 1em !important;
