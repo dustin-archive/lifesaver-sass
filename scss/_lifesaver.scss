@@ -1,7 +1,7 @@
 // LifeSaver
-// December 30, 2014
+// January 15, 2014
 // The MIT License (MIT)
-// Copyright (c) 2014 Dustin Dowell
+// Copyright (c) 2015 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
 
 
@@ -103,6 +103,12 @@
             @else if $unit == pct {
               #{$suffix-key}: append(pct($value, $scale), $flag);
             }
+            @else if $unit == vw {
+              #{$suffix-key}: append(vw($value, $scale), $flag);
+            }
+            @else if $unit == vh {
+              #{$suffix-key}: append(vh($value, $scale), $flag);
+            }
             @else if skip($unit, null) or $value == 0 or type-of($value) == string {
               #{$suffix-key}: append($value, $flag);
             }
@@ -139,6 +145,12 @@
           }
           @else if $unit == pct {
             $result: append($result, pct($value, $scale));
+          }
+          @else if $unit == vw {
+            $result: append($result, vw($value, $scale));
+          }
+          @else if $unit == vh {
+            $result: append($result, vh($value, $scale));
           }
           @else if skip($unit, null) or $value == 0 or type-of($value) == string {
             $result: append($result, $value);

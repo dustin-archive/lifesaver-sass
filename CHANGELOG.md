@@ -1,10 +1,14 @@
 Changelog
 ==========
 
+January 15, 2015
++ 1.0.0
+  + Added `vw` and `vh` units
+
 December 30, 2014
 + Compressed logic that splits output into multiple properties
 + Changed `$flag` and `$z` order in position properties
-+ Allowed flags to be added to `z-index` in position properties
++ Fixed flags being added to `z-index` in position properties
 + Fixed safe convert when using font size scale compensation
 
 December 13, 2014
@@ -14,7 +18,7 @@ December 13, 2014
 + Cleaned up comments and code formatting
 
 November 27, 2014
-+ Fixed scale compensation
++ Fixed font size scale compensation
 + Added `safe-convert` function
 + Replaced `ceil-convert` functions in unit functions to `safe-convert`
 

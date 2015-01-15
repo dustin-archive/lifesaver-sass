@@ -62,6 +62,14 @@
   @return percentage(scale-comp($value, $scale) / 100);
 }
 
+@function vw($value, $scale: null) {
+  @return scale-comp($value, $scale) * 1vw;
+}
+
+@function vh($value, $scale: null) {
+  @return scale-comp($value, $scale) * 1vh;
+}
+
 //
 // + Floor
 // =========
