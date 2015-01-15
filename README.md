@@ -49,7 +49,9 @@ The core mixin is what does all the magic. The advantage of using just the core 
   ```scss
   // Input
   @include ls(margin padding, 2 4 x 16, px rem);
+  ```
 
+  ```css
   // Output
   margin-top: 2px;
   margin-right: 4px;
@@ -76,7 +78,9 @@ LifeSaver comes with it's own set of shorthand properties to keep your code even
   ```scss
   // Input
   @include margin(2 4 x 16, px rem);
+  ```
 
+  ```css
   // Output
   margin-top: 2px;
   margin-right: 4px;
@@ -140,7 +144,9 @@ In CSS there's a common problem when using the shorthand syntax, which is that y
   ```scss
   // Input
   @include margin(x auto);
+  ```
 
+  ```css
   // Output
   margin-top: auto;
   margin-left: auto;
@@ -193,7 +199,9 @@ A common problem when using units like rem and em is that when you change the fo
   // Input
   font-size: em(18);
   @include margin(2 4 x 16, em, 18);
+  ```
 
+  ```css
   // Output
   font-size: 1.125em;
   margin-top: 0.125em;
@@ -210,7 +218,9 @@ Passing a flag argument tells LifeSaver to apply a flag to each property it gene
   ```scss
   // Input
   @include margin(2 4 x 16, em, x, !important);
+  ```
 
+  ```css
   // Output
   margin-top: 0.125em !important;
   margin-right: 0.25em !important;
@@ -270,7 +280,7 @@ Here's a real world example mixin that uses LifeSaver as a property compressor:
 
 In this mixin, if you pass the arguments: `top right bottom left`, the output would look like this:
 
-  ```scss
+  ```css
   display: inline-block;
   border-style: solid;
   border-color: #1f2327;
