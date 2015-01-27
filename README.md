@@ -1,4 +1,4 @@
-LifeSaver
+LifeSaver - 1.0.0
 =========
 
 Shorthand the way it was meant to be.
