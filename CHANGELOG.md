@@ -1,6 +1,17 @@
 Changelog
 ==========
 
+**January 27, 2015**
++ 1.0.1
+  + Fixed `scale-comp` function (again)
+  + Added, in all safe unit functions, if a value equals 0 the unit type won't be output
+  + Added `radius` property mixin as an alias to `border-radius`
+  + Added `absolute` property mixin as an alias to `position-absolute`
+  + Added `fixed` property mixin as an alias to `position-fixed`
+  + Added `relative` property mixin as an alias to `position-relative`
+  + Added `static` property mixin as an alias to `position-static`
+  + Added `sticky` property mixin as an alias to `position-sticky`
+
 **January 15, 2015**
 + 1.0.0
   + Added `vw` and `vh` units
@@ -15,10 +26,9 @@ Changelog
 + Added `min-size` and `max-size` mixins
 + Added `z-index` to position mixins
 + Changed `$important` to `$flag`
-+ Cleaned up comments and code formatting
 
 **November 27, 2014**
-+ Fixed font size scale compensation
++ Fixed `scale-comp` function
 + Added `safe-convert` function
 + Replaced `ceil-convert` functions in unit functions to `safe-convert`
 
@@ -28,7 +38,6 @@ Changelog
 + Added more `position` properties
 + Added `border-width` and `border-radius` properties
 + Moved `size` property logic out of `lifesaver.scss` into `properties.scss`
-+ Changed from tabs to 2 spaces
 + Removed `lifesaver` prefix from partials
 
 **November 21, 2014**
@@ -56,9 +65,9 @@ Changelog
 + Used the skip function when necessary
 
 **November 10, 2014**
-+ Added font size scale compensation and a function `scale-compensation`
 + Added the use of null as an alternative to x for skipping values
 + Added `singles` functions
++ Added `scale-compensation` function
 + Added more tests to `_lifesaver-stress-test.scss`
 + Added and simplified inline docs
 + Split off `append-unit` function

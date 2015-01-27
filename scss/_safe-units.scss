@@ -7,7 +7,7 @@
 // ======================
 
 @function scale-comp($value, $scale: null) {
-  @return if(skippable($scale), $value, (skip($scale, 16) / $scale) * $value);
+  @return if(skippable($scale), $value, (16 / $scale) * $value);
 }
 
 //
@@ -47,27 +47,33 @@
 }
 
 @function em($value, $scale: null) {
-  @return safe-convert(scale-comp($value, $scale)) * 1em;
+  $result: safe-convert(scale-comp($value, $scale));
+  @return if($value == 0, $result, $result * 1em);
 }
 
 @function rem($value, $scale: null) {
-  @return safe-convert(scale-comp($value, $scale)) * 1rem;
+  $result: safe-convert(scale-comp($value, $scale));
+  @return if($value == 0, $result, $result * 1rem);
 }
 
 @function px($value, $scale: null) {
-  @return safe(scale-comp($value, $scale)) * 1px;
+  $result: safe(scale-comp($value, $scale));
+  @return if($value == 0, $result, $result * 1px);
 }
 
 @function pct($value, $scale: null) {
-  @return percentage(scale-comp($value, $scale) / 100);
+  $result: scale-comp($value, $scale);
+  @return if($value == 0, $result, $result * 1%);
 }
 
 @function vw($value, $scale: null) {
-  @return scale-comp($value, $scale) * 1vw;
+  $result: scale-comp($value, $scale);
+  @return if($value == 0, $result, $result * 1vw);
 }
 
 @function vh($value, $scale: null) {
-  @return scale-comp($value, $scale) * 1vh;
+  $result: scale-comp($value, $scale);
+  @return if($value == 0, $result, $result * 1vh);
 }
 
 //
@@ -79,15 +85,18 @@
 }
 
 @function floor-em($value) {
-  @return floor-convert($value) * 1em;
+  $result: floor-convert($value);
+  @return if($value == 0, $result, $result * 1em);
 }
 
 @function floor-rem($value) {
-  @return floor-convert($value) * 1rem;
+  $result: floor-convert($value);
+  @return if($value == 0, $result, $result * 1rem);
 }
 
 @function floor-px($value) {
-  @return floor($value) * 1px;
+  $result: floor($value);
+  @return if($value == 0, $result, $result * 1px);
 }
 
 //
@@ -99,13 +108,16 @@
 }
 
 @function round-em($value) {
-  @return round-convert($value) * 1em;
+  $result: round-convert($value);
+  @return if($value == 0, $result, $result * 1em);
 }
 
 @function round-rem($value) {
-  @return round-convert($value) * 1rem;
+  $result: round-convert($value);
+  @return if($value == 0, $result, $result * 1rem);
 }
 
 @function round-px($value) {
-  @return round($value) * 1px;
+  $result: round($value);
+  @return if($value == 0, $result, $result * 1px);
 }

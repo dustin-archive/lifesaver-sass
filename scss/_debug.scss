@@ -11,19 +11,19 @@
   @include size(1 x, em rem px pct vw vh);
   @include size(x 2, em rem px pct vw vh);
 
-  @include margin( 1 x 2 4, em rem px pct vw vh);
-  @include padding(1 x 2 4, em rem px pct vw vh);
+  @include margin(           1 x 3 4, em rem px pct vw vh);
+  @include padding(          1 x 3 4, em rem px pct vw vh);
 
-  @include border-width( 1 x 2 4, em rem px pct vw vh);
-  @include border-radius(1 x 2 4, em rem px pct vw vh);
+  @include border-width(     1 x 3 4, em rem px pct vw vh);
+  @include border-radius(    1 x 3 4, em rem px pct vw vh);
 
-  @include position(         1 x 2 4, em rem px pct vw vh);
-  @include position-absolute(1 x 2 4, em rem px pct vw vh);
-  @include position-fixed(   1 x 2 4, em rem px pct vw vh);
-  @include position-inherit( 1 x 2 4, em rem px pct vw vh);
-  @include position-relative(1 x 2 4, em rem px pct vw vh);
-  @include position-static(  1 x 2 4, em rem px pct vw vh);
-  @include position-sticky(  1 x 2 4, em rem px pct vw vh);
+  @include position(         1 x 3 4, em rem px pct vw vh);
+  @include position-absolute(1 x 3 4, em rem px pct vw vh);
+  @include position-fixed(   1 x 3 4, em rem px pct vw vh);
+  @include position-inherit( 1 x 3 4, em rem px pct vw vh);
+  @include position-relative(1 x 3 4, em rem px pct vw vh);
+  @include position-static(  1 x 3 4, em rem px pct vw vh);
+  @include position-sticky(  1 x 3 4, em rem px pct vw vh);
 }
 
 //
@@ -31,12 +31,9 @@
 // ==========
 
 .ls-debug-1-unit { @include ls(size margin position border-radius border-width, 1, em rem px pct vw vh); }
-
 .ls-debug-1-unit { @include ls(size margin position border-radius border-width, 1, em rem px pct vw vh, 24); }
-
-.ls-debug-1-unit { @include ls(size margin position border-radius border-width, 1, em rem px pct vw vh, x, !important); }
-
 .ls-debug-1-unit { @include ls(size margin position border-radius border-width, 1, em rem px pct vw vh, 24, !important); }
+.ls-debug-1-unit { @include ls(size margin position border-radius border-width, 1, em rem px pct vw vh, x, !important); }
 
 //
 // + 2 Units
@@ -50,13 +47,13 @@
 .ls-debug-2-units { @include ls(size margin position border-radius border-width, x 2, em rem px pct vw vh, 24); }
 .ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 x, em rem px pct vw vh, 24); }
 
-.ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 2, em rem px pct vw vh, x, !important); }
-.ls-debug-2-units { @include ls(size margin position border-radius border-width, x 2, em rem px pct vw vh, x, !important); }
-.ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 x, em rem px pct vw vh, x, !important); }
-
 .ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 2, em rem px pct vw vh, 24, !important); }
 .ls-debug-2-units { @include ls(size margin position border-radius border-width, x 2, em rem px pct vw vh, 24, !important); }
 .ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 x, em rem px pct vw vh, 24, !important); }
+
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 2, em rem px pct vw vh, x, !important); }
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, x 2, em rem px pct vw vh, x, !important); }
+.ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 x, em rem px pct vw vh, x, !important); }
 
 //
 // + 4 Units

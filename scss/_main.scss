@@ -3,13 +3,11 @@
 // =================================
 
 
-// Independent
-@import 'safe-units';
 @import 'skip';
 
-// Dependent
-@import 'lifesaver'; // Requires: safe-units, skip
+@import 'safe-units'; // Requires: skip
+
+@import 'lifesaver';  // Requires: safe-units, skip
 @import 'properties'; // Requires: lifesaver, safe-units, skip
 
-// Debug
-// @import 'debug'; // Requires: lifesaver
+// @import 'debug';   // Requires: lifesaver

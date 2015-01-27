@@ -1,7 +1,7 @@
-LifeSaver - 1.0.0
+LifeSaver - 1.0.1
 =========
 
-Shorthand the way it was meant to be.
+Shorthand for all your Sass!
 
 
 
@@ -25,9 +25,9 @@ Shorthand the way it was meant to be.
 
 Import LifeSaver into your project at the top of your Sass extensions file (or whatever).
 
-  ```scss
-  @import 'extensions/lifesaver/main';
-  ```
+```scss
+@import 'extensions/lifesaver/main';
+```
 
 
 
@@ -35,10 +35,10 @@ Import LifeSaver into your project at the top of your Sass extensions file (or w
 
 There are two ways to use LifeSaver. You can either use the core mixin or a shorthand property mixin.
 
-  ```scss
-  @include ls([properties], [values], [units], [scale compensation], [flag]);
-  @include margin([values], [units], [scale compensation], [flag]);
-  ```
+```scss
+@include ls([properties], [values], [units], [scale compensation], [flag]);
+@include margin([values], [units], [scale compensation], [flag]);
+```
 
 
 
@@ -48,26 +48,26 @@ The core mixin is what does all the magic. The advantage of using just the core 
 
 Input:
 
-  ```scss
-  @include ls(margin padding, 2 4 x 16, px rem);
-  ```
+```scss
+@include ls(margin padding, 2 4 x 16, px rem);
+```
 
 Output:
 
-  ```css
-  margin-top: 2px;
-  margin-right: 4px;
-  margin-left: 16px;
-  margin-top: 0.125rem;
-  margin-right: 0.25rem;
-  margin-left: 1rem;
-  padding-top: 2px;
-  padding-right: 4px;
-  padding-left: 16px;
-  padding-top: 0.125rem;
-  padding-right: 0.25rem;
-  padding-left: 1rem;
-  ```
+```css
+margin-top: 2px;
+margin-right: 4px;
+margin-left: 16px;
+margin-top: 0.125rem;
+margin-right: 0.25rem;
+margin-left: 1rem;
+padding-top: 2px;
+padding-right: 4px;
+padding-left: 16px;
+padding-top: 0.125rem;
+padding-right: 0.25rem;
+padding-left: 1rem;
+```
 
 The disadvantage to this is that you can't pass any of the shorthand property values like `size` or `position-absolute` to the core mixin. All shorthand property logic is stored inside that property's mixin. This keeps the compile time quick and the code clean and maintainable.
 
@@ -79,44 +79,52 @@ LifeSaver comes with it's own set of shorthand properties to keep your code even
 
 Input:
 
-  ```scss
-  @include margin(2 4 x 16, px rem);
-  ```
+```scss
+@include margin(2 4 x 16, px rem);
+```
 
 Output:
 
-  ```css
-  margin-top: 2px;
-  margin-right: 4px;
-  margin-left: 16px;
-  margin-top: 0.125rem;
-  margin-right: 0.25rem;
-  margin-left: 1rem;
-  ```
+```css
+margin-top: 2px;
+margin-right: 4px;
+margin-left: 16px;
+margin-top: 0.125rem;
+margin-right: 0.25rem;
+margin-left: 1rem;
+```
 
 The only disadvantage with using shorthand property mixins is that you can no logner use multiple properties. If you find yourself needing a specific combination often you can easily create your own property mixin.
 
 Here's a list of all of the shorthand property mixins:
 
-  ```scss
-  @include size();
-  @include min-size();
-  @include max-size();
+```scss
+@include size();
+@include min-size();
+@include max-size();
 
-  @include margin();
-  @include padding();
+@include margin();
+@include padding();
 
-  @include border-width();
-  @include border-radius();
+@include border-width();
+@include border-radius();
 
-  @include position();
-  @include position-absolute();
-  @include position-fixed();
-  @include position-inherit();
-  @include position-relative();
-  @include position-static();
-  @include position-sticky();
-  ````
+@include position();
+@include position-absolute();
+@include position-fixed();
+@include position-inherit();
+@include position-relative();
+@include position-static();
+@include position-sticky();
+
+@include radius();
+
+@include absolute();
+@include fixed();
+@include relative();
+@include static();
+@include sticky();
+````
 
 
 
@@ -130,14 +138,14 @@ LifeSaver can take any value that can be used in CSS including strings like `aut
 
 Here's a list of all the units you can pass to LifeSaver:
 
-  ```
-  px
-  em
-  rem
-  pct
-  vw
-  vh
-  ```
+```
+px
+em
+rem
+pct
+vw
+vh
+```
 
 
 
@@ -147,15 +155,15 @@ In CSS there's a common problem when using the shorthand syntax, which is that y
 
 Input:
 
-  ```scss
-  @include margin(x auto);
-  ```
+```scss
+@include margin(x auto);
+```
 
 Output:
 
-  ```css
-  margin-top: auto;
-  margin-left: auto;
+```css
+margin-top: auto;
+margin-left: auto;
   ```
 
 
@@ -166,34 +174,34 @@ LifeSaver has a set of functions for safely converting units to help prevent bro
 
 Here's a list of all the safe unit functions:
 
-  ```
-  scale-comp([value], [scale]);
+```
+scale-comp([value], [scale]);
 
-  convert([value]);
-  safe([value]);
-  ceil-convert([value]);
-  floor-convert([value]);
-  round-convert([value]);
-  safe-convert([value]);
+convert([value]);
+safe([value]);
+ceil-convert([value]);
+floor-convert([value]);
+round-convert([value]);
+safe-convert([value]);
 
-  un([value], [scale]);
-  em([value], [scale]);
-  rem([value], [scale]);
-  px([value], [scale]);
-  pct([value], [scale]);
-  vw([value], [scale]);
-  vh([value], [scale]);
+un([value], [scale]);
+em([value], [scale]);
+rem([value], [scale]);
+px([value], [scale]);
+pct([value], [scale]);
+vw([value], [scale]);
+vh([value], [scale]);
 
-  floor-un([value]);
-  floor-em([value]);
-  floor-rem([value]);
-  floor-px([value]);
+floor-un([value]);
+floor-em([value]);
+floor-rem([value]);
+floor-px([value]);
 
-  round-un([value]);
-  round-em([value]);
-  round-rem([value]);
-  round-px([value]);
-  ```
+round-un([value]);
+round-em([value]);
+round-rem([value]);
+round-px([value]);
+```
 
 
 
@@ -203,19 +211,19 @@ A common problem when using units like rem and em is that when you change the fo
 
 Input:
 
-  ```scss
-  font-size: em(18);
-  @include margin(2 4 x 16, em, 18);
-  ```
+```scss
+font-size: em(18);
+@include margin(2 4 x 16, em, 18);
+```
 
 Output:
 
-  ```css
-  font-size: 1.125em;
-  margin-top: 0.125em;
-  margin-right: 0.25em;
-  margin-left: 1em;
-  ```
+```css
+font-size: 1.125em;
+margin-top: 0.125em;
+margin-right: 0.25em;
+margin-left: 1em;
+```
 
 
 
@@ -225,17 +233,17 @@ Passing a flag argument tells LifeSaver to apply a flag to each property it gene
 
 Input:
 
-  ```scss
-  @include margin(2 4 x 16, em, x, !important);
-  ```
+```scss
+@include margin(2 4 x 16, em, x, !important);
+```
 
 Output:
 
-  ```css
-  margin-top: 0.125em !important;
-  margin-right: 0.25em !important;
-  margin-left: 1em !important;
-  ```
+```css
+margin-top: 0.125em !important;
+margin-right: 0.25em !important;
+margin-left: 1em !important;
+```
 
 If you only want to add a flag to only one of these generated properties, you'll have to add another include with only the value you want to add the flag to.
 
@@ -244,9 +252,9 @@ If you don't want to define scale compensation, but you want to pass a flag argu
 1. You can set the scale compensation to `x` or `null` telling LifeSaver to ignore this argument.
 1. Pass the flag argument using the `$flag` variable as shown below.
 
-  ```scss
-  @include margin(1 2, em, $flag: !important);
-  ```
+```scss
+@include margin(1 2, em, $flag: !important);
+```
 
 
 
@@ -256,44 +264,43 @@ It's easy to incorporate LifeSaver into your own mixins. Doing this allows you t
 
 Here's a real world example mixin that uses LifeSaver as a property compressor:
 
-  ```scss
-  @mixin line($side, $color: black, $style: solid, $padding: 4) {
-    display: inline-block;
-    border-style: $style;
-    border-color: $color;
+```scss
+@mixin line($side, $color: black, $style: solid, $padding: 4) {
+  display: inline-block;
+  border-style: $style;
+  border-color: $color;
 
-    $p1: $padding;
-    $p2: $padding * 2;
+  $p1: $padding;
+  $p2: $padding * 2;
 
-    $t: null;
-    $r: null;
-    $b: null;
-    $l: null;
+  $t: null;
+  $r: null;
+  $b: null;
+  $l: null;
 
-    @if index($side, box) {
-      $t: $p1;
-      $r: $p2;
-      $b: $p1;
-      $l: $p2;
-    }
-    @else {
-      $t: if(index($side, top), $p1, null);
-      $r: if(index($side, right), $p2, null);
-      $b: if(index($side, bottom), $p1, null);
-      $l: if(index($side, left), $p2, null);
-    }
-
-    @include padding($t $r $b $l, px);
-    @include border-width($t $r $b $l, px);
+  @if index($side, box) {
+    $t: $p1;
+    $r: $p2;
+    $b: $p1;
+    $l: $p2;
+  } @else {
+    $t: if(index($side, top), $p1, null);
+    $r: if(index($side, right), $p2, null);
+    $b: if(index($side, bottom), $p1, null);
+    $l: if(index($side, left), $p2, null);
   }
-  ```
+
+  @include padding($t $r $b $l, px);
+  @include border-width($t $r $b $l, px);
+}
+```
 
 In this mixin, if you pass the arguments: `top right bottom left`, the output would look like this:
 
-  ```css
-  display: inline-block;
-  border-style: solid;
-  border-color: #1f2327;
-  padding: 4px 8px;
-  border-width: 4px 8px;
-  ```
+```css
+display: inline-block;
+border-style: solid;
+border-color: #1f2327;
+padding: 4px 8px;
+border-width: 4px 8px;
+```
