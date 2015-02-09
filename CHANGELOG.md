@@ -1,6 +1,10 @@
 Changelog
 ==========
 
+**February 8, 2015**
++ 1.0.2
+  + Dynamically calls unit functions
+
 **January 27, 2015**
 + 1.0.1
   + Fixed `scale-comp` function (again)

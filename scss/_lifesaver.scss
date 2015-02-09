@@ -1,11 +1,12 @@
-// LifeSaver
-// January 27, 2015
+// LifeSaver - 1.0.2
+// February 8, 2015
 // The MIT License (MIT)
 // Copyright (c) 2015 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
 
 
 @mixin ls($property-list: null, $value-list: null, $unit-list: null, $scale: null, $flag: null) {
+  $unit-functions: em rem px pct vw vh;
   $length: length($value-list);
   $flag: if(skippable($flag), null, $flag);
 
@@ -46,7 +47,7 @@
 
     @if skippable($value-list) or $property == position  {
 
-      // Set scope
+      // Set map scope
       $suffix-map: ();
 
       @if $length == 2 or $length == 4 {
@@ -72,48 +73,36 @@
       // + Prepares output and outputs
       // ===============================
 
-      @each $unit in $unit-list {
-        @each $suffix-key in map-keys($suffix-map) {
-          $value: map-get($suffix-map, $suffix-key);
+      // Ignore x and null
+      @if not skippable($unit-list) {
+        @each $unit in $unit-list {
+          @each $suffix-key in map-keys($suffix-map) {
+            $value: map-get($suffix-map, $suffix-key);
 
-          // Append suffix when needed
-          @if $property == border-width {
-            $suffix-key: 'border-' + $suffix-key + '-width';
-          }
-          @else if $property == border-radius {
-            $suffix-key: 'border-' + $suffix-key + '-radius';
-          }
-          @else if $property == margin or $property == padding {
-            $suffix-key: $property + '-' + $suffix-key;
-          }
+            // Append suffix when needed
+            @if $property == border-width {
+              $suffix-key: 'border-' + $suffix-key + '-width';
+            }
+            @else if $property == border-radius {
+              $suffix-key: 'border-' + $suffix-key + '-radius';
+            }
+            @else if $property == margin or $property == padding {
+              $suffix-key: $property + '-' + $suffix-key;
+            }
 
-          // Ignore x and null
-          @if not skippable($value) {
+            // Ignore x and null
+            @if not skippable($value) {
 
-            // Output
-            @if $unit == em {
-              #{$suffix-key}: append(em($value, $scale), $flag);
-            }
-            @else if $unit == rem {
-              #{$suffix-key}: append(rem($value, $scale), $flag);
-            }
-            @else if $unit == px {
-              #{$suffix-key}: append(px($value, $scale), $flag);
-            }
-            @else if $unit == pct {
-              #{$suffix-key}: append(pct($value, $scale), $flag);
-            }
-            @else if $unit == vw {
-              #{$suffix-key}: append(vw($value, $scale), $flag);
-            }
-            @else if $unit == vh {
-              #{$suffix-key}: append(vh($value, $scale), $flag);
-            }
-            @else if skip($unit, null) or $value == 0 or type-of($value) == string {
-              #{$suffix-key}: append($value, $flag);
-            }
-            @else {
-              @error 'Mayday! Mayday!  LifeSaver: You used an invalid unit type.';
+              // Output
+              @if function-exists($unit) {
+                #{$suffix-key}: append(call($unit, $value, $scale), $flag);
+              }
+              @else if skip($unit, null) or $value == 0 or type-of($value) == string {
+                #{$suffix-key}: append($value, $flag);
+              }
+              @else {
+                @error 'Mayday! Mayday!  LifeSaver: You used an invalid unit type.';
+              }
             }
           }
         }
@@ -128,29 +117,14 @@
     @else if $length == 1 or $length == 2 or $length == 4 {
       @each $unit in $unit-list {
 
-        // Set scope
+        // Set list scope
         $result: null;
 
         @each $value in $value-list {
 
-          // Output
-          @if $unit == em {
-            $result: append($result, em($value, $scale));
-          }
-          @else if $unit == rem {
-            $result: append($result, rem($value, $scale));
-          }
-          @else if $unit == px {
-            $result: append($result, px($value, $scale));
-          }
-          @else if $unit == pct {
-            $result: append($result, pct($value, $scale));
-          }
-          @else if $unit == vw {
-            $result: append($result, vw($value, $scale));
-          }
-          @else if $unit == vh {
-            $result: append($result, vh($value, $scale));
+          // Concatenate shorthand output
+          @if function-exists($unit) {
+            $result: append($result, call($unit, $value, $scale));
           }
           @else if skip($unit, null) or $value == 0 or type-of($value) == string {
             $result: append($result, $value);
@@ -160,6 +134,7 @@
           }
         }
 
+        // Output
         #{$property}: append($result, $flag);
       }
     }
