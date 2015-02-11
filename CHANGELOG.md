@@ -6,6 +6,7 @@ Changelog
   + Fixed dynamically called unit functions
   + Refactored shorthand position and radius mixins
   + Added tests for shorthand position mixins
+  + Added `z-index` tests for position mixins
 
 **February 8, 2015**
 + 1.0.2
