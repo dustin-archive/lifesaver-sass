@@ -1,8 +1,9 @@
-// LifeSaver - 1.0.2
-// February 8, 2015
+// LifeSaver - 1.0.3
+// February 11, 2015
 // The MIT License (MIT)
 // Copyright (c) 2015 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
+// =============================================
 
 
 @mixin ls($property-list: null, $value-list: null, $unit-list: null, $scale: null, $flag: null) {
@@ -11,8 +12,8 @@
   $flag: if(skippable($flag), null, $flag);
 
   //
-  // + Compresses matching values to shorthand
-  // ===========================================
+  // + Compress matching values to shorthand
+  // =============================================
 
   @if $length == 4 {
     $top: nth($value-list, 1);
@@ -40,15 +41,14 @@
   }
 
   @each $property in $property-list {
-
-    //
-    // + Splits output into multiple properties
-    // ==========================================
-
     @if skippable($value-list) or $property == position  {
 
       // Set map scope
       $suffix-map: ();
+
+      //
+      // + Splits output into multiple properties
+      // =============================================
 
       @if $length == 2 or $length == 4 {
         @if $property == border-radius {
@@ -70,39 +70,34 @@
       }
 
       //
-      // + Prepares output and outputs
-      // ===============================
+      // + Prepare properties and output
+      // =============================================
 
-      // Ignore x and null
-      @if not skippable($unit-list) {
-        @each $unit in $unit-list {
-          @each $suffix-key in map-keys($suffix-map) {
-            $value: map-get($suffix-map, $suffix-key);
+      @each $unit in $unit-list {
+        @each $suffix-key in map-keys($suffix-map) {
+          $value: map-get($suffix-map, $suffix-key);
 
-            // Append suffix when needed
-            @if $property == border-width {
-              $suffix-key: 'border-' + $suffix-key + '-width';
+          // Append suffix when needed
+          @if $property == border-width {
+            $suffix-key: 'border-' + $suffix-key + '-width';
+          }
+          @else if $property == border-radius {
+            $suffix-key: 'border-' + $suffix-key + '-radius';
+          }
+          @else if $property == margin or $property == padding {
+            $suffix-key: $property + '-' + $suffix-key;
+          }
+
+          // Output
+          @if not skippable($value) {
+            @if $value == 0 or type-of($value) == string {
+              #{$suffix-key}: append($value, $flag);
             }
-            @else if $property == border-radius {
-              $suffix-key: 'border-' + $suffix-key + '-radius';
+            @else if function-exists($unit) {
+              #{$suffix-key}: append(call($unit, $value, $scale), $flag);
             }
-            @else if $property == margin or $property == padding {
-              $suffix-key: $property + '-' + $suffix-key;
-            }
-
-            // Ignore x and null
-            @if not skippable($value) {
-
-              // Output
-              @if function-exists($unit) {
-                #{$suffix-key}: append(call($unit, $value, $scale), $flag);
-              }
-              @else if skip($unit, null) or $value == 0 or type-of($value) == string {
-                #{$suffix-key}: append($value, $flag);
-              }
-              @else {
-                @error 'Mayday! Mayday!  LifeSaver: You used an invalid unit type.';
-              }
+            @else {
+              @error 'Mayday! Mayday!  LifeSaver: You used an invalid unit type.';
             }
           }
         }
@@ -110,24 +105,22 @@
     }
 
     //
-    // + Concatenates shorthand values
-    // =================================
+    // + Concatenate shorthand values and output
+    // =============================================
 
-    // Ensures only valid list lengths are processed
     @else if $length == 1 or $length == 2 or $length == 4 {
       @each $unit in $unit-list {
 
         // Set list scope
         $result: null;
 
+        // Concatenate shorthand output
         @each $value in $value-list {
-
-          // Concatenate shorthand output
-          @if function-exists($unit) {
-            $result: append($result, call($unit, $value, $scale));
-          }
-          @else if skip($unit, null) or $value == 0 or type-of($value) == string {
+          @if $value == 0 or type-of($value) == string {
             $result: append($result, $value);
+          }
+          @else if function-exists($unit) {
+            $result: append($result, call($unit, $value, $scale));
           }
           @else {
             @error 'Mayday! Mayday!  LifeSaver: You used an invalid unit type.';

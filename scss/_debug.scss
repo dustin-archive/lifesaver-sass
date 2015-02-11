@@ -1,10 +1,10 @@
-// ==================================
-// + Extensions / LifeSaver / Debug
-// ==================================
+//
+// + Debug
+// =============================================
 
 //
 // + Properties
-// ==============
+// =============================================
 
 .ls-debug-properties {
   @include size(1 2, em rem px pct vw vh);
@@ -17,18 +17,24 @@
   @include border-width(     1 x 3 4, em rem px pct vw vh);
   @include border-radius(    1 x 3 4, em rem px pct vw vh);
 
-  @include position(         1 x 3 4, em rem px pct vw vh);
-  @include position-absolute(1 x 3 4, em rem px pct vw vh);
-  @include position-fixed(   1 x 3 4, em rem px pct vw vh);
-  @include position-inherit( 1 x 3 4, em rem px pct vw vh);
-  @include position-relative(1 x 3 4, em rem px pct vw vh);
-  @include position-static(  1 x 3 4, em rem px pct vw vh);
-  @include position-sticky(  1 x 3 4, em rem px pct vw vh);
+  @include position(         1 x 3 4, em rem px pct vw vh, $z: 1);
+  @include position-absolute(1 x 3 4, em rem px pct vw vh, $z: 1);
+  @include position-fixed(   1 x 3 4, em rem px pct vw vh, $z: 1);
+  @include position-inherit( 1 x 3 4, em rem px pct vw vh, $z: 1);
+  @include position-relative(1 x 3 4, em rem px pct vw vh, $z: 1);
+  @include position-static(  1 x 3 4, em rem px pct vw vh, $z: 1);
+  @include position-sticky(  1 x 3 4, em rem px pct vw vh, $z: 1);
+
+  @include absolute(1 x 3 4, em rem px pct vw vh, $z: 1);
+  @include fixed(   1 x 3 4, em rem px pct vw vh, $z: 1);
+  @include relative(1 x 3 4, em rem px pct vw vh, $z: 1);
+  @include static(  1 x 3 4, em rem px pct vw vh, $z: 1);
+  @include sticky(  1 x 3 4, em rem px pct vw vh, $z: 1);
 }
 
 //
 // + 1 Unit
-// ==========
+// =============================================
 
 .ls-debug-1-unit { @include ls(size margin position border-radius border-width, 1, em rem px pct vw vh); }
 .ls-debug-1-unit { @include ls(size margin position border-radius border-width, 1, em rem px pct vw vh, 24); }
@@ -37,7 +43,7 @@
 
 //
 // + 2 Units
-// ===========
+// =============================================
 
 .ls-debug-2-units { @include ls(size margin position border-radius border-width, 1 2, em rem px pct vw vh); }
 .ls-debug-2-units { @include ls(size margin position border-radius border-width, x 2, em rem px pct vw vh); }
@@ -57,7 +63,7 @@
 
 //
 // + 4 Units
-// ===========
+// =============================================
 
 .ls-debug-4-units { @include ls(margin position border-radius border-width, 1 2 3 4, em rem px pct vw vh); }
 .ls-debug-4-units { @include ls(margin position border-radius border-width, x 2 3 4, em rem px pct vw vh); }

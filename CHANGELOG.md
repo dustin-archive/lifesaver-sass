@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+**February 11, 2015**
++ 1.0.3
+  + Fixed dynamically called unit functions
+  + Refactored shorthand position and radius mixins
+  + Added tests for shorthand position mixins
+
 **February 8, 2015**
 + 1.0.2
   + Dynamically calls unit functions

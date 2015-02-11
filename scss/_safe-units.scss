@@ -1,10 +1,10 @@
-// =======================================
-// + Extensions / LifeSaver / Safe Units
-// =======================================
+//
+// + Safe Units
+// =============================================
 
 //
 // + Scale Compensation
-// ======================
+// =============================================
 
 @function scale-comp($value, $scale: null) {
   @return if(skippable($scale), $value, (16 / $scale) * $value);
@@ -12,7 +12,7 @@
 
 //
 // + Convert
-// ===========
+// =============================================
 
 @function ceil-convert($value) {
   @return ceil($value) / 16;
@@ -40,7 +40,7 @@
 
 //
 // + Units
-// =========
+// =============================================
 
 @function un($value, $scale: null) {
   @return safe-convert(scale-comp($value, $scale));
@@ -78,7 +78,7 @@
 
 //
 // + Floor
-// =========
+// =============================================
 
 @function floor-un($value) {
   @return floor-convert($value);
@@ -101,7 +101,7 @@
 
 //
 // + Round
-// =========
+// =============================================
 
 @function round-un($value) {
   @return round-convert($value);
