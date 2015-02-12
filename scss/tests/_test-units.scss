@@ -1,0 +1,34 @@
+//
+// + Test shorthand
+// =============================================
+
+
+.test {
+  @include ls(margin, 1, em);
+  margin: 0.0625em;
+}
+
+.test {
+  @include ls(margin, 1, rem);
+  margin: 0.0625rem;
+}
+
+.test {
+  @include ls(margin, 1, px);
+  margin: 1px;
+}
+
+.test {
+  @include ls(margin, 1, pct);
+  margin: 1%;
+}
+
+.test {
+  @include ls(margin, 1, vw);
+  margin: 1vw;
+}
+
+.test {
+  @include ls(margin, 1, vh);
+  margin: 1vh;
+}

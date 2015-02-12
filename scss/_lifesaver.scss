@@ -1,5 +1,5 @@
-// LifeSaver - 1.0.3
-// February 11, 2015
+// LifeSaver - 1.0.4
+// February 12, 2015
 // The MIT License (MIT)
 // Copyright (c) 2015 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
@@ -9,12 +9,11 @@
 @mixin ls($property-list: null, $value-list: null, $unit-list: null, $scale: null, $flag: null) {
   $unit-functions: em rem px pct vw vh;
   $length: length($value-list);
+
+  // Checks if $flag contains x or null
   $flag: if(skippable($flag), null, $flag);
 
-  //
-  // + Compress matching values to shorthand
-  // =============================================
-
+  // Compress matching values to shorthand
   @if $length == 4 {
     $top: nth($value-list, 1);
     $right: nth($value-list, 2);
@@ -40,16 +39,16 @@
     }
   }
 
+  // Loops though properties
   @each $property in $property-list {
+
+    // Split output into multiple properties
     @if skippable($value-list) or $property == position  {
 
       // Set map scope
       $suffix-map: ();
 
-      //
-      // + Splits output into multiple properties
-      // =============================================
-
+      // Assign $value-list values to $suffix-map
       @if $length == 2 or $length == 4 {
         @if $property == border-radius {
           $suffix-map: (
@@ -69,10 +68,7 @@
         }
       }
 
-      //
-      // + Prepare properties and output
-      // =============================================
-
+      // Prepare property suffixes and output
       @each $unit in $unit-list {
         @each $suffix-key in map-keys($suffix-map) {
           $value: map-get($suffix-map, $suffix-key);
@@ -104,10 +100,7 @@
       }
     }
 
-    //
-    // + Concatenate shorthand values and output
-    // =============================================
-
+    // Concatenate shorthand values and output
     @else if $length == 1 or $length == 2 or $length == 4 {
       @each $unit in $unit-list {
 

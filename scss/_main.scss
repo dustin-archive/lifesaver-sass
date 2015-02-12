@@ -4,7 +4,7 @@
 
 
 @import 'skip';
-@import 'safe-units';                           // Requires: skip
-@import 'lifesaver';                            // Requires: safe-units, skip
-@import 'properties';                           // Requires: safe-units, skip
-//@import 'debug';
+@import 'safe-units';
+@import 'lifesaver';
+@import 'properties';
+@import 'tests/main';

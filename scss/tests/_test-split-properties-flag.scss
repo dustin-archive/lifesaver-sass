@@ -1,0 +1,10 @@
+//
+// + Test split properties flag
+// =============================================
+
+
+.test {
+  @include ls(margin, 1 x x 1, em, $flag: !important);
+  margin-top: 0.0625em !important;
+  margin-left: 0.0625em !important;
+}

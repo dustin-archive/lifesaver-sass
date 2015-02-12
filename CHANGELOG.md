@@ -1,6 +1,10 @@
 Changelog
 ==========
 
+**February 12, 2015**
++ 1.0.4
+  + Replaced `debug.scss` with modular tests
+
 **February 11, 2015**
 + 1.0.3
   + Fixed dynamically called unit functions
@@ -62,7 +66,7 @@ Changelog
 + Added `size` LifeSaver property for width and height properties
 + Added `skippable` function to `skip.scss`
 + Renamed `lifesaver-singles.scss` to `lifesaver-properties.scss`
-+ Replaced the stress test with a debug test
++ Replaced `stress-test.scss` with a `debug.scss`
 + Merged `scale-compensation` into `safe-units` unit functions
 + Removed the `append-unit` function
 

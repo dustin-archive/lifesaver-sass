@@ -1,0 +1,9 @@
+//
+// + Test matching values
+// =============================================
+
+
+.test {
+  @include ls(margin, 1 2 1 2, em);
+  margin: 0.0625em 0.125em;
+}
