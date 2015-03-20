@@ -3,7 +3,7 @@
 // =============================================
 
 
-.test {
+.test-split-properties {
   @include ls(margin, 1 x x 1, em);
   margin-top: 0.0625em;
   margin-left: 0.0625em;

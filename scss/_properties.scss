@@ -24,7 +24,7 @@
     @include ls(height, $height, $unit-list, $scale, $flag);
   }
   @else {
-    @error 'Mayday! Mayday!  LifeSaver: You can only pass up to 2 values to size.';
+    @error 'Mayday! LifeSaver: You can only pass up to 2 values to size.';
   }
 }
 
@@ -46,7 +46,7 @@
     @include ls(min-height, $height, $unit-list, $scale, $flag);
   }
   @else {
-    @error 'Mayday! Mayday!  LifeSaver: You can only pass up to 2 values to size.';
+    @error 'Mayday! LifeSaver: You can only pass up to 2 values to min-size.';
   }
 }
 
@@ -68,7 +68,7 @@
     @include ls(max-height, $height, $unit-list, $scale, $flag);
   }
   @else {
-    @error 'Mayday! Mayday!  LifeSaver: You can only pass up to 2 values to size.';
+    @error 'Mayday! LifeSaver: You can only pass up to 2 values to max-size.';
   }
 }
 

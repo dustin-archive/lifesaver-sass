@@ -3,7 +3,7 @@
 // =============================================
 
 
-.test {
+.test-shorthand-scale {
   @include ls(margin, 1 2 3 4, em, 24);
   margin: 0.04297em 0.08203em 0.125em 0.16797em;
 }

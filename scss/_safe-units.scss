@@ -7,7 +7,7 @@
 // =============================================
 
 @function scale-comp($value, $scale: null) {
-  @return if(skippable($scale), $value, (16 / $scale) * $value);
+  @return if(is-null($scale), $value, (16 / $scale) * $value);
 }
 
 //
@@ -63,7 +63,7 @@
 
 @function pct($value, $scale: null) {
   $result: scale-comp($value, $scale);
-  @return if($value == 0, $result, $result * 1%);
+  @return if($value == 0, $result, $result * 100%);
 }
 
 @function vw($value, $scale: null) {

@@ -1,5 +1,5 @@
-// LifeSaver - 1.0.4
-// February 12, 2015
+// LifeSaver - 1.0.5
+// March 20, 2015
 // The MIT License (MIT)
 // Copyright (c) 2015 Dustin Dowell
 // http://github.com/dustindowell22/lifesaver
@@ -11,7 +11,7 @@
   $length: length($value-list);
 
   // Checks if $flag contains x or null
-  $flag: if(skippable($flag), null, $flag);
+  $flag: if(is-null($flag), null, $flag);
 
   // Compress matching values to shorthand
   @if $length == 4 {
@@ -43,7 +43,7 @@
   @each $property in $property-list {
 
     // Split output into multiple properties
-    @if skippable($value-list) or $property == position  {
+    @if is-null($value-list) or $property == position  {
 
       // Set map scope
       $suffix-map: ();
@@ -85,7 +85,7 @@
           }
 
           // Output
-          @if not skippable($value) {
+          @if not is-null($value) {
             @if $value == 0 or type-of($value) == string {
               #{$suffix-key}: append($value, $flag);
             }

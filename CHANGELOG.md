@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+**March 20, 2015**
++ 1.0.5
+  + Renamed `skippable` function to `is-null`
+  + Renamed `skip` function to `set-default`
+  + Slightly shorter error messages
+  + Better test class names
+
 **February 12, 2015**
 + 1.0.4
   + Replaced `debug.scss` with modular tests
