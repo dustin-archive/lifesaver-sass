@@ -1,6 +1,10 @@
 Changelog
 ==========
 
+**March 27, 2015**
++ 1.0.6
+  + Split properties into seperate files
+
 **March 20, 2015**
 + 1.0.5
   + Renamed `skippable` function to `is-null`

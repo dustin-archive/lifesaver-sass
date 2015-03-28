@@ -1,0 +1,12 @@
+//
+// + Border
+// =============================================
+
+
+@mixin border-width($value-list: null, $unit-list: null, $scale: null, $flag: null) {
+  @include ls(border-width, $value-list, $unit-list, $scale, $flag);
+}
+
+@mixin border-radius($value-list: null, $unit-list: null, $scale: null, $flag: null) {
+  @include ls(border-radius, $value-list, $unit-list, $scale, $flag);
+}
