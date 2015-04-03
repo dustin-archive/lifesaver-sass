@@ -10,7 +10,7 @@
   $unit-functions: em rem px pct vw vh;
   $length: length($value-list);
 
-  // Checks if $flag contains x or null
+  // Check if $flag contains x or null
   $flag: if(is-null($flag), null, $flag);
 
   // Compress matching values to shorthand
@@ -39,7 +39,7 @@
     }
   }
 
-  // Loops though properties
+  // Loop though properties
   @each $property in $property-list {
 
     // Split output into multiple properties
