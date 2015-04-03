@@ -23,10 +23,16 @@ Shorthand for all your Sass!
 
 ## Getting Started
 
-Import LifeSaver into your project at the top of your Sass extensions file (or whatever).
+Import LifeSaver into your project at the top of your Sass modules file (or whatever).
 
 ```scss
-@import 'extensions/lifesaver/main';
+@import 'modules/lifesaver/main';
+```
+
+For the sake of convenience I've also included an all-in-one version of LifeSaver, in which case you would do this (or whatever).
+
+```scss
+@import 'modules/lifesaver-all-in-one';
 ```
 
 
@@ -94,7 +100,7 @@ margin-right: 0.25rem;
 margin-left: 1rem;
 ```
 
-The only disadvantage with using shorthand property mixins is that you can no logner use multiple properties. If you find yourself needing a specific combination often you can easily create your own property mixin.
+The only disadvantage with using shorthand property mixins is that you can no longer use multiple properties. If you find yourself needing a specific combination often you can easily create your own property mixin.
 
 Here's a list of all of the shorthand property mixins:
 
