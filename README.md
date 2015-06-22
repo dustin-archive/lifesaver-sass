@@ -50,7 +50,7 @@ There are two ways to use LifeSaver. You can either use the core mixin or a shor
 
 ## Core Mixin
 
-The core mixin is what does all the magic. The advantage of using just the core mixin over the shorthand property mixins is the ability to use multiple properties. A possible use case for this is a series of buttons where you want the same amount of space on the inside and outside.
+The core mixin is where all the hard work is done. The advantage of using just the core mixin directly instead of a shorthand property mixin is the ability to use multiple properties. A possible use case for this is a button where you want the same amount of padding and margin on the inside and outside.
 
 Input:
 
@@ -142,7 +142,20 @@ LifeSaver can take any value that can be used in CSS including strings like `aut
 
 ## Units
 
-Here's a list of all the units you can pass to LifeSaver:
+Just like how you can pass multiple properties to LifeSaver you can also pass multiple units. This is useful when you're coding a website that needs to use new standards but is also still compatible with older browsers. For example browsers don't support the `rem` unit, so here is how you might want to use a `px` fallback:
+
+```scss
+@include margin(2 x x x, px rem);
+```
+
+Output:
+
+```css
+margin-top: 2px;
+margin-top: 0.125rem;
+```
+
+Since older browsers won't recognize the `rem` they will just throw it out and use the previous `px` value instead. In newer browsers the `rem` will simply override the `px`. Here's a list of all the units you can pass to LifeSaver:
 
 ```
 px
@@ -168,8 +181,8 @@ Input:
 Output:
 
 ```css
-margin-top: auto;
 margin-left: auto;
+margin-right: auto;
   ```
 
 
@@ -289,7 +302,8 @@ Here's a real world example mixin that uses LifeSaver as a property compressor:
     $r: $p2;
     $b: $p1;
     $l: $p2;
-  } @else {
+  }
+  @else {
     $t: if(index($side, top), $p1, null);
     $r: if(index($side, right), $p2, null);
     $b: if(index($side, bottom), $p1, null);
