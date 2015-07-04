@@ -99,6 +99,7 @@
         }
       }
     }
+
     // Concatenate shorthand values and output
     @else if $length == 1 or $length == 2 or $length == 4 {
       @each $unit in $unit-list {
