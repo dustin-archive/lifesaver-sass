@@ -3,6 +3,6 @@
 // =============================================
 
 
-@mixin margin($value-list: null, $unit-list: null, $scale: null, $flag: null) {
+@mixin margin($value-list, $unit-list: null, $scale: null, $flag: null) {
   @include ls(margin, $value-list, $unit-list, $scale, $flag);
 }

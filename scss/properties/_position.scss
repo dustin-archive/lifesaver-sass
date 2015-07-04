@@ -3,42 +3,42 @@
 // =============================================
 
 
-@mixin position($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin position($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
   @include ls(position, $value-list, $unit-list, $scale, $flag);
   z-index: append($z, $flag);
 }
 
-@mixin position-absolute($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin position-absolute($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
   position: absolute;
   @include ls(position, $value-list, $unit-list, $scale, $flag);
   z-index: append($z, $flag);
 }
 
-@mixin position-fixed($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin position-fixed($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
   position: fixed;
   @include ls(position, $value-list, $unit-list, $scale, $flag);
   z-index: append($z, $flag);
 }
 
-@mixin position-inherit($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin position-inherit($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
   position: inherit;
   @include ls(position, $value-list, $unit-list, $scale, $flag);
   z-index: append($z, $flag);
 }
 
-@mixin position-relative($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin position-relative($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
   position: relative;
   @include ls(position, $value-list, $unit-list, $scale, $flag);
   z-index: append($z, $flag);
 }
 
-@mixin position-static($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin position-static($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
   position: static;
   @include ls(position, $value-list, $unit-list, $scale, $flag);
   z-index: append($z, $flag);
 }
 
-@mixin position-sticky($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin position-sticky($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
   position: sticky;
   @include ls(position, $value-list, $unit-list, $scale, $flag);
   z-index: append($z, $flag);
@@ -49,22 +49,22 @@
 // =============================================
 
 
-@mixin absolute($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin absolute($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
   @include position-absolute($value-list, $unit-list, $scale, $z, $flag);
 }
 
-@mixin fixed($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin fixed($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
   @include position-fixed($value-list, $unit-list, $scale, $z, $flag);
 }
 
-@mixin relative($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin relative($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
   @include position-relative($value-list, $unit-list, $scale, $z, $flag);
 }
 
-@mixin static($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin static($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
   @include position-static($value-list, $unit-list, $scale, $z, $flag);
 }
 
-@mixin sticky($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin sticky($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
   @include position-sticky($value-list, $unit-list, $scale, $z, $flag);
 }

@@ -6,7 +6,7 @@
 // =============================================
 
 
-@mixin ls($property-list: null, $value-list: null, $unit-list: null, $scale: null, $flag: null) {
+@mixin ls($property-list, $value-list, $unit-list: null, $scale: null, $flag: null) {
   $unit-functions: em rem px pct vw vh;
   $length: length($value-list);
 
@@ -102,7 +102,7 @@
     // Concatenate shorthand values and output
     @else if $length == 1 or $length == 2 or $length == 4 {
       @each $unit in $unit-list {
-        
+
         // Set list scope
         $result: null;
 

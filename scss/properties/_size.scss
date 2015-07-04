@@ -39,14 +39,14 @@
   }
 }
 
-@mixin size($value-list: null, $unit-list: null, $scale: null, $flag: null) {
+@mixin size($value-list, $unit-list: null, $scale: null, $flag: null) {
   @include size-type(size, $value-list, $unit-list, $scale, $flag);
 }
 
-@mixin min-size($value-list: null, $unit-list: null, $scale: null, $flag: null) {
+@mixin min-size($value-list, $unit-list: null, $scale: null, $flag: null) {
   @include size-type(min, $value-list, $unit-list, $scale, $flag);
 }
 
-@mixin max-size($value-list: null, $unit-list: null, $scale: null, $flag: null) {
+@mixin max-size($value-list, $unit-list: null, $scale: null, $flag: null) {
   @include size-type(max, $value-list, $unit-list, $scale, $flag);
 }

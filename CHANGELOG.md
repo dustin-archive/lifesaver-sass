@@ -3,6 +3,8 @@ Changelog
 
 **July 3, 2015**
 + 1.0.7
+  + `$property-values` is now a required argument in the lifesaver mixin
+  + `$value-list` is now a required argument in all mixins
   + Swapped `@error` for `@warn` and simplified the messages
   + Compressed partials together
   + Compressed `min-size`, `max-size` and `size` mixins into one parent mixin with child mixins
