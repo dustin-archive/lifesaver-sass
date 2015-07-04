@@ -43,3 +43,28 @@
   @include ls(position, $value-list, $unit-list, $scale, $flag);
   z-index: append($z, $flag);
 }
+
+//
+// + Shorthand
+// =============================================
+
+
+@mixin absolute($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+  @include position-absolute($value-list, $unit-list, $scale, $z, $flag);
+}
+
+@mixin fixed($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+  @include position-fixed($value-list, $unit-list, $scale, $z, $flag);
+}
+
+@mixin relative($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+  @include position-relative($value-list, $unit-list, $scale, $z, $flag);
+}
+
+@mixin static($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+  @include position-static($value-list, $unit-list, $scale, $z, $flag);
+}
+
+@mixin sticky($value-list: null, $unit-list: null, $scale: null, $z: null, $flag: null) {
+  @include position-sticky($value-list, $unit-list, $scale, $z, $flag);
+}

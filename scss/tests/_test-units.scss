@@ -5,12 +5,12 @@
 
 .test-unit-em {
   @include ls(margin, 1, em);
-  margin: 0.0625em;
+  margin: .0625em;
 }
 
 .test-unit-rem {
   @include ls(margin, 1, rem);
-  margin: 0.0625rem;
+  margin: .0625rem;
 }
 
 .test-unit-px {

@@ -5,5 +5,5 @@
 
 .test-shorthand-scale {
   @include ls(margin, 1 2 3 4, em, 24);
-  margin: 0.04297em 0.08203em 0.125em 0.16797em;
+  margin: .04297em .08203em .125em .16797em;
 }

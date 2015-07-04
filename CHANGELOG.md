@@ -1,9 +1,17 @@
 Changelog
 ==========
 
+**July 3, 2015**
++ 1.0.7
+  + Swapped `@error` for `@warn` and simplified the messages
+  + Compressed files together
+  + Compressed `min-size`, `max-size` and `size` mixins into one parent mixin with child mixins
+  + Removed leading zeros from the tests
+  + Removed 'lifesaver-all-in-one.scss'
+
 **March 27, 2015**
 + 1.0.6
-  + Split properties into seperate files
+  + Split properties into separate files
 
 **March 20, 2015**
 + 1.0.5

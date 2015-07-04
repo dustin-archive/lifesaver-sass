@@ -5,5 +5,5 @@
 
 .test-shorthand {
   @include ls(margin, 1 2 3 4, em);
-  margin: 0.0625em 0.125em 0.1875em 0.25em;
+  margin: .0625em .125em .1875em .25em;
 }
