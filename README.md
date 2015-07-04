@@ -29,12 +29,6 @@ Import LifeSaver into your project at the top of your Sass modules file (or what
 @import 'modules/lifesaver/main';
 ```
 
-For the sake of convenience I've also included an all-in-one version of LifeSaver, in which case you would do this (or whatever).
-
-```scss
-@import 'modules/lifesaver-all-in-one';
-```
-
 
 
 ## Syntax
