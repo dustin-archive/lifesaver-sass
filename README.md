@@ -1,4 +1,4 @@
-LifeSaver - 1.0.7
+LifeSaver - 1.0.8
 =========
 
 Shorthand for all your Sass!

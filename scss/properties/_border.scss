@@ -3,12 +3,12 @@
 // =============================================
 
 
-@mixin border-width($value-list, $unit-list: null, $scale: null, $flag: null) {
-  @include ls(border-width, $value-list, $unit-list, $scale, $flag);
+@mixin border-width($values, $units: null, $scale: null, $flag: null) {
+  @include ls(border-width, $values, $units, $scale, $flag);
 }
 
-@mixin border-radius($value-list, $unit-list: null, $scale: null, $flag: null) {
-  @include ls(border-radius, $value-list, $unit-list, $scale, $flag);
+@mixin border-radius($values, $units: null, $scale: null, $flag: null) {
+  @include ls(border-radius, $values, $units, $scale, $flag);
 }
 
 //
@@ -16,6 +16,6 @@
 // =============================================
 
 
-@mixin radius($value-list: null, $unit-list: null, $scale: null, $flag: null) {
-  @include border-radius($value-list, $unit-list, $scale, $flag);
+@mixin radius($values: null, $units: null, $scale: null, $flag: null) {
+  @include border-radius($values, $units, $scale, $flag);
 }

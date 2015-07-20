@@ -3,44 +3,44 @@
 // =============================================
 
 
-@mixin position($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
-  @include ls(position, $value-list, $unit-list, $scale, $flag);
+@mixin position($values, $units: null, $scale: null, $z: null, $flag: null) {
+  @include ls(position, $values, $units, $scale, $flag);
   z-index: append($z, $flag);
 }
 
-@mixin position-absolute($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin position-absolute($values, $units: null, $scale: null, $z: null, $flag: null) {
   position: absolute;
-  @include ls(position, $value-list, $unit-list, $scale, $flag);
+  @include ls(position, $values, $units, $scale, $flag);
   z-index: append($z, $flag);
 }
 
-@mixin position-fixed($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin position-fixed($values, $units: null, $scale: null, $z: null, $flag: null) {
   position: fixed;
-  @include ls(position, $value-list, $unit-list, $scale, $flag);
+  @include ls(position, $values, $units, $scale, $flag);
   z-index: append($z, $flag);
 }
 
-@mixin position-inherit($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin position-inherit($values, $units: null, $scale: null, $z: null, $flag: null) {
   position: inherit;
-  @include ls(position, $value-list, $unit-list, $scale, $flag);
+  @include ls(position, $values, $units, $scale, $flag);
   z-index: append($z, $flag);
 }
 
-@mixin position-relative($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin position-relative($values, $units: null, $scale: null, $z: null, $flag: null) {
   position: relative;
-  @include ls(position, $value-list, $unit-list, $scale, $flag);
+  @include ls(position, $values, $units, $scale, $flag);
   z-index: append($z, $flag);
 }
 
-@mixin position-static($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin position-static($values, $units: null, $scale: null, $z: null, $flag: null) {
   position: static;
-  @include ls(position, $value-list, $unit-list, $scale, $flag);
+  @include ls(position, $values, $units, $scale, $flag);
   z-index: append($z, $flag);
 }
 
-@mixin position-sticky($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
+@mixin position-sticky($values, $units: null, $scale: null, $z: null, $flag: null) {
   position: sticky;
-  @include ls(position, $value-list, $unit-list, $scale, $flag);
+  @include ls(position, $values, $units, $scale, $flag);
   z-index: append($z, $flag);
 }
 
@@ -49,22 +49,22 @@
 // =============================================
 
 
-@mixin absolute($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
-  @include position-absolute($value-list, $unit-list, $scale, $z, $flag);
+@mixin absolute($values, $units: null, $scale: null, $z: null, $flag: null) {
+  @include position-absolute($values, $units, $scale, $z, $flag);
 }
 
-@mixin fixed($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
-  @include position-fixed($value-list, $unit-list, $scale, $z, $flag);
+@mixin fixed($values, $units: null, $scale: null, $z: null, $flag: null) {
+  @include position-fixed($values, $units, $scale, $z, $flag);
 }
 
-@mixin relative($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
-  @include position-relative($value-list, $unit-list, $scale, $z, $flag);
+@mixin relative($values, $units: null, $scale: null, $z: null, $flag: null) {
+  @include position-relative($values, $units, $scale, $z, $flag);
 }
 
-@mixin static($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
-  @include position-static($value-list, $unit-list, $scale, $z, $flag);
+@mixin static($values, $units: null, $scale: null, $z: null, $flag: null) {
+  @include position-static($values, $units, $scale, $z, $flag);
 }
 
-@mixin sticky($value-list, $unit-list: null, $scale: null, $z: null, $flag: null) {
-  @include position-sticky($value-list, $unit-list, $scale, $z, $flag);
+@mixin sticky($values, $units: null, $scale: null, $z: null, $flag: null) {
+  @include position-sticky($values, $units, $scale, $z, $flag);
 }

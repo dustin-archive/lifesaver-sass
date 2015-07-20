@@ -3,6 +3,6 @@
 // =============================================
 
 
-@mixin padding($value-list, $unit-list: null, $scale: null, $flag: null) {
-  @include ls(padding, $value-list, $unit-list, $scale, $flag);
+@mixin padding($values, $units: null, $scale: null, $flag: null) {
+  @include ls(padding, $values, $units, $scale, $flag);
 }

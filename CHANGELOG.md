@@ -1,6 +1,10 @@
 Changelog
 ==========
 
+**July 19, 2015**
++ 1.0.8
+  + Updated list variable names to be consistent with the rest of my projects
+
 **July 3, 2015**
 + 1.0.7
   + `$property-values` is now a required argument in the lifesaver mixin

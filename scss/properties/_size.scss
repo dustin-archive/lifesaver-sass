@@ -3,50 +3,50 @@
 // =============================================
 
 
-@mixin size-type($size-type, $value-list, $unit-list: null, $scale: null, $flag: null) {
-  $length: length($value-list);
+@mixin size-type($size-type, $values, $units: null, $scale: null, $flag: null) {
+  $length: length($values);
 
   // Set scope
   $width: null;
   $height: null;
 
   @if $length == 1 {
-    $width:  nth($value-list, 1);
-    $height: nth($value-list, 1);
+    $width:  nth($values, 1);
+    $height: nth($values, 1);
   }
   @else if $length == 2 {
-    $width:  nth($value-list, 1);
-    $height: nth($value-list, 2);
+    $width:  nth($values, 1);
+    $height: nth($values, 2);
   }
   @else {
     @warn 'LifeSaver: You can only pass up to 2 values to min-size or max-size.';
   }
 
   @if $size-type == size {
-    @include ls(width, $width, $unit-list, $scale, $flag);
-    @include ls(height, $height, $unit-list, $scale, $flag);
+    @include ls(width, $width, $units, $scale, $flag);
+    @include ls(height, $height, $units, $scale, $flag);
   }
   @else if $size-type == min {
-    @include ls(min-width, $width, $unit-list, $scale, $flag);
-    @include ls(min-height, $height, $unit-list, $scale, $flag);
+    @include ls(min-width, $width, $units, $scale, $flag);
+    @include ls(min-height, $height, $units, $scale, $flag);
   }
   @else if $size-type == max {
-    @include ls(max-width, $width, $unit-list, $scale, $flag);
-    @include ls(max-height, $height, $unit-list, $scale, $flag);
+    @include ls(max-width, $width, $units, $scale, $flag);
+    @include ls(max-height, $height, $units, $scale, $flag);
   }
   @else {
     @warn 'LifeSaver: You passed an invalid $size-type argument to min-size or max-size.';
   }
 }
 
-@mixin size($value-list, $unit-list: null, $scale: null, $flag: null) {
-  @include size-type(size, $value-list, $unit-list, $scale, $flag);
+@mixin size($values, $units: null, $scale: null, $flag: null) {
+  @include size-type(size, $values, $units, $scale, $flag);
 }
 
-@mixin min-size($value-list, $unit-list: null, $scale: null, $flag: null) {
-  @include size-type(min, $value-list, $unit-list, $scale, $flag);
+@mixin min-size($values, $units: null, $scale: null, $flag: null) {
+  @include size-type(min, $values, $units, $scale, $flag);
 }
 
-@mixin max-size($value-list, $unit-list: null, $scale: null, $flag: null) {
-  @include size-type(max, $value-list, $unit-list, $scale, $flag);
+@mixin max-size($values, $units: null, $scale: null, $flag: null) {
+  @include size-type(max, $values, $units, $scale, $flag);
 }

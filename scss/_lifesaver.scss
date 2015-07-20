@@ -1,75 +1,75 @@
-// LifeSaver - 1.0.7
-// July 3, 2015
+// LifeSaver - 1.0.8
+// July 19, 2015
 // The MIT License (MIT)
 // Copyright (c) 2015 Dustin Dowell
 // github.com/dustindowell22/lifesaver
 // =============================================
 
 
-@mixin ls($property-list, $value-list, $unit-list: null, $scale: null, $flag: null) {
+@mixin ls($properties, $values, $units: null, $scale: null, $flag: null) {
   $unit-functions: em rem px pct vw vh;
-  $length: length($value-list);
+  $length: length($values);
 
   // Check if $flag contains x or null
   $flag: if(is-null($flag), null, $flag);
 
   // Compress matching values to shorthand
   @if $length == 4 {
-    $top: nth($value-list, 1);
-    $right: nth($value-list, 2);
-    $bottom: nth($value-list, 3);
-    $left: nth($value-list, 4);
+    $top: nth($values, 1);
+    $right: nth($values, 2);
+    $bottom: nth($values, 3);
+    $left: nth($values, 4);
 
     @if $top == $bottom and $left == $right {
-      $value-list: $top, $right;
+      $values: $top, $right;
       $length: 2;
     }
     @else if $top == $right and $top == $bottom and $top == $left {
-      $value-list: $top;
+      $values: $top;
       $length: 1;
     }
   }
   @else if $length == 2 {
-    $top-bottom: nth($value-list, 1);
-    $left-right: nth($value-list, 2);
+    $top-bottom: nth($values, 1);
+    $left-right: nth($values, 2);
 
     @if $top-bottom == $left-right {
-      $value-list: $top-bottom;
+      $values: $top-bottom;
       $length: 1;
     }
   }
 
   // Loop though properties
-  @each $property in $property-list {
+  @each $property in $properties {
 
     // Split output into multiple properties
-    @if is-null($value-list) or $property == position  {
+    @if is-null($values) or $property == position  {
 
       // Set map scope
       $suffix-map: ();
 
-      // Assign $value-list values to $suffix-map
+      // Assign $values values to $suffix-map
       @if $length == 2 or $length == 4 {
         @if $property == border-radius {
           $suffix-map: (
-            top-left: nth($value-list, 1),
-            top-right: nth($value-list, 2),
-            bottom-right: if($length == 2, nth($value-list, 1), nth($value-list, 3)),
-            bottom-left: if($length == 2, nth($value-list, 2), nth($value-list, 4))
+            top-left: nth($values, 1),
+            top-right: nth($values, 2),
+            bottom-right: if($length == 2, nth($values, 1), nth($values, 3)),
+            bottom-left: if($length == 2, nth($values, 2), nth($values, 4))
          );
         }
         @else {
           $suffix-map: (
-            top: nth($value-list, 1),
-            right: nth($value-list, 2),
-            bottom: if($length == 2, nth($value-list, 1), nth($value-list, 3)),
-            left: if($length == 2, nth($value-list, 2), nth($value-list, 4))
+            top: nth($values, 1),
+            right: nth($values, 2),
+            bottom: if($length == 2, nth($values, 1), nth($values, 3)),
+            left: if($length == 2, nth($values, 2), nth($values, 4))
          );
         }
       }
 
       // Prepare property suffixes and output
-      @each $unit in $unit-list {
+      @each $unit in $units {
         @each $suffix-key in map-keys($suffix-map) {
           $value: map-get($suffix-map, $suffix-key);
 
@@ -102,13 +102,13 @@
 
     // Concatenate shorthand values and output
     @else if $length == 1 or $length == 2 or $length == 4 {
-      @each $unit in $unit-list {
+      @each $unit in $units {
 
         // Set list scope
         $result: null;
 
         // Concatenate shorthand output
-        @each $value in $value-list {
+        @each $value in $values {
           @if $value == 0 or type-of($value) == string {
             $result: append($result, $value);
           }

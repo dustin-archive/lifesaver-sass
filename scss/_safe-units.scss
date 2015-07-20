@@ -35,7 +35,7 @@
 }
 
 @function safe-convert($value) {
-  @return round($value * 16) / (16 * 16);
+  @return round($value * 16) / 256;
 }
 
 //
