@@ -3,6 +3,7 @@ Changelog
 
 **July 19, 2015**
 + 1.0.8
+  + Simplified the math in `safe-convert` function
   + Updated list variable names to be consistent with the rest of my projects
 
 **July 3, 2015**
