@@ -44,6 +44,12 @@
   z-index: append($z, $flag);
 }
 
+@mixin position-unset($values, $units: null, $scale: null, $z: null, $flag: null) {
+  position: unset;
+  @include ls(position, $values, $units, $scale, $flag);
+  z-index: append($z, $flag);
+}
+
 //
 // + Shorthand
 // =============================================

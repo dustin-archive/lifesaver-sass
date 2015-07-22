@@ -1,6 +1,10 @@
 Changelog
 ==========
 
+**July 22, 2015**
++ 1.0.9
+  + Added `position-unset` property mixin
+
 **July 19, 2015**
 + 1.0.8
   + Simplified the math in `safe-convert` function
