@@ -1,0 +1,67 @@
+//
+// + Safe Convert
+// =============================================
+
+//
+// + Convert null
+// =============================================
+
+@function convert-null($function, $value) {
+  @return if(is-null($value), null, call($function, $value));
+}
+
+//
+// + Convert expressions
+// =============================================
+
+@function ceil-convert-expression($value) {
+  @return ceil($value) / 16;
+}
+
+@function floor-convert-expression($value) {
+  @return floor($value) / 16;
+}
+
+@function round-convert-expression($value) {
+  @return round($value) / 16;
+}
+
+@function convert-expression($value) {
+  @return $value / 16;
+}
+
+@function safe-expression($value) {
+  @return round($value * 16) / 16;
+}
+
+@function safe-convert-expression($value) {
+  @return round($value * 16) / 256;
+}
+
+//
+// + Convert
+// =============================================
+
+@function ceil-convert($value) {
+  @return convert-null('ceil-expression', $value);
+}
+
+@function floor-convert($value) {
+  @return convert-null('floor-expression', $value);
+}
+
+@function round-convert($value) {
+  @return convert-null('round-expression', $value);
+}
+
+@function convert($value) {
+  @return convert-null('convert-expression', $value);
+}
+
+@function safe($value) {
+  @return convert-null('safe-expression', $value);
+}
+
+@function safe-convert($value) {
+  @return convert-null('safe-convert-expression', $value);
+}

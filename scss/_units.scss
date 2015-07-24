@@ -1,0 +1,89 @@
+//
+// + Units
+// =============================================
+
+//
+// + Scale Compensation
+// =============================================
+
+@function scale-comp($value, $scale: null) {
+  @return if(is-null($scale), $value, (16 / $scale) * $value);
+}
+
+//
+// + Unit null
+// =============================================
+
+@function unit-null($function, $value, $scale: null) {
+  @return if(is-null($value), null, call($function, $value, $scale));
+}
+
+//
+// + Unit expressions
+// =============================================
+
+@function un-expression($value, $scale) {
+  @return safe-convert(scale-comp($value, $scale));
+}
+
+@function em-expression($value, $scale) {
+  $result: safe-convert(scale-comp($value, $scale));
+  @return if($value == 0, $result, $result * 1em);
+}
+
+@function rem-expression($value, $scale) {
+  $result: safe-convert(scale-comp($value, $scale));
+  @return if($value == 0, $result, $result * 1rem);
+}
+
+@function px-expression($value, $scale) {
+  $result: safe(scale-comp($value, $scale));
+  @return if($value == 0, $result, $result * 1px);
+}
+
+@function pct-expression($value, $scale) {
+  $result: scale-comp($value, $scale);
+  @return if($value == 0, $result, $result * 100%);
+}
+
+@function vw-expression($value, $scale) {
+  $result: scale-comp($value, $scale);
+  @return if($value == 0, $result, $result * 1vw);
+}
+
+@function vh-expression($value, $scale) {
+  $result: scale-comp($value, $scale);
+  @return if($value == 0, $result, $result * 1vh);
+}
+
+//
+// + Units
+// =============================================
+
+@function un($value, $scale: null) {
+  @return unit-null('un-expression', $value, $scale);
+}
+
+@function em($value, $scale: null) {
+  @return unit-null('em-expression', $value, $scale);
+}
+
+@function rem($value, $scale: null) {
+  @return unit-null('rem-expression', $value, $scale);
+}
+
+@function px($value, $scale: null) {
+  @return unit-null('px-expression', $value, $scale);
+}
+
+@function pct($value, $scale: null) {
+  @return unit-null('pct-expression', $value, $scale);
+}
+
+@function vw($value, $scale: null) {
+  @return unit-null('vw-expression', $value, $scale);
+}
+
+@function vh($value, $scale: null) {
+  @return unit-null('vh-expression', $value, $scale);
+}
