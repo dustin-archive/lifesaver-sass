@@ -252,8 +252,8 @@ Input:
 
 ```scss
 .bigger-font-only {
-  font-size: em(18);
-  @include margin(2 4 x 16, em, 18);
+  font-size: em(24);
+  @include margin(2 4 x 16, em, 24);
 }
 ```
 
