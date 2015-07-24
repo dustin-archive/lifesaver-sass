@@ -262,9 +262,9 @@ Output:
 ```css
 .bigger-font-only {
   font-size: 1.125em;
-  margin-top: 0.125em;
-  margin-right: 0.25em;
-  margin-left: 1em;
+  margin-top: 0.08203125em;
+  margin-right: 0.16796875em;
+  margin-left: 0.75em;
 }
 ```
 
