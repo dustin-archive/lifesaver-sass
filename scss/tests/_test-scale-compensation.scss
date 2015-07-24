@@ -1,0 +1,9 @@
+//
+// + Test scale compensation
+// =============================================
+
+
+.test-scale-compensation {
+  @include margin(2 4 8 18, em, 24);
+  margin: .0625em .125em .1875em .25em;
+}

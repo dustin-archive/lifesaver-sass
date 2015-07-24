@@ -8,6 +8,7 @@ Changelog
   + + This lets you to use variables inside functions and control the output of the property by setting a variable to null
   + Deprecated functions `floor-un`, 'floor-em', 'floor-px' etc.
   + Deprecated functions `ceil-un`, 'ceil-em', 'ceil-px' etc.
+  + Added test for `scale-compensation`
 
 **July 22, 2015**
 + 1.0.9
