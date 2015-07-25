@@ -136,7 +136,7 @@ Here's a list of all of the shorthand properties:
 
 ## Values
 
-LifeSaver can take parse value that can be used in CSS including strings like `auto` and `inherit`.
+LifeSaver can parse values that can be used in CSS including strings like `auto` and `inherit`.
 
 Using null values in LifeSaver unit functions to prevent properties from being output will no longer cause errors and will totally work!
 
