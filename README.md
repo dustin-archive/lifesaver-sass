@@ -134,23 +134,41 @@ Here's a list of all of the shorthand properties:
 ````
 
 
-## Values
+## Values [NEW!]
 
 LifeSaver can take parse value that can be used in CSS including strings like `auto` and `inherit`.
 
-[NEW!] Using null values in LifeSaver functions to prevent properties from being output will no longer cause errors and will totally work!
+Using null values in LifeSaver unit functions to prevent properties from being output will no longer cause errors and will totally work!
 
 ```scss
 // Input
 $margin: null;
 
 .block {
-  margin: em($margin * 2);
+  margin: em($margin);
   background: orange;
 }
 
 // Output
 .block {
+  background: orange;
+}
+```
+
+Similarly this is also true for CSS strings, except the string will be output instead of nullified.
+
+```scss
+// Input
+$margin: auto;
+
+.block {
+  margin: em($margin);
+  background: orange;
+}
+
+// Output
+.block {
+  margin: auto;
   background: orange;
 }
 ```
