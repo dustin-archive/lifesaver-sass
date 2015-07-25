@@ -134,7 +134,7 @@ Here's a list of all of the shorthand properties:
 ````
 
 
-## Values [NEW!]
+## Values
 
 LifeSaver can take parse value that can be used in CSS including strings like `auto` and `inherit`.
 
