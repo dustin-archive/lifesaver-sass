@@ -3,7 +3,7 @@
 // =============================================
 
 //
-// + Scale Compensation
+// + Scale sompensation
 // =============================================
 
 @function scale-comp($value, $scale: null) {
@@ -11,11 +11,16 @@
 }
 
 //
-// + Unit null
+// + Unit check type
 // =============================================
 
-@function unit-null($function, $value, $scale: null) {
-  @return if(is-null($value), null, call($function, $value, $scale));
+@function unit-check-type($function, $value, $scale: null) {
+  @if type-of($value) == string or is-null($value) {
+    @return $value;
+  }
+  @else {
+    @return call($function, $value, $scale);
+  }
 }
 
 //
@@ -61,29 +66,29 @@
 // =============================================
 
 @function un($value, $scale: null) {
-  @return unit-null('un-expression', $value, $scale);
+  @return unit-check-type('un-expression', $value, $scale);
 }
 
 @function em($value, $scale: null) {
-  @return unit-null('em-expression', $value, $scale);
+  @return unit-check-type('em-expression', $value, $scale);
 }
 
 @function rem($value, $scale: null) {
-  @return unit-null('rem-expression', $value, $scale);
+  @return unit-check-type('rem-expression', $value, $scale);
 }
 
 @function px($value, $scale: null) {
-  @return unit-null('px-expression', $value, $scale);
+  @return unit-check-type('px-expression', $value, $scale);
 }
 
 @function pct($value, $scale: null) {
-  @return unit-null('pct-expression', $value, $scale);
+  @return unit-check-type('pct-expression', $value, $scale);
 }
 
 @function vw($value, $scale: null) {
-  @return unit-null('vw-expression', $value, $scale);
+  @return unit-check-type('vw-expression', $value, $scale);
 }
 
 @function vh($value, $scale: null) {
-  @return unit-null('vh-expression', $value, $scale);
+  @return unit-check-type('vh-expression', $value, $scale);
 }

@@ -3,11 +3,16 @@
 // =============================================
 
 //
-// + Convert null
+// + Convert check type
 // =============================================
 
-@function convert-null($function, $value) {
-  @return if(is-null($value), null, call($function, $value));
+@function convert-check-type($function, $value) {
+  @if type-of($value) == string or is-null($value) {
+    @return $value;
+  }
+  @else {
+    @return call($function, $value);
+  }
 }
 
 //
@@ -43,25 +48,25 @@
 // =============================================
 
 @function ceil-convert($value) {
-  @return convert-null('ceil-expression', $value);
+  @return convert-check-type('ceil-expression', $value);
 }
 
 @function floor-convert($value) {
-  @return convert-null('floor-expression', $value);
+  @return convert-check-type('floor-expression', $value);
 }
 
 @function round-convert($value) {
-  @return convert-null('round-expression', $value);
+  @return convert-check-type('round-expression', $value);
 }
 
 @function convert($value) {
-  @return convert-null('convert-expression', $value);
+  @return convert-check-type('convert-expression', $value);
 }
 
 @function safe($value) {
-  @return convert-null('safe-expression', $value);
+  @return convert-check-type('safe-expression', $value);
 }
 
 @function safe-convert($value) {
-  @return convert-null('safe-convert-expression', $value);
+  @return convert-check-type('safe-convert-expression', $value);
 }
