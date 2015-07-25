@@ -4,7 +4,8 @@ Changelog
 **July 24, 2015**
 + 1.1.0
   + Split `safe-units` partial into `units` and `convert` partials
-  + If you pass `null * 2` to a function the output will be nullified and removed without errors
+  + If you pass `null` to a function the output will be nullified and removed without errors
+  + If you pass a single CSS string to a function the output will be the CSS string
   + + This lets you to use variables inside functions and control the output of the property by setting a variable to null
   + Deprecated functions `floor-un`, 'floor-em', 'floor-px' etc.
   + Deprecated functions `ceil-un`, 'ceil-em', 'ceil-px' etc.
