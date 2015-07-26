@@ -1,0 +1,29 @@
+{
+  "name": "lifesaver",
+  "description": "Shorthand for all your Sass!",
+  "version": "1.1.0",
+  "homepage": "https://github.com/dustindowell22/lifesaver",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dustindowell22/lifesaver.git"
+  },
+  "authors": [
+    "Dustin Dowell <dustindowell22@gmail.com>"
+  ],
+  "main": "scss/main.scss",
+  "keywords": [
+    "lifesaver",
+    "shorthand",
+    "sass",
+    "scss",
+    "mixin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE",
+    "scss/tests"
+  ]
+}
