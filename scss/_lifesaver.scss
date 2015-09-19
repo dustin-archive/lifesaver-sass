@@ -1,5 +1,5 @@
-// LifeSaver - 1.1.0
-// July 24, 2015
+// LifeSaver - 1.1.1
+// September 19, 2015
 // The MIT License (MIT)
 // Copyright (c) 2015 Dustin Dowell
 // github.com/dustindowell22/lifesaver
@@ -7,10 +7,7 @@
 
 
 @mixin ls($properties, $values, $units: null, $scale: null, $flag: null) {
-  $unit-functions: em rem px pct vw vh;
   $length: length($values);
-
-  // Check if $flag contains x or null
   $flag: if(is-null($flag), null, $flag);
 
   // Compress matching values to shorthand
@@ -39,19 +36,15 @@
     }
   }
 
-  // Loop though properties
+  // Split output into multiple properties
   @each $property in $properties {
-
-    // Split output into multiple properties
     @if is-null($values) or $property == position  {
+      $map: ();
 
-      // Set map scope
-      $suffix-map: ();
-
-      // Assign $values values to $suffix-map
+      // Assign $values values to $map
       @if $length == 2 or $length == 4 {
         @if $property == border-radius {
-          $suffix-map: (
+          $map: (
             top-left: nth($values, 1),
             top-right: nth($values, 2),
             bottom-right: if($length == 2, nth($values, 1), nth($values, 3)),
@@ -59,7 +52,7 @@
          );
         }
         @else {
-          $suffix-map: (
+          $map: (
             top: nth($values, 1),
             right: nth($values, 2),
             bottom: if($length == 2, nth($values, 1), nth($values, 3)),
@@ -70,27 +63,27 @@
 
       // Prepare property suffixes and output
       @each $unit in $units {
-        @each $suffix-key in map-keys($suffix-map) {
-          $value: map-get($suffix-map, $suffix-key);
+        @each $key in map-keys($map) {
+          $value: map-get($map, $key);
 
           // Append suffix when needed
           @if $property == border-width {
-            $suffix-key: 'border-' + $suffix-key + '-width';
+            $key: 'border-' + $key + '-width';
           }
           @else if $property == border-radius {
-            $suffix-key: 'border-' + $suffix-key + '-radius';
+            $key: 'border-' + $key + '-radius';
           }
           @else if $property == margin or $property == padding {
-            $suffix-key: $property + '-' + $suffix-key;
+            $key: $property + '-' + $key;
           }
 
           // Output
           @if not is-null($value) {
             @if $value == 0 or type-of($value) == string {
-              #{$suffix-key}: append($value, $flag);
+              #{$key}: append($value, $flag);
             }
             @else if function-exists($unit) {
-              #{$suffix-key}: append(call($unit, $value, $scale), $flag);
+              #{$key}: append(call($unit, $value, $scale), $flag);
             }
             @else {
               @warn 'LifeSaver: You used an invalid unit type.';
@@ -103,8 +96,6 @@
     // Concatenate shorthand values and output
     @else if $length == 1 or $length == 2 or $length == 4 {
       @each $unit in $units {
-
-        // Set list scope
         $result: null;
 
         // Concatenate shorthand output

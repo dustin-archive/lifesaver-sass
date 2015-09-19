@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+**September 19, 2015**
++ 1.1.1
+  + Removed useless `$unit-functions`
+  + Renamed `$suffix-map` to `$map`
+  + Renamed `$suffix-key` to `$key`
+  + Removed useless comments
+
 **July 24, 2015**
 + 1.1.0
   + Split `safe-units` partial into `units` and `convert` partials
