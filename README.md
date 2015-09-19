@@ -10,7 +10,7 @@ Shorthand for all your Sass!
 1. [Syntax](#syntax)
 1. [Core Mixin](#core-mixins)
 1. [Shorthand Property Mixins](#shorthand-property-mixins)
-1. [Values](#values) [NEW!]
+1. [Values](#values)
 1. [Units](#units)
 1. [Skipping](#skipping)
 1. [Safe Units](#safe-units-and-convert-functions)
