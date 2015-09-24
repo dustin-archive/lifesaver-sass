@@ -1,4 +1,4 @@
-LifeSaver - 1.1.1
+LifeSaver - 1.1.2
 =========
 
 Shorthand for all your Sass!
@@ -122,6 +122,7 @@ Here's a list of all of the shorthand properties:
 @include position-relative();
 @include position-static();
 @include position-sticky();
+@include position-initial();
 @include position-unset();
 
 @include radius();

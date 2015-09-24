@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+**September 24, 2015**
++ 1.1.2
+  + Added `position-initial` property mixin
+  + Simplified position property mixins
+
 **September 19, 2015**
 + 1.1.1
   + Removed useless `$unit-functions`
