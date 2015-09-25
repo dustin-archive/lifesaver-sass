@@ -9,11 +9,11 @@ Shorthand for all your Sass!
 1. [Getting Started](#getting-started)
 1. [Syntax](#syntax)
 1. [Core Mixin](#core-mixins)
-1. [Shorthand Property Mixins](#shorthand-property-mixins)
+1. [Property Mixins](#property-mixins)
 1. [Values](#values)
 1. [Units](#units)
 1. [Skipping](#skipping)
-1. [Safe Units](#safe-units-and-convert-functions)
+1. [Safe Units and Convert Functions](#safe-units-and-convert-functions)
 1. [Scale Compensation](#scale-compensation)
 1. [Flags](#flags)
 1. [Extending LifeSaver](#extending-lifesaver)
@@ -21,31 +21,31 @@ Shorthand for all your Sass!
 
 ## Getting Started
 
-Import LifeSaver into your project.
+Import LifeSaver.
 
 ```scss
-@import 'modules/lifesaver/main';
+@import 'bower_components/lifesaver/main';
 ```
 
 
 ## Syntax
 
-There are two ways to use LifeSaver; the core mixin or a shorthand property mixin.
+There are two ways to use LifeSaver; the core mixin or a property mixin.
 
 ```scss
 // Core
 @include ls([properties], [values], [units], [scale compensation], [flag]);
 
-// Shorthand property
+// Property mixin
 @include margin([values], [units], [scale compensation], [flag]);
 ```
 
 
 ## Core Mixin
 
-The advantage of using the core instead of a shorthand property is the ability to use multiple properties at once with the same values and units. A use case for this would be a button where you want the values for margin and padding.
+The advantage of using the core instead of a property is the ability to use multiple properties at once with the same values and units. A use case for this would be a button where you want the values for margin and padding.
 
-The disadvantage of using the core is that you can't pass any of the shorthand properties, which have extended functionality, as regular properties. All the extended functionality of a shorthand property is stored inside that mixin.
+The disadvantage of using the core is that you can't pass any property mixins as arguments. Property mixins sometimes have have extended functionality specific to that mixin.
 
 Input:
 
@@ -75,11 +75,11 @@ button {
 ```
 
 
-## Shorthand Property Mixins
+## Property Mixins
 
-Shorthand properties aim to keep your code compressed by offering extended functionality unique to each property.
+Property mixins aim to keep your code compressed by offering extended functionality unique to each property.
 
-The only disadvantage with using a shorthand property is that you can't use multiple properties. Although, if you find yourself needing a specific combination of properties often, you can easily create your own.
+The only disadvantage with using a property mixin is that you can't use multiple properties.
 
 Input:
 
@@ -102,37 +102,61 @@ button {
 }
 ```
 
-Here's a list of all of the shorthand properties:
+Here's a list of all of the properties:
+
+```scss
+@include width();
+@include min-width();
+@include max-width();
+
+@include height();
+@include min-height();
+@include max-height();
+
+@include margin();
+@include margin-top();
+@include margin-right();
+@include margin-bottom();
+@include margin-left();
+
+@include padding();
+@include padding-top();
+@include padding-right();
+@include padding-bottom();
+@include padding-left();
+
+@include border-width();
+@include border-radius();
+
+@include position();
+
+@include font-size();
+@include line-height();
+````
 
 ```scss
 @include size();
 @include min-size();
 @include max-size();
 
-@include margin();
-@include padding();
+@include radius();
 
-@include border-width();
-@include border-radius();
-
-@include position();
 @include position-absolute();
 @include position-fixed();
-@include position-inherit();
 @include position-relative();
 @include position-static();
 @include position-sticky();
+
+@include position-inherit();
 @include position-initial();
 @include position-unset();
-
-@include radius();
 
 @include absolute();
 @include fixed();
 @include relative();
 @include static();
 @include sticky();
-````
+```
 
 
 ## Values
@@ -326,7 +350,7 @@ If you don't want to define scale compensation, but you want to pass a flag argu
 
 ## Extending LifeSaver
 
-Incorporating LifeSaver into your own mixins allows you to get all the benefits of LifeSaver, like compressing multiple properties into one shorthand property, multiple properties, multiple units, safe units, and font size scale compensation.
+Incorporating LifeSaver into your own mixins allows you to get all the benefits of LifeSaver, like compressing multiple properties into one property, multiple properties, multiple units, safe units, and font size scale compensation.
 
 Here's an example that takes advantage of LifeSaver's property compression.
 
