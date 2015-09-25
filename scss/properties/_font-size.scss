@@ -1,0 +1,8 @@
+//
+// + Font size
+// =============================================================================
+
+
+@mixin font-size($value, $units: null, $scale: null, $flag: null) {
+  @include ls(font-size, $value, $units, $scale, $flag);
+}
