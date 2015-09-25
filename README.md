@@ -21,6 +21,12 @@ Shorthand for all your Sass!
 
 ## Getting Started
 
+Install LifeSaver via Bower.
+
+```
+  bower install lifesaver
+```
+
 Import LifeSaver.
 
 ```scss
