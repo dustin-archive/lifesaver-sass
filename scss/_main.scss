@@ -3,10 +3,31 @@
 // =============================================================================
 
 
-@import 'functions';
-@import 'units';
-@import 'convert';
-@import 'lifesaver';
-@import 'properties/main';
+@import 'functions/is-null';
+@import 'functions/set-default';
+@import 'functions/compress-matching-values';
 
-// @import 'tests/main';
+@import 'functions/units/units';
+@import 'functions/convert/convert';
+
+@import 'lifesaver';
+
+@import 'properties/width';
+@import 'properties/height';
+@import 'properties/width-height-shorthand';
+@import 'properties/margin';
+@import 'properties/padding';
+@import 'properties/border';
+@import 'properties/border-shorthand';
+@import 'properties/position';
+@import 'properties/position-reset';
+@import 'properties/position-shorthand';
+@import 'properties/font-size';
+@import 'properties/line-height';
+
+@import 'tests/test-border-radius';
+@import 'tests/test-border-width';
+@import 'tests/test-matching-values';
+@import 'tests/test-scale-compensation';
+@import 'tests/test-split-properties';
+@import 'tests/test-units';
