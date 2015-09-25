@@ -1,9 +1,0 @@
-//
-// + Test shorthand flag
-// =============================================================================
-
-
-.test-shorthand-flag {
-  @include ls(margin, 1 2 3 4, em, $flag: !important);
-  margin: .0625em .125em .1875em .25em !important; // SCSS Lint: Must remain important for the test.
-}

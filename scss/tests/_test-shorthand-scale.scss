@@ -1,9 +1,0 @@
-//
-// + Test shorthand scale
-// =============================================================================
-
-
-.test-shorthand-scale {
-  @include ls(margin, 1 2 3 4, em, 24);
-  margin: .04297em .08203em .125em .16797em;
-}
