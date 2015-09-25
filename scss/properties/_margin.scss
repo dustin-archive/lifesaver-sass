@@ -1,0 +1,24 @@
+//
+// + Margin
+// =============================================================================
+
+
+@mixin margin($values, $units: null, $scale: null, $flag: null) {
+  @include ls(margin, $values, $units, $scale, $flag);
+}
+
+@mixin margin-top($value, $units: null, $scale: null, $flag: null) {
+  @include margin($value x x x, $units, $scale, $flag);
+}
+
+@mixin margin-right($value, $units: null, $scale: null, $flag: null) {
+  @include margin(x $value x x, $units, $scale, $flag);
+}
+
+@mixin margin-bottom($value, $units: null, $scale: null, $flag: null) {
+  @include margin(x x $value x, $units, $scale, $flag);
+}
+
+@mixin margin-left($value, $units: null, $scale: null, $flag: null) {
+  @include margin(x x x $value, $units, $scale, $flag);
+}
