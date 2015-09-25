@@ -1,6 +1,29 @@
 Changelog
 ==========
 
+**UNRELEASED**
++ 2.0.0
+  + Refactored value compression into `compress-matching-values` function
+  + Property separates `border-width` and `border-style` when encountered
+  + Added `width` property mixin
+  + Added `min-width` property mixin
+  + Added `max-width` property mixin
+  + Added `height` property mixin
+  + Added `min-height` property mixin
+  + Added `max-height` property mixin
+  + Added `margin` property mixin
+  + Added `margin-top` property mixin
+  + Added `margin-right` property mixin
+  + Added `margin-bottom` property mixin
+  + Added `margin-left` property mixin
+  + Added `padding` property mixin
+  + Added `padding-top` property mixin
+  + Added `padding-right` property mixin
+  + Added `padding-bottom` property mixin
+  + Added `padding-left` property mixin
+  + Added `font-size` property mixin
+  + Added `line-height` property mixin
+
 **September 24, 2015**
 + 1.1.2
   + Added `position-initial` property mixin
