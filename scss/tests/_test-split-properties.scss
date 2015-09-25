@@ -4,7 +4,36 @@
 
 
 .test-split-properties {
+  @include margin(1 x, em);
+  /* */
+  margin-top: 0.0625em;
+  margin-bottom: 0.0625em;
+}
+
+.test-split-properties {
+  @include margin(x 1, em);
+  /* */
+  margin-right: 0.0625em;
+  margin-left: 0.0625em;
+}
+
+.test-split-properties {
+  @include margin(1 1 x x, em);
+  /* */
+  margin-top: 0.0625em;
+  margin-right: 0.0625em;
+}
+
+.test-split-properties {
+  @include margin(1 x 1 x, em);
+  /* */
+  margin-top: 0.0625em;
+  margin-bottom: 0.0625em;
+}
+
+.test-split-properties {
   @include margin(1 x x 1, em);
+  /* */
   margin-top: 0.0625em;
   margin-left: 0.0625em;
 }
