@@ -1,8 +1,0 @@
-//
-// + Padding
-// =============================================================================
-
-
-@mixin padding($values, $units: null, $scale: null, $flag: null) {
-  @include ls(padding, $values, $units, $scale, $flag);
-}

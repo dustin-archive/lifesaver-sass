@@ -10,12 +10,3 @@
 @mixin border-radius($values, $units: null, $scale: null, $flag: null) {
   @include ls(border-radius, $values, $units, $scale, $flag);
 }
-
-//
-// + Shorthand
-// =============================================================================
-
-
-@mixin radius($values: null, $units: null, $scale: null, $flag: null) {
-  @include border-radius($values, $units, $scale, $flag);
-}
