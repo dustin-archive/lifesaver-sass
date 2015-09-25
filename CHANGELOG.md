@@ -4,7 +4,7 @@ Changelog
 **UNRELEASED**
 + 2.0.0
   + Refactored value compression into `compress-matching-values` function
-  + Property separates `border-width` and `border-style` when encountered
+  + Separates properly `border-width` and `border-style` when encountered
   + Added `width` property mixin
   + Added `min-width` property mixin
   + Added `max-width` property mixin
