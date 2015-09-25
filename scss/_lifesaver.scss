@@ -5,7 +5,6 @@
 
 @mixin ls($properties, $values, $units: null, $scale: null, $flag: null) {
   $flag: if(is-null($flag), null, $flag);
-
   $values: compress-matching-values($values);
 
   // Split output into multiple properties
