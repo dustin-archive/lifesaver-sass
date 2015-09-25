@@ -5,6 +5,8 @@
 
 .test-border-width {
   @include ls(border-width, 1 2 3 4, em);
+  /* */
   @include border-width(1 2 3 4, em);
+  /* */
   border-width: 0.0625em 0.125em 0.1875em 0.25em;
 }
