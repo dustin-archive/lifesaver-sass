@@ -24,7 +24,7 @@ Shorthand for all your Sass!
 Install LifeSaver via Bower.
 
 ```
-  bower install lifesaver
+bower install lifesaver
 ```
 
 Import LifeSaver.
