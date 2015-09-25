@@ -1,0 +1,24 @@
+//
+// + Position shorthand
+// =============================================================================
+
+
+@mixin absolute($values, $units: null, $scale: null, $z: null, $flag: null) {
+  @include position-absolute($values, $units, $scale, $z, $flag);
+}
+
+@mixin fixed($values, $units: null, $scale: null, $z: null, $flag: null) {
+  @include position-fixed($values, $units, $scale, $z, $flag);
+}
+
+@mixin relative($values, $units: null, $scale: null, $z: null, $flag: null) {
+  @include position-relative($values, $units, $scale, $z, $flag);
+}
+
+@mixin static($values, $units: null, $scale: null, $z: null, $flag: null) {
+  @include position-static($values, $units, $scale, $z, $flag);
+}
+
+@mixin sticky($values, $units: null, $scale: null, $z: null, $flag: null) {
+  @include position-sticky($values, $units, $scale, $z, $flag);
+}
