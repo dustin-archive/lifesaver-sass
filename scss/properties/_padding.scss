@@ -1,0 +1,24 @@
+//
+// + Padding
+// =============================================================================
+
+
+@mixin padding($values, $units: null, $scale: null, $flag: null) {
+  @include ls(padding, $values, $units, $scale, $flag);
+}
+
+@mixin padding-top($value, $units: null, $scale: null, $flag: null) {
+  @include padding($value x x x, $units, $scale, $flag);
+}
+
+@mixin padding-right($value, $units: null, $scale: null, $flag: null) {
+  @include padding(x $value x x, $units, $scale, $flag);
+}
+
+@mixin padding-bottom($value, $units: null, $scale: null, $flag: null) {
+  @include padding(x x $value x, $units, $scale, $flag);
+}
+
+@mixin padding-left($value, $units: null, $scale: null, $flag: null) {
+  @include padding(x x x $value, $units, $scale, $flag);
+}
