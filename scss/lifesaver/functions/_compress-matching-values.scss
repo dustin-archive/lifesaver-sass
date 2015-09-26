@@ -21,7 +21,7 @@
     $left: nth($values, 4);
 
     @if $top == $bottom and $right == $left {
-      $values: $top, $right;
+      $values: $top $right;
     }
     @else if $top == $right and $top == $bottom and $top == $left {
       $values: $top;
