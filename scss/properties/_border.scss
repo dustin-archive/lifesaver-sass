@@ -3,6 +3,13 @@
 // =============================================================================
 
 
+// Not totally sure how to go about this
+// @mixin border($values, $units: null, $style: null, $color: null, $scale: null, $flag: null) {
+//   @include ls(border-width, $values, $units, $scale, $flag);
+//   border-style: $style;
+//   border-color: $color;
+// }
+
 @mixin border-width($values, $units: null, $scale: null, $flag: null) {
   @include ls(border-width, $values, $units, $scale, $flag);
 }
