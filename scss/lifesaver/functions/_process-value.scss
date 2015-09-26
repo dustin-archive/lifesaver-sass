@@ -3,11 +3,12 @@
 // =============================================================================
 
 
-@function process-value($value, $unit, $scale) {
-  @if $value == 0 or type-of($value) == string {
-    @return $value;
+@function process-value($value, $unit: null, $scale: null) {
+  @if is-null($unit) {
+    $value: scale-comp($value, $scale);
   }
   @else if function-exists($unit) {
-    @return call($unit, $value, $scale);
+    $value: call($unit, $value, $scale);
   }
+  @return $value;
 }
