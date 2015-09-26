@@ -27,7 +27,7 @@
         $result: null;
 
         @each $value in $values {
-          $result: append($result, process-value($value, $unit, $scale));
+          $result: $result process-value($value, $unit, $scale);
         }
 
         #{$property}: $result $flag;
