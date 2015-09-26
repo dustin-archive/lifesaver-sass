@@ -47,3 +47,43 @@
   margin-top: 0.0625em;
   margin-left: 0.0625em;
 }
+
+.test-split-properties {
+  /* input */
+  @include margin(x 1 1 1, em);
+
+  /* output */
+  margin-right: 0.0625em;
+  margin-bottom: 0.0625em;
+  margin-left: 0.0625em;
+}
+
+.test-split-properties {
+  /* input */
+  @include margin(1 x 1 1, em);
+
+  /* output */
+  margin-top: 0.0625em;
+  margin-bottom: 0.0625em;
+  margin-left: 0.0625em;
+}
+
+.test-split-properties {
+  /* input */
+  @include margin(1 1 x 1, em);
+
+  /* output */
+  margin-top: 0.0625em;
+  margin-right: 0.0625em;
+  margin-left: 0.0625em;
+}
+
+.test-split-properties {
+  /* input */
+  @include margin(1 1 1 x, em);
+
+  /* output */
+  margin-top: 0.0625em;
+  margin-right: 0.0625em;
+  margin-bottom: 0.0625em;
+}
