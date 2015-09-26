@@ -58,9 +58,7 @@
           }
 
           // Output
-          @if not is-null($value) {
-            #{$key}: append(process-value($value, $unit, $scale), $flag);
-          }
+          #{$key}: append(process-value($value, $unit, $scale), $flag);
         }
       }
     }
@@ -68,9 +66,9 @@
     // Concatenate shorthand values and output
     @else if length($values) == 1 or length($values) == 2 or length($values) == 4 {
       @each $unit in $units {
-        $result: null;
 
         // Concatenate shorthand output
+        $result: null;
         @each $value in $values {
           $result: append($result, process-value($value, $unit, $scale));
         }
