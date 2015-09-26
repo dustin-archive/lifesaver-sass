@@ -4,7 +4,7 @@
 
 
 @mixin position($values, $units: null, $scale: null, $z: null, $flag: null) {
-  @include ls(position, $values, $units, $scale, $flag);
+  @include save(position, $values, $units, $scale, $flag);
   z-index: append($z, $flag);
 }
 

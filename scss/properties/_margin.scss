@@ -4,7 +4,7 @@
 
 
 @mixin margin($values, $units: null, $scale: null, $flag: null) {
-  @include ls(margin, $values, $units, $scale, $flag);
+  @include save(margin, $values, $units, $scale, $flag);
 }
 
 @mixin margin-top($value, $units: null, $scale: null, $flag: null) {

@@ -4,13 +4,13 @@
 
 
 @mixin width($value, $units: null, $scale: null, $flag: null) {
-  @include ls(width, $value, $units, $scale, $flag);
+  @include save(width, $value, $units, $scale, $flag);
 }
 
 @mixin min-width($value, $units: null, $scale: null, $flag: null) {
-  @include ls(min-width, $value, $units, $scale, $flag);
+  @include save(min-width, $value, $units, $scale, $flag);
 }
 
 @mixin max-width($value, $units: null, $scale: null, $flag: null) {
-  @include ls(max-width, $value, $units, $scale, $flag);
+  @include save(max-width, $value, $units, $scale, $flag);
 }

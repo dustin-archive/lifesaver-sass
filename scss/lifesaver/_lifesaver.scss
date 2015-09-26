@@ -3,7 +3,7 @@
 // =============================================================================
 
 
-@mixin ls($properties, $values, $units: null, $scale: null, $flag: null) {
+@mixin save($properties, $values, $units: null, $scale: null, $flag: null) {
   $values: compress-matching-values($values);
 
   @each $property in $properties {
