@@ -5,7 +5,8 @@ Changelog
 + 2.0.0
   + Refactored value compression into `compress-matching-values` function
   + Refactored value processing into `process-values` function
-  + Separates properly `border-width` and `border-style` when encountered
+  + Refactored property suffix appending into `append-suffix` function
+  + Properly separates `border`, `border-width`, `border-style` and `border-color`
   + Added `width` property mixin
   + Added `min-width` property mixin
   + Added `max-width` property mixin
