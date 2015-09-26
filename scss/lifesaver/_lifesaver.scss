@@ -3,7 +3,7 @@
 // =============================================================================
 
 
-@mixin save($properties, $values, $units: null, $scale: null, $flag: null) {
+@mixin save($properties, $values, $units: null, $scale: null, $flag: null, $extra: null) {
   $values: compress-matching-values($values);
 
   @each $property in $properties {
@@ -16,7 +16,12 @@
           $value: process-value(map-get($map, $key), $unit, $scale);
 
           @if not is-null($value) {
-            #{$property-key}: $value $flag;
+            @if $property == 'border' {
+              #{$property-key}: $value $extra $flag;
+            }
+            @else {
+              #{$property-key}: $value $flag;
+            }
           }
         }
       }
@@ -30,7 +35,12 @@
           $result: $result process-value($value, $unit, $scale);
         }
 
-        #{$property}: $result $flag;
+        @if $property == 'border' {
+          #{$property}: $result $extra $flag;
+        }
+        @else {
+          #{$property}: $result $flag;
+        }
       }
     }
   }
