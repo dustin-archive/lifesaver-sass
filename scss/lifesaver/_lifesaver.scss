@@ -4,7 +4,6 @@
 
 
 @mixin ls($properties, $values, $units: null, $scale: null, $flag: null) {
-  $length: length($values);
   $values: compress-matching-values($values);
 
   @each $property in $properties {
@@ -21,7 +20,7 @@
       }
     }
 
-    @else if $length == 1 or $length == 2 or $length == 4 {
+    @else if length($values) < 5 and length($values) not 3 {
       @each $unit in $units {
 
         $result: null;
