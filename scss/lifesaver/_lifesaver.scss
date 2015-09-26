@@ -7,7 +7,7 @@
   $values: compress-matching-values($values);
 
   @each $property in $properties {
-    @if is-null($values) or $property == position  { // compensate in values-to-map??
+    @if is-null($values) or $property == 'position' { // compensate in values-to-map??
       $map: values-to-map($property, $values);
 
       @each $unit in $units {
