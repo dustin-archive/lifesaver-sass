@@ -1,0 +1,30 @@
+//
+// + Append suffix
+// =============================================================================
+
+
+@function append-suffix($property, $suffix) {
+  @if $property == margin {
+    $suffix: 'margin-' + $suffix;
+  }
+  @else if $property == padding {
+    $suffix: 'padding-' + $suffix;
+  }
+  @else if $property == border {
+    $suffix: 'border-' + $suffix;
+  }
+  @else if $property == border-width {
+    $suffix: 'border-' + $suffix + '-width';
+  }
+  @else if $property == border-style {
+    $suffix: 'border-' + $suffix + '-style';
+  }
+  @else if $property == border-radius {
+    $suffix: 'border-' + $suffix + '-radius';
+  }
+  @else if $property == border-color {
+    $suffix: 'border-' + $suffix + '-color';
+  }
+
+  @return $suffix;
+}

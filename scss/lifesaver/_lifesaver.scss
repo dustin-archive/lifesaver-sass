@@ -36,28 +36,12 @@
         @each $key in map-keys($map) {
           $value: map-get($map, $key);
 
-          // Append suffix when needed
-          @if $property == margin {
-            $key: 'margin-' + $key;
-          }
-          @else if $property == padding {
-            $key: 'padding-' + $key;
-          }
-          @else if $property == border-width {
-            $key: 'border-' + $key + '-width';
-          }
-          @else if $property == border-style {
-            $key: 'border-' + $key + '-style';
-          }
-          @else if $property == border-radius {
-            $key: 'border-' + $key + '-radius';
-          }
-          @else if $property == border-color {
-            $key: 'border-' + $key + '-color';
-          }
+          $property: append-suffix($property, $key);
+
+          $value: process-value($value, $unit, $scale);
 
           // Output
-          #{$key}: append(process-value($value, $unit, $scale), $flag);
+          #{$property}: append($value, $flag);
         }
       }
     }
