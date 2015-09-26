@@ -1,0 +1,12 @@
+//
+// + Test append suffix
+// =============================================================================
+
+
+.test-append-suffix {
+  /* input */
+  content: append-suffix(margin, anything);
+
+  /* output */
+  content: "margin-anything";
+}
