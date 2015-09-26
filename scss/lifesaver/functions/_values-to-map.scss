@@ -1,0 +1,28 @@
+//
+// + Values to map
+// =============================================================================
+
+
+@function values-to-map($property, $values) {
+  $map: ();
+
+  @if length($values) == 2 or length($values) == 4 {
+    $suffix: null;
+
+    @if $property == border-radius {
+      $suffix: top-left top-right bottom-right bottom-left;
+    }
+    @else {
+      $suffix: top right bottom left;
+    }
+
+    $map: (
+      nth($suffix, 1): nth($values, 1),
+      nth($suffix, 2): nth($values, 2),
+      nth($suffix, 3): if(length($values) == 2, nth($values, 1), nth($values, 3)),
+      nth($suffix, 4): if(length($values) == 2, nth($values, 2), nth($values, 4))
+    );
+  }
+
+  @return $map;
+}

@@ -3,71 +3,32 @@
 // =============================================================================
 
 
-@function values-to-map($property, $values) {
-  $length: length($values);
-  $list: border-width border-style border-radius border-color;
-  $map: ();
-
-  @if $length == 2 or $length == 4 {
-    $top: nth($values, 1);
-    $right: nth($values, 2);
-    $bottom: if($length == 2, $top, nth($values, 3));
-    $left: if($length == 2, $right, nth($values, 4));
-
-    @if index($property, $list) {
-      $map: (
-        top-left: $top,
-        top-right: $right,
-        bottom-right: $bottom,
-        bottom-left: $left
-     );
-    }
-    @else {
-      $map: (
-        top: $top,
-        right: $right,
-        bottom: $bottom,
-        left: $left
-     );
-    }
-  }
-
-  @return $map;
-}
-
 @mixin ls($properties, $values, $units: null, $scale: null, $flag: null) {
   $length: length($values);
-
   $values: compress-matching-values($values);
 
-  // Split output into multiple properties
   @each $property in $properties {
     @if is-null($values) or $property == position  { // compensate in values-to-map??
       $map: values-to-map($property, $values);
 
-      // Prepare property suffixes and output
       @each $unit in $units {
         @each $key in map-keys($map) {
           $property: append-suffix($property, $key);
           $value: process-value(map-get($map, $key), $unit, $scale);
 
-          // Output
           #{$property}: append($value, $flag);
         }
       }
     }
 
-    // Concatenate shorthand values and output
     @else if $length == 1 or $length == 2 or $length == 4 {
       @each $unit in $units {
 
-        // Concatenate shorthand output
         $result: null;
         @each $value in $values {
           $result: append($result, process-value($value, $unit, $scale));
         }
 
-        // Output
         #{$property}: append($result, $flag);
       }
     }
