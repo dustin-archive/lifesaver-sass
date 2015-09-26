@@ -27,9 +27,8 @@
 @import 'properties/font-size';
 @import 'properties/line-height';
 
-@import 'tests/test-border-radius';
-@import 'tests/test-border-width';
-@import 'tests/test-matching-values';
+@import 'tests/test-compress-matching-values';
+@import 'tests/test-process-value';
 @import 'tests/test-scale-compensation';
 @import 'tests/test-split-properties';
 @import 'tests/test-units';
