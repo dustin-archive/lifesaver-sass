@@ -1,0 +1,13 @@
+//
+// + Process value
+// =============================================================================
+
+
+@function process-value($value, $unit, $scale) {
+  @if $value == 0 or type-of($value) == string {
+    @return $value;
+  }
+  @else if function-exists($unit) {
+    @return call($unit, $value, $scale);
+  }
+}

@@ -59,15 +59,7 @@
 
           // Output
           @if not is-null($value) {
-            @if $value == 0 or type-of($value) == string {
-              #{$key}: append($value, $flag);
-            }
-            @else if function-exists($unit) {
-              #{$key}: append(call($unit, $value, $scale), $flag);
-            }
-            @else {
-              @warn 'LifeSaver: You used an invalid unit type.';
-            }
+            #{$key}: append(process-value($value, $unit, $scale), $flag);
           }
         }
       }
@@ -80,15 +72,7 @@
 
         // Concatenate shorthand output
         @each $value in $values {
-          @if $value == 0 or type-of($value) == string {
-            $result: append($result, $value);
-          }
-          @else if function-exists($unit) {
-            $result: append($result, call($unit, $value, $scale));
-          }
-          @else {
-            @warn 'LifeSaver: You used an invalid unit type.';
-          }
+          $result: append($result, process-value($value, $unit, $scale));
         }
 
         // Output
