@@ -34,11 +34,8 @@
       // Prepare property suffixes and output
       @each $unit in $units {
         @each $key in map-keys($map) {
-          $value: map-get($map, $key);
-
           $property: append-suffix($property, $key);
-
-          $value: process-value($value, $unit, $scale);
+          $value: process-value(map-get($map, $key), $unit, $scale);
 
           // Output
           #{$property}: append($value, $flag);
