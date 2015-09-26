@@ -2,18 +2,13 @@
 // + Units
 // =============================================================================
 
-//
-// + Scale compensation
-// =============================================================================
 
+// Scale compensation
 @function scale-comp($value, $scale: null) {
   @return if(is-null($scale), $value, (16 / $scale) * $value);
 }
 
-//
-// + Unit check type
-// =============================================================================
-
+// Unit check type
 @function unit-check-type($function, $value, $scale: null) {
   @if type-of($value) == string or is-null($value) {
     @return $value;
@@ -23,10 +18,7 @@
   }
 }
 
-//
-// + Unit expressions
-// =============================================================================
-
+// Unit expressions
 @function un-expression($value, $scale) {
   @return safe-convert(scale-comp($value, $scale));
 }
@@ -61,10 +53,7 @@
   @return if($value == 0, $result, $result * 1vh);
 }
 
-//
-// + Units
-// =============================================================================
-
+// Units
 @function un($value, $scale: null) {
   @return unit-check-type('un-expression', $value, $scale);
 }

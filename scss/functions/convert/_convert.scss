@@ -2,10 +2,8 @@
 // + Safe convert
 // =============================================================================
 
-//
-// + Convert check type
-// =============================================================================
 
+// Convert check type
 @function convert-check-type($function, $value) {
   @if type-of($value) == string or is-null($value) {
     @return $value;
@@ -15,10 +13,7 @@
   }
 }
 
-//
-// + Convert expressions
-// =============================================================================
-
+// Convert expressions
 @function ceil-convert-expression($value) {
   @return ceil($value) / 16;
 }
@@ -43,10 +38,7 @@
   @return round($value * 16) / 256;
 }
 
-//
-// + Convert
-// =============================================================================
-
+// Convert
 @function ceil-convert($value) {
   @return convert-check-type('ceil-expression', $value);
 }
