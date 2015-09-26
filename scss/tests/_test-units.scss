@@ -4,37 +4,49 @@
 
 
 .test-unit-em {
+  /* input */
   @include margin(1, em);
-  /* */
+
+  /* output */
   margin: 0.0625em;
 }
 
 .test-unit-rem {
+  /* input */
   @include margin(1, rem);
-  /* */
+
+  /* output */
   margin: 0.0625rem;
 }
 
 .test-unit-px {
+  /* input */
   @include margin(1, px);
-  /* */
+
+  /* output */
   margin: 1px;
 }
 
 .test-unit-pct {
+  /* input */
   @include margin(1, pct);
-  /* */
+
+  /* output */
   margin: 100%;
 }
 
 .test-unit-vw {
+  /* input */
   @include margin(1, vw);
-  /* */
+
+  /* output */
   margin: 1vw;
 }
 
 .test-unit-vh {
+  /* input */
   @include margin(1, vh);
-  /* */
+
+  /* output */
   margin: 1vh;
 }
