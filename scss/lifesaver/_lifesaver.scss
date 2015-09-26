@@ -12,10 +12,10 @@
 
       @each $unit in $units {
         @each $key in map-keys($map) {
-          $property: append-suffix($property, $key);
+          $property-key: append-suffix($property, $key);
           $value: process-value(map-get($map, $key), $unit, $scale);
 
-          #{$property}: append($value, $flag);
+          #{$property-key}: append($value, $flag);
         }
       }
     }
