@@ -4,6 +4,7 @@ Changelog
 **UNRELEASED**
 + 2.0.0
   + Refactored value compression into `compress-matching-values` function
+  + Refactored value processing into `process-values` function
   + Separates properly `border-width` and `border-style` when encountered
   + Added `width` property mixin
   + Added `min-width` property mixin
