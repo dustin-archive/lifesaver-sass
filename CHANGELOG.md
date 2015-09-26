@@ -6,6 +6,7 @@ Changelog
   + Refactored value compression into `compress-matching-values` function
   + Refactored value processing into `process-values` function
   + Refactored property suffix appending into `append-suffix` function
+  + Refactored values to map conversion into `values-to-map` function
   + Properly separates `border`, `border-width`, `border-style` and `border-color`
   + Added `width` property mixin
   + Added `min-width` property mixin
