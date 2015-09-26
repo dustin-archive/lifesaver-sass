@@ -7,13 +7,10 @@
   $map: ();
 
   @if length($values) == 2 or length($values) == 4 {
-    $suffix: null;
+    $suffix: 'top' 'right' 'bottom' 'left';
 
-    @if $property == border-radius {
-      $suffix: top-left top-right bottom-right bottom-left;
-    }
-    @else {
-      $suffix: top right bottom left;
+    @if $property == 'border-radius' {
+      $suffix: 'top-left' 'top-right' 'bottom-right' 'bottom-left';
     }
 
     $map: (
