@@ -21,6 +21,13 @@
 
 .test-process-value {
   /* input */
+  content: process-value(x);
+
+  /* output */
+}
+
+.test-process-value {
+  /* input */
   content: process-value(16);
 
   /* output */
