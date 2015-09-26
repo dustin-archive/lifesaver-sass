@@ -4,17 +4,12 @@
 
 
 @function compress-matching-values($values) {
-  $length: length($values);
-
-  @if $length == 2 {
-    $top-bottom: nth($values, 1);
-    $left-right: nth($values, 2);
-
-    @if $top-bottom == $left-right {
-      $values: $top-bottom;
+  @if length($values) == 2 {
+    @if nth($values, 1) == nth($values, 2) {
+      $values: nth($values, 1);
     }
   }
-  @else if $length == 4 {
+  @else if length($values) == 4 {
     $top: nth($values, 1);
     $right: nth($values, 2);
     $bottom: nth($values, 3);
