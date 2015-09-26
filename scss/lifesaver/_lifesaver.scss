@@ -4,6 +4,8 @@
 
 
 @mixin ls($properties, $values, $units: null, $scale: null, $flag: null) {
+  $length: length($values);
+
   $values: compress-matching-values($values);
 
   // Split output into multiple properties
@@ -12,8 +14,11 @@
       $map: ();
 
       // Assign $values values to $map
-      @if length($values) == 2 or length($values) == 4 {
-        @if $property == border-radius or $property == border-width or $property == border-style or $property == border-color {
+      @if $length == 2 or $length == 4 {
+        @if $property == border-radius or
+            $property == border-width or
+            $property == border-style or
+            $property == border-color {
           $map: (
             top-left: nth($values, 1),
             top-right: nth($values, 2),
@@ -44,7 +49,7 @@
     }
 
     // Concatenate shorthand values and output
-    @else if length($values) == 1 or length($values) == 2 or length($values) == 4 {
+    @else if $length == 1 or $length == 2 or $length == 4 {
       @each $unit in $units {
 
         // Concatenate shorthand output
