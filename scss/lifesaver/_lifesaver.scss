@@ -15,7 +15,9 @@
           $property-key: append-suffix($property, $key);
           $value: process-value(map-get($map, $key), $unit, $scale);
 
-          #{$property-key}: append($value, $flag);
+          @if not is-null($value) {
+            #{$property-key}: $value $flag;
+          }
         }
       }
     }
@@ -28,7 +30,7 @@
           $result: append($result, process-value($value, $unit, $scale));
         }
 
-        #{$property}: append($result, $flag);
+        #{$property}: $result $flag;
       }
     }
   }
