@@ -4,7 +4,10 @@
 
 
 @function process-value($value, $unit: null, $scale: null) {
-  @if is-null($unit) {
+  @if is-null($value) {
+    $value: null;
+  }
+  @else if is-null($unit) {
     $value: scale-comp($value, $scale);
   }
   @else if function-exists($unit) {
