@@ -3,12 +3,9 @@
 // =============================================================================
 
 
-// Not totally sure how to go about this
-// @mixin border($values, $units: null, $style: null, $color: null, $scale: null, $flag: null) {
-//   @include save(border-width, $values, $units, $scale, $flag);
-//   border-style: $style;
-//   border-color: $color;
-// }
+@mixin border($values, $style, $color, $units: null, $scale: null, $flag: null) {
+  @include save(border, $values, $units, $scale, $flag, $extra: $style $color);
+}
 
 @mixin border-width($values, $units: null, $scale: null, $flag: null) {
   @include save(border-width, $values, $units, $scale, $flag);
