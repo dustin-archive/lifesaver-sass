@@ -3,7 +3,7 @@
 // =============================================================================
 
 
-@mixin border($values, $style, $color, $units: null, $scale: null, $flag: null) {
+@mixin border($values, $units: null, $style: null, $color: null, $scale: null, $flag: null) {
   @include save(border, $values, $units, $scale, $flag, $extra: $style $color);
 }
 
