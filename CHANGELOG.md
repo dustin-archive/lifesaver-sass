@@ -3,11 +3,14 @@ Changelog
 
 **UNRELEASED**
 + 2.0.0
+  + Refactored everything
   + Refactored value compression into `compress-matching-values` function
   + Refactored value processing into `process-values` function
   + Refactored property suffix appending into `append-suffix` function
   + Refactored values to map conversion into `values-to-map` function
+  + Rename `ls` mixin to 'save'
   + Properly separates `border`, `border-width`, `border-style` and `border-color`
+  + Rewrote all the tests
   + Added `width` property mixin
   + Added `min-width` property mixin
   + Added `max-width` property mixin
@@ -43,8 +46,9 @@ Changelog
 + 1.1.0
   + Split `safe-units` partial into `units` and `convert` partials
   + If you pass `null` to a function the output will be nullified and removed without errors
-  + If you pass a single CSS string to a function the output will be the CSS string
-  + + This lets you to use variables inside functions and control the output of the property by setting a variable to null
+  + Added `unit-check-type`, `convert-check-type`, `unit-expressions` and `convert-expressions`
+  + + When you pass a string to a function it outputs the string
+  + + When you pass a null value to a function it outputs null and the property is removed
   + Deprecated functions `floor-un`, 'floor-em', 'floor-px' etc.
   + Deprecated functions `ceil-un`, 'ceil-em', 'ceil-px' etc.
   + Added test for `scale-compensation`
