@@ -4,6 +4,9 @@
 
 
 @function append-suffix($property, $suffix) {
+  @if $property == 'position' {
+    $property: $suffix;
+  }
   @if $property == 'margin' {
     $property: 'margin-' + $suffix;
   }
