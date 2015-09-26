@@ -6,13 +6,13 @@
 @import 'functions/is-null';
 @import 'functions/set-default';
 
-@import 'functions/compress-matching-values';
-@import 'functions/process-value';
-
 @import 'functions/units/units';
 @import 'functions/convert/convert';
 
-@import 'lifesaver';
+@import 'lifesaver/functions/compress-matching-values';
+@import 'lifesaver/functions/process-value';
+
+@import 'lifesaver/lifesaver';
 
 @import 'properties/width';
 @import 'properties/height';
