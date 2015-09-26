@@ -1,0 +1,13 @@
+//
+// + Convert check type
+// =============================================================================
+
+
+@function convert-check-type($function, $value) {
+  @if is-null($value) or type-of($value) == string {
+    @return $value;
+  }
+  @else {
+    @return call($function, $value);
+  }
+}

@@ -5,9 +5,15 @@
 
 @import 'functions/is-null';
 @import 'functions/set-default';
+@import 'functions/scale-comp';
 
-@import 'functions/units/units';
-@import 'functions/convert/convert';
+@import 'functions/units/unit-check-type';
+@import 'functions/units/unit-expressions';
+@import 'functions/units/unit-functions';
+
+@import 'functions/convert/convert-check-type';
+@import 'functions/convert/convert-expressions';
+@import 'functions/convert/convert-functions';
 
 @import 'lifesaver/functions/append-suffix';
 @import 'lifesaver/functions/compress-matching-values';

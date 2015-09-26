@@ -1,0 +1,8 @@
+//
+// + Scale comp
+// =============================================================================
+
+
+@function scale-comp($value, $scale: null) {
+  @return if(is-null($scale), $value, (16 / $scale) * $value);
+}

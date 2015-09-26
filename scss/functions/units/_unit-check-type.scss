@@ -1,0 +1,13 @@
+//
+// + Unit check type
+// =============================================================================
+
+
+@function unit-check-type($function, $value, $scale: null) {
+  @if is-null($value) or type-of($value) == string {
+    @return $value;
+  }
+  @else {
+    @return call($function, $value, $scale);
+  }
+}
