@@ -4,27 +4,27 @@
 
 
 @function append-suffix($property, $suffix) {
-  @if $property == margin {
-    $suffix: 'margin-' + $suffix;
+  @if $property == 'margin' {
+    $property: 'margin-' + $suffix;
   }
-  @else if $property == padding {
-    $suffix: 'padding-' + $suffix;
+  @else if $property == 'padding' {
+    $property: 'padding-' + $suffix;
   }
-  @else if $property == border {
-    $suffix: 'border-' + $suffix;
+  @else if $property == 'border' {
+    $property: 'border-' + $suffix;
   }
-  @else if $property == border-width {
-    $suffix: 'border-' + $suffix + '-width';
+  @else if $property == 'border-width' {
+    $property: 'border-' + $suffix + '-width';
   }
-  @else if $property == border-style {
-    $suffix: 'border-' + $suffix + '-style';
+  @else if $property == 'border-style' {
+    $property: 'border-' + $suffix + '-style';
   }
-  @else if $property == border-radius {
-    $suffix: 'border-' + $suffix + '-radius';
+  @else if $property == 'border-radius' {
+    $property: 'border-' + $suffix + '-radius';
   }
-  @else if $property == border-color {
-    $suffix: 'border-' + $suffix + '-color';
+  @else if $property == 'border-color' {
+    $property: 'border-' + $suffix + '-color';
   }
 
-  @return $suffix;
+  @return $property;
 }
