@@ -4,7 +4,9 @@
 
 
 .test-scale-compensation {
-  @include margin(2 4 6 8, em, 32);
-  /* */
-  margin: 0.0625em 0.125em 0.1875em 0.25em;
+  /* input */
+  content: scale-comp(16, 2);
+
+  /* output */
+  content: 128;
 }
