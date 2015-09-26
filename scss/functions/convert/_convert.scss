@@ -5,7 +5,7 @@
 
 // Convert check type
 @function convert-check-type($function, $value) {
-  @if type-of($value) == string or is-null($value) {
+  @if is-null($value) or type-of($value) == string {
     @return $value;
   }
   @else {
