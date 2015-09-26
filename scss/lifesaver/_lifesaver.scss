@@ -13,7 +13,7 @@
 
       // Assign $values values to $map
       @if length($values) == 2 or length($values) == 4 {
-        @if $property == border-radius {
+        @if $property == border-radius or $property == border-width or $property == border-style or $property == border-color {
           $map: (
             top-left: nth($values, 1),
             top-right: nth($values, 2),
