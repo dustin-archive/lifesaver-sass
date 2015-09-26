@@ -1,0 +1,29 @@
+//
+// + Compress matching values
+// =============================================================================
+
+
+@function compress-matching-values($values) {
+  @if length($values) == 2 {
+    $top-bottom: nth($values, 1);
+    $left-right: nth($values, 2);
+
+    @if $top-bottom == $left-right {
+      $values: $top-bottom;
+    }
+  }
+  @else if length($values) == 4 {
+    $top: nth($values, 1);
+    $right: nth($values, 2);
+    $bottom: nth($values, 3);
+    $left: nth($values, 4);
+
+    @if $top == $bottom and $right == $left {
+      $values: $top, $right;
+    }
+    @else if $top == $right and $top == $bottom and $top == $left {
+      $values: $top;
+    }
+  }
+  @return $values;
+}
