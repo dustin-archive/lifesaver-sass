@@ -1,0 +1,32 @@
+//
+// + Remove nth
+// =============================================================================
+
+
+@function remove-nth($list, $index) {
+  $first: null;
+  $second: null;
+
+  @each $item in $list {
+    $i: index($list, $item);
+
+    @if $i < $index {
+      @if $first == null {
+        $first: $item;
+      }
+      @else {
+        $first: join($first, $item);
+      }
+    }
+    @else if $i > $index {
+      @if $second == null {
+        $second: $item;
+      }
+      @else {
+        $second: join($second, $item);
+      }
+    }
+  }
+
+  @return join($first, $second);
+}
