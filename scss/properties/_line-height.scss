@@ -1,8 +1,0 @@
-//
-// + Line height
-// =============================================================================
-
-
-@mixin line-height($value, $units: null, $scale: null, $flag: null) {
-  line-height: process-value($value, $units, $scale) $flag;
-}
