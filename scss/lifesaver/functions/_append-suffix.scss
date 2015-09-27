@@ -7,15 +7,6 @@
   @if $property == 'position' {
     $property: $suffix;
   }
-  @if $property == 'margin' {
-    $property: 'margin-' + $suffix;
-  }
-  @else if $property == 'padding' {
-    $property: 'padding-' + $suffix;
-  }
-  @else if $property == 'border' {
-    $property: 'border-' + $suffix;
-  }
   @else if $property == 'border-width' {
     $property: 'border-' + $suffix + '-width';
   }
@@ -27,6 +18,9 @@
   }
   @else if $property == 'border-color' {
     $property: 'border-' + $suffix + '-color';
+  }
+  @else {
+    $property: $property + '-' + $suffix;
   }
 
   @return $property;
