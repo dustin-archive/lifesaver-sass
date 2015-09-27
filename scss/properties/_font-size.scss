@@ -1,8 +1,0 @@
-//
-// + Font size
-// =============================================================================
-
-
-@mixin font-size($value, $units: null, $scale: null, $flag: null) {
-  font-size: process-value($value, $units, $scale) $flag;
-}
