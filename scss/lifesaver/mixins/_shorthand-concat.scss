@@ -15,7 +15,7 @@
       // #{$property}: $result $extra $flag;
     // }
     // @else {
-      #{$property}: append($result, $flag);
+      #{$property}: join($result, $flag);
     // }
   }
 }

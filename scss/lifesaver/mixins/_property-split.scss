@@ -15,7 +15,7 @@
           // #{$property-key}: $value $extra $flag;
         // }
         // @else {
-          #{$property-key}: append($value, $flag);
+          #{$property-key}: join($value, $flag);
         // }
       }
     }

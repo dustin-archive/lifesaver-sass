@@ -19,7 +19,7 @@
           $units: $argument;
         }
         @else {
-          $units: append($units, $argument);
+          $units: join($units, $argument);
         }
       }
 
@@ -38,7 +38,7 @@
         $properties: $argument;
       }
       @else {
-        $properties: append($properties, $argument);
+        $properties: join($properties, $argument);
       }
     }
     @else if contains-null($argument) or type-of($argument) == number {
@@ -58,7 +58,7 @@
         $values: $argument;
       }
       @else {
-        $values: append($values, $argument);
+        $values: join($values, $argument);
       }
     }
   }
