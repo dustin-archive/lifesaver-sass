@@ -3,21 +3,21 @@ LifeSaver
 
 Shorthand for all your Sass!
 
+Note: If a shorthand mixin for Sass seems silly to you when you have to type out a giant `@include` statement before your properties and also wrap them up in parenthesis, check out the presass-lifesaver project for PostCSS, which takes care of this problem.
+
+Note: Sass v4 might include a shorter syntax for includes, which would make this set of mixins dramatically more plausible to use. See the github issue ######.
 
 ## Table of Contents
 
 1. [Getting Started](#getting-started)
 1. [Syntax](#syntax)
-1. [Core Mixin](#core-mixins)
+1. [Save Mixin](#save-mixin)
 1. [Property Mixins](#property-mixins)
 1. [Values](#values)
 1. [Units](#units)
-1. [Skipping](#skipping)
-1. [Safe Units and Convert Functions](#safe-units-and-convert-functions)
-1. [Scale Compensation](#scale-compensation)
+1. [Unit Functions](#units-functions)
+1. [Convert Functions](#convert-functions)
 1. [Flags](#flags)
-1. [Extending LifeSaver](#extending-lifesaver)
-
 
 ## Getting Started
 
@@ -33,82 +33,59 @@ Import LifeSaver.
 @import 'bower_components/lifesaver/main';
 ```
 
-
 ## Syntax
 
-There are two ways to use LifeSaver; the core mixin or a property mixin.
+There are two ways to use LifeSaver.
 
 ```scss
-// Core
-@include ls([properties], [values], [units], [scale compensation], [flag]);
+@include save( [properties] [values] [units] [scale] [flag] );
 
-// Property mixin
-@include margin([values], [units], [scale compensation], [flag]);
+@include [property]( [values] [units] [scale] [flag] );
 ```
 
+## Save Mixin
 
-## Core Mixin
-
-The advantage of using the core instead of a property is the ability to use multiple properties at once with the same values and units. A use case for this would be a button where you want the values for margin and padding.
-
-The disadvantage of using the core is that you can't pass any property mixins as arguments. Property mixins sometimes have have extended functionality specific to that mixin.
+The `save` mixin is the core of LifeSaver. It's mean to be as generic as possible. Because it's generic, it allows you to use multiple properties at once.
 
 Input:
 
 ```scss
-button {
-  @include ls(margin padding, 2 4 x 16, px rem);
+div {
+  @include save(margin padding 16px);
 }
 ```
 
 Output:
 
 ```css
-button {
-  margin-top: 2px;
-  margin-right: 4px;
-  margin-left: 16px;
-  margin-top: 0.125rem;
-  margin-right: 0.25rem;
-  margin-left: 1rem;
-  padding-top: 2px;
-  padding-right: 4px;
-  padding-left: 16px;
-  padding-top: 0.125rem;
-  padding-right: 0.25rem;
-  padding-left: 1rem;
+div {
+  margin: 16px;
+  padding: 16px;
 }
 ```
-
 
 ## Property Mixins
 
-Property mixins aim to keep your code compressed by offering extended functionality unique to each property.
-
-The only disadvantage with using a property mixin is that you can't use multiple properties.
+While the `save` mixin is generic, property mixins offer extended functionality unique to each property.
 
 Input:
 
 ```scss
-button {
-  @include margin(2 4 x 16, px rem);
+div {
+  @include size(2 4 px);
 }
 ```
 
 Output:
 
 ```css
-button {
-  margin-top: 2px;
-  margin-right: 4px;
-  margin-left: 16px;
-  margin-top: 0.125rem;
-  margin-right: 0.25rem;
-  margin-left: 1rem;
+div {
+  width: 2px;
+  height: 4px;
 }
 ```
 
-Here's a list of all of the properties:
+Here's a list of all of the CSS properties LifeSaver supports:
 
 ```scss
 @include width();
@@ -132,6 +109,8 @@ Here's a list of all of the properties:
 @include padding-left();
 
 @include border-width();
+@include border-style();
+@include border-color();
 @include border-radius();
 
 @include position();
@@ -139,6 +118,8 @@ Here's a list of all of the properties:
 @include font-size();
 @include line-height();
 ````
+
+Here's a list of all the LifeSaver properties:
 
 ```scss
 @include size();
@@ -164,171 +145,195 @@ Here's a list of all of the properties:
 @include sticky();
 ```
 
-
 ## Values
 
-LifeSaver can parse values that can be used in CSS including strings like `auto` and `inherit`.
+In LifeSaver values work the same as CSS except in two ways: null values and unit position.
 
-Using null values in LifeSaver unit functions to prevent properties from being output will no longer cause errors and will totally work!
+When passing a null value, LifeSaver splits the properties up and doesn't output the property with the null value.
+
+If brevity is your thing, you can substitute null for x.
+
+Input:
 
 ```scss
-// Input
-$margin: null;
-
-.block {
-  margin: em($margin);
-  background: orange;
+div {
+  @include margin(1px null 3px 4px);
 }
 
-// Output
-.block {
-  background: orange;
+div {
+  @include margin(1px x 3px 4px);
 }
 ```
 
-Similarly this is also true for CSS strings, except the string will be output instead of nullified.
+Output:
 
-```scss
-// Input
-$margin: auto;
-
-.block {
-  margin: em($margin);
-  background: orange;
+```css
+div {
+  margin-top: 1px;
+  margin-bottom: 3px;
+  margin-left: 4px;
 }
 
-// Output
-.block {
-  margin: auto;
-  background: orange;
+div {
+  margin-top: 1px;
+  margin-bottom: 3px;
+  margin-left: 4px;
+}
+```
+
+For further brevity you also have the option to separate the unit declaration from the values.
+
+Input:
+
+```scss
+div {
+  @include margin(1 x 3 4 px);
+}
+```
+
+Output:
+
+```css
+div {
+  margin-top: 1px;
+  margin-bottom: 3px;
+  margin-left: 4px;
 }
 ```
 
 ## Units
 
-Just like passing multiple properties you can also pass multiple units. This is useful when you need to use new units but stay compatible with older browsers.
+Just like passing multiple properties you can pass multiple units. This is useful for fallbacks.
 
-For example, older browsers don't support the `rem`. They will just throw out the properties using the `rem` units and use the properties using the `px` values instead. In newer browsers the `rem` will simply override the `px`.
+Note: the units are output in the order you define them. Order is critical if you want your fallback units to work.
 
 ```scss
-.block {
-  @include margin(2 x x x, px rem);
+div {
+  @include margin(2 px rem);
 }
 ```
 
 Output:
 
 ```css
-.block {
-  margin-top: 2px;
-  margin-top: 0.125rem;
+div {
+  margin: 2px;
+  margin: 0.125rem;
 }
 ```
 
-Here's a list of all the units you can pass to LifeSaver:
+## Unit Functions
 
-```
-px
-em
-rem
-pct
-vw
-vh
-```
-
-
-## Skipping
-
-In CSS when using the shorthand syntax you can't skip values. In order to use the shorthand syntax in CSS you must define all the values. You *could* set a value to 0, but you might not always want to have a 0 margin or padding. You could also manually look up the previously set value, but this might not always be the same depending on the situation. With LifeSaver you can skip values all you'd like by passing an `x` or `null` value.
-
-Note: With CSS3's `unset` this isn't necessarily true anymore, though, it's not well supported just yet.
-
-Input:
+You can pass strings or null values to any unit function without errors. This is useful when you're storing values in variables.
 
 ```scss
-.center {
-  @include margin(x auto);
+// Input
+$margin: auto;
+$padding: null;
+
+div {
+  margin: em($margin);
+  padding: em($padding);
+  background: orange;
+}
+
+// Output
+div {
+  margin: auto;
+  background: orange;
+}
+```
+
+When using rems and ems, changing the `font-size` of an element affects the scale of the children. A way to overcome this without using an extra element is to use the scale argument in a unit function. An `x` unit is used to show that it's a scale.
+
+In the code below, the `font-size` is increased but the margins remain visually the same.
+
+```scss
+div {
+  font-size: em(24);
+  margin: em(16, 24x);
 }
 ```
 
 Output:
 
 ```css
-.center {
-  margin-left: auto;
-  margin-right: auto;
+div {
+  font-size: 1.125em;
+  margin: 0.75em;
 }
 ```
 
+The `save` mixin also includes a check for the use of scale arguments.
 
-## Safe Units and Convert Functions
+```scss
+div {
+  font-size: em(24);
+  @include margin(x 16 em 24x);
+}
+```
 
-LifeSaver has a set of functions for safely converting units to help prevent browser rounding errors that could potentially break a design.
+Output:
+
+```css
+div {
+  font-size: 1.125em;
+  margin-right: 0.75em;
+  margin-left: 0.75em;
+}
+```
+
+Here's a list of all of LifeSaver's unit functions:
+
+```
+px()
+em()
+rem()
+pct()
+vw()
+vh()
+```
+
+## Convert Functions
+
+Convert functions are for safely converting units to help prevent rounding errors.
 
 Note: While the effectiveness of this may vary from browser to browser, it certainly can't hurt anything.
 
 Here's a list of all the unit and convert functions:
 
 ```
-convert([value]);
-safe([value]);
+convert();
+safe();
 
-ceil-convert([value]);
-floor-convert([value]);
-round-convert([value]);
-safe-convert([value]);
+ceil-convert();
+floor-convert();
+round-convert();
+safe-convert();
 
-// These functions automatically use the `safe-convert` function internally:
-un([value], [scale]);
-em([value], [scale]);
-rem([value], [scale]);
+// These functions use `safe-convert`:
+un();
+em();
+rem();
 
-// This function automatically uses the `safe` function internally:
-px([value], [scale]);
+// This function uses `safe`:
+px();
 
-// These functions don't use the `safe-convert` function because it's not necessary.
-pct([value], [scale]);
-vw([value], [scale]);
-vh([value], [scale]);
+// These functions don't use `safe` or `safe-convert` because they're not necessary.
+pct();
+vw();
+vh();
 ```
-
-
-## Scale Compensation
-
-When using units like rem and em, when you change the font size of an element it also effects other properties that use rem and em. To circumvent this, leaving your units visually the same, you can pass a scale compensation argument equal to the font size.
-
-Input:
-
-```scss
-.bigger-font-only {
-  font-size: em(24);
-  @include margin(2 4 x 16, em, 24);
-}
-```
-
-Output:
-
-```css
-.bigger-font-only {
-  font-size: 1.125em;
-  margin-top: 0.08203125em;
-  margin-right: 0.16796875em;
-  margin-left: 0.75em;
-}
-```
-
 
 ## Flags
 
 Passing a flag argument tells LifeSaver to apply a flag to each property it generates.
 
-If you only want to add a flag to only one of the generated properties, you'll have to add another include with only the value you want to add the flag to or just use regular CSS for these one-off cases.
-
 Input:
 
 ```scss
 .warning {
-  @include margin(2 4 x 16, em, x, !important);
+  @include margin(2 4 x 16 em !important);
 }
 ```
 
@@ -339,55 +344,5 @@ Output:
   margin-top: 0.125em !important;
   margin-right: 0.25em !important;
   margin-left: 1em !important;
-}
-```
-
-If you don't want to define scale compensation, but you want to pass a flag argument, you can do one of two things:
-
-1. You can set the scale compensation to `x` or `null` telling LifeSaver to ignore this argument.
-2. Pass the flag argument using the `$flag` variable as shown below.
-
-```scss
-.warning {
-  @include margin(1 2, em, $flag: !important);
-}
-```
-
-
-## Extending LifeSaver
-
-Incorporating LifeSaver into your own mixins allows you to get all the benefits of LifeSaver, like compressing multiple properties into one property, multiple properties, multiple units, safe units, and font size scale compensation.
-
-Here's an example that takes advantage of LifeSaver's property compression.
-
-```scss
-@mixin line($side, $color: black, $style: solid, $padding: 4) {
-  display: inline-block;
-  border-style: $style;
-  border-color: $color;
-
-  $p1: $padding;
-  $p2: $padding * 2;
-
-  $t: null;
-  $r: null;
-  $b: null;
-  $l: null;
-
-  @if index($side, box) {
-    $t: $p1;
-    $r: $p2;
-    $b: $p1;
-    $l: $p2;
-  }
-  @else {
-    $t: if(index($side, top), $p1, null);
-    $r: if(index($side, right), $p2, null);
-    $b: if(index($side, bottom), $p1, null);
-    $l: if(index($side, left), $p2, null);
-  }
-
-  @include padding($t $r $b $l, px);
-  @include border-width($t $r $b $l, px);
 }
 ```
