@@ -1,0 +1,23 @@
+//
+// + Property split 4
+// =============================================================================
+
+
+@mixin property-split-4($property, $values, $units, $scale, $flag) {
+  $map: values-to-map($property, $values);
+  @each $unit in $units {
+    @each $key in map-keys($map) {
+      $property-key: append-suffix($property, $key);
+      $value: process-value(map-get($map, $key), $unit, $scale);
+
+      @if not is-null($value) {
+        @if $property == 'border' {
+          #{$property-key}: $value $extra $flag;
+        }
+        @else {
+          #{$property-key}: $value $flag;
+        }
+      }
+    }
+  }
+}

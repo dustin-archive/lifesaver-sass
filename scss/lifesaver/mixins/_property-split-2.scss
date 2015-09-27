@@ -1,0 +1,21 @@
+//
+// + Property split 2
+// =============================================================================
+
+
+@mixin property-split-2($property, $values, $units, $scale, $flag) {
+  @each $unit in $units {
+    $result: null;
+
+    @each $value in $values {
+      $result: $result process-value($value, $unit, $scale);
+    }
+
+    @if $property == 'border' {
+      #{$property}: $result $extra $flag;
+    }
+    @else {
+      #{$property}: $result $flag;
+    }
+  }
+}
