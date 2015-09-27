@@ -15,7 +15,7 @@
       // #{$property}: $result $extra $flag;
     // }
     // @else {
-      #{$property}: $result $flag;
+      #{$property}: append($result, $flag);
     // }
   }
 }

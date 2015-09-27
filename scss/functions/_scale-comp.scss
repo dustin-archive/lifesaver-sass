@@ -4,5 +4,5 @@
 
 
 @function scale-comp($value, $scale: null) {
-  @return if(is-null($scale), $value, (16 / $scale) * $value);
+  @return if(contains-null($scale), $value, (16 / $scale) * $value);
 }

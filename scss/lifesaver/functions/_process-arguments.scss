@@ -11,7 +11,7 @@
   $flag:       null;
 
   @each $argument in $arguments {
-    @if not is-null($argument) and type-of($argument) == string  {
+    @if not contains-null($argument) and type-of($argument) == string  {
 
       // $unit
       @if function-exists($argument) {
@@ -41,10 +41,10 @@
         $properties: append($properties, $argument);
       }
     }
-    @else if is-null($argument) or type-of($argument) == number {
+    @else if contains-null($argument) or type-of($argument) == number {
 
       // $scale
-      @if not is-null($argument) and unit($argument) == x {
+      @if not contains-null($argument) and unit($argument) == x {
         @if $scale == null {
           $scale: $argument;
         }

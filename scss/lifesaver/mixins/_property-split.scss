@@ -10,12 +10,12 @@
       $property-key: append-suffix($property, $key);
       $value: process-value(map-get($map, $key), $unit, $scale);
 
-      @if not is-null($value) {
+      @if not contains-null($value) {
         // @if $property == 'border' {
           // #{$property-key}: $value $extra $flag;
         // }
         // @else {
-          #{$property-key}: $value $flag;
+          #{$property-key}: append($value, $flag);
         // }
       }
     }
