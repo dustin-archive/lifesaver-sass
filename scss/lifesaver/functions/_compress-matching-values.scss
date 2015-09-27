@@ -4,17 +4,27 @@
 
 
 @function compress-matching-values($values) {
-  @if length($values) == 2 {
-    @if nth($values, 1) == nth($values, 2) {
-      $values: nth($values, 1);
+  $length: length($values);
+
+  @if $length > 1 {
+    $top: nth($values, 1);
+    $right: nth($values, 2);
+
+    @if $length == 2 {
+      @if $top == $right {
+        $values: $top;
+      }
     }
-  }
-  @else if length($values) == 4 {
-    @if nth($values, 1) == nth($values, 3) and nth($values, 4) == nth($values, 2) {
-      $values: nth($values, 1) nth($values, 2);
-    }
-    @else if nth($values, 1) == nth($values, 2) and nth($values, 1) == nth($values, 3) and nth($values, 1) == nth($values, 4) {
-      $values: nth($values, 1);
+    @else if $length == 4 {
+      $bottom: nth($values, 3);
+      $left: nth($values, 4);
+
+      @if $top == $bottom and $left == $right {
+        $values: $top $left;
+      }
+      @else if $top == $right and $top == $bottom and $top == $left {
+        $values: $top;
+      }
     }
   }
 
