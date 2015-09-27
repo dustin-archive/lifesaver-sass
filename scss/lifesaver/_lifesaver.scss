@@ -16,10 +16,10 @@
 
   @each $property in $properties {
     @if is-null($values) or $property == 'position' {
-      @include property-split-4($property, $values, $units, $scale, $flag);
+      @include property-split($property, $values, $units, $scale, $flag);
     }
     @else if length($values) < 5 and length($values) not 3 {
-      @include property-split-2($property, $values, $units, $scale, $flag);
+      @include shorthand-concat($property, $values, $units, $scale, $flag);
     }
   }
 }

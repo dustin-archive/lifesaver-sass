@@ -1,9 +1,9 @@
 //
-// + Property split 4
+// + Property split
 // =============================================================================
 
 
-@mixin property-split-4($property, $values, $units, $scale, $flag) {
+@mixin property-split($property, $values, $units, $scale, $flag) {
   $map: values-to-map($property, $values);
   @each $unit in $units {
     @each $key in map-keys($map) {

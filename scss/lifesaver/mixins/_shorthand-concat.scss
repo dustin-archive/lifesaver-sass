@@ -1,9 +1,9 @@
 //
-// + Property split 2
+// + Shorthand concat
 // =============================================================================
 
 
-@mixin property-split-2($property, $values, $units, $scale, $flag) {
+@mixin shorthand-concat($property, $values, $units, $scale, $flag) {
   @each $unit in $units {
     $result: null;
 
