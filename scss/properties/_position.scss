@@ -3,32 +3,55 @@
 // =============================================================================
 
 
-@mixin position($values, $units: null, $scale: null, $z: null, $flag: null) {
-  @include save(position, $values, $units, $scale, $flag);
-  z-index: append($z, $flag);
+@mixin position($arguments) {
+  $z: check-z($arguments);
+  $flag: check-flag($arguments);
+
+  @if not contains-null($z) {
+    $arguments: remove-item($arguments, $z);
+  }
+
+  @include save(join(position, $arguments));
+
+  @if not contains-null($z) {
+    @if contains-null($flag) {
+      z-index: $z;
+    }
+    @else {
+      z-index: join($z, $flag);
+    }
+  }
 }
 
-@mixin position-absolute($values, $units: null, $scale: null, $z: null, $flag: null) {
-  position: absolute;
-  @include position($values, $units, $scale, $flag);
+@mixin position-type($type, $arguments) {
+  $flag: check-flag($arguments);
+
+  @if contains-null($flag) {
+    position: $type;
+  }
+  @else {
+    position: join($type, $flag);
+  }
+
+  @include position($arguments);
 }
 
-@mixin position-fixed($values, $units: null, $scale: null, $z: null, $flag: null) {
-  position: fixed;
-  @include position($values, $units, $scale, $flag);
+@mixin position-absolute($arguments) {
+  @include position-type(absolute, $arguments);
 }
 
-@mixin position-relative($values, $units: null, $scale: null, $z: null, $flag: null) {
-  position: relative;
-  @include position($values, $units, $scale, $flag);
+@mixin position-fixed($arguments) {
+  @include position-type(fixed, $arguments);
 }
 
-@mixin position-static($values, $units: null, $scale: null, $z: null, $flag: null) {
-  position: static;
-  @include position($values, $units, $scale, $flag);
+@mixin position-relative($arguments) {
+  @include position-type(relative, $arguments);
 }
 
-@mixin position-sticky($values, $units: null, $scale: null, $z: null, $flag: null) {
-  position: sticky;
-  @include position($values, $units, $scale, $flag);
+@mixin position-static($arguments) {
+  @include position-type(static, $arguments);
+}
+
+@mixin position-sticky($arguments) {
+  @include position-type(sticky, $arguments);
 }

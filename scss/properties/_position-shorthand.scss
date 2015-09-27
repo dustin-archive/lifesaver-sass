@@ -3,22 +3,22 @@
 // =============================================================================
 
 
-@mixin absolute($values, $units: null, $scale: null, $z: null, $flag: null) {
-  @include position-absolute($values, $units, $scale, $z, $flag);
+@mixin absolute($arguments) {
+  @include position-absolute($arguments);
 }
 
-@mixin fixed($values, $units: null, $scale: null, $z: null, $flag: null) {
-  @include position-fixed($values, $units, $scale, $z, $flag);
+@mixin fixed($arguments) {
+  @include position-fixed($arguments);
 }
 
-@mixin relative($values, $units: null, $scale: null, $z: null, $flag: null) {
-  @include position-relative($values, $units, $scale, $z, $flag);
+@mixin relative($arguments) {
+  @include position-relative($arguments);
 }
 
-@mixin static($values, $units: null, $scale: null, $z: null, $flag: null) {
-  @include position-static($values, $units, $scale, $z, $flag);
+@mixin static($arguments) {
+  @include position-static($arguments);
 }
 
-@mixin sticky($values, $units: null, $scale: null, $z: null, $flag: null) {
-  @include position-sticky($values, $units, $scale, $z, $flag);
+@mixin sticky($arguments) {
+  @include position-sticky($arguments);
 }
