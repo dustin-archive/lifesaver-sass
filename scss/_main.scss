@@ -4,6 +4,9 @@
 
 
 @import 'functions/contains-null';
+@import 'functions/remove-item';
+@import 'functions/remove-nth';
+@import 'functions/remove-unit';
 @import 'functions/set-default';
 @import 'functions/scale-comp';
 
@@ -19,6 +22,7 @@
 @import 'lifesaver/functions/compress-matching-values';
 @import 'lifesaver/functions/process-arguments';
 @import 'lifesaver/functions/process-value';
+@import 'lifesaver/functions/property-functions';
 @import 'lifesaver/functions/values-to-map';
 
 @import 'lifesaver/mixins/property-split';
@@ -26,8 +30,7 @@
 
 @import 'lifesaver/lifesaver';
 
-@import 'properties/width';
-@import 'properties/height';
+@import 'properties/width-height';
 @import 'properties/width-height-shorthand';
 @import 'properties/margin';
 @import 'properties/padding';
@@ -36,12 +39,12 @@
 @import 'properties/position';
 @import 'properties/position-reset';
 @import 'properties/position-shorthand';
-@import 'properties/font-size';
-@import 'properties/line-height';
 
-@import 'tests/test-append-suffix';
-@import 'tests/test-compress-matching-values';
-@import 'tests/test-process-value';
-@import 'tests/test-scale-compensation';
-@import 'tests/test-split-properties';
-@import 'tests/test-units';
+// @import 'tests/test-append-suffix';
+// @import 'tests/test-compress-matching-values';
+// @import 'tests/test-process-value';
+// @import 'tests/test-scale-compensation';
+// @import 'tests/test-split-properties';
+// @import 'tests/test-units';
+
+@import 'tests/test-position';
