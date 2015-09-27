@@ -17,12 +17,10 @@ Changelog
   + Added `height` property mixin
   + Added `min-height` property mixin
   + Added `max-height` property mixin
-  + Added `margin` property mixin
   + Added `margin-top` property mixin
   + Added `margin-right` property mixin
   + Added `margin-bottom` property mixin
   + Added `margin-left` property mixin
-  + Added `padding` property mixin
   + Added `padding-top` property mixin
   + Added `padding-right` property mixin
   + Added `padding-bottom` property mixin
