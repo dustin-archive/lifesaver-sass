@@ -1,0 +1,20 @@
+//
+// + Property functions
+// =============================================================================
+
+
+@function check-flag($arguments) {
+  @each $argument in $arguments {
+    @if type-of($argument) == string and str-index($argument, '!') == 1 {
+      @return $argument;
+    }
+  }
+}
+
+@function check-z($arguments) {
+  @each $argument in $arguments {
+    @if type-of($argument) == number and unit($argument) == z {
+      @return remove-unit($argument);
+    }
+  }
+}
