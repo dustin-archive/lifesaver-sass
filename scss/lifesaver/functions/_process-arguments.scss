@@ -63,5 +63,13 @@
     }
   }
 
+  @if $properties == null {
+    @warn 'LifeSaver Error: You must pass a property argument.';
+  }
+
+  @if $values == null {
+    @warn 'LifeSaver Error: You must pass a value argument.';
+  }
+
   @return $properties $values $units $scale $flag;
 }
