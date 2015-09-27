@@ -11,12 +11,12 @@
       $value: process-value(map-get($map, $key), $unit, $scale);
 
       @if not is-null($value) {
-        @if $property == 'border' {
-          #{$property-key}: $value $extra $flag;
-        }
-        @else {
+        // @if $property == 'border' {
+          // #{$property-key}: $value $extra $flag;
+        // }
+        // @else {
           #{$property-key}: $value $flag;
-        }
+        // }
       }
     }
   }

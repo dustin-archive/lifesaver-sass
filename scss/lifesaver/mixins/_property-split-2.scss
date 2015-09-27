@@ -11,11 +11,11 @@
       $result: $result process-value($value, $unit, $scale);
     }
 
-    @if $property == 'border' {
-      #{$property}: $result $extra $flag;
-    }
-    @else {
+    // @if $property == 'border' {
+      // #{$property}: $result $extra $flag;
+    // }
+    // @else {
       #{$property}: $result $flag;
-    }
+    // }
   }
 }
