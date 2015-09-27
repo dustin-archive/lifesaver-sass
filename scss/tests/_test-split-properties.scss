@@ -5,85 +5,103 @@
 
 .test-split-properties {
   /* input */
-  @include margin(1 x, em);
+  @include save(test 1 x);
 
   /* output */
-  margin-top: 0.0625em;
-  margin-bottom: 0.0625em;
+  test-top: 1;
+  test-bottom: 1;
 }
 
 .test-split-properties {
   /* input */
-  @include margin(x 1, em);
+  @include save(test x 1);
 
   /* output */
-  margin-right: 0.0625em;
-  margin-left: 0.0625em;
+  test-right: 1;
+  test-left: 1;
 }
 
 .test-split-properties {
   /* input */
-  @include margin(1 1 x x, em);
+  @include save(test 1 1 x x);
 
   /* output */
-  margin-top: 0.0625em;
-  margin-right: 0.0625em;
+  test-top: 1;
+  test-right: 1;
 }
 
 .test-split-properties {
   /* input */
-  @include margin(1 x 1 x, em);
+  @include save(test 1 x 1 x);
 
   /* output */
-  margin-top: 0.0625em;
-  margin-bottom: 0.0625em;
+  test-top: 1;
+  test-bottom: 1;
 }
 
 .test-split-properties {
   /* input */
-  @include margin(1 x x 1, em);
+  @include save(test 1 x x 1);
 
   /* output */
-  margin-top: 0.0625em;
-  margin-left: 0.0625em;
+  test-top: 1;
+  test-left: 1;
 }
 
 .test-split-properties {
   /* input */
-  @include margin(x 1 1 1, em);
+  @include save(test x 1 x 1);
 
   /* output */
-  margin-right: 0.0625em;
-  margin-bottom: 0.0625em;
-  margin-left: 0.0625em;
+  test-right: 1;
+  test-left: 1;
 }
 
 .test-split-properties {
   /* input */
-  @include margin(1 x 1 1, em);
+  @include save(test x x 1 1);
 
   /* output */
-  margin-top: 0.0625em;
-  margin-bottom: 0.0625em;
-  margin-left: 0.0625em;
+  test-bottom: 1;
+  test-left: 1;
 }
 
 .test-split-properties {
   /* input */
-  @include margin(1 1 x 1, em);
+  @include save(test x 1 1 1);
 
   /* output */
-  margin-top: 0.0625em;
-  margin-right: 0.0625em;
-  margin-left: 0.0625em;
+  test-right: 1;
+  test-bottom: 1;
+  test-left: 1;
 }
 
 .test-split-properties {
   /* input */
-  @include margin(1 1 1 x, em);
+  @include save(test 1 x 1 1);
 
   /* output */
-  margin-top: 0.0625em;
-  margin-right: 0.0625em;
-  margin-bottom: 0.0625em;
+  test-top: 1;
+  test-bottom: 1;
+  test-left: 1;
+}
+
+.test-split-properties {
+  /* input */
+  @include save(test 1 1 x 1);
+
+  /* output */
+  test-top: 1;
+  test-right: 1;
+  test-left: 1;
+}
+
+.test-split-properties {
+  /* input */
+  @include save(test 1 1 1 x);
+
+  /* output */
+  test-top: 1;
+  test-right: 1;
+  test-bottom: 1;
 }
