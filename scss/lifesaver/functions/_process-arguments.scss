@@ -29,7 +29,7 @@
           $flag: $argument;
         }
         @else {
-          @warn 'LifeSaver Error: You can only pass one flag argument.';
+          @error 'LifeSaver Error: You can only pass one flag argument.';
         }
       }
 
@@ -49,7 +49,7 @@
           $scale: $argument;
         }
         @else {
-          @warn 'LifeSaver Error: You can only pass one scale argument.';
+          @error 'LifeSaver Error: You can only pass one scale argument.';
         }
       }
 
@@ -64,17 +64,17 @@
   }
 
   @if $properties == null {
-    @warn 'LifeSaver Error: You must pass a property argument.';
+    @error 'LifeSaver Error: You must pass a property argument.';
   }
 
   @if $values == null {
-    @warn 'LifeSaver Error: You must pass a value argument.';
+    @error 'LifeSaver Error: You must pass a value argument.';
   }
   @else if length($values) == 3 {
-    @warn 'LifeSaver Error: You cannot pass three values.';
+    @error 'LifeSaver Error: You cannot pass three values.';
   }
   @else if length($values) > 4 {
-    @warn 'LifeSaver Error: You cannot pass more than 4 values.';
+    @error 'LifeSaver Error: You cannot pass more than 4 values.';
   }
 
   @return $properties $values $units $scale $flag;
