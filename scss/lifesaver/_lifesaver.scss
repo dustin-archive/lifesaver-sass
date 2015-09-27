@@ -3,13 +3,21 @@
 // =============================================================================
 
 
-@mixin save($properties, $values, $units: null, $scale: null, $flag: null, $extra: null) {
+@mixin save($arguments) {
+  $arguments: process-arguments($arguments);
+
+  $properties: nth($arguments, 1);
+  $values:     nth($arguments, 2);
+  $units:      nth($arguments, 3);
+  $scale:      nth($arguments, 4);
+  $flag:       nth($arguments, 5);
+
   $values: compress-matching-values($values);
 
   @each $property in $properties {
     @if is-null($values) or $property == 'position' {
-      $map: values-to-map($property, $values);
 
+      $map: values-to-map($property, $values);
       @each $unit in $units {
         @each $key in map-keys($map) {
           $property-key: append-suffix($property, $key);
@@ -25,9 +33,10 @@
           }
         }
       }
-    }
 
+    }
     @else if length($values) < 5 and length($values) not 3 {
+
       @each $unit in $units {
         $result: null;
 
@@ -42,6 +51,7 @@
           #{$property}: $result $flag;
         }
       }
+
     }
   }
 }

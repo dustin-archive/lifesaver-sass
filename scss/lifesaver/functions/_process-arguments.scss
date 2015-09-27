@@ -1,0 +1,67 @@
+//
+// + Process arguments
+// =============================================================================
+
+
+@function process-arguments($arguments) {
+  $properties: null;
+  $values:     null;
+  $units:      null;
+  $scale:      null;
+  $flag:       null;
+
+  @each $argument in $arguments {
+    @if not is-null($argument) and type-of($argument) == string  {
+
+      // $unit
+      @if function-exists($argument) {
+        @if $units == null {
+          $units: $argument;
+        }
+        @else {
+          $units: append($units, $argument);
+        }
+      }
+
+      // $flag
+      @else if str-index($argument, '!') == 1 {
+        @if $flag == null {
+          $flag: $argument;
+        }
+        @else {
+          @warn 'LifeSaver Error: You can only pass one flag argument.';
+        }
+      }
+
+      // $properties
+      @else if $properties == null {
+        $properties: $argument;
+      }
+      @else {
+        $properties: append($properties, $argument);
+      }
+    }
+    @else if is-null($argument) or type-of($argument) == number {
+
+      // $scale
+      @if not is-null($argument) and unit($argument) == x {
+        @if $scale == null {
+          $scale: $argument;
+        }
+        @else {
+          @warn 'LifeSaver Error: You can only pass one scale argument.';
+        }
+      }
+
+      // $values
+      @else if $values == null {
+        $values: $argument;
+      }
+      @else {
+        $values: append($values, $argument);
+      }
+    }
+  }
+
+  @return $properties $values $units $scale $flag;
+}
