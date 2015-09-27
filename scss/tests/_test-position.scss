@@ -1,0 +1,113 @@
+//
+// + Test position
+// =============================================================================
+
+
+.test-position {
+  /* input */
+  @include position(1 x x x 2z !important);
+
+  /* output */
+  top: 1 !important;
+  z-index: 2 !important;
+}
+
+.test-position-absolute {
+  /* input */
+  @include position-absolute(1 x x x 2z !important);
+
+  /* output */
+  position: absolute !important;
+  top: 1 !important;
+  z-index: 2 !important;
+}
+
+.test-position-relative {
+  /* input */
+  @include position-relative(1 x x x 2z !important);
+
+  /* output */
+  position: relative !important;
+  top: 1 !important;
+  z-index: 2 !important;
+}
+
+.test-position-fixed {
+  /* input */
+  @include position-fixed(1 x x x 2z !important);
+
+  /* output */
+  position: fixed !important;
+  top: 1 !important;
+  z-index: 2 !important;
+}
+
+.test-position-static {
+  /* input */
+  @include position-static(1 x x x 2z !important);
+
+  /* output */
+  position: static !important;
+  top: 1 !important;
+  z-index: 2 !important;
+}
+
+.test-position-sticky {
+  /* input */
+  @include position-sticky(1 x x x 2z !important);
+
+  /* output */
+  position: sticky !important;
+  top: 1 !important;
+  z-index: 2 !important;
+}
+
+.test-absolute {
+  /* input */
+  @include absolute(1 x x x 2z !important);
+
+  /* output */
+  position: absolute !important;
+  top: 1 !important;
+  z-index: 2 !important;
+}
+
+.test-relative {
+  /* input */
+  @include relative(1 x x x 2z !important);
+
+  /* output */
+  position: relative !important;
+  top: 1 !important;
+  z-index: 2 !important;
+}
+
+.test-fixed {
+  /* input */
+  @include fixed(1 x x x 2z !important);
+
+  /* output */
+  position: fixed !important;
+  top: 1 !important;
+  z-index: 2 !important;
+}
+
+.test-static {
+  /* input */
+  @include static(1 x x x 2z !important);
+
+  /* output */
+  position: static !important;
+  top: 1 !important;
+  z-index: 2 !important;
+}
+
+.test-sticky {
+  /* input */
+  @include sticky(1 x x x 2z !important);
+
+  /* output */
+  position: sticky !important;
+  top: 1 !important;
+  z-index: 2 !important;
+}
