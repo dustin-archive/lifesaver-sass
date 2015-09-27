@@ -5,8 +5,8 @@
 
 .test-append-suffix {
   /* input */
-  content: append-suffix(margin, anything);
+  content: append-suffix(test, anything);
 
   /* output */
-  content: "margin-anything";
+  content: "test-anything";
 }
