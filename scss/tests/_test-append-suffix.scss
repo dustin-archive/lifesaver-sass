@@ -5,7 +5,7 @@
 
 .test-append-suffix {
   /* input */
-  content: append-suffix(test, anything);
+  content: append-suffix('test', 'anything');
 
   /* output */
   content: "test-anything";
