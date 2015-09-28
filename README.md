@@ -151,7 +151,7 @@ In LifeSaver values work the same as CSS except in two ways: null values and uni
 
 When passing a null value, LifeSaver splits the properties up and doesn't output the property with the null value.
 
-If brevity is your thing, you can substitute null for x.
+If brevity is your thing, you can use x as null.
 
 Input:
 
