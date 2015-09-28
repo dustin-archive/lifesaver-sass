@@ -14,13 +14,13 @@
   @if $type == top {
     @include margin(join($value x x x, $arguments));
   }
-  @if $type == right {
+  @else if $type == right {
     @include margin(join(x $value x x, $arguments));
   }
-  @if $type == bottom {
+  @else if $type == bottom {
     @include margin(join(x x $value x, $arguments));
   }
-  @if $type == left {
+  @else if $type == left {
     @include margin(join(x x x $value, $arguments));
   }
 }
