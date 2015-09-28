@@ -1,0 +1,106 @@
+//
+// + Test width height
+// =============================================================================
+
+
+.test-width {
+  /* input */
+  @include width(1 !important);
+
+  /* output */
+  width: 1 !important;
+}
+
+.test-min-width {
+  /* input */
+  @include min-width(1 !important);
+
+  /* output */
+  min-width: 1 !important;
+}
+
+.test-max-width {
+  /* input */
+  @include max-width(1 !important);
+
+  /* output */
+  max-width: 1 !important;
+}
+
+.test-height {
+  /* input */
+  @include height(1 !important);
+
+  /* output */
+  height: 1 !important;
+}
+
+.test-min-height {
+  /* input */
+  @include min-height(1 !important);
+
+  /* output */
+  min-height: 1 !important;
+}
+
+.test-max-height {
+  /* input */
+  @include max-height(1 !important);
+
+  /* output */
+  max-height: 1 !important;
+}
+
+.test-size {
+  /* input */
+  @include size(2 !important);
+
+  /* output */
+  width: 2 !important;
+  height: 2 !important;
+}
+
+.test-min-size {
+  /* input */
+  @include min-size(2 !important);
+
+  /* output */
+  min-width: 2 !important;
+  min-height: 2 !important;
+}
+
+.test-max-size {
+  /* input */
+  @include max-size(2 !important);
+
+  /* output */
+  max-width: 2 !important;
+  max-height: 2 !important;
+}
+
+.test-size-split {
+  /* input */
+  @include size(1 2 !important);
+
+  /* output */
+  width: 1 !important;
+  height: 2 !important;
+}
+
+.test-min-size-split {
+  /* input */
+  @include min-size(1 2 !important);
+
+  /* output */
+  min-width: 1 !important;
+  min-height: 2 !important;
+}
+
+.test-max-size-split {
+  /* input */
+  @include max-size(1 2 !important);
+
+  /* output */
+  max-width: 1 !important;
+  max-height: 2 !important;
+}
