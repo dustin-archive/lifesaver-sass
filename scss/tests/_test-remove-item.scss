@@ -1,0 +1,31 @@
+//
+// + Test remove item
+// =============================================================================
+
+
+.test-remove-item-first {
+  /* input */
+  $list: one two three four;
+  test: remove-item($list, one);
+
+  /* output */
+  test: two three four;
+}
+
+.test-remove-item {
+  /* input */
+  $list: one two three four;
+  test: remove-item($list, two);
+
+  /* output */
+  test: one three four;
+}
+
+.test-remove-item-last {
+  /* input */
+  $list: one two three four;
+  test: remove-item($list, four);
+
+  /* output */
+  test: one two three;
+}
