@@ -34,7 +34,7 @@
   }
 
   @if $values == null {
-    @error 'LifeSaver Error: You must pass a value argument.';
+    @error 'LifeSaver Error: You must pass a value.';
   }
   @else if length($values) == 3 {
     @error 'LifeSaver Error: You cannot pass three values.';
