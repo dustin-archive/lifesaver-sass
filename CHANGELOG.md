@@ -3,14 +3,19 @@ Changelog
 
 **UNRELEASED**
 + 2.0.0
+  + Added `process-arguments` function to make the syntax comma-less
   + Refactored everything
   + Refactored value compression into `compress-matching-values` function
   + Refactored value processing into `process-values` function
   + Refactored property suffix appending into `append-suffix` function
   + Refactored values to map conversion into `values-to-map` function
-  + Rename `ls` mixin to 'save'
+  + Renamed `ls` mixin to 'save'
+  + Renamed `is-null` to `contains-null`
   + Properly separates `border`, `border-width`, `border-style` and `border-color`
   + Rewrote all the tests
+  + Added `remove-item` function
+  + Added `remove-nth` function
+  + Added `remove-unit` function
   + Added `width` property mixin
   + Added `min-width` property mixin
   + Added `max-width` property mixin
