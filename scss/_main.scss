@@ -31,20 +31,21 @@
 @import 'lifesaver/lifesaver';
 
 @import 'properties/width-height';
-@import 'properties/width-height-shorthand';
 @import 'properties/margin';
 @import 'properties/padding';
 @import 'properties/border';
-@import 'properties/border-shorthand';
 @import 'properties/position';
-@import 'properties/position-reset';
-@import 'properties/position-shorthand';
 
-// @import 'tests/test-append-suffix';
-// @import 'tests/test-compress-matching-values';
-// @import 'tests/test-process-value';
-// @import 'tests/test-scale-compensation';
-// @import 'tests/test-split-properties';
-// @import 'tests/test-units';
+@import 'tests/test-remove-item';
+@import 'tests/test-remove-nth';
+@import 'tests/test-scale-comp';
+
+@import 'tests/test-units';
+
+@import 'tests/test-append-suffix';
+@import 'tests/test-compress-matching-values';
+@import 'tests/test-process-value';
+@import 'tests/test-split-properties';
 
 @import 'tests/test-position';
+@import 'tests/test-width-height';
