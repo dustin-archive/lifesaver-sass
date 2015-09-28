@@ -3,22 +3,22 @@
 // =============================================================================
 
 
-@mixin margin($values, $units: null, $scale: null, $flag: null) {
-  @include save(margin, $values, $units, $scale, $flag);
+@mixin margin($arguments) {
+  @include save(margin $arguments);
 }
 
-@mixin margin-top($value, $units: null, $scale: null, $flag: null) {
-  @include margin($value x x x, $units, $scale, $flag);
+@mixin margin-top($arguments) {
+  @include margin($value x x x $arguments);
 }
 
-@mixin margin-right($value, $units: null, $scale: null, $flag: null) {
-  @include margin(x $value x x, $units, $scale, $flag);
+@mixin margin-right($arguments) {
+  @include margin(x $value x x $arguments);
 }
 
-@mixin margin-bottom($value, $units: null, $scale: null, $flag: null) {
-  @include margin(x x $value x, $units, $scale, $flag);
+@mixin margin-bottom($arguments) {
+  @include margin(x x $value x $arguments);
 }
 
-@mixin margin-left($value, $units: null, $scale: null, $flag: null) {
-  @include margin(x x x $value, $units, $scale, $flag);
+@mixin margin-left($arguments) {
+  @include margin(x x x $value $arguments);
 }
