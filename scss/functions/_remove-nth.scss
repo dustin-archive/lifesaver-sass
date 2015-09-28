@@ -11,30 +11,12 @@
     $i: index($list, $item);
 
     @if $i < $index {
-      @if $first {
-        $first: join($first, $item);
-      }
-      @else {
-        $first: $item;
-      }
+      $first: join($first, $item);
     }
     @else if $i > $index {
-      @if $second {
-        $second: join($second, $item);
-      }
-      @else {
-        $second: $item;
-      }
+      $second: join($second, $item);
     }
   }
 
-  @if not $first {
-    @return $second;
-  }
-  @else if not $second {
-    @return $first;
-  }
-  @else {
-    @return join($first, $second);
-  }
+  @return join($first, $second);
 }
