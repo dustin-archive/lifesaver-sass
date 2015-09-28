@@ -28,5 +28,13 @@
     }
   }
 
-  @return join($first, $second);
+  @if $first == null {
+    @return $second;
+  }
+  @else if $second == null {
+    @return $first;
+  }
+  @else {
+    @return join($first, $second);
+  }
 }
