@@ -12,7 +12,7 @@ Changelog
   + Renamed `ls` mixin to 'save'
   + Renamed `is-null` to `contains-null`
   + Properly separates `border`, `border-width`, `border-style` and `border-color`
-  + Rewrote all the tests
+  + Rewrote all the tests and added new ones for all the new stuff
   + Added `remove-item` function
   + Added `remove-nth` function
   + Added `remove-unit` function
