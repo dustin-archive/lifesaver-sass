@@ -3,22 +3,22 @@
 // =============================================================================
 
 
-@mixin padding($values, $units: null, $scale: null, $flag: null) {
-  @include save(padding, $values, $units, $scale, $flag);
+@mixin padding($arguments) {
+  @include save(join(padding, $arguments));
 }
 
-@mixin padding-top($value, $units: null, $scale: null, $flag: null) {
-  @include padding($value x x x, $units, $scale, $flag);
+@mixin padding-top($arguments) {
+  @include padding(join($value x x x, $arguments));
 }
 
-@mixin padding-right($value, $units: null, $scale: null, $flag: null) {
-  @include padding(x $value x x, $units, $scale, $flag);
+@mixin padding-right($arguments) {
+  @include padding(join(x $value x x, $arguments));
 }
 
-@mixin padding-bottom($value, $units: null, $scale: null, $flag: null) {
-  @include padding(x x $value x, $units, $scale, $flag);
+@mixin padding-bottom($arguments) {
+  @include padding(join(x x $value x, $arguments));
 }
 
-@mixin padding-left($value, $units: null, $scale: null, $flag: null) {
-  @include padding(x x x $value, $units, $scale, $flag);
+@mixin padding-left($arguments) {
+  @include padding(join(x x x $value, $arguments));
 }
