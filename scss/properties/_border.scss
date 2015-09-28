@@ -3,29 +3,251 @@
 // =============================================================================
 
 
-// @mixin border($values, $units: null, $style: null, $color: null, $scale: null, $flag: null) {
+
+@function check-border-style($arguments) {
+  $styles: 'none' 'hidden' 'dotted' 'dashed' 'solid' 'double' 'groove' 'ridge' 'inset' 'outset';
+  @each $argument in $arguments {
+    @each $style in $styles {
+      @if $argument == $style {
+        $arguments: $argument;
+      }
+    }
+  }
+  @return $arguments;
+}
+
+
+@function check-color($arguments) {
+  @each $argument in $arguments {
+    @if type-of($arguments) == color {
+      $arguments: $argument;
+    }
+  }
+  @return $arguments;
+}
+
+
+
 @mixin border($arguments) {
-  // @include save(border, $values, $units, $scale, $flag, $extra: $style $color);
   @include save(join(border, $arguments));
 }
 
+@mixin border-type($type, $arguments, $which: null) {
+  $value: check-values($arguments);
+  $arguments: remove-item($arguments, $value);
+
+  @if $which {
+    $which: 'border-' + $which;
+  }
+  @else {
+    $which: 'border';
+  }
+
+  @if $type == top {
+    @include save(join($which, join($value x x x, $arguments)));
+  }
+  @else if $type == right {
+    @include save(join($which, join(x $value x x, $arguments)));
+  }
+  @else if $type == bottom {
+    @include save(join($which, join(x x $value x, $arguments)));
+  }
+  @else if $type == left {
+    @include save(join($which, join(x x x $value, $arguments)));
+  }
+}
+
+
+// Border
+@mixin border-top($arguments) {
+  @include border-type(top, $arguments);
+}
+
+@mixin border-right($arguments) {
+  @include border-type(right, $arguments);
+}
+
+@mixin border-bottom($arguments) {
+  @include border-type(bottom, $arguments);
+}
+
+@mixin border-left($arguments) {
+  @include border-type(left, $arguments);
+}
+
+
+// Border width
 @mixin border-width($arguments) {
   @include save(join(border-width, $arguments));
 }
 
+@mixin border-top-width($arguments) {
+  @include border-type(top, $arguments, width);
+}
+
+@mixin border-right-width($arguments) {
+  @include border-type(right, $arguments, width);
+}
+
+@mixin border-bottom-width($arguments) {
+  @include border-type(bottom, $arguments, width);
+}
+
+@mixin border-left-width($arguments) {
+  @include border-type(left, $arguments, width);
+}
+
+// Aliases
+@mixin border-width-top($arguments) {
+  @include bborder-width-top($arguments);
+}
+
+@mixin border-width-right($arguments) {
+  @include border-width-top($arguments);
+}
+
+@mixin border-width-bottom($arguments) {
+  @include border-width-top($arguments);
+}
+
+@mixin border-width-left($arguments) {
+  @include border-width-top($arguments);
+}
+
+
+// Border style
 @mixin border-style($arguments) {
   @include save(join(border-style, $arguments));
 }
 
+@mixin border-top-style($arguments) {
+  @include border-type(top, $arguments, style);
+}
+
+@mixin border-right-style($arguments) {
+  @include border-type(right, $arguments, style);
+}
+
+@mixin border-bottom-style($arguments) {
+  @include border-type(bottom, $arguments, style);
+}
+
+@mixin border-left-style($arguments) {
+  @include border-type(left, $arguments, style);
+}
+
+// Aliases
+@mixin border-style-top($arguments) {
+  @include border-top-style($arguments);
+}
+
+@mixin border-style-right($arguments) {
+  @include border-right-style($arguments);
+}
+
+@mixin border-style-bottom($arguments) {
+  @include border-bottom-style($arguments);
+}
+
+@mixin border-style-left($arguments) {
+  @include border-left-style($arguments);
+}
+
+
+// Border color
 @mixin border-color($arguments) {
   @include save(join(border-color, $arguments));
 }
 
-@mixin border-radius($varguments) {
+@mixin border-top-color($arguments) {
+  @include border-type(top, $arguments, color);
+}
+
+@mixin border-right-color($arguments) {
+  @include border-type(right, $arguments, color);
+}
+
+@mixin border-bottom-color($arguments) {
+  @include border-type(bottom, $arguments, color);
+}
+
+@mixin border-left-color($arguments) {
+  @include border-type(left, $arguments, color);
+}
+
+// Aliases
+@mixin border-color-top($arguments) {
+  @include border-top-color($arguments);
+}
+
+@mixin border-color-right($arguments) {
+  @include border-right-color($arguments);
+}
+
+@mixin border-color-bottom($arguments) {
+  @include border-bottom-color($arguments);
+}
+
+@mixin border-color-left($arguments) {
+  @include border-left-color($arguments);
+}
+
+
+// Border radius
+@mixin border-radius($arguments) {
   @include save(join(border-radius, $arguments));
+}
+
+@mixin border-top-left-radius($arguments) {
+  @include border-type(top, $arguments, radius);
+}
+
+@mixin border-top-right-radius($arguments) {
+  @include border-type(right, $arguments, radius);
+}
+
+@mixin border-bottom-right-radius($arguments) {
+  @include border-type(bottom, $arguments, radius);
+}
+
+@mixin border-bottom-left-radius($arguments) {
+  @include border-type(left, $arguments, radius);
 }
 
 // Aliases
 @mixin radius($arguments) {
   @include border-radius($arguments);
+}
+
+@mixin border-radius-top-left($arguments) {
+  @include border-top-left-radius($arguments);
+}
+
+@mixin border-radius-top-right($arguments) {
+  @include border-top-right-radius($arguments);
+}
+
+@mixin border-radius-bottom-right($arguments) {
+  @include border-bottom-right-radius($arguments);
+}
+
+@mixin border-radius-bottom-left($arguments) {
+  @include border-bottom-left-radius($arguments);
+}
+
+// Alias Aliases
+@mixin radius-top-left($arguments) {
+  @include border-radius-top-left($arguments);
+}
+
+@mixin radius-top-right($arguments) {
+  @include border-radius-top-right($arguments);
+}
+
+@mixin radius-bottom-right($arguments) {
+  @include border-radius-bottom-right($arguments);
+}
+
+@mixin radius-bottom-left($arguments) {
+  @include border-radius-bottom-left($arguments);
 }
