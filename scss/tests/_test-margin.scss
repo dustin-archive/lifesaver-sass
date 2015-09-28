@@ -1,0 +1,20 @@
+//
+// + Test margin
+// =============================================================================
+
+
+.test-margin {
+  /* input */
+  @include margin(1 !important);
+  @include margin-top(1 !important);
+  @include margin-right(1 !important);
+  @include margin-bottom(1 !important);
+  @include margin-left(1 !important);
+
+  /* output */
+  margin: 1 !important;
+  margin-top: 1 !important;
+  margin-right: 1 !important;
+  margin-bottom: 1 !important;
+  margin-left: 1 !important;
+}
