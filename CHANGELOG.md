@@ -25,8 +25,6 @@ Changelog
   + Added `padding-right` property mixin
   + Added `padding-bottom` property mixin
   + Added `padding-left` property mixin
-  + Added `font-size` property mixin
-  + Added `line-height` property mixin
 
 **September 24, 2015**
 + 1.1.2
