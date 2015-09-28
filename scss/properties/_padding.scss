@@ -7,18 +7,36 @@
   @include save(join(padding, $arguments));
 }
 
+@mixin padding-type($type, $arguments) {
+  $value: check-values($arguments);
+  $arguments: remove-item($arguments, $value);
+
+  @if $type == top {
+    @include padding(join($value x x x, $arguments));
+  }
+  @if $type == right {
+    @include padding(join(x $value x x, $arguments));
+  }
+  @if $type == bottom {
+    @include padding(join(x x $value x, $arguments));
+  }
+  @if $type == left {
+    @include padding(join(x x x $value, $arguments));
+  }
+}
+
 @mixin padding-top($arguments) {
-  @include padding(join($value x x x, $arguments));
+  @include padding-type(top, $arguments);
 }
 
 @mixin padding-right($arguments) {
-  @include padding(join(x $value x x, $arguments));
+  @include padding-type(right, $arguments);
 }
 
 @mixin padding-bottom($arguments) {
-  @include padding(join(x x $value x, $arguments));
+  @include padding-type(bottom, $arguments);
 }
 
 @mixin padding-left($arguments) {
-  @include padding(join(x x x $value, $arguments));
+  @include padding-type(left, $arguments);
 }
