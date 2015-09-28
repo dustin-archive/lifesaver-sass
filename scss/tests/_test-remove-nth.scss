@@ -1,0 +1,31 @@
+//
+// + Test remove nth
+// =============================================================================
+
+
+.test-remove-nth-first {
+  /* input */
+  $list: 1 2 3 4;
+  test: remove-nth($list, 1);
+
+  /* output */
+  test: 2 3 4;
+}
+
+.test-remove-nth {
+  /* input */
+  $list: 1 2 3 4;
+  test: remove-nth($list, 2);
+
+  /* output */
+  test: 1 3 4;
+}
+
+.test-remove-nth-last {
+  /* input */
+  $list: 1 2 3 4;
+  test: remove-nth($list, 4);
+
+  /* output */
+  test: 1 2 3;
+}
