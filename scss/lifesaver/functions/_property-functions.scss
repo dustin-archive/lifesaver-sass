@@ -18,3 +18,30 @@
     }
   }
 }
+
+@function check-values($arguments) {
+  $values: null;
+
+  @each $argument in $arguments {
+    @if contains-null($argument) or type-of($argument) == number {
+      @if $values == null {
+        $values: $argument;
+      }
+      @else {
+        $values: join($values, $argument);
+      }
+    }
+  }
+
+  @if $values == null {
+    @error 'LifeSaver Error: You must pass a value argument.';
+  }
+  @else if length($values) == 3 {
+    @error 'LifeSaver Error: You cannot pass three values.';
+  }
+  @else if length($values) > 4 {
+    @error 'LifeSaver Error: You cannot pass more than 4 values.';
+  }
+
+  @return $values;
+}
