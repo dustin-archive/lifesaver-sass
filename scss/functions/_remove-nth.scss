@@ -4,14 +4,14 @@
 
 
 @function remove-nth($list, $index) {
-  $first: null;
-  $second: null;
+  $first: ();
+  $second: ();
 
   @each $item in $list {
     $i: index($list, $item);
 
     @if $i < $index {
-      @if $first == null {
+      @if not $first {
         $first: $item;
       }
       @else {
@@ -19,7 +19,7 @@
       }
     }
     @else if $i > $index {
-      @if $second == null {
+      @if not $second {
         $second: $item;
       }
       @else {
@@ -28,10 +28,10 @@
     }
   }
 
-  @if $first == null {
+  @if not $first {
     @return $second;
   }
-  @else if $second == null {
+  @else if not $second {
     @return $first;
   }
   @else {
