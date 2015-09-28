@@ -11,19 +11,19 @@
     $i: index($list, $item);
 
     @if $i < $index {
-      @if not $first {
-        $first: $item;
+      @if $first {
+        $first: join($first, $item);
       }
       @else {
-        $first: join($first, $item);
+        $first: $item;
       }
     }
     @else if $i > $index {
-      @if not $second {
-        $second: $item;
+      @if $second {
+        $second: join($second, $item);
       }
       @else {
-        $second: join($second, $item);
+        $second: $item;
       }
     }
   }
