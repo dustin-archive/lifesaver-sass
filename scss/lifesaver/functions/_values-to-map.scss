@@ -4,19 +4,16 @@
 
 
 @function values-to-map($property, $values) {
-  $map: ();
   $suffix: 'top' 'right' 'bottom' 'left';
 
   @if $property == 'border-radius' {
     $suffix: 'top-left' 'top-right' 'bottom-right' 'bottom-left';
   }
 
-  $map: (
+  @return (
     nth($suffix, 1): nth($values, 1),
     nth($suffix, 2): nth($values, 2),
     nth($suffix, 3): if(length($values) == 2, nth($values, 1), nth($values, 3)),
     nth($suffix, 4): if(length($values) == 2, nth($values, 2), nth($values, 4))
   );
-
-  @return $map;
 }
