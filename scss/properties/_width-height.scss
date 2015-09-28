@@ -65,9 +65,9 @@
 }
 
 @mixin min-size($arguments) {
-  @include size-type(min-size, $arguments);
+  @include size-type(min, $arguments);
 }
 
 @mixin max-size($arguments) {
-  @include size-type(max-size, $arguments);
+  @include size-type(max, $arguments);
 }
