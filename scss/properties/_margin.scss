@@ -4,21 +4,39 @@
 
 
 @mixin margin($arguments) {
-  @include save(margin $arguments);
+  @include save(join(margin, $arguments));
+}
+
+@mixin margin-type($type, $arguments) {
+  $value: check-values($arguments);
+  $arguments: remove-item($arguments, $value);
+
+  @if $type == top {
+    @include margin(join($value x x x, $arguments));
+  }
+  @if $type == right {
+    @include margin(join(x $value x x, $arguments));
+  }
+  @if $type == bottom {
+    @include margin(join(x x $value x, $arguments));
+  }
+  @if $type == left {
+    @include margin(join(x x x $value, $arguments));
+  }
 }
 
 @mixin margin-top($arguments) {
-  @include margin($value x x x $arguments);
+  @include margin-type(top, $arguments);
 }
 
 @mixin margin-right($arguments) {
-  @include margin(x $value x x $arguments);
+  @include margin-type(right, $arguments);
 }
 
 @mixin margin-bottom($arguments) {
-  @include margin(x x $value x $arguments);
+  @include margin-type(bottom, $arguments);
 }
 
 @mixin margin-left($arguments) {
-  @include margin(x x x $value $arguments);
+  @include margin-type(left, $arguments);
 }
