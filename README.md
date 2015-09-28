@@ -205,6 +205,8 @@ div {
 
 Just like passing multiple properties you can pass multiple units. This is useful for fallbacks.
 
+With LifeSaver ems and rems are represented in pixel values based on a base font size of 16 pixels and then converted during compilation.
+
 Note: the units are output in the order you define them. Order is critical if you want your fallback units to work.
 
 ```scss
