@@ -5,102 +5,102 @@
 
 .test-width {
   /* input */
-  @include width(1 !important);
+  @include width(16 em !important);
 
   /* output */
-  width: 1 !important;
+  width: 1em !important;
 }
 
 .test-min-width {
   /* input */
-  @include min-width(1 !important);
+  @include min-width(16 em !important);
 
   /* output */
-  min-width: 1 !important;
+  min-width: 1em !important;
 }
 
 .test-max-width {
   /* input */
-  @include max-width(1 !important);
+  @include max-width(16 em !important);
 
   /* output */
-  max-width: 1 !important;
+  max-width: 1em !important;
 }
 
 .test-height {
   /* input */
-  @include height(1 !important);
+  @include height(16 em !important);
 
   /* output */
-  height: 1 !important;
+  height: 1em !important;
 }
 
 .test-min-height {
   /* input */
-  @include min-height(1 !important);
+  @include min-height(16 em !important);
 
   /* output */
-  min-height: 1 !important;
+  min-height: 1em !important;
 }
 
 .test-max-height {
   /* input */
-  @include max-height(1 !important);
+  @include max-height(16 em !important);
 
   /* output */
-  max-height: 1 !important;
+  max-height: 1em !important;
 }
 
 .test-size {
   /* input */
-  @include size(2 !important);
+  @include size(16 em !important);
 
   /* output */
-  width: 2 !important;
-  height: 2 !important;
+  width: 1em !important;
+  height: 1em !important;
 }
 
 .test-min-size {
   /* input */
-  @include min-size(2 !important);
+  @include min-size(16 em !important);
 
   /* output */
-  min-width: 2 !important;
-  min-height: 2 !important;
+  min-width: 1em !important;
+  min-height: 1em !important;
 }
 
 .test-max-size {
   /* input */
-  @include max-size(2 !important);
+  @include max-size(16 em !important);
 
   /* output */
-  max-width: 2 !important;
-  max-height: 2 !important;
+  max-width: 1em !important;
+  max-height: 1em !important;
 }
 
 .test-size-split {
   /* input */
-  @include size(1 2 !important);
+  @include size(16 32 em !important);
 
   /* output */
-  width: 1 !important;
-  height: 2 !important;
+  width: 1em !important;
+  height: 2em !important;
 }
 
 .test-min-size-split {
   /* input */
-  @include min-size(1 2 !important);
+  @include min-size(16 32 em !important);
 
   /* output */
-  min-width: 1 !important;
-  min-height: 2 !important;
+  min-width: 1em !important;
+  min-height: 2em !important;
 }
 
 .test-max-size-split {
   /* input */
-  @include max-size(1 2 !important);
+  @include max-size(16 32 em !important);
 
   /* output */
-  max-width: 1 !important;
-  max-height: 2 !important;
+  max-width: 1em !important;
+  max-height: 2em !important;
 }

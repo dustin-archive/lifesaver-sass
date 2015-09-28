@@ -5,48 +5,48 @@
 
 .test-unit-em {
   /* input */
-  @include save(test 1 em);
+  @include save(content 16 em);
 
   /* output */
-  test: 0.0625em;
+  content: 1em;
 }
 
 .test-unit-rem {
   /* input */
-  @include save(test 1 rem);
+  @include save(content 16 rem);
 
   /* output */
-  test: 0.0625rem;
+  content: 1rem;
 }
 
 .test-unit-px {
   /* input */
-  @include save(test 1 px);
+  @include save(content 1 px);
 
   /* output */
-  test: 1px;
+  content: 1px;
 }
 
 .test-unit-pct {
   /* input */
-  @include save(test 1 pct);
+  @include save(content 1 pct);
 
   /* output */
-  test: 100%;
+  content: 100%;
 }
 
 .test-unit-vw {
   /* input */
-  @include save(test 1 vw);
+  @include save(content 1 vw);
 
   /* output */
-  test: 1vw;
+  content: 1vw;
 }
 
 .test-unit-vh {
   /* input */
-  @include save(test 1 vh);
+  @include save(content 1 vh);
 
   /* output */
-  test: 1vh;
+  content: 1vh;
 }

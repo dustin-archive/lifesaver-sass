@@ -5,16 +5,16 @@
 
 .test-margin {
   /* input */
-  @include margin(1 !important);
-  @include margin-top(1 !important);
-  @include margin-right(1 !important);
-  @include margin-bottom(1 !important);
-  @include margin-left(1 !important);
+  @include margin(16 em);
+  @include margin-top(16 em);
+  @include margin-right(16 em);
+  @include margin-bottom(16 em);
+  @include margin-left(16 em);
 
   /* output */
-  margin: 1 !important;
-  margin-top: 1 !important;
-  margin-right: 1 !important;
-  margin-bottom: 1 !important;
-  margin-left: 1 !important;
+  margin: 1em;
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
 }

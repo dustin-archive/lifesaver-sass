@@ -5,109 +5,109 @@
 
 .test-position {
   /* input */
-  @include position(1 x x x 2z !important);
+  @include position(16 x x x em 2z !important);
 
   /* output */
-  top: 1 !important;
+  top: 1em !important;
   z-index: 2 !important;
 }
 
 .test-position-absolute {
   /* input */
-  @include position-absolute(1 x x x 2z !important);
+  @include position-absolute(16 x x x em 2z !important);
 
   /* output */
   position: absolute !important;
-  top: 1 !important;
+  top: 1em !important;
   z-index: 2 !important;
 }
 
 .test-position-relative {
   /* input */
-  @include position-relative(1 x x x 2z !important);
+  @include position-relative(16 x x x em 2z !important);
 
   /* output */
   position: relative !important;
-  top: 1 !important;
+  top: 1em !important;
   z-index: 2 !important;
 }
 
 .test-position-fixed {
   /* input */
-  @include position-fixed(1 x x x 2z !important);
+  @include position-fixed(16 x x x em 2z !important);
 
   /* output */
   position: fixed !important;
-  top: 1 !important;
+  top: 1em !important;
   z-index: 2 !important;
 }
 
 .test-position-static {
   /* input */
-  @include position-static(1 x x x 2z !important);
+  @include position-static(16 x x x em 2z !important);
 
   /* output */
   position: static !important;
-  top: 1 !important;
+  top: 1em !important;
   z-index: 2 !important;
 }
 
 .test-position-sticky {
   /* input */
-  @include position-sticky(1 x x x 2z !important);
+  @include position-sticky(16 x x x em 2z !important);
 
   /* output */
   position: sticky !important;
-  top: 1 !important;
+  top: 1em !important;
   z-index: 2 !important;
 }
 
 .test-absolute {
   /* input */
-  @include absolute(1 x x x 2z !important);
+  @include absolute(16 x x x em 2z !important);
 
   /* output */
   position: absolute !important;
-  top: 1 !important;
+  top: 1em !important;
   z-index: 2 !important;
 }
 
 .test-relative {
   /* input */
-  @include relative(1 x x x 2z !important);
+  @include relative(16 x x x em 2z !important);
 
   /* output */
   position: relative !important;
-  top: 1 !important;
+  top: 1em !important;
   z-index: 2 !important;
 }
 
 .test-fixed {
   /* input */
-  @include fixed(1 x x x 2z !important);
+  @include fixed(16 x x x em 2z !important);
 
   /* output */
   position: fixed !important;
-  top: 1 !important;
+  top: 1em !important;
   z-index: 2 !important;
 }
 
 .test-static {
   /* input */
-  @include static(1 x x x 2z !important);
+  @include static(16 x x x em 2z !important);
 
   /* output */
   position: static !important;
-  top: 1 !important;
+  top: 1em !important;
   z-index: 2 !important;
 }
 
 .test-sticky {
   /* input */
-  @include sticky(1 x x x 2z !important);
+  @include sticky(16 x x x em 2z !important);
 
   /* output */
   position: sticky !important;
-  top: 1 !important;
+  top: 1em !important;
   z-index: 2 !important;
 }

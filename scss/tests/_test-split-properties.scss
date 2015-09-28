@@ -5,103 +5,103 @@
 
 .test-split-properties {
   /* input */
-  @include save(test 1 x);
+  @include save(margin 16 x em);
 
   /* output */
-  test-top: 1;
-  test-bottom: 1;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .test-split-properties {
   /* input */
-  @include save(test x 1);
+  @include save(margin x 16 em);
 
   /* output */
-  test-right: 1;
-  test-left: 1;
+  margin-right: 1em;
+  margin-left: 1em;
 }
 
 .test-split-properties {
   /* input */
-  @include save(test 1 1 x x);
+  @include save(margin 16 16 x x em);
 
   /* output */
-  test-top: 1;
-  test-right: 1;
+  margin-top: 1em;
+  margin-right: 1em;
 }
 
 .test-split-properties {
   /* input */
-  @include save(test 1 x 1 x);
+  @include save(margin 16 x 16 x em);
 
   /* output */
-  test-top: 1;
-  test-bottom: 1;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .test-split-properties {
   /* input */
-  @include save(test 1 x x 1);
+  @include save(margin 16 x x 16 em);
 
   /* output */
-  test-top: 1;
-  test-left: 1;
+  margin-top: 1em;
+  margin-left: 1em;
 }
 
 .test-split-properties {
   /* input */
-  @include save(test x 1 x 1);
+  @include save(margin x 16 x 16 em);
 
   /* output */
-  test-right: 1;
-  test-left: 1;
+  margin-right: 1em;
+  margin-left: 1em;
 }
 
 .test-split-properties {
   /* input */
-  @include save(test x x 1 1);
+  @include save(margin x x 16 16 em);
 
   /* output */
-  test-bottom: 1;
-  test-left: 1;
+  margin-bottom: 1em;
+  margin-left: 1em;
 }
 
 .test-split-properties {
   /* input */
-  @include save(test x 1 1 1);
+  @include save(margin x 16 16 16 em);
 
   /* output */
-  test-right: 1;
-  test-bottom: 1;
-  test-left: 1;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
 }
 
 .test-split-properties {
   /* input */
-  @include save(test 1 x 1 1);
+  @include save(margin 16 x 16 16 em);
 
   /* output */
-  test-top: 1;
-  test-bottom: 1;
-  test-left: 1;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 1em;
 }
 
 .test-split-properties {
   /* input */
-  @include save(test 1 1 x 1);
+  @include save(margin 16 16 x 16 em);
 
   /* output */
-  test-top: 1;
-  test-right: 1;
-  test-left: 1;
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-left: 1em;
 }
 
 .test-split-properties {
   /* input */
-  @include save(test 1 1 1 x);
+  @include save(margin 16 16 16 x em);
 
   /* output */
-  test-top: 1;
-  test-right: 1;
-  test-bottom: 1;
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
 }
