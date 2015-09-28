@@ -3,14 +3,29 @@
 // =============================================================================
 
 
-@mixin border($values, $units: null, $style: null, $color: null, $scale: null, $flag: null) {
-  @include save(border, $values, $units, $scale, $flag, $extra: $style $color);
+// @mixin border($values, $units: null, $style: null, $color: null, $scale: null, $flag: null) {
+@mixin border($arguments) {
+  // @include save(border, $values, $units, $scale, $flag, $extra: $style $color);
+  @include save(join(border, $arguments));
 }
 
-@mixin border-width($values, $units: null, $scale: null, $flag: null) {
-  @include save(border-width, $values, $units, $scale, $flag);
+@mixin border-width($arguments) {
+  @include save(join(border-width, $arguments));
 }
 
-@mixin border-radius($values, $units: null, $scale: null, $flag: null) {
-  @include save(border-radius, $values, $units, $scale, $flag);
+@mixin border-style($arguments) {
+  @include save(join(border-style, $arguments));
+}
+
+@mixin border-color($arguments) {
+  @include save(join(border-color, $arguments));
+}
+
+@mixin border-radius($varguments) {
+  @include save(join(border-radius, $arguments));
+}
+
+// Aliases
+@mixin radius($arguments) {
+  @include border-radius($arguments);
 }
