@@ -12,10 +12,36 @@
   $scale:      null;
   $flag:       null;
 
-  // @debug $arguments;
+  $styles: none hidden dotted dashed solid double groove ridge inset outset;
+
+  @debug $arguments;
 
   @each $argument in $arguments {
-    @if not contains-null($argument) and type-of($argument) == string  {
+
+    // $color
+    @if not contains-null($argument) and type-of($argument) == color {
+      @if $color == null {
+        $color: $argument;
+      }
+      @else {
+        $color: join($color, $argument);
+      }
+    }
+    @else if not contains-null($argument) and type-of($argument) == string {
+
+      // $style
+      @if index($styles, $argument) {
+        @each $item in $styles {
+          @if $argument == $item {
+            @if $color == null {
+              $style: $argument;
+            }
+            @else {
+              $style: join($style, $argument);
+            }
+          }
+        }
+      }
 
       // $unit
       @if function-exists($argument) {
@@ -32,9 +58,6 @@
         @if $flag == null {
           $flag: $argument;
         }
-        // @else {
-        //   @error 'LifeSaver Error: You can only pass one flag argument.';
-        // }
       }
 
       // $properties
@@ -52,42 +75,21 @@
         @if $scale == null {
           $scale: $argument;
         }
-        // @else {
-        //   @error 'LifeSaver Error: You can only pass one scale argument.';
-        // }
       }
 
       // $values
       @else if $values == null {
-        $values: compress-matching-values($argument);
-        // $values: $argument;
+        $values: $argument;
       }
       @else {
-        $values: join($values, compress-matching-values($argument));
-        // $values: join($values, $argument);
+        $values: join($values, $argument);
       }
     }
   }
 
-  // $properties errors
-  // @if $properties == null {
-  //   @error 'LifeSaver Error: You must pass a property argument.';
-  // }
-
-  // $values errors
-  // @if $values == null {
-  //   @error 'LifeSaver Error: You must pass a value argument.';
-  // }
-  // @else if length($values) == 3 {
-  //   @error 'LifeSaver Error: You cannot pass three values.';
-  // }
-  // @else if length($values) > 4 {
-  //   @error 'LifeSaver Error: You cannot pass more than 4 values.';
-  // }
-
   @return (
     properties: $properties,
-    values:     $values,
+    values:     compress-matching-values($values),
     style:      $style,
     color:      $color,
     units:      $units,
