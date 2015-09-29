@@ -1,5 +1,5 @@
 //
-// + Test margin
+// + Test margin padding
 // =============================================================================
 
 
@@ -23,7 +23,7 @@
   padding: 1em 1em;
 }
 
-.test-margin-split-2 {
+.test-margin-property-split-2 {
   /* input */
   @include margin(16 x em);
   @include padding(16 x em);
@@ -35,7 +35,7 @@
   padding-bottom: 1em;
 }
 
-.test-margin-split-4 {
+.test-margin-property-split-4 {
   /* input */
   @include margin(16 16 16 x em);
   @include padding(16 16 16 x em);
