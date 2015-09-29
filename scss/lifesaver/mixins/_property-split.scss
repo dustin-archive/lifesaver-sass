@@ -22,7 +22,7 @@
       $property-key: append-suffix($property, $key);
       $value: process-value(map-get($map, $key), $unit, $scale);
 
-      @if $value not null {
+      @if not contains-null($value) {
         #{$property-key}: $value $style $color $flag;
       }
     }
