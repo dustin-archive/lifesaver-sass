@@ -3,9 +3,7 @@
 // =============================================================================
 
 
-@mixin save($arguments) {
-  $arguments: process-arguments($arguments);
-
+@mixin lifesaver($arguments) {
   $properties: map-get($arguments, properties);
   $values:     map-get($arguments, values);
   $style:      map-get($arguments, style); // border
@@ -22,4 +20,9 @@
       @include shorthand-concat($property, $values, $style, $color, $units, $scale, $flag);
     }
   }
+}
+
+@mixin save($arguments) {
+  $arguments: process-arguments($arguments);
+  @include lifesaver($arguments);
 }
