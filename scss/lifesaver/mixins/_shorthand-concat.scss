@@ -3,19 +3,15 @@
 // =============================================================================
 
 
-@mixin shorthand-concat($property, $values, $units, $scale, $flag) {
+@mixin shorthand-concat($property, $values, $style, $color, $units, $scale, $flag) {
   @each $unit in $units {
-    $result: null;
+    $result: ();
 
     @each $value in $values {
-      $result: $result process-value($value, $unit, $scale);
+      $value: process-value($value, $unit, $scale);
+      $result: join($result, $value $style $color);
     }
 
-    // @if $property == 'border' {
-      // #{$property}: $result $extra $flag;
-    // }
-    // @else {
-      #{$property}: join($result, $flag);
-    // }
+    #{$property}: join($result, $flag);
   }
 }
