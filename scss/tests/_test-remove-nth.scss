@@ -3,15 +3,6 @@
 // =============================================================================
 
 
-.test-remove-nth-first {
-  /* input */
-  $list: one two three four;
-  content: remove-nth($list, 1);
-
-  /* output */
-  content: two three four;
-}
-
 .test-remove-nth {
   /* input */
   $list: one two three four;
@@ -19,6 +10,24 @@
 
   /* output */
   content: one three four;
+}
+
+.test-remove-nth-duplicates {
+  /* input */
+  $list: one two one two;
+  content: remove-nth($list, 3);
+
+  /* output */
+  content: one two two;
+}
+
+.test-remove-nth-first {
+  /* input */
+  $list: one two three four;
+  content: remove-nth($list, 1);
+
+  /* output */
+  content: two three four;
 }
 
 .test-remove-nth-last {
