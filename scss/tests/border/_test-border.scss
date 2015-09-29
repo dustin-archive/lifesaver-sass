@@ -22,10 +22,13 @@
 .test-border-property-split-2 {
   /* input */
   @include border(16 x em solid blue);
+  @include border(x 16 em solid blue);
 
   /* output */
   border-top: 1em solid blue;
   border-bottom: 1em solid blue;
+  border-right: 1em solid blue;
+  border-left: 1em solid blue;
 }
 
 .test-border-property-split-4 {
