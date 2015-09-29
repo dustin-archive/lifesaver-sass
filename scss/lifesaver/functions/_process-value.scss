@@ -3,7 +3,7 @@
 // =============================================================================
 
 
-@function process-value($value, $unit: null, $scale: null) {
+@function process-value($value, $unit, $scale) {
   @if contains-null($value) {
     $value: null;
   }
