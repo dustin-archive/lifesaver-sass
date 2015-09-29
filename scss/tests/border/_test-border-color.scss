@@ -1,0 +1,68 @@
+//
+// + Test border-color color
+// =============================================================================
+
+
+.test-border-color {
+  /* input */
+  @include border-color(blue);
+
+  /* output */
+  border-color: blue;
+}
+
+.test-border-color-shorthand-concat {
+  /* input */
+  @include border-color(red blue);
+
+  /* output */
+  border-color: red blue;
+}
+
+.test-border-color-property-split-2 {
+  /* input */
+  @include border-color(blue x);
+  // @include border-color(x red);
+
+  /* output */
+  border-top-color: blue;
+  border-bottom-color: blue;
+}
+
+.test-border-color-property-split-4 {
+  /* input */
+  @include border-color(red blue green x);
+
+  /* output */
+  border-top-color: red;
+  border-right-color: blue;
+  border-bottom-color: green;
+}
+
+.test-border-top-right-bottom-left-color {
+  /* input */
+  @include border-top-color(red);
+  @include border-right-color(blue);
+  @include border-bottom-color(green);
+  @include border-left-color(yellow);
+
+  /* output */
+  border-top-color: red;
+  border-right-color: blue;
+  border-bottom-color: green;
+  border-left-color: yellow;
+}
+
+.test-border-color-top-right-bottom-left {
+  /* input */
+  @include border-color-top(red);
+  @include border-color-right(blue);
+  @include border-color-bottom(green);
+  @include border-color-left(yellow);
+
+  /* output */
+  border-top-color: red;
+  border-right-color: blue;
+  border-bottom-color: green;
+  border-left-color: blue;
+}

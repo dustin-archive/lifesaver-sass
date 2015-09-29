@@ -1,0 +1,67 @@
+//
+// + Test border width
+// =============================================================================
+
+
+.test-border-width {
+  /* input */
+  @include border-width(16 em);
+
+  /* output */
+  border-width: 1em;
+}
+
+.test-border-width-shorthand-concat {
+  /* input */
+  @include border-width(16 32 em);
+
+  /* output */
+  border-width: 1em 2em;
+}
+
+.test-border-width-property-split-2 {
+  /* input */
+  @include border-width(16 x em);
+
+  /* output */
+  border-top-width: 1em;
+  border-bottom-width: 1em;
+}
+
+.test-border-width-property-split-4 {
+  /* input */
+  @include border-width(16 16 16 x em);
+
+  /* output */
+  border-top-width: 1em;
+  border-right-width: 1em;
+  border-bottom-width: 1em;
+}
+
+.test-border-top-right-bottom-left-width {
+  /* input */
+  @include border-top-width(16 em);
+  @include border-right-width(16 em);
+  @include border-bottom-width(16 em);
+  @include border-left-width(16 em);
+
+  /* output */
+  border-top-width: 1em;
+  border-right-width: 1em;
+  border-bottom-width: 1em;
+  border-left-width: 1em;
+}
+
+.test-border-width-top-right-bottom-left {
+  /* input */
+  @include border-width-top(16 em);
+  @include border-width-right(16 em);
+  @include border-width-bottom(16 em);
+  @include border-width-left(16 em);
+
+  /* output */
+  border-top-width: 1em;
+  border-right-width: 1em;
+  border-bottom-width: 1em;
+  border-left-width: 1em;
+}
