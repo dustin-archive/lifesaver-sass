@@ -9,15 +9,17 @@
   $arguments: map-merge($arguments, (properties: $properties));
 
   @if $value-type == top {
-   @include lifesaver(map-merge($arguments, (values: $values x x x)));
+    $arguments: map-merge($arguments, (values: $values x x x));
   }
   @else if $value-type == right {
-   @include lifesaver(map-merge($arguments, (values: x $values x x)));
+    $arguments: map-merge($arguments, (values: x $values x x));
   }
   @else if $value-type == bottom {
-   @include lifesaver(map-merge($arguments, (values: x x $values x)));
+    $arguments: map-merge($arguments, (values: x x $values x));
   }
   @else if $value-type == left {
-   @include lifesaver(map-merge($arguments, (values: x x x $values)));
+    $arguments: map-merge($arguments, (values: x x x $values));
   }
+
+  @include lifesaver($arguments);
 }
