@@ -1,8 +1,9 @@
 //
-// + Margin
+// + Margin padding
 // =============================================================================
 
 
+// Margin
 @mixin margin($arguments) {
   @include properties($arguments, margin);
 }
@@ -21,4 +22,26 @@
 
 @mixin margin-left($arguments) {
   @include properties-values($arguments, margin, left);
+}
+
+
+// Padding
+@mixin padding($arguments) {
+  @include properties($arguments, padding);
+}
+
+@mixin padding-top($arguments) {
+  @include properties-values($arguments, padding, top);
+}
+
+@mixin padding-right($arguments) {
+  @include properties-values($arguments, padding, right);
+}
+
+@mixin padding-bottom($arguments) {
+  @include properties-values($arguments, padding, bottom);
+}
+
+@mixin padding-left($arguments) {
+  @include properties-values($arguments, padding, left);
 }
