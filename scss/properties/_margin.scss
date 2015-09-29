@@ -4,24 +4,26 @@
 
 
 @mixin margin($arguments) {
-  @include save(join(margin, $arguments));
+  $arguments: process-arguments($arguments);
+  @include lifesaver(map-merge($arguments, (properties: margin)));
 }
 
 @mixin margin-type($type, $arguments) {
-  $value: check-values($arguments);
-  $arguments: remove-item($arguments, $value);
+  $arguments: process-arguments($arguments);
+  $value: map-get($arguments, values);
+  $arguments: map-merge($arguments, (properties: margin));
 
   @if $type == top {
-    @include margin(join($value x x x, $arguments));
+    @include lifesaver(map-merge($arguments, (values: $value x x x)));
   }
   @else if $type == right {
-    @include margin(join(x $value x x, $arguments));
+    @include lifesaver(map-merge($arguments, (values: x $value x x)));
   }
   @else if $type == bottom {
-    @include margin(join(x x $value x, $arguments));
+    @include lifesaver(map-merge($arguments, (values: x x $value x)));
   }
   @else if $type == left {
-    @include margin(join(x x x $value, $arguments));
+    @include lifesaver(map-merge($arguments, (values: x x x $value)));
   }
 }
 
