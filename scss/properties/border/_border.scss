@@ -5,8 +5,8 @@
 
 @mixin properties-colors-styles($arguments, $properties) {
   $arguments: process-arguments($arguments);
-  $color: map-get($arguments, values);
-  $style: map-get($arguments, values);
+  $color: map-get($arguments, color);
+  $style: map-get($arguments, style);
   $arguments: map-merge($arguments, (properties: $properties));
   $arguments: map-merge($arguments, (color: $color));
   $arguments: map-merge($arguments, (style: $style));
