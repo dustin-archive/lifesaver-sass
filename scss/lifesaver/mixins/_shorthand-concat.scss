@@ -9,9 +9,9 @@
 
     @each $value in $values {
       $value: process-value($value, $unit, $scale);
-      $result: join($result, $value $style $color);
+      $result: join($result, $value);
     }
 
-    #{$property}: join($result, $flag);
+    #{$property}: join($result, $style $color $flag);
   }
 }
