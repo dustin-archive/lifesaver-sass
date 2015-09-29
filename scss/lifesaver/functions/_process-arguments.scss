@@ -6,9 +6,13 @@
 @function process-arguments($arguments) {
   $properties: null;
   $values:     null;
+  $style:      null; // border
+  $color:      null; // border
   $units:      null;
   $scale:      null;
   $flag:       null;
+
+  // @debug $arguments;
 
   @each $argument in $arguments {
     @if not contains-null($argument) and type-of($argument) == string  {
@@ -28,9 +32,9 @@
         @if $flag == null {
           $flag: $argument;
         }
-        @else {
-          @error 'LifeSaver Error: You can only pass one flag argument.';
-        }
+        // @else {
+        //   @error 'LifeSaver Error: You can only pass one flag argument.';
+        // }
       }
 
       // $properties
@@ -48,34 +52,46 @@
         @if $scale == null {
           $scale: $argument;
         }
-        @else {
-          @error 'LifeSaver Error: You can only pass one scale argument.';
-        }
+        // @else {
+        //   @error 'LifeSaver Error: You can only pass one scale argument.';
+        // }
       }
 
       // $values
       @else if $values == null {
-        $values: $argument;
+        $values: compress-matching-values($argument);
+        // $values: $argument;
       }
       @else {
-        $values: join($values, $argument);
+        $values: join($values, compress-matching-values($argument));
+        // $values: join($values, $argument);
       }
     }
   }
 
-  @if $properties == null {
-    @error 'LifeSaver Error: You must pass a property argument.';
-  }
+  // $properties errors
+  // @if $properties == null {
+  //   @error 'LifeSaver Error: You must pass a property argument.';
+  // }
 
-  @if $values == null {
-    @error 'LifeSaver Error: You must pass a value argument.';
-  }
-  @else if length($values) == 3 {
-    @error 'LifeSaver Error: You cannot pass three values.';
-  }
-  @else if length($values) > 4 {
-    @error 'LifeSaver Error: You cannot pass more than 4 values.';
-  }
+  // $values errors
+  // @if $values == null {
+  //   @error 'LifeSaver Error: You must pass a value argument.';
+  // }
+  // @else if length($values) == 3 {
+  //   @error 'LifeSaver Error: You cannot pass three values.';
+  // }
+  // @else if length($values) > 4 {
+  //   @error 'LifeSaver Error: You cannot pass more than 4 values.';
+  // }
 
-  @return $properties $values $units $scale $flag;
+  @return (
+    properties: $properties,
+    values:     $values,
+    style:      $style,
+    color:      $color,
+    units:      $units,
+    scale:      $scale,
+    flag:       $flag
+  );
 }
