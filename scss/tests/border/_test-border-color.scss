@@ -22,11 +22,13 @@
 .test-border-color-property-split-2 {
   /* input */
   @include border-color(blue x);
-  // @include border-color(x red);
+  @include border-color(x red);
 
   /* output */
   border-top-color: blue;
   border-bottom-color: blue;
+  border-right-color: red;
+  border-left-color: red;
 }
 
 .test-border-color-property-split-4 {
