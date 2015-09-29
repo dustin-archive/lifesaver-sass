@@ -3,137 +3,117 @@
 // =============================================================================
 
 
-
-@function check-border-style($arguments) {
-  $styles: 'none' 'hidden' 'dotted' 'dashed' 'solid' 'double' 'groove' 'ridge' 'inset' 'outset';
-  @each $argument in $arguments {
-    @each $style in $styles {
-      @if $argument == $style {
-        $arguments: $argument;
-      }
-    }
-  }
-  @return $arguments;
+@mixin properties($arguments, $properties) {
+  $arguments: process-arguments($arguments);
+  @include lifesaver(map-merge($arguments, (properties: $properties)));
 }
 
+@mixin properties-values($arguments, $properties, $value-type) {
+  $arguments: process-arguments($arguments);
+  $values: map-get($arguments, values);
+  $arguments: map-merge($arguments, (properties: $properties));
 
-@function check-color($arguments) {
-  @each $argument in $arguments {
-    @if type-of($arguments) == color {
-      $arguments: $argument;
-    }
+  @if $value-type == top {
+   @include lifesaver(map-merge($arguments, (values: $values x x x)));
   }
-  @return $arguments;
+  @else if $value-type == right {
+   @include lifesaver(map-merge($arguments, (values: x $values x x)));
+  }
+  @else if $value-type == bottom {
+   @include lifesaver(map-merge($arguments, (values: x x $values x)));
+  }
+  @else if $value-type == left {
+   @include lifesaver(map-merge($arguments, (values: x x x $values)));
+  }
 }
 
-
-
+// Border type
 @mixin border($arguments) {
-  @include save(join(border, $arguments));
+  @include properties($arguments, border);
 }
 
-@mixin border-type($type, $arguments, $which: null) {
-  $value: check-values($arguments);
-  $arguments: remove-item($arguments, $value);
-
-  @if $which {
-    $which: 'border-' + $which;
-  }
-  @else {
-    $which: 'border';
-  }
-
-  @if $type == top {
-    @include save(join($which, join($value x x x, $arguments)));
-  }
-  @else if $type == right {
-    @include save(join($which, join(x $value x x, $arguments)));
-  }
-  @else if $type == bottom {
-    @include save(join($which, join(x x $value x, $arguments)));
-  }
-  @else if $type == left {
-    @include save(join($which, join(x x x $value, $arguments)));
-  }
+@mixin border-width($arguments) {
+  @include properties($arguments, border-width);
 }
 
+@mixin border-style($arguments) {
+  @include properties($arguments, border-style);
+}
 
-// Border
+@mixin border-color($arguments) {
+  @include properties($arguments, border-color);
+}
+
+@mixin border-radius($arguments) {
+  @include properties($arguments, border-radius);
+}
+
+// Border value
 @mixin border-top($arguments) {
-  @include border-type(top, $arguments);
+  @include properties-values($arguments, border, top);
 }
 
 @mixin border-right($arguments) {
-  @include border-type(right, $arguments);
+  @include properties-values($arguments, border, right);
 }
 
 @mixin border-bottom($arguments) {
-  @include border-type(bottom, $arguments);
+  @include properties-values($arguments, border, bottom);
 }
 
 @mixin border-left($arguments) {
-  @include border-type(left, $arguments);
+  @include properties-values($arguments, border, left);
 }
-
 
 // Border width
-@mixin border-width($arguments) {
-  @include save(join(border-width, $arguments));
-}
-
 @mixin border-top-width($arguments) {
-  @include border-type(top, $arguments, width);
+  @include properties-values($arguments, border-width, top);
 }
 
 @mixin border-right-width($arguments) {
-  @include border-type(right, $arguments, width);
+  @include properties-values($arguments, border-width, right);
 }
 
 @mixin border-bottom-width($arguments) {
-  @include border-type(bottom, $arguments, width);
+  @include properties-values($arguments, border-width, bottom);
 }
 
 @mixin border-left-width($arguments) {
-  @include border-type(left, $arguments, width);
+  @include properties-values($arguments, border-width, left);
 }
 
 // Aliases
 @mixin border-width-top($arguments) {
-  @include bborder-width-top($arguments);
+  @include border-top-width($arguments);
 }
 
 @mixin border-width-right($arguments) {
-  @include border-width-top($arguments);
+  @include border-right-width($arguments);
 }
 
 @mixin border-width-bottom($arguments) {
-  @include border-width-top($arguments);
+  @include border-bottom-width($arguments);
 }
 
 @mixin border-width-left($arguments) {
-  @include border-width-top($arguments);
+  @include border-left-width($arguments);
 }
-
 
 // Border style
-@mixin border-style($arguments) {
-  @include save(join(border-style, $arguments));
-}
-
 @mixin border-top-style($arguments) {
-  @include border-type(top, $arguments, style);
+  @include properties-values($arguments, border-style, top);
 }
 
 @mixin border-right-style($arguments) {
-  @include border-type(right, $arguments, style);
+  @include properties-values($arguments, border-style, right);
 }
 
 @mixin border-bottom-style($arguments) {
-  @include border-type(bottom, $arguments, style);
+  @include properties-values($arguments, border-style, bottom);
 }
 
 @mixin border-left-style($arguments) {
-  @include border-type(left, $arguments, style);
+  @include properties-values($arguments, border-style, left);
 }
 
 // Aliases
@@ -153,26 +133,21 @@
   @include border-left-style($arguments);
 }
 
-
 // Border color
-@mixin border-color($arguments) {
-  @include save(join(border-color, $arguments));
-}
-
 @mixin border-top-color($arguments) {
-  @include border-type(top, $arguments, color);
+  @include properties-values($arguments, border-color, top);
 }
 
 @mixin border-right-color($arguments) {
-  @include border-type(right, $arguments, color);
+  @include properties-values($arguments, border-color, right);
 }
 
 @mixin border-bottom-color($arguments) {
-  @include border-type(bottom, $arguments, color);
+  @include properties-values($arguments, border-color, bottom);
 }
 
 @mixin border-left-color($arguments) {
-  @include border-type(left, $arguments, color);
+  @include properties-values($arguments, border-color, left);
 }
 
 // Aliases
@@ -192,26 +167,21 @@
   @include border-left-color($arguments);
 }
 
-
 // Border radius
-@mixin border-radius($arguments) {
-  @include save(join(border-radius, $arguments));
-}
-
 @mixin border-top-left-radius($arguments) {
-  @include border-type(top, $arguments, radius);
+  @include properties-values($arguments, border-radius, top);
 }
 
 @mixin border-top-right-radius($arguments) {
-  @include border-type(right, $arguments, radius);
+  @include properties-values($arguments, border-radius, right);
 }
 
 @mixin border-bottom-right-radius($arguments) {
-  @include border-type(bottom, $arguments, radius);
+  @include properties-values($arguments, border-radius, bottom);
 }
 
 @mixin border-bottom-left-radius($arguments) {
-  @include border-type(left, $arguments, radius);
+  @include properties-values($arguments, border-radius, left);
 }
 
 // Aliases
