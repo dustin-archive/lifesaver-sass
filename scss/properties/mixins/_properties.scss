@@ -5,5 +5,6 @@
 
 @mixin properties($arguments, $properties) {
   $arguments: process-arguments($arguments);
-  @include lifesaver(map-merge($arguments, (properties: $properties)));
+  $arguments: map-merge($arguments, (properties: $properties));
+  @include lifesaver($arguments);
 }
