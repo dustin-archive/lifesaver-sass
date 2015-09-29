@@ -6,20 +6,20 @@
 @mixin save($arguments) {
   $arguments: process-arguments($arguments);
 
-  $properties: nth($arguments, 1);
-  $values:     nth($arguments, 2);
-  $units:      nth($arguments, 3);
-  $scale:      nth($arguments, 4);
-  $flag:       nth($arguments, 5);
-
-  $values: compress-matching-values($values);
+  $properties: map-get($arguments, properties);
+  $values:     map-get($arguments, values);
+  $style:      map-get($arguments, style); // border
+  $color:      map-get($arguments, color); // border
+  $units:      map-get($arguments, units);
+  $scale:      map-get($arguments, scale);
+  $flag:       map-get($arguments, flag);
 
   @each $property in $properties {
     @if contains-null($values) or $property == 'position' {
-      @include property-split($property, $values, $units, $scale, $flag);
+      @include property-split($property, $values, $style, $color, $units, $scale, $flag);
     }
     @else {
-      @include shorthand-concat($property, $values, $units, $scale, $flag);
+      @include shorthand-concat($property, $values, $style, $color, $units, $scale, $flag);
     }
   }
 }
