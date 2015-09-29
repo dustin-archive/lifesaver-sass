@@ -1,0 +1,41 @@
+//
+// + Border width
+// =============================================================================
+
+
+@mixin border-width($arguments) {
+  @include properties($arguments, border-width);
+}
+
+@mixin border-top-width($arguments) {
+  @include properties-values($arguments, border-width, top);
+}
+
+@mixin border-right-width($arguments) {
+  @include properties-values($arguments, border-width, right);
+}
+
+@mixin border-bottom-width($arguments) {
+  @include properties-values($arguments, border-width, bottom);
+}
+
+@mixin border-left-width($arguments) {
+  @include properties-values($arguments, border-width, left);
+}
+
+// Aliases
+@mixin border-width-top($arguments) {
+  @include border-top-width($arguments);
+}
+
+@mixin border-width-right($arguments) {
+  @include border-right-width($arguments);
+}
+
+@mixin border-width-bottom($arguments) {
+  @include border-bottom-width($arguments);
+}
+
+@mixin border-width-left($arguments) {
+  @include border-left-width($arguments);
+}

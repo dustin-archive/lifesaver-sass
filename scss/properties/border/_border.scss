@@ -1,0 +1,24 @@
+//
+// + Border
+// =============================================================================
+
+
+@mixin border($arguments) {
+  @include properties($arguments, border);
+}
+
+@mixin border-top($arguments) {
+  @include properties-values($arguments, border, top);
+}
+
+@mixin border-right($arguments) {
+  @include properties-values($arguments, border, right);
+}
+
+@mixin border-bottom($arguments) {
+  @include properties-values($arguments, border, bottom);
+}
+
+@mixin border-left($arguments) {
+  @include properties-values($arguments, border, left);
+}

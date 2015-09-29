@@ -1,0 +1,23 @@
+//
+// + Properties values
+// =============================================================================
+
+
+@mixin properties-values($arguments, $properties, $value-type) {
+  $arguments: process-arguments($arguments);
+  $values: map-get($arguments, values);
+  $arguments: map-merge($arguments, (properties: $properties));
+
+  @if $value-type == top {
+   @include lifesaver(map-merge($arguments, (values: $values x x x)));
+  }
+  @else if $value-type == right {
+   @include lifesaver(map-merge($arguments, (values: x $values x x)));
+  }
+  @else if $value-type == bottom {
+   @include lifesaver(map-merge($arguments, (values: x x $values x)));
+  }
+  @else if $value-type == left {
+   @include lifesaver(map-merge($arguments, (values: x x x $values)));
+  }
+}

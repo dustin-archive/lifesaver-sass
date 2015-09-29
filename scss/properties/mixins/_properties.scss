@@ -1,0 +1,9 @@
+//
+// + Properties
+// =============================================================================
+
+
+@mixin properties($arguments, $properties) {
+  $arguments: process-arguments($arguments);
+  @include lifesaver(map-merge($arguments, (properties: $properties)));
+}
