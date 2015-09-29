@@ -22,6 +22,5 @@
   @else {
     $property: $property + '-' + $suffix;
   }
-
   @return $property;
 }
