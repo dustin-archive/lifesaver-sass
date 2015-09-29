@@ -22,10 +22,13 @@
 .test-border-width-property-split-2 {
   /* input */
   @include border-width(16 x em);
+  @include border-width(x 16 em);
 
   /* output */
   border-top-width: 1em;
   border-bottom-width: 1em;
+  border-right-width: 1em;
+  border-left-width: 1em;
 }
 
 .test-border-width-property-split-4 {
