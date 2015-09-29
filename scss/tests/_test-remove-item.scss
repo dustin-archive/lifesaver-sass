@@ -3,15 +3,6 @@
 // =============================================================================
 
 
-.test-remove-item-first {
-  /* input */
-  $list: one two three four;
-  content: remove-item($list, one);
-
-  /* output */
-  content: two three four;
-}
-
 .test-remove-item {
   /* input */
   $list: one two three four;
@@ -19,6 +10,24 @@
 
   /* output */
   content: one three four;
+}
+
+.test-remove-item-duplicates {
+  /* input */
+  $list: one two one two;
+  content: remove-item($list, one);
+
+  /* output */
+  content: two one two;
+}
+
+.test-remove-item-first {
+  /* input */
+  $list: one two three four;
+  content: remove-item($list, one);
+
+  /* output */
+  content: two three four;
 }
 
 .test-remove-item-last {
