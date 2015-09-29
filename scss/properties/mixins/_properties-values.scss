@@ -5,20 +5,22 @@
 
 @mixin properties-values($arguments, $properties, $value-type) {
   $arguments: process-arguments($arguments);
-  $values: map-get($arguments, values);
+  $value: map-get($arguments, values);
   $arguments: map-merge($arguments, (properties: $properties));
 
+  // error if length($value) > 1
+
   @if $value-type == top {
-    $arguments: map-merge($arguments, (values: $values x x x));
+    $arguments: map-merge($arguments, (values: $value x x x));
   }
   @else if $value-type == right {
-    $arguments: map-merge($arguments, (values: x $values x x));
+    $arguments: map-merge($arguments, (values: x $value x x));
   }
   @else if $value-type == bottom {
-    $arguments: map-merge($arguments, (values: x x $values x));
+    $arguments: map-merge($arguments, (values: x x $value x));
   }
   @else if $value-type == left {
-    $arguments: map-merge($arguments, (values: x x x $values));
+    $arguments: map-merge($arguments, (values: x x x $value));
   }
 
   @include lifesaver($arguments);
