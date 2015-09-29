@@ -14,17 +14,25 @@
 
   $styles: none hidden dotted dashed solid double groove ridge inset outset;
 
-  @debug $arguments;
-
   @each $argument in $arguments {
 
     // $color
     @if not contains-null($argument) and type-of($argument) == color {
-      @if $color == null {
-        $color: $argument;
+      @if $values {
+        @if $color {
+          $color: join($color, $argument);
+        }
+        @else {
+          $color: $argument;
+        }
       }
       @else {
-        $color: join($color, $argument);
+        @if $color {
+          $values: join($values, $argument);
+        }
+        @else {
+          $values: $argument;
+        }
       }
     }
     @else if not contains-null($argument) and type-of($argument) == string {
@@ -33,11 +41,11 @@
       @if index($styles, $argument) {
         @each $item in $styles {
           @if $argument == $item {
-            @if $color == null {
-              $style: $argument;
+            @if $color {
+              $style: join($style, $argument);
             }
             @else {
-              $style: join($style, $argument);
+              $style: $argument;
             }
           }
         }
@@ -45,44 +53,44 @@
 
       // $unit
       @if function-exists($argument) {
-        @if $units == null {
-          $units: $argument;
+        @if $units {
+          $units: join($units, $argument);
         }
         @else {
-          $units: join($units, $argument);
+          $units: $argument;
         }
       }
 
       // $flag
       @else if str-index($argument, '!') == 1 {
-        @if $flag == null {
+        @if not $flag { // can i remove not logic here?
           $flag: $argument;
         }
       }
 
       // $properties
-      @else if $properties == null {
-        $properties: $argument;
+      @else if $properties {
+        $properties: join($properties, $argument);
       }
       @else {
-        $properties: join($properties, $argument);
+        $properties: $argument;
       }
     }
     @else if contains-null($argument) or type-of($argument) == number {
 
       // $scale
       @if not contains-null($argument) and unit($argument) == x {
-        @if $scale == null {
+        @if not $scale { // can i remove not logic here?
           $scale: $argument;
         }
       }
 
       // $values
-      @else if $values == null {
-        $values: $argument;
+      @else if $values {
+        $values: join($values, $argument);
       }
       @else {
-        $values: join($values, $argument);
+        $values: $argument;
       }
     }
   }
