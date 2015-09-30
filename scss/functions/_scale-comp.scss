@@ -3,6 +3,6 @@
 // =============================================================================
 
 
-@function scale-comp($value, $scale: null) {
+@function scale-comp($value, $scale) {
   @return if(contains-null($scale), $value, (16 / $scale) * $value);
 }
