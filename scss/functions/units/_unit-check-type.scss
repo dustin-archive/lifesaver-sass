@@ -7,7 +7,5 @@
   @if contains-types($value, 'null' string) {
     @return $value;
   }
-  @else {
-    @return call($function, $value, $scale);
-  }
+  @return call($function, $value, $scale);
 }
