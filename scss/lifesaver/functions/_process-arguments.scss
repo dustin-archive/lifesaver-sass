@@ -20,7 +20,8 @@
     @if contains-only-types($argument, 'null' number style color) {
       @if $values == ()
           or contains-only-types($argument, 'null' number)
-          or contains-only-types($values, 'null' style color) {
+          or contains-only-types($values, 'null' style)
+          or contains-only-types($values, 'null' color) {
         $values: join($values, $argument);
       }
       @else if save-type-of($argument) == style {
