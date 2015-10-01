@@ -22,8 +22,7 @@
     @if contains-only-types($argument, 'null' number color) {
 
       // this is kind of messy...
-      @if $values == ()
-        or contains-only-types($argument, 'null')
+      @if $values == () or type-of($argument) == 'null'
         or contains-only-types($values, 'null' color)
         or type-of($argument) == number {
         $values: join($values, $argument);
