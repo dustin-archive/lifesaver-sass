@@ -3,6 +3,22 @@
 // =============================================================================
 
 
+@function contains-only-items($list, $item-list) {
+  @each $item in $list {
+    @if not index($item-list, $item) {
+      @return null;
+    }
+  }
+  @return true;
+}
+
+@function save-type-of($value) {
+  $styles: none hidden dotted dashed solid double groove ridge inset outset;
+  @if index($styles, $value) {
+    @return style;
+  }
+  @return type-of($value);
+}
 
 @function types-in($list) {
   $result: ();
@@ -12,18 +28,12 @@
   @return $result;
 }
 
-// $list: one 1 string blue red 23 (one two 3);
-// @debug types-in($list);
-
 @function contains-type($list, $type) {
   @if index(types-in($list), $type) {
     @return true;
   }
   @return null;
 }
-
-// @debug contains-type(1 blue red string, color); // true
-// @debug contains-type(blue red string, number); // null
 
 @function contains-types($list, $types) {
   @each $type in $types {
@@ -33,9 +43,6 @@
   }
   @return null;
 }
-
-// @debug contains-types(1 blue red string, color string); // true
-// @debug contains-types(blue red string, number bool); // null
 
 // I think these could be re-written using the functions above.
 @function contains-only-type($list, $type) {
@@ -47,28 +54,22 @@
   @return true;
 }
 
-// @debug contains-only-type(blue red, color); // true
-// @debug contains-only-type(blue red 1, color); // null
-
 // I think these could be re-written using the functions above.
 @function contains-only-types($list, $types) {
   @each $item in $list {
-    @if not index($types, type-of($item)) {
+    // @if not index($types, type-of($item)) {
+    @if not index($types, save-type-of($item)) {
       @return null;
     }
   }
   @return true;
 }
 
-// @debug contains-only-types(blue red string, color string); // true
-// @debug contains-only-types(blue red 1 string, color string); // null
-// @debug contains-only-types(blue red 1 string, color string number); // true
-
+// should these be things??
 @function contains-null($value) {
   @return contains-type($value, 'null');
 }
 
-// should these be things??
 @function contains-color($value) {
   @return contains-type($value, color);
 }
