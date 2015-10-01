@@ -1,8 +1,0 @@
-//
-// + Set default
-// =============================================================================
-
-
-@function set-default($list, $default) {
-  @return if(index($list, x) or index($list, null), $default, $list);
-}
