@@ -4,13 +4,13 @@
 
 
 @mixin height($arguments) {
-  @include save(join(height, $arguments));
+  @include properties($arguments, height);
 }
 
 @mixin min-height($arguments) {
-  @include save(join(min-height, $arguments));
+  @include properties($arguments, min-height);
 }
 
 @mixin max-height($arguments) {
-  @include save(join(max-height, $arguments));
+  @include properties($arguments, max-height);
 }
