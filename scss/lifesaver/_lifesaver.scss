@@ -13,7 +13,7 @@
   $flag:       map-get($arguments, flag);
 
   @each $property in $properties {
-    @if contains-null($values) or $property == 'position' {
+    @if contains-null($values) or $property == position {
       @include property-split($property, $values, $style, $color, $units, $scale, $flag);
     }
     @else {

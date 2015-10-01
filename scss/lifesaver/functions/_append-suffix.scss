@@ -4,7 +4,7 @@
 
 
 @function append-suffix($property, $suffix) {
-  @if $property == 'position' {
+  @if $property == position {
     $property: $suffix;
   }
   @else if $property == 'border-width' {
@@ -22,6 +22,5 @@
   @else {
     $property: $property + '-' + $suffix;
   }
-
   @return $property;
 }

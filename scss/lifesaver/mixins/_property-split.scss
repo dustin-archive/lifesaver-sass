@@ -4,7 +4,7 @@
 
 
 @mixin property-split($property, $values, $style, $color, $units, $scale, $flag) {
-  $suffix: 'top' 'right' 'bottom' 'left';
+  $suffix: top right bottom left;
   $border-radius-suffix: 'top-left' 'top-right' 'bottom-right' 'bottom-left';
   $suffix: if($property == 'border-radius', $border-radius-suffix, $suffix);
 
