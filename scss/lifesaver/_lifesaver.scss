@@ -6,8 +6,8 @@
 @mixin lifesaver($arguments) {
   $properties: map-get($arguments, properties);
   $values:     map-get($arguments, values);
-  $style:      map-get($arguments, style); // border
-  $color:      map-get($arguments, color); // border
+  $style:      map-get($arguments, style);
+  $color:      map-get($arguments, color);
   $units:      map-get($arguments, units);
   $scale:      map-get($arguments, scale);
   $flag:       map-get($arguments, flag);

@@ -6,8 +6,8 @@
 @function process-arguments($arguments) {
   $properties: ();
   $values:     ();
-  $style:      (); // border
-  $color:      (); // border
+  $style:      ();
+  $color:      ();
   $units:      ();
   $scale:      ();
   $flag:       ();
