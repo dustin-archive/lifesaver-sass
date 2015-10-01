@@ -10,6 +10,7 @@
   $arguments: map-merge($arguments, (properties: $properties));
   $arguments: map-merge($arguments, (color: $color));
   $arguments: map-merge($arguments, (style: $style));
+
   @include lifesaver($arguments);
 }
 
