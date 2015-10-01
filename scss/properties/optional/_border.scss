@@ -1,11 +1,7 @@
 //
-// + Border
+// + Optional border
 // =============================================================================
 
-
-@mixin border($arguments) {
-  @include properties($arguments, border);
-}
 
 @mixin border-top($arguments) {
   @include properties-values($arguments, border, top);

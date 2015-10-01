@@ -1,33 +1,7 @@
 //
-// + Width height
+// + Size
 // =============================================================================
 
-
-// Width
-@mixin width($arguments) {
-  @include save(join(width, $arguments));
-}
-
-@mixin min-width($arguments) {
-  @include save(join(min-width, $arguments));
-}
-
-@mixin max-width($arguments) {
-  @include save(join(max-width, $arguments));
-}
-
-// Height
-@mixin height($arguments) {
-  @include save(join(height, $arguments));
-}
-
-@mixin min-height($arguments) {
-  @include save(join(min-height, $arguments));
-}
-
-@mixin max-height($arguments) {
-  @include save(join(max-height, $arguments));
-}
 
 // Size type
 @mixin size-type($size-type, $arguments) {

@@ -1,0 +1,16 @@
+//
+// + Optional width
+// =============================================================================
+
+
+@mixin width($arguments) {
+  @include save(join(width, $arguments));
+}
+
+@mixin min-width($arguments) {
+  @include save(join(min-width, $arguments));
+}
+
+@mixin max-width($arguments) {
+  @include save(join(max-width, $arguments));
+}

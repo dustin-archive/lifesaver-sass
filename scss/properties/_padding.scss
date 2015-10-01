@@ -1,0 +1,8 @@
+//
+// + Padding
+// =============================================================================
+
+
+@mixin padding($arguments) {
+  @include properties($arguments, padding);
+}

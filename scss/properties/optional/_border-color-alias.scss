@@ -1,0 +1,20 @@
+//
+// + Optional border color alias
+// =============================================================================
+
+
+@mixin border-color-top($arguments) {
+  @include border-top-color($arguments);
+}
+
+@mixin border-color-right($arguments) {
+  @include border-right-color($arguments);
+}
+
+@mixin border-color-bottom($arguments) {
+  @include border-bottom-color($arguments);
+}
+
+@mixin border-color-left($arguments) {
+  @include border-left-color($arguments);
+}

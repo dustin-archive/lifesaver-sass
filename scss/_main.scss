@@ -3,40 +3,61 @@
 // =============================================================================
 
 
+// Misc
 @import 'functions/contains-type';
 @import 'functions/scale-comp';
 
+// Unit
 @import 'functions/units/unit-check-type';
 @import 'functions/units/unit-expressions';
 @import 'functions/units/unit-functions';
 
+// Convert
 @import 'functions/convert/convert-check-type';
 @import 'functions/convert/convert-expressions';
 @import 'functions/convert/convert-functions';
 
+// LifeSaver functions
 @import 'lifesaver/functions/append-suffix';
 @import 'lifesaver/functions/compress-matching-values';
 @import 'lifesaver/functions/process-arguments';
 @import 'lifesaver/functions/process-value';
 
+// LifeSaver mixins
 @import 'lifesaver/mixins/property-split';
 @import 'lifesaver/mixins/shorthand-concat';
-
 @import 'lifesaver/lifesaver';
+@import 'lifesaver/save';
 
-@import 'properties/mixins/properties-values';
-@import 'properties/mixins/properties';
+// Property mixins
+@import 'properties/mixins/properties-values'; // these might be able to be merged into one big one
+@import 'properties/mixins/properties'; // these might be able to be merged into one big one
 
-@import 'properties/border/border';
-@import 'properties/border/border-color';
-@import 'properties/border/border-radius';
-@import 'properties/border/border-style';
-@import 'properties/border/border-width';
+// Optional mixins
+@import 'properties/optional/border-color-alias';
+@import 'properties/optional/border-color';
+@import 'properties/optional/border-radius-alias';
+@import 'properties/optional/border-radius';
+@import 'properties/optional/border-style-alias';
+@import 'properties/optional/border-style';
+@import 'properties/optional/border-width-alias';
+@import 'properties/optional/border-width';
+@import 'properties/optional/border';
+@import 'properties/optional/height'; // need to be updated for maps
+@import 'properties/optional/margin';
+@import 'properties/optional/padding';
+@import 'properties/optional/radius';
+@import 'properties/optional/width'; // need to be updated for maps
 
-// @import 'properties/width-height'; // needs to be updated for maps
-@import 'properties/margin-padding';
-// @import 'properties/position'; // needs to be updated for maps
+// Core mixins
+@import 'properties/border';
+@import 'properties/margin';
+@import 'properties/padding';
+@import 'properties/position'; // will be split up into more files
+@import 'properties/radius';
+@import 'properties/size';
 
+// Tests
 @import 'tests/test-scale-comp';
 @import 'tests/test-units';
 

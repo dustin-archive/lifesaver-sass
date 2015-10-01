@@ -1,5 +1,5 @@
 //
-// + Border style
+// + Optional border style
 // =============================================================================
 
 
@@ -21,21 +21,4 @@
 
 @mixin border-left-style($arguments) {
   @include properties-values($arguments, border-style, left);
-}
-
-// Aliases
-@mixin border-style-top($arguments) {
-  @include border-top-style($arguments);
-}
-
-@mixin border-style-right($arguments) {
-  @include border-right-style($arguments);
-}
-
-@mixin border-style-bottom($arguments) {
-  @include border-bottom-style($arguments);
-}
-
-@mixin border-style-left($arguments) {
-  @include border-left-style($arguments);
 }

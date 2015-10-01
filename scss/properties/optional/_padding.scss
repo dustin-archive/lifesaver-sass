@@ -1,0 +1,20 @@
+//
+// + Optional padding
+// =============================================================================
+
+
+@mixin padding-top($arguments) {
+  @include properties-values($arguments, padding, top);
+}
+
+@mixin padding-right($arguments) {
+  @include properties-values($arguments, padding, right);
+}
+
+@mixin padding-bottom($arguments) {
+  @include properties-values($arguments, padding, bottom);
+}
+
+@mixin padding-left($arguments) {
+  @include properties-values($arguments, padding, left);
+}

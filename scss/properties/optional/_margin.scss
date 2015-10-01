@@ -1,0 +1,20 @@
+//
+// + Optional margin
+// =============================================================================
+
+
+@mixin margin-top($arguments) {
+  @include properties-values($arguments, margin, top);
+}
+
+@mixin margin-right($arguments) {
+  @include properties-values($arguments, margin, right);
+}
+
+@mixin margin-bottom($arguments) {
+  @include properties-values($arguments, margin, bottom);
+}
+
+@mixin margin-left($arguments) {
+  @include properties-values($arguments, margin, left);
+}
