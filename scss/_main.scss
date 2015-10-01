@@ -43,11 +43,11 @@
 @import 'properties/optional/border-width-alias';
 @import 'properties/optional/border-width';
 @import 'properties/optional/border';
-@import 'properties/optional/height'; // need to be updated for maps
+@import 'properties/optional/height';
 @import 'properties/optional/margin';
 @import 'properties/optional/padding';
 @import 'properties/optional/radius';
-@import 'properties/optional/width'; // need to be updated for maps
+@import 'properties/optional/width';
 
 // Core mixins
 @import 'properties/border';
@@ -63,13 +63,15 @@
 
 @import 'tests/test-append-suffix';
 @import 'tests/test-compress-matching-values';
-// @import 'tests/test-process-value';
+// @import 'tests/test-process-value'; // should i allow optional values or not?
 @import 'tests/test-split-properties';
 
 @import 'tests/border/test-border';
 @import 'tests/border/test-border-width';
 @import 'tests/border/test-border-color';
+// @import 'tests/border/test-border-style';
+// @import 'tests/border/test-border-radius';
 
-// @import 'tests/test-margin-padding';
+@import 'tests/test-margin-padding';
 // @import 'tests/test-position';
-// @import 'tests/test-width-height';
+@import 'tests/test-width-height';
