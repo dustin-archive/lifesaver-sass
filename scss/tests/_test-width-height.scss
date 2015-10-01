@@ -6,74 +6,38 @@
 .test-width {
   /* input */
   @include width(16 em !important);
-
-  /* output */
-  width: 1em !important;
-}
-
-.test-min-width {
-  /* input */
   @include min-width(16 em !important);
-
-  /* output */
-  min-width: 1em !important;
-}
-
-.test-max-width {
-  /* input */
   @include max-width(16 em !important);
 
   /* output */
+  width: 1em !important;
+  min-width: 1em !important;
   max-width: 1em !important;
 }
 
 .test-height {
   /* input */
   @include height(16 em !important);
-
-  /* output */
-  height: 1em !important;
-}
-
-.test-min-height {
-  /* input */
   @include min-height(16 em !important);
-
-  /* output */
-  min-height: 1em !important;
-}
-
-.test-max-height {
-  /* input */
   @include max-height(16 em !important);
 
   /* output */
+  height: 1em !important;
+  min-height: 1em !important;
   max-height: 1em !important;
 }
 
 .test-size {
   /* input */
   @include size(16 em !important);
+  @include min-size(16 em !important);
+  @include max-size(16 em !important);
 
   /* output */
   width: 1em !important;
   height: 1em !important;
-}
-
-.test-min-size {
-  /* input */
-  @include min-size(16 em !important);
-
-  /* output */
   min-width: 1em !important;
   min-height: 1em !important;
-}
-
-.test-max-size {
-  /* input */
-  @include max-size(16 em !important);
-
-  /* output */
   max-width: 1em !important;
   max-height: 1em !important;
 }
@@ -81,26 +45,38 @@
 .test-size-split {
   /* input */
   @include size(16 32 em !important);
+  @include min-size(16 32 em !important);
+  @include max-size(16 32 em !important);
 
   /* output */
   width: 1em !important;
   height: 2em !important;
-}
-
-.test-min-size-split {
-  /* input */
-  @include min-size(16 32 em !important);
-
-  /* output */
   min-width: 1em !important;
   min-height: 2em !important;
+  max-width: 1em !important;
+  max-height: 2em !important;
 }
 
-.test-max-size-split {
+.test-size-split {
   /* input */
-  @include max-size(16 32 em !important);
+  @include size(16 x em !important);
+  @include min-size(16 x em !important);
+  @include max-size(16 x em !important);
 
   /* output */
+  width: 1em !important;
+  min-width: 1em !important;
   max-width: 1em !important;
+}
+
+.test-size-split-null {
+  /* input */
+  @include size(x 32 em !important);
+  @include min-size(x 32 em !important);
+  @include max-size(x 32 em !important);
+
+  /* output */
+  height: 2em !important;
+  min-height: 2em !important;
   max-height: 2em !important;
 }
