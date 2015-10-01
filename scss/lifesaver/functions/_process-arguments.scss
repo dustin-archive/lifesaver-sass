@@ -20,11 +20,9 @@
     }
 
     @if contains-only-types($argument, 'null' number color) {
-
-      // this is kind of messy...
-      @if $values == () or type-of($argument) == 'null'
-        or contains-only-types($values, 'null' color)
-        or type-of($argument) == number {
+      @if $values == ()
+          or contains-only-types($argument, 'null' number)
+          or contains-only-types($values, 'null' color) {
         $values: join($values, $argument);
       }
       @else {
