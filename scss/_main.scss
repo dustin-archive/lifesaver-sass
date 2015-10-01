@@ -3,11 +3,7 @@
 // =============================================================================
 
 
-@import 'functions/contains-null';
-// @import 'functions/remove-item';
-// @import 'functions/remove-nth';
-// @import 'functions/remove-unit';
-// @import 'functions/set-default';
+@import 'functions/contains-type';
 @import 'functions/scale-comp';
 
 @import 'functions/units/unit-check-type';
@@ -41,21 +37,18 @@
 @import 'properties/margin-padding';
 @import 'properties/position'; // needs to be updated for maps
 
-// @import 'tests/test-remove-item';
-// @import 'tests/test-remove-nth';
-// @import 'tests/test-scale-comp';
-//
-// @import 'tests/test-units';
-//
-// @import 'tests/test-append-suffix';
-// @import 'tests/test-compress-matching-values';
-// @import 'tests/test-process-value';
-// @import 'tests/test-split-properties';
+@import 'tests/test-scale-comp';
+@import 'tests/test-units';
 
-// @import 'tests/border/test-border';
-// @import 'tests/border/test-border-width';
+@import 'tests/test-append-suffix';
+@import 'tests/test-compress-matching-values';
+@import 'tests/test-process-value';
+@import 'tests/test-split-properties';
+
+@import 'tests/border/test-border';
+@import 'tests/border/test-border-width';
 @import 'tests/border/test-border-color';
 
-// @import 'tests/test-margin-padding';
-// @import 'tests/test-position';
-// @import 'tests/test-width-height';
+@import 'tests/test-margin-padding';
+@import 'tests/test-position';
+@import 'tests/test-width-height';
