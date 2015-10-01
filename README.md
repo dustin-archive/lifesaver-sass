@@ -38,9 +38,9 @@ Import LifeSaver.
 There are two ways to use LifeSaver.
 
 ```scss
-@include save( [properties] [values] [units] [scale] [flag] );
+@include save(properties values units style color scale flag);
 
-@include [property]( [values] [units] [scale] [flag] );
+@include property(values units scale flag);
 ```
 
 ## Save Mixin
@@ -85,7 +85,7 @@ div {
 }
 ```
 
-Here's a list of all of the CSS properties LifeSaver supports:
+These are all the CSS mixins:
 
 ```scss
 @include width();
@@ -113,27 +113,67 @@ Here's a list of all of the CSS properties LifeSaver supports:
 @include border-color();
 @include border-radius();
 
-@include position();
+@include boder-top();
+@include boder-top-width();
+@include boder-top-style();
+@include boder-top-color();
+@include boder-top-radius();
 
-@include font-size();
-@include line-height();
-````
+@include boder-right();
+@include boder-right-width();
+@include boder-right-style();
+@include boder-right-color();
+@include boder-right-radius();
 
-Here's a list of all the LifeSaver properties:
+@include boder-bottom();
+@include boder-bottom-width();
+@include boder-bottom-style();
+@include boder-bottom-color();
+@include boder-bottom-radius();
+
+@include boder-left();
+@include boder-left-width();
+@include boder-left-style();
+@include boder-left-color();
+@include boder-left-radius();
+```
+
+These are all the LifeSaver mixins:
 
 ```scss
+@include save();
+
 @include size();
 @include min-size();
 @include max-size();
 
-@include radius();
+@include boder-width-top();
+@include boder-width-right();
+@include boder-width-bottom();
+@include boder-width-left();
 
+@include boder-style-top();
+@include boder-style-right();
+@include boder-style-bottom();
+@include boder-style-left();
+
+@include boder-color-top();
+@include boder-color-right();
+@include boder-color-bottom();
+@include boder-color-left();
+
+@include radius();
+@include boder-radius-top();
+@include boder-radius-right();
+@include boder-radius-bottom();
+@include boder-radius-left();
+
+@include position();
 @include position-absolute();
 @include position-fixed();
 @include position-relative();
 @include position-static();
 @include position-sticky();
-
 @include position-inherit();
 @include position-initial();
 @include position-unset();
@@ -143,6 +183,26 @@ Here's a list of all the LifeSaver properties:
 @include relative();
 @include static();
 @include sticky();
+```
+
+These are the mixins that are active in strict mode:
+
+```scss
+@include save();
+
+@include size();
+@include min-size();
+@include max-size();
+
+@include margin();
+@include padding();
+@include border();
+@include radius();
+
+@include absolute();
+@include fixed();
+@include relative();
+@include static();
 ```
 
 ## Values
@@ -302,9 +362,9 @@ Convert functions are for safely converting units to help prevent rounding error
 
 Note: While the effectiveness of this may vary from browser to browser, it certainly can't hurt anything.
 
-Here's a list of all the unit and convert functions:
+Here's a list of the convert functions:
 
-```
+```scss
 convert();
 safe();
 
@@ -312,16 +372,25 @@ ceil-convert();
 floor-convert();
 round-convert();
 safe-convert();
+```
 
-// These functions use `safe-convert`:
+These unit functions use `safe-convert`:
+
+```scss
 un();
 em();
 rem();
+```
 
-// This function uses `safe`:
+This unit function uses `safe`:
+
+```scss
 px();
+```
 
-// These functions don't use `safe` or `safe-convert` because they're not necessary.
+These unit functions don't use `safe` or `safe-convert` because it's not necessary:
+
+```scss
 pct();
 vw();
 vh();
