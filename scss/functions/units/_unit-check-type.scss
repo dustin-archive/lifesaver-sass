@@ -3,8 +3,8 @@
 // =============================================================================
 
 
-@function unit-check-type($function, $value, $scale: null) {
-  @if contains-null($value) or type-of($value) == string {
+@function unit-check-type($function, $value, $scale) {
+  @if contains-types($value, 'null' string) {
     @return $value;
   }
   @else {
