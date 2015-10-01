@@ -10,17 +10,20 @@
 
   // error if length($value) > 1
 
+  // Convert value from a list to value
+  $value: nth($value, 1);
+
   @if $value-type == top {
-    $arguments: map-merge($arguments, (values: $value x x x));
+    $arguments: map-merge($arguments, (values: $value null null null));
   }
   @else if $value-type == right {
-    $arguments: map-merge($arguments, (values: x $value x x));
+    $arguments: map-merge($arguments, (values: null $value null null));
   }
   @else if $value-type == bottom {
-    $arguments: map-merge($arguments, (values: x x $value x));
+    $arguments: map-merge($arguments, (values: null null $value null));
   }
   @else if $value-type == left {
-    $arguments: map-merge($arguments, (values: x x x $value));
+    $arguments: map-merge($arguments, (values: null null null $value));
   }
 
   @include lifesaver($arguments);
