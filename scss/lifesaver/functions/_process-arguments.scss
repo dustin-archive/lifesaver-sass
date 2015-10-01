@@ -4,96 +4,62 @@
 
 
 @function process-arguments($arguments) {
-  $properties: null;
-  $values:     null;
-  $style:      null; // border
-  $color:      null; // border
-  $units:      null;
-  $scale:      null;
-  $flag:       null;
+  $properties: ();
+  $values:     ();
+  $style:      (); // border
+  $color:      (); // border
+  $units:      ();
+  $scale:      ();
+  $flag:       ();
 
-  $styles: none hidden dotted dashed solid double groove ridge inset outset;
+  $style-list: none hidden dotted dashed solid double groove ridge inset outset;
 
   @each $argument in $arguments {
-
-    // $color
-    @if not contains-null($argument) and type-of($argument) == color {
-      @if $values {
-        @if $color {
-          $color: join($color, $argument);
-        }
-        @else {
-          $color: $argument;
-        }
-      }
-      @else {
-        @if $color {
-          $values: join($values, $argument);
-        }
-        @else {
-          $values: $argument;
-        }
-      }
+    @if $argument == x {
+      $argument: null;
     }
-    @else if not contains-null($argument) and type-of($argument) == string {
 
-      // $style
-      @if index($styles, $argument) {
-        @each $item in $styles {
-          @if $argument == $item {
-            @if $color {
-              $style: join($style, $argument);
-            }
-            @else {
-              $style: $argument;
-            }
-          }
-        }
-      }
+    @if contains-only-types($argument, 'null' number color) {
 
-      // $unit
-      @if function-exists($argument) {
-        @if $units {
-          $units: join($units, $argument);
-        }
-        @else {
-          $units: $argument;
-        }
-      }
-
-      // $flag
-      @else if str-index($argument, '!') == 1 {
-        @if not $flag { // can i remove not logic here?
-          $flag: $argument;
-        }
-      }
-
-      // $properties
-      @else if $properties {
-        $properties: join($properties, $argument);
-      }
-      @else {
-        $properties: $argument;
-      }
-    }
-    @else if contains-null($argument) or type-of($argument) == number {
-
-      // $scale
-      @if not contains-null($argument) and unit($argument) == x {
-        @if not $scale { // can i remove not logic here?
-          $scale: $argument;
-        }
-      }
-
-      // $values
-      @else if $values {
+      // this is kind of messy...
+      @if $values == ()
+        or contains-only-types($argument, 'null')
+        or contains-only-types($values, 'null' color)
+        or type-of($argument) == number {
         $values: join($values, $argument);
       }
       @else {
-        $values: $argument;
+        $color: join($color, $argument);
       }
     }
+    @else if type-of($argument) == string {
+      @if str-index($argument, '!') {
+        $flag: join($flag, $argument);
+      }
+      @else if index($style-list, $argument) {
+        $style: join($style, $argument);
+      }
+      @else if function-exists($argument) {
+        $units: join($units, $argument);
+      }
+      @else {
+        $properties: join($properties, $argument);
+      }
+    }
+    @else if unit($argument) == x {
+      $scale: join($scale, $argument);
+    }
   }
+
+  @if length($properties) == 0 { $properties: null; }
+  @if length($values)     == 0 { $values:     null; }
+  @if length($style)      == 0 { $style:      null; }
+  @if length($color)      == 0 { $color:      null; }
+  @if length($units)      == 0 { $units:      null; }
+  @if length($scale)      == 0 { $scale:      null; }
+  @if length($flag)       == 0 { $flag:       null; }
+
+  @debug $properties $values $style $color $units $scale $flag;
 
   @return (
     properties: $properties,
