@@ -1,8 +1,0 @@
-//
-// + Remove item
-// =============================================================================
-
-
-@function remove-item($list, $item) {
-  @return remove-nth($list, index($list, $item));
-}
