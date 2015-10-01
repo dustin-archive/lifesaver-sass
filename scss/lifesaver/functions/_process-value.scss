@@ -13,6 +13,5 @@
   @else if function-exists($unit) {
     $value: call($unit, $value, $scale);
   }
-
   @return $value;
 }
