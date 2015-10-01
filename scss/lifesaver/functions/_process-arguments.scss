@@ -59,7 +59,7 @@
   @if length($scale)      == 0 { $scale:      null; }
   @if length($flag)       == 0 { $flag:       null; }
 
-  @debug $properties $values $style $color $units $scale $flag;
+  // @debug $properties $values $style $color $units $scale $flag;
 
   @return (
     properties: $properties,
