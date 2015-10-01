@@ -1,0 +1,38 @@
+//
+// + Contains type
+// =============================================================================
+
+
+@function contains-type($list, $type) {
+  @each $item in $list {
+    @if type-of($item) == $type {
+      @return true;
+    }
+  }
+  @return null;
+}
+
+@function contains-types($list, $types) {
+  @each $type in $types {
+    @if contains-type($list, $type) {
+      @return true;
+    }
+  }
+  @return null;
+}
+
+@function contains-null($value) {
+  @return contains-type($value, 'null');
+}
+
+@function contains-color($value) {
+  @return contains-type($value, color);
+}
+
+@function contains-string($value) {
+  @return contains-type($value, string);
+}
+
+@function contains-number($value) {
+  @return contains-type($value, number);
+}

@@ -1,8 +1,0 @@
-//
-// + Contains null
-// =============================================================================
-
-
-@function contains-null($list) {
-  @return if(index($list, x) or index($list, null), true, null);
-}

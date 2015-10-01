@@ -4,7 +4,7 @@
 
 
 @function convert-check-type($function, $value) {
-  @if contains-null($value) or type-of($value) == string {
+  @if contains-types($value, 'null' string) {
     @return $value;
   }
   @else {
