@@ -12,29 +12,27 @@
   $scale:      ();
   $flag:       ();
 
-  $style-list: none hidden dotted dashed solid double groove ridge inset outset;
-
   @each $argument in $arguments {
     @if $argument == x {
       $argument: null;
     }
 
-    @if contains-only-types($argument, 'null' number color) {
+    @if contains-only-types($argument, 'null' number style color) {
       @if $values == ()
           or contains-only-types($argument, 'null' number)
-          or contains-only-types($values, 'null' color) {
+          or contains-only-types($values, 'null' style color) {
         $values: join($values, $argument);
       }
-      @else {
+      @else if save-type-of($argument) == style {
+        $style: join($style, $argument);
+      }
+      @else if type-of($argument) == color {
         $color: join($color, $argument);
       }
     }
     @else if type-of($argument) == string {
       @if str-index($argument, '!') {
         $flag: join($flag, $argument);
-      }
-      @else if index($style-list, $argument) {
-        $style: join($style, $argument);
       }
       @else if function-exists($argument) {
         $units: join($units, $argument);
