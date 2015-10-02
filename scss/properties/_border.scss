@@ -1,8 +1,0 @@
-//
-// + Border
-// =============================================================================
-
-
-@mixin border($arguments) {
-  @include properties($arguments, border);
-}
