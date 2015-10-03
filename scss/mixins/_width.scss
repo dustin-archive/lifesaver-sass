@@ -1,0 +1,11 @@
+@mixin width($arguments) {
+  @include save-property($arguments, width);
+}
+
+@mixin min-width($arguments) {
+  @include save-property($arguments, min-width);
+}
+
+@mixin max-width($arguments) {
+  @include save-property($arguments, max-width);
+}

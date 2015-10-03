@@ -1,0 +1,11 @@
+//
+// + Unit check type
+// =============================================================================
+
+
+@function unit-check-type($function, $value, $scale) {
+  @if contains-types($value, 'null' string) {
+    @return $value;
+  }
+  @return call($function, $value, $scale);
+}

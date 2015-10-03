@@ -1,272 +1,61 @@
-@function save-index($value, $argument) {
-  @if type-of($value) == string {
-    @return str-index($value, $argument);
-  }
 
-  @return index($value, $argument);
-}
+@import '../../cola-sass-lib/scss/main';
 
-// =============================================================================
+// Unit
+@import 'functions/units/unit-check-type';
+@import 'functions/units/unit-expressions';
+@import 'functions/units/unit-functions';
 
-@function save-type-of($value) {
-  $styles: none hidden dotted dashed solid double groove ridge inset outset;
-  $lengths: px em rem vw vh vmin vmax in cm mm pt pc ex ch;
+// Convert
+@import 'functions/convert/convert-check-type';
+@import 'functions/convert/convert-expressions';
+@import 'functions/convert/convert-functions';
 
-  @if save-index($styles, $value) {
-    @return style;
-  }
-  @else if save-index($lengths, $value) {
-    @return length;
-  }
-  @else if $value == null {
-    @return null;
-  }
-  @else if save-index($value, '!') {
-    @return flag;
-  }
+@import 'save';
 
-  @return type-of($value);
-}
+@import 'save-property';
 
-@function save-types-in($list) {
-  $result: ();
+@import 'mixins/size';
+@import 'mixins/width';
+@import 'mixins/height';
+@import 'mixins/border';
+@import 'mixins/radius';
+@import 'mixins/position';
 
-  @each $item in $list {
-    $result: join($result, save-type-of($item));
-  }
-
-  @return $result;
-}
-
-// =============================================================================
-
-@function save-contains-type($list, $type) {
-  @if save-index(save-types-in($list), $type) {
-    @return true;
-  }
-
-  @return null;
-}
-
-@function save-contains-types($list, $types) {
-  @each $type in $types {
-    @if save-contains-type($list, $type) {
-      @return true;
-    }
-  }
-
-  @return null;
-}
-
-// =============================================================================
-
-// I think these could be re-written using the functions above.
-@function save-contains-only-type($list, $type) {
-  @each $item in $list {
-    @if save-type-of($item) != $type {
-      @return null;
-    }
-  }
-
-  @return true;
-}
-
-// I think these could be re-written using the functions above.
-@function save-contains-only-types($list, $types) {
-  @each $item in $list {
-    @if not index($types, save-type-of($item)) {
-      @return null;
-    }
-  }
-
-  @return true;
-}
-
-// =============================================================================
-
-@function save-x($value) {
-  @if $value == x {
-    @return null;
-  }
-
-  @return $value;
-}
-
-// =============================================================================
-
-@function save-suffix($property) {
-  $suffix: top right bottom left;
-
-  @if $property == border-radius {
-    $suffix: top-left top-right bottom-right bottom-left;
-  }
-
-  @return $suffix;
-}
-
-// =============================================================================
-
-@function save-append-suffix($property, $suffix) {
-  @if $property == position {
-    $property: $suffix;
-  }
-  @else if $property == border-width {
-    $property: border- + $suffix + -width;
-  }
-  @else if $property == border-style {
-    $property: border- + $suffix + -style;
-  }
-  @else if $property == border-radius {
-    $property: border- + $suffix + -radius;
-  }
-  @else if $property == border-color {
-    $property: border- + $suffix + -color;
-  }
-  @else {
-    $property: $property + '-' + $suffix;
-  }
-  @return $property;
-}
-
-// =============================================================================
-
-@function save-compress-values($values) {
-  $length: length($values);
-
-  @if $length > 1 {
-    $top: nth($values, 1);
-    $right: nth($values, 2);
-
-    @if $length == 2 and $top == $right {
-      $values: $top;
-    }
-    @else if $length == 4 {
-      $bottom: nth($values, 3);
-      $left: nth($values, 4);
-
-      @if $top == $right and $top == $bottom and $top == $left {
-        $values: $top;
-      }
-      @else if $top == $bottom and $left == $right {
-        $values: $top $left;
-      }
-    }
-  }
-
-  @return $values;
-}
-
-// =============================================================================
-
-@function save-values($values, $length) {
-  @each $value in $values {
-    @return $value + $length;
-  }
-}
-
-// =============================================================================
-
-@mixin save-output($property, $values, $lengths, $styles, $colors, $flags) {
-  @if $lengths == () {
-    #{$property}: $values $styles $colors $flags;
-  }
-  @else {
-    @each $length in $lengths {
-      #{$property}: save-values($values, $length) $styles $colors $flags;
-    }
-  }
-}
-
-// =============================================================================
-
-@mixin save($arguments) {
-  $properties: ();
-  $values: ();
-  $lengths: ();
-  $styles: ();
-  $colors: ();
-  $flags: ();
-
-  @each $argument in $arguments {
-    $argument: save-x($argument);
-
-    @if save-type-of($argument) == string {
-      $properties: join($properties, $argument);
-    }
-    @else if save-contains-only-types($argument, null number) {
-      $values: join($values, $argument);
-    }
-    @else if save-type-of($argument) == length {
-      $lengths: join($lengths, $argument);
-    }
-    @else if save-type-of($argument) == style {
-      $styles: join($styles, $argument);
-    }
-    @else if save-type-of($argument) == color {
-      @if save-contains-only-types($values, null color) {
-        $values: join($values, $argument);
-      }
-      @else {
-        $colors: join($colors, $argument);
-      }
-    }
-    @else if save-type-of($argument) == flag {
-      $flags: join($flags, $argument);
-    }
-  }
-
-  $values: save-compress-values($values);
-
-  @each $property in $properties {
-    $suffix: save-suffix($property);
-
-    @if save-index($values, null) $property == position {
-      @for $i from 1 through length($values) {
-        $value: nth($values, $i);
-        $this-property: save-append-suffix($property, nth($suffix, $i));
-
-        @if $value {
-          @include save-output($this-property, $value, $lengths, $styles, $colors, $flags)
-        }
-      }
-    }
-    @else {
-      @include save-output($property, $values, $lengths, $styles, $colors, $flags)
-    }
-  }
-}
-
-// =============================================================================
+// Tests
+// @import 'tests/test-size';
+// @import 'tests/test-width';
+// @import 'tests/test-height';
+// @import 'tests/test-border';
+// @import 'tests/test-radius';
 
 .test {
-  content: save-type-of(!important) == flag;
-  content: save-type-of(border) == string;
-  content: save-type-of(solid) == style;
-  content: save-type-of(null) == null;
-  content: save-type-of(em) == length;
-  content: save-type-of(1) == number;
+  @include position(1 x px !important);
   /* */
-  @include save(position 1 2 px !important);
-  @include save(position 2 1 px !important);
+  @include position(x 1 px !important);
   /* */
-  @include save(position 1 x px !important);
-  @include save(position x 1 px !important);
-  /* */
-  @include save(position 1 x x x px !important);
-  @include save(position x 1 x x px !important);
-  @include save(position x x 1 x px !important);
-  @include save(position x x x 1 px !important);
+  @include position(1 x x x px !important);
+  @include position(x 1 x x px !important);
+  @include position(x x 1 x px !important);
+  @include position(x x x 1 px !important);
   /* */
   @include save(border-radius blue x x x !important);
   /* */
-  @include save(border blue x x x !important);
-  @include save(border x blue x x !important);
-  @include save(border x x blue x !important);
-  @include save(border x x x blue !important);
+  @include save(border-color blue x red x !important);
   /* */
-  @include save(border 2px 2px 2px 2px !important);
+  @include save(border-color blue x !important);
+  /* */
+  @include save(border-color x red !important);
+  /* */
+  @include save(border-color blue x x x !important);
+  @include save(border-color x blue x x !important);
+  @include save(border-color x x blue x !important);
+  @include save(border-color x x x blue !important);
+  /* */
+  @include save(border x 2px !important);
+  @include save(border 2px x !important);
   @include save(border 2px 2px 2px !important);
-  @include save(border 2px 2px !important);
+  @include save(border 2px 4px !important);
   @include save(border 2px 2px solid blue !important);
   /* */
   @include save(border 2 2 px rem solid blue !important);

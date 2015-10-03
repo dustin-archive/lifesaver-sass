@@ -1,0 +1,38 @@
+//
+// + Unit expressions
+// =============================================================================
+
+
+@function un-expression($value, $scale) {
+  @return safe-convert(scale-comp($value, $scale));
+}
+
+@function em-expression($value, $scale) {
+  $result: safe-convert(scale-comp($value, $scale));
+  @return if($value == 0, $result, $result * 1em);
+}
+
+@function rem-expression($value, $scale) {
+  $result: safe-convert(scale-comp($value, $scale));
+  @return if($value == 0, $result, $result * 1rem);
+}
+
+@function px-expression($value, $scale) {
+  $result: safe(scale-comp($value, $scale));
+  @return if($value == 0, $result, $result * 1px);
+}
+
+@function pct-expression($value, $scale) {
+  $result: scale-comp($value, $scale);
+  @return if($value == 0, $result, $result * 100%);
+}
+
+@function vw-expression($value, $scale) {
+  $result: scale-comp($value, $scale);
+  @return if($value == 0, $result, $result * 1vw);
+}
+
+@function vh-expression($value, $scale) {
+  $result: scale-comp($value, $scale);
+  @return if($value == 0, $result, $result * 1vh);
+}

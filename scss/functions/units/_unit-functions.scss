@@ -1,0 +1,32 @@
+//
+// + Unit functions
+// =============================================================================
+
+
+@function un($value, $scale: null) {
+  @return unit-check-type('un-expression', $value, $scale);
+}
+
+@function em($value, $scale: null) {
+  @return unit-check-type('em-expression', $value, $scale);
+}
+
+@function rem($value, $scale: null) {
+  @return unit-check-type('rem-expression', $value, $scale);
+}
+
+@function px($value, $scale: null) {
+  @return unit-check-type('px-expression', $value, $scale);
+}
+
+@function pct($value, $scale: null) {
+  @return unit-check-type('pct-expression', $value, $scale);
+}
+
+@function vw($value, $scale: null) {
+  @return unit-check-type('vw-expression', $value, $scale);
+}
+
+@function vh($value, $scale: null) {
+  @return unit-check-type('vh-expression', $value, $scale);
+}

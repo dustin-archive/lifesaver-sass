@@ -1,0 +1,11 @@
+.test-height {
+  /* input */
+  @include height(16 em !important);
+  @include min-height(16 em !important);
+  @include max-height(16 em !important);
+
+  /* output */
+  height: 1em !important;
+  min-height: 1em !important;
+  max-height: 1em !important;
+}

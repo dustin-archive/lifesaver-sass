@@ -1,0 +1,28 @@
+//
+// + Convert expressions
+// =============================================================================
+
+
+@function ceil-convert-expression($value) {
+  @return ceil($value) / 16;
+}
+
+@function floor-convert-expression($value) {
+  @return floor($value) / 16;
+}
+
+@function round-convert-expression($value) {
+  @return round($value) / 16;
+}
+
+@function convert-expression($value) {
+  @return $value / 16;
+}
+
+@function safe-expression($value) {
+  @return round($value * 16) / 16;
+}
+
+@function safe-convert-expression($value) {
+  @return round($value * 16) / 256;
+}

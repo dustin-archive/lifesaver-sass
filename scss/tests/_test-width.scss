@@ -1,0 +1,11 @@
+.test-width {
+  /* input */
+  @include width(16 em !important);
+  @include min-width(16 em !important);
+  @include max-width(16 em !important);
+
+  /* output */
+  width: 1em !important;
+  min-width: 1em !important;
+  max-width: 1em !important;
+}

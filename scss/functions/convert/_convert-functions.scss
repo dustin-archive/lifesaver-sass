@@ -1,0 +1,28 @@
+//
+// + Convert functions
+// =============================================================================
+
+
+@function ceil-convert($value) {
+  @return convert-check-type('ceil-expression', $value);
+}
+
+@function floor-convert($value) {
+  @return convert-check-type('floor-expression', $value);
+}
+
+@function round-convert($value) {
+  @return convert-check-type('round-expression', $value);
+}
+
+@function convert($value) {
+  @return convert-check-type('convert-expression', $value);
+}
+
+@function safe($value) {
+  @return convert-check-type('safe-expression', $value);
+}
+
+@function safe-convert($value) {
+  @return convert-check-type('safe-convert-expression', $value);
+}

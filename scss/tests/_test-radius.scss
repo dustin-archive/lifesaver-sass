@@ -1,0 +1,45 @@
+.test-radius {
+  /* input */
+  @include border(16 em);
+
+  /* output */
+  border: 1em;
+}
+
+.test-radius-2 {
+  /* input */
+  @include border(16 32 em);
+
+  /* output */
+  border: 1em 2em;
+}
+
+.test-radius-4 {
+  /* input */
+  @include border(16 32 48 64 em);
+
+  /* output */
+  border: 1em 2em 3em 4em;
+}
+
+.test-radius-split-2 {
+  /* input */
+  @include border(16 x em);
+  @include border(x 16 em);
+
+  /* output */
+  border-top: 1em;
+  border-bottom: 1em;
+  border-right: 1em;
+  border-left: 1em;
+}
+
+.test-radius-split-4 {
+  /* input */
+  @include border(16 16 16 x em);
+
+  /* output */
+  border-top: 1em;
+  border-right: 1em;
+  border-bottom: 1em;
+}

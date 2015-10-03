@@ -1,0 +1,45 @@
+.test-border {
+  /* input */
+  @include border(16 em solid blue);
+
+  /* output */
+  border: 1em solid blue;
+}
+
+.test-border-2 {
+  /* input */
+  @include border(16 32 em solid blue);
+
+  /* output */
+  border: 1em 2em solid blue;
+}
+
+.test-border-4 {
+  /* input */
+  @include border(16 32 48 64 em solid blue);
+
+  /* output */
+  border: 1em 2em 3em 4em solid blue;
+}
+
+.test-border-split-2 {
+  /* input */
+  @include border(16 x em solid blue);
+  @include border(x 16 em solid blue);
+
+  /* output */
+  border-top: 1em solid blue;
+  border-bottom: 1em solid blue;
+  border-right: 1em solid blue;
+  border-left: 1em solid blue;
+}
+
+.test-border-split-4 {
+  /* input */
+  @include border(16 16 16 x em solid blue);
+
+  /* output */
+  border-top: 1em solid blue;
+  border-right: 1em solid blue;
+  border-bottom: 1em solid blue;
+}

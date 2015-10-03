@@ -1,0 +1,18 @@
+@mixin position($arguments) {
+  $arguments: save-process-arguments($arguments);
+  $values: map-get($arguments, values);
+  $others: cola-map-get-values($arguments, lengths styles colors flags);
+
+  @if length($values) == 2 {
+    @include save(top nth($values, 1) $others);
+    @include save(right nth($values, 2) $others);
+    @include save(bottom nth($values, 1) $others);
+    @include save(left nth($values, 2) $others);
+  }
+  @else if length($values) == 4 {
+    @include save(top nth($values, 1) $others);
+    @include save(right nth($values, 2) $others);
+    @include save(bottom nth($values, 3) $others);
+    @include save(left nth($values, 4) $others);
+  }
+}

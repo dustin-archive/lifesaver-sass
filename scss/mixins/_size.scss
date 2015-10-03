@@ -1,0 +1,29 @@
+@mixin save-size($arguments, $suffix: null) {
+  $arguments: save-process-arguments($arguments);
+  $values: map-get($arguments, values);
+  $others: cola-map-get-values($arguments, lengths styles colors flags);
+
+  $suffix-width: if($suffix, $suffix + '-' + width, width);
+  $suffix-height: if($suffix, $suffix + '-' + height, height);
+
+  @if length($values) == 1 {
+    @include save($suffix-width nth($values, 1) $others);
+    @include save($suffix-height nth($values, 1) $others);
+  }
+  @else if length($values) == 2 {
+    @include save($suffix-width nth($values, 1) $others);
+    @include save($suffix-height nth($values, 2) $others);
+  }
+}
+
+@mixin size($arguments) {
+  @include save-size($arguments);
+}
+
+@mixin min-size($arguments) {
+  @include save-size($arguments, min);
+}
+
+@mixin max-size($arguments) {
+  @include save-size($arguments, max);
+}
