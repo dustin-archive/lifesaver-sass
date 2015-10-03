@@ -3,10 +3,6 @@ LifeSaver
 
 Shorthand for all your Sass!
 
-Note: If a shorthand mixin for Sass seems silly to you when you have to type out a giant `@include` statement before your properties and also wrap them up in parenthesis, check out the presass-lifesaver project for PostCSS, which takes care of this problem.
-
-Note: Sass v4 might include a shorter syntax for includes, which would make this set of mixins dramatically more plausible to use. See the github issue ######.
-
 ## Table of Contents
 
 1. [Getting Started](#getting-started)
@@ -259,12 +255,9 @@ div {
 Here's a list of all of LifeSaver's unit functions:
 
 ```
-px()
+un()
 em()
 rem()
-pct()
-vw()
-vh()
 ```
 
 ## Convert Functions
@@ -276,35 +269,18 @@ Note: While the effectiveness of this may vary from browser to browser, it certa
 Here's a list of the convert functions:
 
 ```scss
-convert();
-safe();
+convert()
+safe()
 
-ceil-convert();
-floor-convert();
-round-convert();
-safe-convert();
-```
+ceil-convert()
+floor-convert()
+round-convert()
+safe-convert()
 
-These unit functions use `safe-convert`:
-
-```scss
-un();
-em();
-rem();
-```
-
-This unit function uses `safe`:
-
-```scss
-px();
-```
-
-These unit functions don't use `safe` or `safe-convert` because it's not necessary:
-
-```scss
-pct();
-vw();
-vh();
+// These unit functions use `safe-convert`:
+un()
+em()
+rem()
 ```
 
 ## Flags
