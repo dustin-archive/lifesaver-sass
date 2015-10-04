@@ -1,0 +1,79 @@
+//
+// + Safe convert
+// =============================================================================
+
+@function save-safe-convert($value) {
+  @if cola-type-of($value) == number {
+    @return call('save-safe-convert-expression', $value);
+  }
+
+  @return $value;
+}
+
+@function save-safe-convert-expression($value) {
+  @return round($value * 16) / 256;
+}
+
+//
+// + Scale
+// =============================================================================
+
+@function save-scale($value, $scale) {
+  @if $scale {
+  // @if cola-contains-only-types($value $scale, number) {
+    // @return call('save-scale-expression', $value, $scale);
+    @return (16 / $scale) * $value;
+  }
+
+  @return $value;
+}
+
+// @function save-scale-expression($value, $scale) {
+//   @return (16 / $scale) * $value;
+// }
+
+//
+// + Unit functions
+// =============================================================================
+
+@function save-unit($function, $value, $scale) {
+  $result: $value;
+
+  @if $value and $scale {
+  // @if cola-contains-only-types($value $scale, number) {
+    $result: call($function, save-safe-convert(save-scale($value, $scale)));
+  }
+  @else if $value {
+  // @else if cola-contains-only-types($value, number) {
+    $result: call($function, save-safe-convert($value));
+  }
+
+  @return $result;
+}
+
+@function un($value, $scale: null) {
+  @return save-unit('save-un-expression', $value, $scale);
+}
+
+@function em($value, $scale: null) {
+  @return save-unit('save-em-expression', $value, $scale);
+}
+
+@function rem($value, $scale: null) {
+  @return save-unit('save-rem-expression', $value, $scale);
+}
+
+@function save-un-expression($value) {
+  @return $value;
+}
+
+@function save-em-expression($value) {
+  @return $value * 1em;
+}
+
+@function save-rem-expression($value) {
+  @return $value * 1rem;
+}
+
+@debug save-scale(16, 16);
+@debug em(16, 16);

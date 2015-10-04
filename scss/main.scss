@@ -1,26 +1,30 @@
+// @import '../../cola-sass-lib/scss/main';
 
-@import '../../cola-sass-lib/scss/main';
+@import 'functions/save-units';
 
-// Unit
-@import 'functions/units/unit-check-type';
-@import 'functions/units/unit-expressions';
-@import 'functions/units/unit-functions';
+@import 'lifesaver/functions/save-suffix';
+@import 'lifesaver/functions/save-append-suffix';
 
-// Convert
-@import 'functions/convert/convert-check-type';
-@import 'functions/convert/convert-expressions';
-@import 'functions/convert/convert-functions';
+@import 'lifesaver/functions/save-compress-values';
+@import 'lifesaver/functions/save-expand-values';
 
-@import 'save';
+@import 'lifesaver/functions/save-x';
+@import 'lifesaver/functions/save-process-arguments';
+@import 'lifesaver/functions/save-process-values';
 
-@import 'save-property';
+@import 'lifesaver/save-output';
+@import 'lifesaver/save';
 
-@import 'mixins/size';
-@import 'mixins/width';
-@import 'mixins/height';
-@import 'mixins/border';
-@import 'mixins/radius';
-@import 'mixins/position';
+@import 'properties/properties';
+@import 'properties/size';
+@import 'properties/position';
+
+.test {
+  @include margin(1 3 2x !important);
+  @include margin(1 3 2x un !important);
+  @include margin(1 3 2x em !important);
+  @include margin(1 3 em !important);
+}
 
 // Tests
 // @import 'tests/test-size';
@@ -28,39 +32,41 @@
 // @import 'tests/test-height';
 // @import 'tests/test-border';
 // @import 'tests/test-radius';
-
-.test {
-  @include position(1 x px !important);
-  /* */
-  @include position(x 1 px !important);
-  /* */
-  @include position(1 x x x px !important);
-  @include position(x 1 x x px !important);
-  @include position(x x 1 x px !important);
-  @include position(x x x 1 px !important);
-  /* */
-  @include save(border-radius blue x x x !important);
-  /* */
-  @include save(border-color blue x red x !important);
-  /* */
-  @include save(border-color blue x !important);
-  /* */
-  @include save(border-color x red !important);
-  /* */
-  @include save(border-color blue x x x !important);
-  @include save(border-color x blue x x !important);
-  @include save(border-color x x blue x !important);
-  @include save(border-color x x x blue !important);
-  /* */
-  @include save(border x 2px !important);
-  @include save(border 2px x !important);
-  @include save(border 2px 2px 2px !important);
-  @include save(border 2px 4px !important);
-  @include save(border 2px 2px solid blue !important);
-  /* */
-  @include save(border 2 2 px rem solid blue !important);
-  /* */
-  @include save(border 2px x 2px 2px solid blue !important);
-  /* */
-  @include save(border 2 x 2 2 px rem solid blue !important);
-}
+//
+// .test {
+//   @include position(1 x px !important);
+//   /* */
+//   @include position(x 1 px !important);
+//   /* */
+//   @include position(1 x x x px !important);
+//   @include position(x 1 x x px !important);
+//   @include position(x x 1 x px !important);
+//   @include position(x x x 1 px !important);
+//   /* */
+//   @include save(border 1 x x x !important);
+//   /* */
+//   @include save(border-radius blue x x x !important);
+//   /* */
+//   @include save(border-color blue x red x !important);
+//   /* */
+//   @include save(border-color blue x !important);
+//   /* */
+//   @include save(border-color x red !important);
+//   /* */
+//   @include save(border-color blue x x x !important);
+//   @include save(border-color x blue x x !important);
+//   @include save(border-color x x blue x !important);
+//   @include save(border-color x x x blue !important);
+//   /* */
+//   @include save(border x 2px !important);
+//   @include save(border 2px x !important);
+//   @include save(border 2px 2px 2px !important);
+//   @include save(border 2px 4px !important);
+//   @include save(border 2px 2px solid blue !important);
+//   /* */
+//   @include save(border 2 2 px rem solid blue !important);
+//   /* */
+//   @include save(border 2px x 2px 2px solid blue !important);
+//   /* */
+//   @include save(border 2 x 2 2 px rem solid blue !important);
+// }

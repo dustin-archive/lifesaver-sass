@@ -1,0 +1,22 @@
+@function save-append-suffix($property, $suffix) {
+  @if $property == null {
+    $property: $suffix;
+  }
+  @else if $property == border-width {
+    $property: border- + $suffix + -width;
+  }
+  @else if $property == border-style {
+    $property: border- + $suffix + -style;
+  }
+  @else if $property == border-radius {
+    $property: border- + $suffix + -radius;
+  }
+  @else if $property == border-color {
+    $property: border- + $suffix + -color;
+  }
+  @else {
+    $property: $property + '-' + $suffix;
+  }
+
+  @return $property;
+}

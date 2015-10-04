@@ -1,0 +1,32 @@
+@mixin save($arguments) {
+  $arguments: cola-flatten($arguments);
+  $arguments: save-process-arguments($arguments);
+
+  $properties: cola-map-get-values($arguments, properties);
+  $values:     cola-map-get-values($arguments, values);
+  $units:      cola-map-get-values($arguments, units);
+  $scales:     cola-map-get-values($arguments, scales);
+  $styles:     cola-map-get-values($arguments, styles);
+  $colors:     cola-map-get-values($arguments, colors);
+  $flags:      cola-map-get-values($arguments, flags);
+
+  @each $property in $properties {
+    $suffix: save-suffix($property);
+
+    @if cola-index($values, null) {
+      $values: save-expand-values($values);
+
+      @for $i from 1 through length($values) {
+        $value: nth($values, $i);
+        $this-property: save-append-suffix($property, nth($suffix, $i));
+
+        @if $value {
+          @include save-output($this-property, $value, $units, $scales, $styles, $colors, $flags);
+        }
+      }
+    }
+    @else {
+      @include save-output($property, $values, $units, $scales, $styles, $colors, $flags);
+    }
+  }
+}

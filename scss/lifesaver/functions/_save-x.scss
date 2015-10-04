@@ -1,0 +1,7 @@
+@function save-x($value) {
+  @if $value == x {
+    @return null;
+  }
+
+  @return $value;
+}

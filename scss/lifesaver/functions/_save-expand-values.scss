@@ -1,0 +1,15 @@
+@function save-expand-values($values) {
+  @if length($values) == 2 {
+    $top-bottom: nth($values, 1);
+    $left-right: nth($values, 2);
+
+    @if $top-bottom {
+      $values: $top-bottom null $top-bottom null;
+    }
+    @else if $left-right {
+      $values: null $left-right null $left-right;
+    }
+  }
+
+  @return $values;
+}

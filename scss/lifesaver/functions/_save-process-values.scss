@@ -1,0 +1,23 @@
+@function save-process-values($values, $units, $scales) {
+  $result: ();
+
+  // I'm not sure if I like this.
+  // There has to be a way to pass () without having to convert it to null.
+  $scales: if(length($scales) == 0, null, $scales);
+  $units: if(length($units) == 0, null, $units);
+
+  $scales: cola-strip-units($scales);
+
+  // @if $units {
+    @each $value in $values {
+      @if function-exists($units) {
+        $result: cola-join($result, call($units, $value, $scales));
+      }
+      @else {
+        $result: cola-join($result, $value + $units);
+      }
+    }
+  // }
+
+  @return $result;
+}

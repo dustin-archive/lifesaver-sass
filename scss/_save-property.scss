@@ -1,6 +1,0 @@
-@mixin save-property($arguments, $property) {
-  $arguments: save-process-arguments($arguments);
-  $others: cola-map-get-values($arguments, values lengths styles colors flags);
-
-  @include save($property $others);
-}
