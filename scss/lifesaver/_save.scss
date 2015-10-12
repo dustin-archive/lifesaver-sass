@@ -13,7 +13,7 @@
   @each $property in $properties {
     $suffix: save-suffix($property);
 
-    @if cola-index($values, null) {
+    @if index($values, null) {
       $values: save-expand-values($values);
 
       @for $i from 1 through length($values) {
