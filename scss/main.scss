@@ -13,9 +13,9 @@
 @import 'lifesaver/save-output';
 @import 'lifesaver/save';
 
-@import 'properties/properties';
-@import 'properties/size';
-@import 'properties/position';
+@import 'properties/save-position';
+@import 'properties/save-property';
+@import 'properties/save-size';
 
 // Tests
 // @import 'tests/test-size';
