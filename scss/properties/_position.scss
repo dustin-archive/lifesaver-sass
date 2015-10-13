@@ -3,6 +3,12 @@
   $values: cola-map-get($arguments, values);
   $others: cola-map-get($arguments, units scales styles colors flags);
 
+  @if length($values) == 1 {
+    @include save(top nth($values, 1) $others);
+    @include save(right nth($values, 1) $others);
+    @include save(bottom nth($values, 1) $others);
+    @include save(left nth($values, 1) $others);
+  }
   @if length($values) == 2 {
     @include save(top nth($values, 1) $others);
     @include save(right nth($values, 2) $others);
