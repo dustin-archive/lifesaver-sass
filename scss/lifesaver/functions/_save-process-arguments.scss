@@ -1,4 +1,6 @@
 @function save-process-arguments($arguments) {
+  $arguments: cola-flatten($arguments);
+
   $properties: ();
   $values: ();
   $units: ();

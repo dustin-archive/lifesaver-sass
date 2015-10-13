@@ -1,5 +1,4 @@
 @mixin save($arguments) {
-  $arguments: cola-flatten($arguments);
   $arguments: save-process-arguments($arguments);
 
   $properties: cola-map-get($arguments, properties);
