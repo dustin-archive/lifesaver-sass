@@ -1,7 +1,7 @@
 @mixin save-size($arguments, $properties) {
   $arguments: save-process-arguments($arguments);
-  $values: map-get($arguments, values);
-  $others: cola-map-get-values($arguments, units scales styles colors flags);
+  $values: cola-map-get($arguments, values);
+  $others: cola-map-get($arguments, units scales styles colors flags);
 
   @if length($values) == 1 {
     @include save(nth($properties, 1) nth($values, 1) $others);

@@ -2,13 +2,13 @@
   $arguments: cola-flatten($arguments);
   $arguments: save-process-arguments($arguments);
 
-  $properties: cola-map-get-values($arguments, properties);
-  $values:     cola-map-get-values($arguments, values);
-  $units:      cola-map-get-values($arguments, units);
-  $scales:     cola-map-get-values($arguments, scales);
-  $styles:     cola-map-get-values($arguments, styles);
-  $colors:     cola-map-get-values($arguments, colors);
-  $flags:      cola-map-get-values($arguments, flags);
+  $properties: cola-map-get($arguments, properties);
+  $values:     cola-map-get($arguments, values);
+  $units:      cola-map-get($arguments, units);
+  $scales:     cola-map-get($arguments, scales);
+  $styles:     cola-map-get($arguments, styles);
+  $colors:     cola-map-get($arguments, colors);
+  $flags:      cola-map-get($arguments, flags);
 
   @each $property in $properties {
     $suffix: save-suffix($property);
@@ -18,10 +18,10 @@
 
       @for $i from 1 through length($values) {
         $value: nth($values, $i);
-        $this-property: save-append-suffix($property, nth($suffix, $i));
+        $property-suffix: save-append-suffix($property, nth($suffix, $i));
 
         @if $value {
-          @include save-output($this-property, $value, $units, $scales, $styles, $colors, $flags);
+          @include save-output($property-suffix, $value, $units, $scales, $styles, $colors, $flags);
         }
       }
     }
