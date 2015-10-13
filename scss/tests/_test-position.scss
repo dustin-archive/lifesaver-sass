@@ -1,0 +1,74 @@
+.test-position {
+  /* Input */
+  @include absolute(1 px !important);
+  /* Output */
+  position: absolute;
+  top: 1px !important;
+  right: 1px !important;
+  bottom: 1px !important;
+  left: 1px !important;
+}
+
+.test-position-2 {
+  /* Input */
+  @include absolute(1 2 px !important);
+  /* Output */
+  position: absolute;
+  top: 1px !important;
+  right: 2px !important;
+  bottom: 1px !important;
+  left: 2px !important;
+}
+
+.test-position-4 {
+  /* Input */
+  @include absolute(1 2 3 4 px !important);
+  /* Output */
+  position: absolute;
+  top: 1px !important;
+  right: 2px !important;
+  bottom: 3px !important;
+  left: 4px !important;
+}
+
+.test-position-split-2 {
+  /* Input */
+  @include absolute(1 x px !important);
+  @include absolute(x 1 px !important);
+  /* Output */
+  position: absolute;
+  top: 1px !important;
+  bottom: 1px !important;
+  position: absolute;
+  right: 1px !important;
+  left: 1px !important;
+}
+
+.test-position-split-4 {
+  /* Input */
+  @include absolute(1 x x x px !important);
+  @include absolute(x 1 x x px !important);
+  @include absolute(x x 1 x px !important);
+  @include absolute(x x x 1 px !important);
+  /* Output */
+  position: absolute;
+  top: 1px !important;
+  position: absolute;
+  right: 1px !important;
+  position: absolute;
+  bottom: 1px !important;
+  position: absolute;
+  left: 1px !important;
+}
+
+
+
+.test-position {
+  /* Input */
+  /* Output */
+}
+
+.test-position {
+  /* Input */
+  /* Output */
+}
