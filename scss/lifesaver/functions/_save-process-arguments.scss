@@ -12,22 +12,20 @@
   @each $argument in $arguments {
     @if $argument == x { $argument: null; }
 
-    // not sure how to handle unitless lengths
     @if cola-type-of($argument) == length or $argument == un {
       $units: cola-join($units, $argument);
     }
     @else if cola-type-of($argument) == string {
       $properties: cola-join($properties, $argument);
     }
-    // @else if cola-type-of($argument) == number and unit($argument) == x {
     @else if cola-type-of($argument) == number and $units != () {
       $scales: cola-join($scales, $argument);
     }
-    @else if cola-contains-type-and($argument, null number) {
+    @else if cola-type-of($argument) == null or cola-type-of($argument) == number {
       $values: cola-join($values, $argument);
     }
     @else if cola-type-of($argument) == style {
-      @if cola-contains-type-and($values, null style) {
+      @if cola-type-of($values) == null or cola-type-of($values) == style {
         $values: cola-join($values, $argument);
       }
       @else {
@@ -35,7 +33,7 @@
       }
     }
     @else if cola-type-of($argument) == color {
-      @if cola-contains-type-and($values, null color) {
+      @if cola-type-of($values) == null or cola-type-of($values) == color {
         $values: cola-join($values, $argument);
       }
       @else {
