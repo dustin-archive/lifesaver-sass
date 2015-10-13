@@ -6,13 +6,11 @@
   $suffix-width: if($suffix, $suffix + '-' + width, width);
   $suffix-height: if($suffix, $suffix + '-' + height, height);
 
-  $length: length($values);
-
-  @if $length == 1 {
+  @if length($values) == 1 {
     @include save($suffix-width nth($values, 1) $others);
     @include save($suffix-height nth($values, 1) $others);
   }
-  @else if $length == 2 {
+  @else if length($values) == 2 {
     @include save($suffix-width nth($values, 1) $others);
     @include save($suffix-height nth($values, 2) $others);
   }

@@ -1,14 +1,12 @@
 @function save-compress-values($values) {
-  $length: length($values);
-
-  @if $length > 1 {
+  @if length($values) > 1 {
     $top: nth($values, 1);
     $right: nth($values, 2);
 
-    @if $length == 2 and $top == $right {
+    @if length($values) == 2 and $top == $right {
       $values: $top;
     }
-    @else if $length == 4 {
+    @else if length($values) == 4 {
       $bottom: nth($values, 3);
       $left: nth($values, 4);
 

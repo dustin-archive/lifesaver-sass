@@ -1,17 +1,15 @@
-@mixin position($arguments) {
+@mixin save-position($arguments) {
   $arguments: save-process-arguments($arguments);
   $values: map-get($arguments, values);
   $others: cola-map-get-values($arguments, units scales styles colors flags);
 
-  $length: length($values);
-
-  @if $length == 2 {
+  @if length($values) == 2 {
     @include save(top nth($values, 1) $others);
     @include save(right nth($values, 2) $others);
     @include save(bottom nth($values, 1) $others);
     @include save(left nth($values, 2) $others);
   }
-  @else if $length == 4 {
+  @else if length($values) == 4 {
     @include save(top nth($values, 1) $others);
     @include save(right nth($values, 2) $others);
     @include save(bottom nth($values, 3) $others);
@@ -21,25 +19,25 @@
 
 @mixin absolute($arguments) {
   position: absolute;
-  @include position($arguments);
+  @include save-position($arguments);
 }
 
 @mixin fixed($arguments) {
   position: fixed;
-  @include position($arguments);
+  @include save-position($arguments);
 }
 
 @mixin relative($arguments) {
   position: relative;
-  @include position($arguments);
+  @include save-position($arguments);
 }
 
 @mixin static($arguments) {
   position: static;
-  @include position($arguments);
+  @include save-position($arguments);
 }
 
 @mixin sticky($arguments) {
   position: sticky;
-  @include position($arguments);
+  @include save-position($arguments);
 }
