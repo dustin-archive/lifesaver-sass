@@ -27,22 +27,18 @@
   position: absolute;
   @include save-position($arguments);
 }
-
 @mixin fixed($arguments) {
   position: fixed;
   @include save-position($arguments);
 }
-
 @mixin relative($arguments) {
   position: relative;
   @include save-position($arguments);
 }
-
 @mixin static($arguments) {
   position: static;
   @include save-position($arguments);
 }
-
 @mixin sticky($arguments) {
   position: sticky;
   @include save-position($arguments);
