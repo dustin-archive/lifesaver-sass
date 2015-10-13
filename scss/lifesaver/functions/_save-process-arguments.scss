@@ -1,11 +1,11 @@
 @function save-process-arguments($arguments) {
   $properties: ();
-  $values:     ();
-  $units:      ();
-  $scales:     ();
-  $styles:     ();
-  $colors:     ();
-  $flags:      ();
+  $values: ();
+  $units: ();
+  $scales: ();
+  $styles: ();
+  $colors: ();
+  $flags: ();
 
   @each $argument in $arguments {
     @if $argument == x { $argument: null; }
@@ -49,11 +49,11 @@
 
   @return (
     properties: $properties,
-    values:     $values,
-    units:      $units,
-    scales:     $scales,
-    styles:     $styles,
-    colors:     $colors,
-    flags:      $flags
+    values: $values,
+    units: $units,
+    scales: $scales,
+    styles: $styles,
+    colors: $colors,
+    flags: $flags
   );
 }
