@@ -1,11 +1,9 @@
 @mixin save-property($arguments, $property) {
   $arguments: save-process-arguments($arguments);
   $others: cola-map-get($arguments, values units scales styles colors flags);
-
   @include save($property $others);
 }
 
-// Width
 @mixin width($arguments) {
   @include save-property($arguments, width);
 }
@@ -16,7 +14,6 @@
   @include save-property($arguments, max-width);
 }
 
-// Height
 @mixin height($arguments) {
   @include save-property($arguments, height);
 }
@@ -27,7 +24,6 @@
   @include save-property($arguments, max-height);
 }
 
-// Margin
 @mixin margin($arguments) {
   @include save-property($arguments, margin);
 }
@@ -44,7 +40,6 @@
   @include save-property($arguments, margin-left);
 }
 
-// Padding
 @mixin padding($arguments) {
   @include save-property($arguments, padding);
 }
@@ -61,7 +56,6 @@
   @include save-property($arguments, padding-left);
 }
 
-// Border
 @mixin border($arguments) {
   @include save-property($arguments, border);
 }
@@ -78,7 +72,6 @@
   @include save-property($arguments, border-left);
 }
 
-// Radius
 @mixin radius($arguments) {
   @include save-property($arguments, border-radius);
 }
