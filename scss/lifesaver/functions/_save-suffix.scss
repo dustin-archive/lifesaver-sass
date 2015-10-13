@@ -1,8 +1,8 @@
 @function save-suffix($property) {
   $suffix: top right bottom left;
 
-  @if $property == border-radius {
-    $suffix: top-left top-right bottom-right bottom-left;
+  @if $property == 'border-radius' {
+    $suffix: 'top-left' 'top-right' 'bottom-right' 'bottom-left';
   }
 
   @return $suffix;
