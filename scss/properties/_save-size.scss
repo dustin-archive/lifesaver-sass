@@ -1,24 +1,24 @@
-@mixin save-size($arguments, $properties) {
+@mixin save-size($arguments, $width, $height) {
   $arguments: save-process-arguments($arguments);
   $values: cola-map-get($arguments, values);
   $others: cola-map-get($arguments, units scales styles colors flags);
 
   @if length($values) == 1 {
-    @include save(nth($properties, 1) nth($values, 1) $others);
-    @include save(nth($properties, 2) nth($values, 1) $others);
+    @include save($width nth($values, 1) $others);
+    @include save($height nth($values, 1) $others);
   }
   @else if length($values) == 2 {
-    @include save(nth($properties, 1) nth($values, 1) $others);
-    @include save(nth($properties, 2) nth($values, 2) $others);
+    @include save($width nth($values, 1) $others);
+    @include save($height nth($values, 2) $others);
   }
 }
 
 @mixin size($arguments) {
-  @include save-size($arguments, width height);
+  @include save-size($arguments, width, height);
 }
 @mixin min-size($arguments) {
-  @include save-size($arguments, min-width min-height);
+  @include save-size($arguments, min-width, min-height);
 }
 @mixin max-size($arguments) {
-  @include save-size($arguments, max-width max-height);
+  @include save-size($arguments, max-width, max-height);
 }
