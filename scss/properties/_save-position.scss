@@ -1,9 +1,9 @@
-@mixin save-position($arguments, $value) {
+@mixin save-position($arguments, $property) {
   $arguments: save-process-arguments($arguments);
   $values: cola-map-get($arguments, values);
   $others: cola-map-get($arguments, units scale style color flag);
 
-  position: $value;
+  position: $property;
 
   @if length($values) == 1 {
     @include save(top nth($values, 1) $others);
