@@ -11,6 +11,9 @@
           @return save-compress-values($items);
         }
       }
+      @else {
+        @return $values; // why extra return here? i don't have to in javascript
+      }
     }
   }
 
