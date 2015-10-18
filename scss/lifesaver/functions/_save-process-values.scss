@@ -1,9 +1,8 @@
 @function save-process-values($values, $unit, $scales) {
   $result: ();
 
-  // fix this
-  $scales: if(length($scales) == 0, null, $scales);
-  $unit: if(length($unit) == 0, null, $unit);
+  $scales: if(length($scales) == 0, null, $scales); // fix this, this is bad.
+  $unit: if(length($unit) == 0, null, $unit);       // fix this, this is bad.
 
   @each $value in $values {
     @if function-exists($unit) {

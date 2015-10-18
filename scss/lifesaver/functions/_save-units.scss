@@ -3,7 +3,7 @@
 // =============================================================================
 
 @function save-safe-convert($value) {
-  @if cola-type-of($value) == number {
+  @if cola-type-of($value) == 'number' {
     @return call('save-safe-convert-expression', $value);
   }
 
@@ -19,7 +19,7 @@
 // =============================================================================
 
 @function save-scale($value, $scale) {
-  @if cola-type-of($value) == number and cola-type-of($scale) == number {
+  @if cola-type-of($value) == 'number' and cola-type-of($scale) == 'number' {
     @return call('save-scale-expression', $value, $scale);
   }
 
@@ -37,10 +37,10 @@
 @function save-unit($function, $value, $scale) {
   $result: $value;
 
-  @if cola-type-of($value) == number and cola-type-of($scale) == number {
+  @if cola-type-of($value) == 'number' and cola-type-of($scale) == 'number' {
     $result: call($function, save-safe-convert(save-scale($value, $scale)));
   }
-  @else if cola-type-of($value) == number {
+  @else if cola-type-of($value) == 'number' {
     $result: call($function, save-safe-convert($value));
   }
 
