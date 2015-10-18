@@ -1,10 +1,10 @@
-@mixin save-output($property, $values, $units, $scales, $styles, $colors, $flags) {
+@mixin save-output($property, $values, $units, $scale, $style, $color, $flag) {
   @if length($units) == 0 {
-    #{$property}: $values $styles $colors $flags;
+    #{$property}: $values $style $color $flag;
   }
   @else {
     @each $unit in $units {
-      #{$property}: save-process-values($values, $unit, $scales) $styles $colors $flags;
+      #{$property}: save-process-values($values, $unit, $scale) $style $color $flag;
     }
   }
 }

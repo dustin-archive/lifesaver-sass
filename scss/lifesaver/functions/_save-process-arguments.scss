@@ -10,50 +10,72 @@
   $flags: ();
 
   @each $argument in $arguments {
-    @if $argument == x { $argument: null; }
+    @if $argument == 'x' {
+      $argument: null;
+    }
 
-    @if cola-type-of($argument) == length or $argument == un {
+    @if cola-type-of($argument) == 'length' or $argument == 'un' {
       $units: cola-join($units, $argument);
     }
-    @else if cola-type-of($argument) == string {
+    @else if cola-type-of($argument) == 'string' {
       $properties: cola-join($properties, $argument);
     }
-    @else if cola-type-of($argument) == number and $units != () {
+    @else if cola-type-of($argument) == 'number' and length($units) != 0 {
       $scales: cola-join($scales, $argument);
     }
-    @else if cola-type-of($argument) == null or cola-type-of($argument) == number {
+    @else if cola-type-of($argument) == 'null' or cola-type-of($argument) == 'number' {
       $values: cola-join($values, $argument);
     }
-    @else if cola-type-of($argument) == style {
-      @if cola-type-of($values) == null or cola-type-of($values) == style {
+    @else if cola-type-of($argument) == 'style' {
+      @if cola-type-of($values) == 'null' or cola-type-of($values) == 'style' {
         $values: cola-join($values, $argument);
       }
       @else {
         $styles: cola-join($styles, $argument);
       }
     }
-    @else if cola-type-of($argument) == color {
-      @if cola-type-of($values) == null or cola-type-of($values) == color {
+    @else if cola-type-of($argument) == 'color' {
+      @if cola-type-of($values) == 'null' or cola-type-of($values) == 'color' {
         $values: cola-join($values, $argument);
       }
       @else {
         $colors: cola-join($colors, $argument);
       }
     }
-    @else if cola-type-of($argument) == flag {
+    @else if cola-type-of($argument) == 'flag' {
       $flags: cola-join($flags, $argument);
     }
   }
 
   $values: save-compress-values($values);
 
+  @if length($values) == 3 {
+    @error "Error: LifeSaver: You can't pass 3 values.";
+  }
+  @else if length($values) > 4 {
+    @error "Error: LifeSaver: You can't pass more than 4 values.";
+  }
+
+  @if length($scales) > 1 {
+    @error "Error: LifeSaver: You can't pass more than 1 scale.";
+  }
+  @if length($styles) > 1 {
+    @error "Error: LifeSaver: You can't pass more than 1 style.";
+  }
+  @if length($colors) > 1 {
+    @error "Error: LifeSaver: You can't pass more than 1 color.";
+  }
+  @if length($flags) > 1 {
+    @error "Error: LifeSaver: You can't pass more than 1 flag.";
+  }
+
   @return (
     properties: $properties,
     values: $values,
     units: $units,
-    scales: $scales,
-    styles: $styles,
-    colors: $colors,
-    flags: $flags
+    scale: $scales,
+    style: $styles,
+    color: $colors,
+    flag: $flags
   );
 }
