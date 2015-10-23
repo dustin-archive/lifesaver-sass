@@ -1,6 +1,6 @@
 @mixin save-size($arguments, $width, $height) {
   $arguments: save-process-arguments($arguments);
-  $values: cola-map-get($arguments, values);
+  $values: map-get($arguments, values);
   $others: cola-map-get($arguments, units scale style color flag);
 
   @if length($values) == 1 {
