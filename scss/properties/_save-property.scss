@@ -1,77 +1,71 @@
-@mixin save-property($arguments, $property) {
-  $arguments: save-process-arguments($arguments);
-  $others: cola-map-get($arguments, values units scale style color flag);
-  @include save($property $others);
-}
-
 @mixin width($arguments) {
-  @include save-property($arguments, width);
+  @include save(width $arguments);
 }
 @mixin min-width($arguments) {
-  @include save-property($arguments, min-width);
+  @include save(min-width $arguments);
 }
 @mixin max-width($arguments) {
-  @include save-property($arguments, max-width);
+  @include save(max-width $arguments);
 }
 
 @mixin height($arguments) {
-  @include save-property($arguments, height);
+  @include save(height $arguments);
 }
 @mixin min-height($arguments) {
-  @include save-property($arguments, min-height);
+  @include save(min-height $arguments);
 }
 @mixin max-height($arguments) {
-  @include save-property($arguments, max-height);
+  @include save(max-height $arguments);
 }
 
 @mixin margin($arguments) {
-  @include save-property($arguments, margin);
+  @include save(margin $arguments);
 }
 @mixin margin-top($arguments) {
-  @include save-property($arguments, margin-top);
+  @include save(margin-top $arguments);
 }
 @mixin margin-right($arguments) {
-  @include save-property($arguments, margin-right);
+  @include save(margin-right $arguments);
 }
 @mixin margin-bottom($arguments) {
-  @include save-property($arguments, margin-bottom);
+  @include save(margin-bottom $arguments);
 }
 @mixin margin-left($arguments) {
-  @include save-property($arguments, margin-left);
+  @include save(margin-left $arguments);
 }
 
 @mixin padding($arguments) {
-  @include save-property($arguments, padding);
+  @include save(padding $arguments);
 }
 @mixin padding-top($arguments) {
-  @include save-property($arguments, padding-top);
+  @include save(padding-top $arguments);
 }
 @mixin padding-right($arguments) {
-  @include save-property($arguments, padding-right);
+  @include save(padding-right $arguments);
 }
 @mixin padding-bottom($arguments) {
-  @include save-property($arguments, padding-bottom);
+  @include save(padding-bottom $arguments);
 }
 @mixin padding-left($arguments) {
-  @include save-property($arguments, padding-left);
+  @include save(padding-left $arguments);
 }
 
 @mixin border($arguments) {
-  @include save-property($arguments, border);
+  @include save(border $arguments);
 }
 @mixin border-top($arguments) {
-  @include save-property($arguments, border-top);
+  @include save(border-top $arguments);
 }
 @mixin border-right($arguments) {
-  @include save-property($arguments, border-right);
+  @include save(border-right $arguments);
 }
 @mixin border-bottom($arguments) {
-  @include save-property($arguments, border-bottom);
+  @include save(border-bottom $arguments);
 }
 @mixin border-left($arguments) {
-  @include save-property($arguments, border-left);
+  @include save(border-left $arguments);
 }
 
 @mixin radius($arguments) {
-  @include save-property($arguments, border-radius);
+  @include save(border-radius $arguments);
 }
