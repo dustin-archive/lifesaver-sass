@@ -1,13 +1,13 @@
 @mixin save($arguments) {
   $arguments: save-process-arguments($arguments);
 
-  $properties: cola-map-get($arguments, 'properties');
-  $values: cola-map-get($arguments, 'values');
-  $units: cola-map-get($arguments, 'units');
-  $scale: cola-map-get($arguments, 'scale');
-  $style: cola-map-get($arguments, 'style');
-  $color: cola-map-get($arguments, 'color');
-  $flag: cola-map-get($arguments, 'flag');
+  $properties: map-get($arguments, 'properties');
+  $values: map-get($arguments, 'values');
+  $units: map-get($arguments, 'units');
+  $scale: map-get($arguments, 'scale');
+  $style: map-get($arguments, 'style');
+  $color: map-get($arguments, 'color');
+  $flag: map-get($arguments, 'flag');
 
   @each $property in $properties {
     $suffix: save-suffix($property);
