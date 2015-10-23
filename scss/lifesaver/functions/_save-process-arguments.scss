@@ -27,7 +27,7 @@
       $values: cola-join($values, $argument);
     }
     @else if cola-type-of($argument) == 'style' {
-      @if cola-type-of($values) == 'null' or cola-type-of($values) == 'style' {
+      @if cola-contains-only($values, 'null' 'style') {
         $values: cola-join($values, $argument);
       }
       @else {
@@ -35,7 +35,7 @@
       }
     }
     @else if cola-type-of($argument) == 'color' {
-      @if cola-type-of($values) == 'null' or cola-type-of($values) == 'color' {
+      @if cola-contains-only($values, 'null' 'color') {
         $values: cola-join($values, $argument);
       }
       @else {
