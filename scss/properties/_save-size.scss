@@ -4,8 +4,7 @@
   $others: cola-map-get($arguments, units scale style color flag);
 
   @if length($values) == 1 {
-    @include save($width nth($values, 1) $others);
-    @include save($height nth($values, 1) $others);
+    @include save($width $height nth($values, 1) $others);
   }
   @else if length($values) == 2 {
     @include save($width nth($values, 1) $others);
