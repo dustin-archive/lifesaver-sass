@@ -1,10 +1,10 @@
-@import '../../cola-sass-lib/scss/main';
+@import '../../bolt-sass/scss/main';
+@import '../../cola-sass/scss/main';
 
 @import 'lifesaver/functions/save-units';
 @import 'lifesaver/functions/save-suffix';
 @import 'lifesaver/functions/save-append-suffix';
 
-@import 'lifesaver/functions/save-compress-values';
 @import 'lifesaver/functions/save-expand-values';
 
 @import 'lifesaver/functions/save-process-arguments';
@@ -17,10 +17,4 @@
 @import 'properties/save-properties';
 @import 'properties/save-size';
 
-// Tests
-// @import 'tests/test-size';
-// @import 'tests/test-width';
-// @import 'tests/test-height';
-// @import 'tests/test-border';
-// @import 'tests/test-radius';
-// @import 'tests/test-position';
+// @import 'test/test';
