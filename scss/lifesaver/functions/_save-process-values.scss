@@ -1,12 +1,14 @@
-@function save-process-values($values, $unit, $scales) {
+@function save-process-values($values, $unit, $scale) {
   $result: ();
-
-  $scales: if(length($scales) == 0, null, $scales); // fix this, this is bad.
-  $unit: if(length($unit) == 0, null, $unit);       // fix this, this is bad.
 
   @each $value in $values {
     @if function-exists($unit) {
-      $result: cola-join($result, call($unit, $value, $scales));
+      @if length($scale) == 0 {
+        $result: cola-join($result, call($unit, $value));
+      }
+      @else {
+        $result: cola-join($result, call($unit, $value, $scale));
+      }
     }
     @else {
       $result: cola-join($result, $value + $unit);
