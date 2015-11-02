@@ -47,8 +47,6 @@
     }
   }
 
-  $values: save-compress-values($values);
-
   @if length($values) == 3 {
     @error "Error: LifeSaver: You can't pass 3 values.";
   }
