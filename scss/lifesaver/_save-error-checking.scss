@@ -1,0 +1,21 @@
+@mixin save-error-checking($properties, $values, $units, $scale, $style, $color, $flag) {
+  @if length($values) == 3 {
+    @error "Error: LifeSaver: You can't pass 3 values.";
+  }
+  @else if length($values) > 4 {
+    @error "Error: LifeSaver: You can't pass more than 4 values.";
+  }
+
+  @if length($scale) > 1 {
+    @error "Error: LifeSaver: You can't pass more than 1 scale.";
+  }
+  @if length($style) > 1 {
+    @error "Error: LifeSaver: You can't pass more than 1 style.";
+  }
+  @if length($color) > 1 {
+    @error "Error: LifeSaver: You can't pass more than 1 color.";
+  }
+  @if length($flag) > 1 {
+    @error "Error: LifeSaver: You can't pass more than 1 flag.";
+  }
+}
