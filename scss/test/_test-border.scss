@@ -46,10 +46,21 @@
 
 .test-border-color {
   /* input */
-  @include save('border-color' red x blue yellow);
+  @include margin(10 em 2);
+  @include save('border-color' red x green blue);
 
   /* output */
   border-top-color: red;
-  border-bottom-color: blue;
-  border-left-color: yellow;
+  border-bottom-color: green;
+  border-left-color: blue;
+}
+
+.test-border-style {
+  /* input */
+  @include save('border-color' solid x dotted dashed);
+
+  /* output */
+  border-top-color: solid;
+  border-bottom-color: dotted;
+  border-left-color: dashed;
 }
