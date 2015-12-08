@@ -3,7 +3,7 @@
 
   @each $value in $values {
     @if function-exists($unit) {
-      @if length($scale) == 0 {
+      @if empty($scale) {
         $result: join($result, call($unit, $value));
       }
       @else {
