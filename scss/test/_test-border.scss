@@ -46,7 +46,6 @@
 
 .test-border-color {
   /* input */
-  @include margin(10 em 2);
   @include save('border-color' red x green blue);
 
   /* output */
