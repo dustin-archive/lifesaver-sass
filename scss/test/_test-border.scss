@@ -43,3 +43,13 @@
   border-right: 1em solid blue;
   border-bottom: 1em solid blue;
 }
+
+.test-border-color {
+  /* input */
+  @include save('border-color' red x blue yellow);
+
+  /* output */
+  border-top-color: red;
+  border-bottom-color: blue;
+  border-left-color: yellow;
+}
