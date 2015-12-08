@@ -1,0 +1,17 @@
+.test-multiple-properties {
+  /* input */
+  @include save(margin padding 16 em);
+
+  /* output */
+  margin: 1em;
+  padding: 1em;
+}
+
+.test-multiple-units {
+  /* input */
+  @include save(margin 16 px rem);
+
+  /* output */
+  margin: 16px;
+  margin: 1em;
+}
