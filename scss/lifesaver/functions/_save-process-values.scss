@@ -4,14 +4,14 @@
   @each $value in $values {
     @if function-exists($unit) {
       @if length($scale) == 0 {
-        $result: cola-join($result, call($unit, $value));
+        $result: join($result, call($unit, $value));
       }
       @else {
-        $result: cola-join($result, call($unit, $value, $scale));
+        $result: join($result, call($unit, $value, $scale));
       }
     }
     @else {
-      $result: cola-join($result, $value + $unit);
+      $result: join($result, $value + $unit);
     }
   }
 
