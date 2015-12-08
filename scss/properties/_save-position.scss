@@ -9,13 +9,8 @@
     @include save(top right bottom left nth($values, 1) $others);
   }
   @if length($values) == 2 {
-    // decide if order of output is important or not
-    // @include save(top bottom nth($values, 1) $others);
-    // @include save(right left nth($values, 2) $others);
-    @include save(top nth($values, 1) $others);
-    @include save(right nth($values, 2) $others);
-    @include save(bottom nth($values, 1) $others);
-    @include save(left nth($values, 2) $others);
+    @include save(top bottom nth($values, 1) $others);
+    @include save(right left nth($values, 2) $others);
   }
   @else if length($values) == 4 {
     @include save(top nth($values, 1) $others);
