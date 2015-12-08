@@ -14,36 +14,36 @@
       $argument: null;
     }
 
-    @if cola-type-of($argument) == 'length' or $argument == 'un' {
-      $units: cola-join($units, $argument);
+    @if type-property($argument) {
+      $properties: join($properties, $argument);
     }
-    @else if cola-type-of($argument) == 'string' {
-      $properties: cola-join($properties, $argument);
-    }
-    @else if cola-type-of($argument) == 'number' and length($units) != 0 {
-      $scales: cola-join($scales, $argument);
-    }
-    @else if cola-type-of($argument) == 'null' or cola-type-of($argument) == 'number' {
-      $values: cola-join($values, $argument);
-    }
-    @else if cola-type-of($argument) == 'style' {
-      @if cola-contains-only($values, 'null' 'style') {
-        $values: cola-join($values, $argument);
+    @else if type-style($argument) {
+      @if cola-contains-type-only($values, 'null' 'style') or length($values) == 0 {
+        $values: join($values, $argument);
       }
       @else {
-        $styles: cola-join($styles, $argument);
+        $styles: join($styles, $argument);
       }
     }
-    @else if cola-type-of($argument) == 'color' {
-      @if cola-contains-only($values, 'null' 'color') {
-        $values: cola-join($values, $argument);
+    @else if type-color($argument) {
+      @if cola-contains-type-only($values, 'null' 'color') or length($values) == 0 {
+        $values: join($values, $argument);
       }
       @else {
-        $colors: cola-join($colors, $argument);
+        $colors: join($colors, $argument);
       }
     }
-    @else if cola-type-of($argument) == 'flag' {
-      $flags: cola-join($flags, $argument);
+    @else if type-null($argument) or type-number($argument) {
+      $values: join($values, $argument);
+    }
+    @else if type-length($argument) or $argument == 'un' {
+      $units: join($units, $argument);
+    }
+    @else if type-number($argument) {
+      $scales: join($scales, $argument);
+    }
+    @else if type-flag($argument) {
+      $flags: join($flags, $argument);
     }
   }
 
