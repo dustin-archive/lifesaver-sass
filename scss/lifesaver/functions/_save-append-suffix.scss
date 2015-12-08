@@ -1,21 +1,15 @@
 @function save-append-suffix($property, $suffix) {
+  $list: 'border-width' 'border-style' 'border-radius' 'border-color';
+
   @if $property == null {
     $property: $suffix;
   }
-  @else if $property == 'border-width' {
-    $property: 'border-' + $suffix + '-width';
-  }
-  @else if $property == 'border-style' {
-    $property: 'border-' + $suffix + '-style';
-  }
-  @else if $property == 'border-radius' {
-    $property: 'border-' + $suffix + '-radius';
-  }
-  @else if $property == 'border-color' {
-    $property: 'border-' + $suffix + '-color';
+  @else if index($list, $property) {
+    $split: str-split($property, '-');
+    $property: dash(nth($split, 1) $suffix nth($split, 2));
   }
   @else {
-    $property: $property + '-' + $suffix;
+    $property: dash($property $suffix);
   }
 
   @return $property;
