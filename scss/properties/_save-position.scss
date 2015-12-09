@@ -1,7 +1,7 @@
 @mixin save-position($arguments, $property) {
   $arguments: save-process-arguments($arguments);
   $values: map-get($arguments, values);
-  $others: cola-map-get($arguments, units scale style color flag);
+  $others: get($arguments, units scale style color flag);
 
   position: $property;
 

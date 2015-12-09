@@ -1,7 +1,7 @@
 @mixin save-size($arguments, $width, $height) {
   $arguments: save-process-arguments($arguments);
   $values: map-get($arguments, values);
-  $others: cola-map-get($arguments, units scale style color flag);
+  $others: get($arguments, units scale style color flag);
 
   @if length($values) == 1 {
     @include save($width $height nth($values, 1) $others);

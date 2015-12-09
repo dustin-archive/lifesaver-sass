@@ -14,11 +14,16 @@
       $argument: null;
     }
 
+    $value-types: ();
+    @each $value in $values {
+      $value-types: join($value-types, type($value));
+    }
+
     @if type-property($argument) {
       $properties: join($properties, $argument);
     }
     @else if type-style($argument) {
-      @if cola-contains-type-only($values, 'null' 'style') or empty($values) {
+      @if has-only($value-types, 'null' 'style') or empty($values) {
         $values: join($values, $argument);
       }
       @else {
@@ -26,7 +31,7 @@
       }
     }
     @else if type-color($argument) {
-      @if cola-contains-type-only($values, 'null' 'color') or empty($values) {
+      @if has-only($value-types, 'null' 'color') or empty($values) {
         $values: join($values, $argument);
       }
       @else {

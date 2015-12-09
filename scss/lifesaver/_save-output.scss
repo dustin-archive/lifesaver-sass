@@ -1,5 +1,5 @@
 @mixin save-output($property, $values, $units, $scale, $style, $color, $flag) {
-  @if length($units) == 0 {
+  @if empty($units) {
     #{$property}: $values $style $color $flag;
   }
   @else {
