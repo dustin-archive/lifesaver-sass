@@ -1,7 +1,6 @@
 {
-  "name": "lifesaver",
+  "name": "lifesaver-sass",
   "description": "Shorthand for all your Sass!",
-  "version": "3.0.0",
   "homepage": "https://github.com/dustindowell22/lifesaver",
   "authors": [
     "Dustin Dowell <dustindowell22@gmail.com>"
