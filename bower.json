@@ -17,8 +17,7 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "bower_components",
-    "scss/test"
+    "bower_components"
   ],
   "dependencies": {
     "fizz-sass": "~1.0.0",
